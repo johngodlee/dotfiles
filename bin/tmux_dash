@@ -1,0 +1,24 @@
+#!/bin/sh 
+tmux -2 new -s 'dash'
+tmux send-keys "vim" Enter
+tmux new-window -n 'bash'
+tmux split-window -v
+tmux split-window -h
+tmux select-pane -t 1
+tmux split-window -h
+tmux select-pane -t 1
+tmux send-keys "fb-messenger-cli" Enter
+tmux select-pane -t 2
+tmux send-keys "rtv" Enter
+tmux new-window -n 'mc'
+tmux send-keys "mc" Enter
+tmux new-window -n 'cmus'
+tmux send-keys "cmus" Enter
+tmux new-window -n 'alpine'
+tmux send-keys "alpine" Enter
+tmux new-window -n 'calendar'
+tmux send-keys "vim -u ~/.vimrc_calendar" Enter
+tmux send-keys ":Calendar" Enter
+tmux detach
+tmux a -t dash
+tmux select-window -t 1

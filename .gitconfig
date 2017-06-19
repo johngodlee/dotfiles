@@ -1,0 +1,7 @@
+[user]
+	name = johngodlee
+	email = johngodlee@gmail.com
+[credential]
+	helper = osxkeychain
+[core]
+	editor = vim

@@ -1,0 +1,25 @@
+% Minimal markdown notes template
+\documentclass[a4paper, 8pt]{extarticle}
+%
+\usepackage{fontspec}
+\setmainfont{Arial}
+\usepackage[utf8]{inputenc}
+%
+\usepackage[margin=20pt]{geometry}
+%
+\usepackage{amsmath}
+%
+\setlength{\parindent}{0pt}
+\providecommand{\tightlist}{%
+\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+%
+\pagestyle{empty}
+%
+\usepackage{fixltx2e} % provides \textsubscript
+%
+\begin{document}
+
+$body$
+
+\end{document}

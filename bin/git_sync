@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Sync all git branches in remote with local
+# Find new remote branches
+git branch -r | grep -v '\->' | while read remote; do git branch --track "${remote#origin/}" "$remote"; done
+
+# Fetch remote branches
+git fetch --all
+
+# Merge remote with local for each branch
+git pull --all
+
+# Delete branches which no longer have a remote
+git fetch -p && for branch in `git branch -vv | grep ': gone]' | awk '{print $1}'`; do git branch -D $branch; done

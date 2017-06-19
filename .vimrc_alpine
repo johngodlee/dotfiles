@@ -1,0 +1,108 @@
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" enable syntax highlighting
+syntax on
+
+" Stop creating swp and ~ files
+set nobackup
+set noswapfile
+
+" Ignore case of searches
+set ignorecase
+
+" Don’t reset cursor to start of line when moving around
+set nostartofline
+
+" Preserve indentation on wrapped lines
+set breakindent
+
+" map A (append at end of line) to a (append in place)
+nnoremap a A
+
+" Move by visual lines rather than actual lines with k,j
+nnoremap k gk
+nnoremap j gj
+nnoremap gk k
+nnoremap gj j
+
+" Easier save and quit with ;
+noremap ;w :w<CR>
+noremap ;q :q<CR>
+
+" Disable folding in markdown
+let g:vim_markdown_folding_disabled = 1
+
+" Disable syntax conceal in markdown
+let g:vim_markdown_conceal = 0
+
+" Normal backspace behaviour
+set backspace=2
+
+" Copy and paste from `+` register for interacting with mac clipboard
+vnoremap y "+y 
+vnoremap p "+p
+nnoremap p "+gp
+vnoremap d "+d
+nnoremap dd "+dd
+
+
+" Map of modes and their codes for statusline
+let g:currentmode={
+    \ 'n'  : 'N ',
+    \ 'no' : 'N·Operator Pending ',
+    \ 'v'  : 'V ',
+    \ 'V'  : 'V·Line ',
+    \ '^V' : 'V·Block ',
+    \ 's'  : 'Select ',
+    \ 'S'  : 'S·Line ',
+    \ '^S' : 'S·Block ',
+    \ 'i'  : 'I ',
+    \ 'R'  : 'R ',
+    \ 'Rv' : 'V·Replace ',
+    \ 'c'  : 'Command ',
+    \ 'cv' : 'Vim Ex ',
+    \ 'ce' : 'Ex ',
+    \ 'r'  : 'Prompt ',
+    \ 'rm' : 'More ',
+    \ 'r?' : 'Confirm ',
+    \ '!'  : 'Shell ',
+    \ 't'  : 'Terminal '
+    \}
+
+" Change statusline based on colour
+function! ChangeStatuslineColor()
+  if (mode() =~# '\v(n|no)')
+    exe 'hi! StatusLine ctermfg=112'
+  elseif (mode() =~# '\v(v|V)' || g:currentmode[mode()] ==# 'V·Block' || get(g:currentmode, mode(), '') ==# 't')
+    exe 'hi! StatusLine ctermfg=172'
+  elseif (mode() ==# 'i')
+    exe 'hi! StatusLine ctermfg=044'
+  else
+    exe 'hi! StatusLine ctermfg=007'
+  endif
+  return ''
+endfunction
+
+" Make statusline always show
+set laststatus=2
+
+" statusline
+	" left side
+	set statusline=%{ChangeStatuslineColor()}	" Change colour
+	set statusline+=%0*\ %{toupper(g:currentmode[mode()])} 	" Current mode
+	set statusline+=\ 
+	set statusline+=%1*%m%r
+	set statusline+=%1*%=	" Switch to right side
+
+	" right side
+	set statusline+=%0*\ 		"Space
+	set statusline+=%0*%y	" File syntax
+	set statusline+=%0*\|	" Vert-line
+	set statusline+=%0*%p%%	" Percentage through file
+	set statusline+=%0*\|\ 	" Vert-line and Space
+	set statusline+=%0*%l:%c	" Line and column number
+	set statusline+=%0*\ 		" Space
+
+" Set colours for statusline middle section
+hi User1 ctermfg=255 ctermbg=240
