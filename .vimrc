@@ -119,6 +119,12 @@ nnoremap j gj
 nnoremap gk k
 nnoremap gj j
 
+" Resize splits more conveniently using the <Option> key
+nnoremap ˚ <C-W>+
+nnoremap ∆ <C-W>-
+nnoremap ≤ <C-W><
+nnoremap ≥ <C-w>>
+
 " Easier save and quit with ;
 noremap ;w :w<CR>
 noremap ;q :q<CR>
