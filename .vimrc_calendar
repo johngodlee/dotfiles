@@ -76,6 +76,8 @@ set laststatus=2
 	set statusline+='E'\ view\ agenda\ 
 	set statusline+=\|\ 
 	set statusline+='D'\ delete\ highlighted\ event\ 
+	set statusline+=\|\ 
+	set statusline+='t'\ go\ to\ today\ 
 	set statusline+=%=	" Switch to right side
 
 	" right side
