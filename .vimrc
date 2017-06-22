@@ -119,16 +119,15 @@ nnoremap j gj
 nnoremap gk k
 nnoremap gj j
 
-" Resize splits more conveniently using the <Option> key
-nnoremap ˚ <C-W>+
-nnoremap ∆ <C-W>-
-nnoremap ≤ <C-W><
-nnoremap ≥ <C-w>>
+" Resize splits more conveniently using the leader key
+nnoremap <Leader>j <C-W>+
+nnoremap <Leader>k <C-W>-
+nnoremap <Leader>l <C-W><
+nnoremap <Leader>h <C-W>>
 
 " Easier save and quit with ;
 noremap ;w :w<CR>
 noremap ;q :q<CR>
-
 " Change default goyo width
 let g:goyo_width = 150
 
