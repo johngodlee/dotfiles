@@ -498,23 +498,23 @@ patterns-other=
 patterns-search=
 
 # Controls display of color
-color-style=
+color-style=force-ansi-16color
 
 # Controls display of color for current index line
-current-indexline-style=
+current-indexline-style=flip-colors
 
 # Controls display of color for the titlebar at top of screen
-titlebar-color-style=
+titlebar-color-style=default
 
 # Choose: black, blue, green, cyan, red, magenta, yellow, or white.
-normal-foreground-color=
-normal-background-color=
+normal-foreground-color=255,255,255
+normal-background-color=000,000,000
 reverse-foreground-color=
 reverse-background-color=
-title-foreground-color=
-title-background-color=
-title-closed-foreground-color=
-title-closed-background-color=
+title-foreground-color=000,000,000
+title-background-color=000,174,000
+title-closed-foreground-color=000,000,000
+title-closed-background-color=255,000,000
 folder-foreground-color=
 folder-background-color=
 directory-foreground-color=
@@ -529,32 +529,32 @@ keyname-foreground-color=
 keyname-background-color=
 selectable-item-foreground-color=
 selectable-item-background-color=
-meta-message-foreground-color=
-meta-message-background-color=
-quote1-foreground-color=
-quote1-background-color=
-quote2-foreground-color=
-quote2-background-color=
-quote3-foreground-color=
-quote3-background-color=
+meta-message-foreground-color=255,255,000
+meta-message-background-color=transparent
+quote1-foreground-color=000,255,255
+quote1-background-color=transparent
+quote2-foreground-color=174,174,000
+quote2-background-color=transparent
+quote3-foreground-color=000,255,000
+quote3-background-color=transparent
 incoming-unseen-foreground-color=
 incoming-unseen-background-color=
-signature-foreground-color=
-signature-background-color=
+signature-foreground-color=255,255,255
+signature-background-color=transparent
 prompt-foreground-color=
 prompt-background-color=
 header-general-foreground-color=
 header-general-background-color=
-index-to-me-foreground-color=
-index-to-me-background-color=
-index-important-foreground-color=
-index-important-background-color=
+index-to-me-foreground-color=000,174,174
+index-to-me-background-color=transparent
+index-important-foreground-color=174,000,000
+index-important-background-color=transparent
 index-deleted-foreground-color=
 index-deleted-background-color=
-index-answered-foreground-color=
-index-answered-background-color=
-index-new-foreground-color=
-index-new-background-color=
+index-answered-foreground-color=000,174,000
+index-answered-background-color=transparent
+index-new-foreground-color=174,000,000
+index-new-background-color=transparent
 index-recent-foreground-color=
 index-recent-background-color=
 index-forward-foreground-color=

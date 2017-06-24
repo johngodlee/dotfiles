@@ -20,6 +20,7 @@ Plugin 'Valloric/MatchTagAlways'	" Highlight opposite html tag
 Plugin 'christoomey/vim-tmux-navigator'	" Easy navigation of tmux and vim splits
 Plugin 'itchyny/calendar.vim'	" Interact with google calendar using vim
 Plugin 'lervag/vimtex'		" LaTeX editing in vim
+
 " /PLUGINS
 call vundle#end()		" required
 filetype plugin indent on	" required
@@ -158,7 +159,4 @@ let g:tex_flavor = 'xelatex'
 
 " When running vimtex compiler, don't automatically show quickfix list errors
 let g:vimtex_quickfix_mode = 0
-
-
-
 
