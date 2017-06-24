@@ -19,7 +19,7 @@ Plugin 'tpope/vim-fugitive'	" Run git commands without `:!git	 Allow git branch 
 Plugin 'Valloric/MatchTagAlways'	" Highlight opposite html tag
 Plugin 'christoomey/vim-tmux-navigator'	" Easy navigation of tmux and vim splits
 Plugin 'itchyny/calendar.vim'	" Interact with google calendar using vim
-
+Plugin 'lervag/vimtex'		" LaTeX editing in vim
 " /PLUGINS
 call vundle#end()		" required
 filetype plugin indent on	" required
@@ -152,3 +152,13 @@ nnoremap dd "+dd
 
 " Use google calendar on calendar.vim
 let g:calendar_google_calendar = 1
+
+" Always think tex files are latex - Also see latexmkrc in ~ (Root)
+let g:tex_flavor = 'xelatex'
+
+" When running vimtex compiler, don't automatically show quickfix list errors
+let g:vimtex_quickfix_mode = 0
+
+
+
+

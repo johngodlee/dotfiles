@@ -25,3 +25,6 @@ alias ll='ls -lG -A -F'
 
 # Alias cmus to listen for remotes on network
 alias cmus='cmus --listen 0.0.0.0'
+
+# Always start vim in client server mode
+alias vim='vim --servername VIM'
