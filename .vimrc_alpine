@@ -1,3 +1,6 @@
+" A .vimrc designed especially for use within the alpine email client,
+" stripped down for basic editing of prose and using a custom status line 
+
 set nocompatible              " be iMproved, required
 filetype off                  " required
 

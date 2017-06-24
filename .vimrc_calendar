@@ -1,3 +1,7 @@
+" A .vimrc designed especially for use within the calendar.vim plugin,
+" stripped down and using a custom status line showing common commands
+
+
 set nocompatible		" be iMproved, required
 filetype off			" required
 
