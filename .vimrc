@@ -1,3 +1,5 @@
+" A full .vimrc especially for use within vim
+
 set nocompatible		" be iMproved, required
 filetype off			" required
 
@@ -31,21 +33,21 @@ filetype plugin indent on	" required
 " :PluginSearch foo - searches for foo; append `!` to refresh local cache
 " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
 
-" Start vim with NERDtree automatically
+" Start vim with NERDtree open 
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 " Open NERDTree
 noremap <Leader>n :NERDTreeToggle<CR>
 
-" Focus NERDTree and autorefresh
+" Focus NERDTree and autorefresh with <Leader>f
 map <Leader>f :NERDTreeFocus<CR>R<c-w>
+
+" Focus NERDTree and highlight current file 
+noremap <leader>c :NERDTreeFind<CR>
 
 " Hide NERDTree bookmarks by default
 let NERDTreeShowBookmarks=0
-
-" Focus current file 
-noremap <leader>c :NERDTreeFind<CR>
 
 " Ignore useless files 
 let NERDTreeIgnore=['\.DS_Store', '\~$', '\.swp']
@@ -102,7 +104,7 @@ set noswapfile
 " enable line numbers
 set number
 
-" Ignore case of searches
+" Ignore case of `/` searches
 set ignorecase
 
 " Don’t reset cursor to start of line when moving around
@@ -114,7 +116,7 @@ set breakindent
 " map `A` (append at end of line) to `a` (append in place)
 nnoremap a A
 
-" Move by visual lines rather than actual lines with k,j
+" Move by visual lines rather than actual lines with `k` `j`
 nnoremap k gk
 nnoremap j gj
 nnoremap gk k
@@ -126,9 +128,10 @@ nnoremap <Leader>k <C-W>-
 nnoremap <Leader>l <C-W><
 nnoremap <Leader>h <C-W>>
 
-" Easier save and quit with ;
+" Easier save and quit with `;`
 noremap ;w :w<CR>
 noremap ;q :q<CR>
+
 " Change default goyo width
 let g:goyo_width = 150
 
@@ -141,7 +144,7 @@ let g:vim_markdown_conceal = 0
 " Normal backspace behaviour on OSX
 set backspace=2
 
-" Select current buffer in finder
+" Open current buffer in finder with <Leader>o
 nnoremap <Leader>o :!open -R %<CR> 
 
 " Copy and paste from `+` register for interacting with mac clipboard
@@ -154,7 +157,7 @@ nnoremap dd "+dd
 " Use google calendar on calendar.vim
 let g:calendar_google_calendar = 1
 
-" Always think tex files are latex - Also see latexmkrc in ~ (Root)
+" Always think tex files are xelatex - Also see latexmkrc in ~ (Root)
 let g:tex_flavor = 'xelatex'
 
 " When running vimtex compiler, don't automatically show quickfix list errors
