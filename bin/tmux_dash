@@ -10,8 +10,6 @@ tmux select-pane -t 1
 tmux send-keys "fb-messenger-cli" Enter
 tmux select-pane -t 2
 tmux send-keys "rtv" Enter
-tmux new-window -n 'mc'
-tmux send-keys "mc" Enter
 tmux new-window -n 'cmus'
 tmux send-keys "cmus" Enter
 tmux new-window -n 'alpine'
