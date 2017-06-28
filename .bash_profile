@@ -28,3 +28,6 @@ alias cmus='cmus --listen 0.0.0.0'
 
 # Always start vim in client server mode
 alias vim='vim --servername VIM'
+
+# Use gpg key as default
+export GPGKEY=E79A8F461D9BC674 
