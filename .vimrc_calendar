@@ -1,4 +1,4 @@
-" A .vimrc designed especially for use within the calendar.vim plugin,
+" A .vimrc for use within the calendar.vim plugin,
 " stripped down and using a custom status line showing common commands
 
 
@@ -11,7 +11,7 @@ call vundle#begin()		" required
 
 " PLUGINS/
 Plugin 'VundleVim/Vundle.vim'	" required
-Plugin 'itchyny/calendar.vim'	" Interact with google calendar using vim
+Plugin 'itchyny/calendar.vim'	" Use vim like a calendar app 
 
 " /PLUGINS
 call vundle#end()		" required

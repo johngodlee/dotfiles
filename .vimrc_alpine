@@ -1,4 +1,4 @@
-" A .vimrc designed especially for use within the alpine email client,
+" A .vimrc for use within the alpine email client,
 " stripped down for basic editing of prose and using a custom status line 
 
 set nocompatible              " be iMproved, required
@@ -20,6 +20,15 @@ set nostartofline
 " Preserve indentation on wrapped lines
 set breakindent
 
+" Disable folding in markdown
+let g:vim_markdown_folding_disabled = 1
+
+" Disable syntax conceal in markdown
+let g:vim_markdown_conceal = 0
+
+" Normal backspace behaviour
+set backspace=2
+
 " map A (append at end of line) to a (append in place)
 nnoremap a A
 
@@ -33,22 +42,12 @@ nnoremap gj j
 noremap ;w :w<CR>
 noremap ;q :q<CR>
 
-" Disable folding in markdown
-let g:vim_markdown_folding_disabled = 1
-
-" Disable syntax conceal in markdown
-let g:vim_markdown_conceal = 0
-
-" Normal backspace behaviour
-set backspace=2
-
 " Copy and paste from `+` register for interacting with mac clipboard
 vnoremap y "+y 
 vnoremap p "+p
 nnoremap p "+gp
 vnoremap d "+d
 nnoremap dd "+dd
-
 
 " Map of modes and their codes for statusline
 let g:currentmode={
