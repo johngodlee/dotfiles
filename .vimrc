@@ -1,4 +1,4 @@
-" A full .vimrc for use within normal vim
+" A full .vimrc for use within normal vim on macos
 
 set nocompatible		" be iMproved, required
 filetype off			" required
@@ -49,9 +49,6 @@ noremap <leader>c :NERDTreeFind<CR>
 " Hide NERDTree bookmarks by default
 let NERDTreeShowBookmarks=0
 
-" Ignore useless files 
-let NERDTreeIgnore=['\.DS_Store', '\~$', '\.swp']
-
 " Use custom symbols on NERDTree-Git-Plugin
 let g:NERDTreeIndicatorMapCustom = {
 	\ "Modified"  : "✹",
@@ -82,8 +79,38 @@ let g:lightline = {
       \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
       \ }}
 
-" statusline always showing, even when NERDTree is hidden
-set laststatus=2
+" map `A` (append at end of line) to `a` (append in place)
+nnoremap a A
+
+" Move by visual lines rather than actual lines with `k` `j`
+nnoremap k gk
+nnoremap j gj
+nnoremap gk k
+nnoremap gj j
+
+" Resize splits more conveniently using the leader key
+nnoremap <Leader>h <C-W>>
+nnoremap <Leader>j <C-W>+
+nnoremap <Leader>k <C-W>-
+nnoremap <Leader>l <C-W><
+
+" Easier save and quit with `;`
+noremap ;w :w<CR>
+noremap ;q :q<CR>
+
+" Open current buffer in finder with <Leader>o
+nnoremap <Leader>o :!open -R %<CR> 
+
+" Copy and paste from `+` register for interacting with mac clipboard
+vnoremap y "+y 
+vnoremap p "+p
+nnoremap p "+gp
+vnoremap d "+d
+nnoremap dd "+dd
+
+" Stop creating swp and ~ files
+set nobackup
+set noswapfile
 
 " enable syntax highlighting
 syntax on
@@ -97,10 +124,6 @@ set mouse=n
 " Remove ugly vertlines in split bar (Note space after `\ `)
 set fillchars+=vert:\    
 
-" Stop creating swp and ~ files
-set nobackup
-set noswapfile
-
 " enable line numbers
 set number
 
@@ -113,24 +136,14 @@ set nostartofline
 " Preserve indentation on wrapped lines
 set breakindent
 
-" map `A` (append at end of line) to `a` (append in place)
-nnoremap a A
+" Use google calendar on calendar.vim
+let g:calendar_google_calendar = 1
 
-" Move by visual lines rather than actual lines with `k` `j`
-nnoremap k gk
-nnoremap j gj
-nnoremap gk k
-nnoremap gj j
+" Always think tex files are xelatex - Also see latexmkrc in ~ (Root)
+let g:tex_flavor = 'xelatex'
 
-" Resize splits more conveniently using the leader key
-nnoremap <Leader>j <C-W>+
-nnoremap <Leader>k <C-W>-
-nnoremap <Leader>l <C-W><
-nnoremap <Leader>h <C-W>>
-
-" Easier save and quit with `;`
-noremap ;w :w<CR>
-noremap ;q :q<CR>
+" When running vimtex compiler, don't automatically show quickfix list errors
+let g:vimtex_quickfix_mode = 0
 
 " Change default goyo width
 let g:goyo_width = 150
@@ -144,22 +157,9 @@ let g:vim_markdown_conceal = 0
 " Normal backspace behaviour on OSX
 set backspace=2
 
-" Open current buffer in finder with <Leader>o
-nnoremap <Leader>o :!open -R %<CR> 
+" statusline always showing, even when NERDTree is hidden
+set laststatus=2
 
-" Copy and paste from `+` register for interacting with mac clipboard
-vnoremap y "+y 
-vnoremap p "+p
-nnoremap p "+gp
-vnoremap d "+d
-nnoremap dd "+dd
-
-" Use google calendar on calendar.vim
-let g:calendar_google_calendar = 1
-
-" Always think tex files are xelatex - Also see latexmkrc in ~ (Root)
-let g:tex_flavor = 'xelatex'
-
-" When running vimtex compiler, don't automatically show quickfix list errors
-let g:vimtex_quickfix_mode = 0
+" Ignore useless files 
+let NERDTreeIgnore=['\.DS_Store', '\~$', '\.swp']
 
