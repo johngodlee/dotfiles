@@ -1,4 +1,4 @@
-" A full .vimrc especially for use within vim
+" A full .vimrc for use within normal vim
 
 set nocompatible		" be iMproved, required
 filetype off			" required
