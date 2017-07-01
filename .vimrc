@@ -6,7 +6,7 @@
 set nocompatible		" be iMproved, required
 filetype off			" required
 
-" VUNDLE {{{
+" Vundle {{{
 
 " set runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -38,7 +38,7 @@ filetype plugin indent on	" required
 
 "}}}
 
-" NERDTREE {{{ 
+" NERDTree {{{ 
 
 " Start vim with NERDtree open 
 autocmd StdinReadPre * let s:std_in=1
@@ -75,7 +75,7 @@ let g:NERDTreeIndicatorMapCustom = {
 
 " }}}
 
-" LIGHTLINE {{{ 
+" Lightline {{{ 
 
 " lightline, add whether file is modified and the current git branch
 let g:lightline = {
@@ -95,7 +95,7 @@ let g:lightline = {
 
 " }}}
 
-" KEYMAPPINGS {{{ 
+" Keymappings {{{ 
 
 " map `A` (append at end of line) to `a` (append in place)
 nnoremap a A
@@ -128,7 +128,7 @@ nnoremap dd "+dd
 
 " }}}
 
-" GENERAL SETTINGS {{{ 
+" General Settings {{{
 
 " Stop creating swp and ~ files
 set nobackup
