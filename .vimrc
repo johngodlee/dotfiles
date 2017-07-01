@@ -1,10 +1,10 @@
 " A full .vimrc for use within normal vim on macos
 
-" Set folding to markers locally
+" Set folding to markers for .vimrc only using modeline
 " vim: foldmethod=marker
 
-set nocompatible		" be iMproved, required
-filetype off			" required
+set nocompatible		" vi compatibility
+filetype off			" required for Vundle
 
 " Vundle {{{
 
@@ -165,6 +165,10 @@ set foldmethod=indent
 " Show folds in gutter
 set foldcolumn=1
 
+" Disable folding in certain filetypes
+autocmd Filetype tex setlocal nofoldenable
+autocmd Filetype markdown setlocal nofoldenable
+
 " Use google calendar on calendar.vim
 let g:calendar_google_calendar = 1
 
@@ -174,7 +178,7 @@ let g:tex_flavor = 'xelatex'
 " When running vimtex compiler, don't automatically show quickfix list errors
 let g:vimtex_quickfix_mode = 0
 
-" Change default goyo width
+" Default goyo width
 let g:goyo_width = 150
 
 " Disable folding in markdown
