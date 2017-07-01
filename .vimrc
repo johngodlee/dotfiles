@@ -1,13 +1,17 @@
 " A full .vimrc for use within normal vim on macos
 
+" Set folding to markers locally
+" vim: foldmethod=marker
+
 set nocompatible		" be iMproved, required
 filetype off			" required
+
+" VUNDLE {{{
 
 " set runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()		" required
 
-" PLUGINS/
 Plugin 'VundleVim/Vundle.vim'	" required
 Plugin 'scrooloose/nerdtree'	" File browsing 
 Plugin 'Xuyuanp/nerdtree-git-plugin'	" Git status flags for NERDTree
@@ -23,7 +27,6 @@ Plugin 'christoomey/vim-tmux-navigator'	" Easy navigation of tmux and vim splits
 Plugin 'itchyny/calendar.vim'	" Interact with google calendar using vim
 Plugin 'lervag/vimtex'		" LaTeX editing in vim
 
-" /PLUGINS
 call vundle#end()		" required
 filetype plugin indent on	" required
 
@@ -32,6 +35,10 @@ filetype plugin indent on	" required
 " :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
 " :PluginSearch foo - searches for foo; append `!` to refresh local cache
 " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+
+"}}}
+
+" NERDTREE {{{ 
 
 " Start vim with NERDtree open 
 autocmd StdinReadPre * let s:std_in=1
@@ -49,6 +56,9 @@ noremap <leader>c :NERDTreeFind<CR>
 " Hide NERDTree bookmarks by default
 let NERDTreeShowBookmarks=0
 
+" Ignore useless files 
+let NERDTreeIgnore=['\.DS_Store', '\~$', '\.swp']
+
 " Use custom symbols on NERDTree-Git-Plugin
 let g:NERDTreeIndicatorMapCustom = {
 	\ "Modified"  : "✹",
@@ -62,6 +72,10 @@ let g:NERDTreeIndicatorMapCustom = {
 	\ 'Ignored'   : '☒',
 	\ "Unknown"   : "?"
 	\ }
+
+" }}}
+
+" LIGHTLINE {{{ 
 
 " lightline, add whether file is modified and the current git branch
 let g:lightline = {
@@ -78,6 +92,10 @@ let g:lightline = {
       \   'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
       \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
       \ }}
+
+" }}}
+
+" KEYMAPPINGS {{{ 
 
 " map `A` (append at end of line) to `a` (append in place)
 nnoremap a A
@@ -108,6 +126,10 @@ nnoremap p "+gp
 vnoremap d "+d
 nnoremap dd "+dd
 
+" }}}
+
+" GENERAL SETTINGS {{{ 
+
 " Stop creating swp and ~ files
 set nobackup
 set noswapfile
@@ -127,14 +149,21 @@ set fillchars+=vert:\
 " enable line numbers
 set number
 
-" Ignore case of `/` searches
+" Ignore case of `/` searches unless an upper case letter is used
 set ignorecase
+set smartcase
 
 " Don’t reset cursor to start of line when moving around
 set nostartofline
 
 " Preserve indentation on wrapped lines
 set breakindent
+
+" Make folds with markers 
+set foldmethod=indent
+
+" Show folds in gutter
+set foldcolumn=1
 
 " Use google calendar on calendar.vim
 let g:calendar_google_calendar = 1
@@ -160,6 +189,4 @@ set backspace=2
 " statusline always showing, even when NERDTree is hidden
 set laststatus=2
 
-" Ignore useless files 
-let NERDTreeIgnore=['\.DS_Store', '\~$', '\.swp']
-
+" }}}
