@@ -3,10 +3,12 @@
 " Set folding to markers for .vimrc only using modeline
 " vim: foldmethod=marker
 
-set nocompatible		" vi compatibility
-filetype off			" required for Vundle
+" vi compatibility
+set nocompatible		
 
 " Vundle {{{
+
+filetype off			" required for Vundle
 
 " set runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -36,13 +38,38 @@ filetype plugin indent on	" required
 " :PluginSearch foo - searches for foo; append `!` to refresh local cache
 " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
 
-"}}}
+" }}}
 
-" NERDTree {{{ 
+" Keymappings {{{ 
 
-" Start vim with NERDtree open 
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" map `A` (append at end of line) to `a` (append in place)
+nnoremap a A
+
+" Move by visual lines rather than actual lines with `k` `j`
+nnoremap k gk
+nnoremap j gj
+nnoremap gk k
+nnoremap gj j
+
+" Resize splits more conveniently using the leader key
+nnoremap <Leader>h <C-W>>
+nnoremap <Leader>j <C-W>+
+nnoremap <Leader>k <C-W>-
+nnoremap <Leader>l <C-W><
+
+" Easier save and quit with `;`
+noremap ;w :w<CR>
+noremap ;q :q<CR>
+
+" Open current buffer in finder with <Leader>o
+nnoremap <Leader>o :!open -R %<CR> 
+
+" Copy and paste from `+` register for interacting with mac clipboard
+vnoremap y "+y 
+vnoremap p "+p
+nnoremap p "+gp
+vnoremap d "+d
+nnoremap dd "+dd
 
 " Open NERDTree
 noremap <Leader>n :NERDTreeToggle<CR>
@@ -52,6 +79,92 @@ map <Leader>f :NERDTreeFocus<CR>R<c-w>
 
 " Focus NERDTree and highlight current file 
 noremap <leader>c :NERDTreeFind<CR>
+
+" }}}
+
+" General Settings {{{
+
+" Movement and resizing {{{
+
+" Set mouse mode on
+set mouse=n
+
+" Don’t reset cursor to start of line when moving around
+set nostartofline
+
+" Preserve indentation on wrapped lines
+set breakindent
+
+" Normal backspace behaviour on OSX
+set backspace=2
+
+" }}}
+
+" Appearance {{{
+
+" enable syntax highlighting
+syntax on
+
+" Remove ugly vertlines in split bar (Note space after `\ `)
+set fillchars+=vert:\    
+
+" enable line numbers
+set number
+
+" statusline always showing, even when NERDTree is hidden
+set laststatus=2
+
+" }}}
+
+" Folding {{{
+
+" Make folds with indent
+set foldmethod=indent
+
+" Open files with folds open
+autocmd BufRead * normal zR
+
+" Show folds in gutter
+set foldcolumn=1
+
+" Disable folding in certain filetypes
+autocmd Filetype tex setlocal nofoldenable
+autocmd Filetype markdown setlocal nofoldenable
+
+" }}}
+
+" Calendar {{{
+
+" Use google calendar on calendar.vim
+let g:calendar_google_calendar = 1
+
+" }}}
+
+" VimTeX {{{
+
+" Always think tex files are xelatex - Also see latexmkrc in ~ (Root)
+let g:tex_flavor = 'xelatex'
+
+" When running vimtex compiler, don't automatically show quickfix list errors
+let g:vimtex_quickfix_mode = 0
+
+" }}}
+
+" Markdown {{{
+
+" Disable folding in markdown
+let g:vim_markdown_folding_disabled = 1
+
+" Disable syntax conceal in markdown
+let g:vim_markdown_conceal = 0
+
+" }}}
+
+" NERDTree {{{ 
+
+" Start vim with NERDtree open 
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 " Hide NERDTree bookmarks by default
 let NERDTreeShowBookmarks=0
@@ -95,102 +208,18 @@ let g:lightline = {
 
 " }}}
 
-" Keymappings {{{ 
-
-" map `A` (append at end of line) to `a` (append in place)
-nnoremap a A
-
-" Move by visual lines rather than actual lines with `k` `j`
-nnoremap k gk
-nnoremap j gj
-nnoremap gk k
-nnoremap gj j
-
-" Resize splits more conveniently using the leader key
-nnoremap <Leader>h <C-W>>
-nnoremap <Leader>j <C-W>+
-nnoremap <Leader>k <C-W>-
-nnoremap <Leader>l <C-W><
-
-" Easier save and quit with `;`
-noremap ;w :w<CR>
-noremap ;q :q<CR>
-
-" Open current buffer in finder with <Leader>o
-nnoremap <Leader>o :!open -R %<CR> 
-
-" Copy and paste from `+` register for interacting with mac clipboard
-vnoremap y "+y 
-vnoremap p "+p
-nnoremap p "+gp
-vnoremap d "+d
-nnoremap dd "+dd
-
-" }}}
-
-" General Settings {{{
-
 " Stop creating swp and ~ files
 set nobackup
 set noswapfile
 
-" enable syntax highlighting
-syntax on
+" Default goyo width
+let g:goyo_width = 150
 
 " Open vim in Notes folder
 cd ~/Google_Drive/Notes
 
-" Set mouse mode on
-set mouse=n
-
-" Remove ugly vertlines in split bar (Note space after `\ `)
-set fillchars+=vert:\    
-
-" enable line numbers
-set number
-
 " Ignore case of `/` searches unless an upper case letter is used
 set ignorecase
 set smartcase
-
-" Don’t reset cursor to start of line when moving around
-set nostartofline
-
-" Preserve indentation on wrapped lines
-set breakindent
-
-" Make folds with markers 
-set foldmethod=indent
-
-" Show folds in gutter
-set foldcolumn=1
-
-" Disable folding in certain filetypes
-autocmd Filetype tex setlocal nofoldenable
-autocmd Filetype markdown setlocal nofoldenable
-
-" Use google calendar on calendar.vim
-let g:calendar_google_calendar = 1
-
-" Always think tex files are xelatex - Also see latexmkrc in ~ (Root)
-let g:tex_flavor = 'xelatex'
-
-" When running vimtex compiler, don't automatically show quickfix list errors
-let g:vimtex_quickfix_mode = 0
-
-" Default goyo width
-let g:goyo_width = 150
-
-" Disable folding in markdown
-let g:vim_markdown_folding_disabled = 1
-
-" Disable syntax conceal in markdown
-let g:vim_markdown_conceal = 0
-
-" Normal backspace behaviour on OSX
-set backspace=2
-
-" statusline always showing, even when NERDTree is hidden
-set laststatus=2
 
 " }}}
