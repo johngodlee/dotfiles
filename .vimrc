@@ -71,6 +71,10 @@ nnoremap p "+gp
 vnoremap d "+d
 nnoremap dd "+dd
 
+" Remap word and space (dw) to delete word (de)
+nnoremap dw de
+nnoremap de dw
+
 " Open NERDTree
 noremap <Leader>n :NERDTreeToggle<CR>
 
