@@ -1,6 +1,6 @@
 " A full .vimrc for use within normal vim on macos
 
-" Set folding to markers for .vimrc only using modeline
+" Set folding to markers for .vimrc only 
 " vim: foldmethod=marker
 
 " vi compatibility
