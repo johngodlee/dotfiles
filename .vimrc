@@ -65,6 +65,7 @@ noremap ;q :q<CR>
 nnoremap <Leader>o :!open -R %<CR> 
 
 " Copy and paste from `+` register for interacting with mac clipboard
+set clipboard=unnamed
 vnoremap y "+y 
 vnoremap p "+p
 nnoremap p "+gp
@@ -90,8 +91,8 @@ noremap <leader>c :NERDTreeFind<CR>
 
 " Movement and resizing {{{
 
-" Set mouse mode on
-set mouse=n
+" Set mouse mode 
+set mouse=v
 
 " Don’t reset cursor to start of line when moving around
 set nostartofline

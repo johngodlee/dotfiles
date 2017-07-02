@@ -50,7 +50,7 @@ default-saved-msg-folder={imap.gmail.com:993/ssl/user=johngodlee@gmail.com}[Goog
 # Over-rides default path for postponed messages folder, e.g. =pm (which uses
 # first folder collection dir) or ={host4}pm (using home dir on host4).
 # Default: postponed-msgs (Unix) or POSTPOND.MTX (PC) in default fldr coltn.
-postponed-folder=
+postponed-folder={imap.gmail.com:993/ssl/user=johngodlee@gmail.com}[Google Mail]/Drafts
 
 # If set, specifies where already-read messages will be moved upon quitting.
 read-message-folder=
@@ -369,7 +369,7 @@ address-book=
 global-address-book=
 
 # Set by Alpine; controls beginning-of-month sent-mail pruning.
-last-time-prune-questioned=117.6
+last-time-prune-questioned=117.7
 
 # Set by Alpine; controls display of "new version" message.
 last-version-used=6.21
