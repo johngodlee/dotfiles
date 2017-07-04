@@ -92,7 +92,7 @@ noremap <leader>c :NERDTreeFind<CR>
 " Movement and resizing {{{
 
 " Set mouse mode 
-set mouse=v
+set mouse=n
 
 " Don’t reset cursor to start of line when moving around
 set nostartofline
