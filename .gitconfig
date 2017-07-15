@@ -5,6 +5,7 @@
 	helper = osxkeychain
 [core]
 	editor = vim
+	pager = vim -
 [diff]
 	external = git_diff_wrapper 
 [pager]
