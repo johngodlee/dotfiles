@@ -11,6 +11,7 @@
 [pager]
 	diff =
 [commit]
-	verbose = true	
-	status = false
+	verbose = true
+	template = ~/.gitmessage
+
 
