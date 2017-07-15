@@ -19,11 +19,11 @@ Plugin 'scrooloose/nerdtree'	" File browsing
 Plugin 'Xuyuanp/nerdtree-git-plugin'	" Git status flags for NERDTree
 Plugin 'plasticboy/vim-markdown'	" Better markdown syntax highlighting, indenting etc.
 Plugin 'itchyny/lightline.vim'	" Status bar
+Plugin 'itchyny/vim-gitbranch'	" Git branch in lightline
 Plugin 'kien/ctrlp.vim'		" Fuzzy file finder
 Plugin 'pangloss/vim-javascript'	" Javascript syntax highlighting
 Plugin 'junegunn/goyo.vim'	" Toggle minimal writing environment
 Plugin 'kshenoy/vim-signature'	" Mark locations in gutter
-Plugin 'tpope/vim-fugitive'	" Run git commands without `:!git`	 Allow git branch in lightline
 Plugin 'Valloric/MatchTagAlways'	" Highlight opposite html tag
 Plugin 'christoomey/vim-tmux-navigator'	" Easy navigation of tmux and vim splits
 Plugin 'itchyny/calendar.vim'	" Interact with google calendar using vim
@@ -37,7 +37,6 @@ filetype plugin indent on	" required
 " :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
 " :PluginSearch foo - searches for foo; append `!` to refresh local cache
 " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-
 " }}}
 
 " Keymappings {{{ 
@@ -199,18 +198,12 @@ let g:NERDTreeIndicatorMapCustom = {
 let g:lightline = {
       \ 'colorscheme': 'powerline', 
       \ 'active': {
-      \   'left': [ [ 'mode'],
-      \             [ 'fugitive', 'filename', 'modified' ] ]
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'filename', 'modified' ] ]
       \ },
-      \ 'component': {
-      \   'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
-      \   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
-      \ },
-      \ 'component_visible_condition': {
-      \   'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
-      \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
+      \ 'component_function': {
+      \   'gitbranch': 'gitbranch#name'
       \ }}
-
 " }}}
 
 " Stop creating swp and ~ files
