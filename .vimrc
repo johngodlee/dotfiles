@@ -110,7 +110,10 @@ set backspace=2
 syntax on
 
 " Remove ugly vertlines in split bar (Note space after `\ `)
-set fillchars+=vert:\    
+set fillchars+=vert:\ 
+
+" Make end of file `~` the same colour as background
+highlight EndOfBuffer ctermfg=black ctermbg=black
 
 " enable line numbers
 set number
