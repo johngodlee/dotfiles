@@ -15,8 +15,6 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()		" required
 
 Plugin 'VundleVim/Vundle.vim'	" required
-Plugin 'scrooloose/nerdtree'	" File browsing 
-Plugin 'Xuyuanp/nerdtree-git-plugin'	" Git status flags for NERDTree
 Plugin 'plasticboy/vim-markdown'	" Better markdown syntax highlighting, indenting etc.
 Plugin 'itchyny/lightline.vim'	" Status bar
 Plugin 'itchyny/vim-gitbranch'	" Git branch in lightline
@@ -75,14 +73,13 @@ nnoremap dd "+dd
 nnoremap dw de
 nnoremap de dw
 
-" Open NERDTree
-noremap <Leader>n :NERDTreeToggle<CR>
+" Open netrw in current split
+nnoremap <Leader>n :E<CR>
 
-" Focus NERDTree and autorefresh with <Leader>f
-map <Leader>f :NERDTreeFocus<CR>R<c-w>
-
-" Focus NERDTree and highlight current file 
-noremap <leader>c :NERDTreeFind<CR>
+" Open new split/vsplit/tab with netrw open
+nnoremap <Leader>v :vnew<CR>:E<CR>
+nnoremap <Leader>s :new<CR>:E<CR>
+nnoremap <Leader>t :tabnew<CR>:E<CR>
 
 " }}}
 
@@ -110,12 +107,15 @@ set backspace=2
 syntax on
 
 " Remove ugly vertlines in split bar (Note space after `\ `)
-set fillchars+=vert:\    
+set fillchars+=vert:\ 
+
+" Make end of file `~` the same colour as background
+highlight EndOfBuffer ctermfg=black ctermbg=black
 
 " enable line numbers
 set number
 
-" statusline always showing, even when NERDTree is hidden
+" statusline always showing
 set laststatus=2
 
 " }}}
@@ -164,37 +164,25 @@ let g:vim_markdown_conceal = 0
 
 " }}}
 
-" NERDTree {{{ 
+" netrw {{{
 
-" Start vim with NERDtree open 
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" Tree style file list
+let g:netrw_liststyle = 3
 
-" Hide NERDTree bookmarks by default
-let NERDTreeShowBookmarks=0
+" Open file in current split
+let g:netrw_browse_split = 0
 
-" Ignore useless files 
-let NERDTreeIgnore=['\.DS_Store', '\~$', '\.swp']
+" Maintain current directory when opening netrw
+let g:netrw_keepdir = 0
 
-" Use custom symbols on NERDTree-Git-Plugin
-let g:NERDTreeIndicatorMapCustom = {
-	\ "Modified"  : "✹",
-	\ "Staged"    : "✚",
-	\ "Untracked" : "✭",
-	\ "Renamed"   : "➜",
-	\ "Unmerged"  : "═",
-	\ "Deleted"   : "✖",
-	\ "Dirty"     : "✗",
-	\ "Clean"     : "✔︎",
-	\ 'Ignored'   : '☒',
-	\ "Unknown"   : "?"
-	\ }
+" Stop creating history in .netrwhist
+let g:netrw_dirhistmax = 1
 
 " }}}
 
 " Lightline {{{ 
 
-" lightline, add whether file is modified and the current git branch
+" Add whether file is modified and the current git branch
 let g:lightline = {
       \ 'colorscheme': 'powerline', 
       \ 'active': {
