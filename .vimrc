@@ -170,11 +170,13 @@ let g:vim_markdown_conceal = 0
 " NERDTree {{{ 
 
 " Start vim with NERDtree open 
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+au VimEnter *  NERDTree
 
 " Hide NERDTree bookmarks by default
 let NERDTreeShowBookmarks=0
+
+" Show hidden files in NERDTree
+let NERDTreeShowHidden=1
 
 " Ignore useless files 
 let NERDTreeIgnore=['\.DS_Store', '\~$', '\.swp']
