@@ -167,7 +167,7 @@ let g:vim_markdown_conceal = 0
 " netrw {{{
 
 " Tree style file list
-let g:netrw_liststyle = 3
+let g:netrw_liststyle = 0
 
 " Open file in current split
 let g:netrw_browse_split = 0
