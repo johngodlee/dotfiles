@@ -222,10 +222,12 @@ $endfor$
 $if(toc)$
 {
 $if(colorlinks)$
+\newpage
 \hypersetup{linkcolor=$if(toccolor)$$toccolor$$else$black$endif$}
 $endif$
 \setcounter{tocdepth}{$toc-depth$}
 \tableofcontents
+\newpage
 }
 $endif$
 $if(lot)$
