@@ -10,6 +10,9 @@ defaults write com.apple.Dock autohide -bool TRUE
 defaults write com.apple.dock autohide-time-modifier -float 0.2
 killall Dock
 
+# Stop creating `DS_Store` files
+defaults write com.apple.desktopservices DSDontWriteNetworkStores true
+
 # Always display Library folder in Finder
 chflags nohidden ~/Library/
 

@@ -121,6 +121,9 @@ set number
 " statusline always showing, even when NERDTree is hidden
 set laststatus=2
 
+" Add cursorline
+set cursorline
+
 " }}}
 
 " Folding {{{
