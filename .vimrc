@@ -78,11 +78,11 @@ nnoremap de dw
 " Open NERDTree
 noremap <Leader>n :NERDTreeToggle<CR>
 
-" Focus NERDTree and autorefresh with <Leader>f
-map <Leader>f :NERDTreeFocus<CR>R<c-w>
-
 " Focus NERDTree and highlight current file 
-noremap <leader>c :NERDTreeFind<CR>
+noremap <leader>nf :NERDTreeFind<CR>
+
+" Auto current directory when using `:e` with `NERDTreeHijackNetrw`
+nnoremap <Leader>e :e<space>.<CR>
 
 " }}}
 
@@ -197,6 +197,12 @@ let g:NERDTreeIndicatorMapCustom = {
 	\ 'Ignored'   : '☒',
 	\ "Unknown"   : "?"
 	\ }
+
+let NERDTreeSortHiddenFirst=1
+
+let NERDTreeHijackNetrw=1
+
+let NERDTreeMinimalUI=1
 
 " }}}
 
