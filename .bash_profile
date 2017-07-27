@@ -34,3 +34,6 @@ alias sed=gsed
 
 # Use gpg key as default
 export GPGKEY=E79A8F461D9BC674 
+
+# Use vim as default $EDITOR
+export EDITOR=vim
