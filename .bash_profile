@@ -32,6 +32,9 @@ alias vim='vim --servername VIM'
 # Use gnu-sed instead of osx sed
 alias sed=gsed
 
+# Alias to open w3m with duckduckgo.com
+alias w3m_h='w3m www.duckduckgo.com'
+
 # Use gpg key as default
 export GPGKEY=E79A8F461D9BC674 
 
