@@ -14,7 +14,13 @@ HISTSIZE=1000
 HISTFILESIZE=2000
 
 # Customise bash prompt
-PS1='[\A\[$(tput sgr0)\]]\u\[\e[31m\] \w \[\e[m\]$ '
+source ~/.git-prompt.sh
+
+GIT_PS1_SHOWDIRTYSTATE=true
+GIT_PS1_SHOWUPSTREAM="auto"
+GIT_PS1_SHOWCOLORHINTS=true
+GIT_PS1_STATESEPARATOR=\ 
+PS1='[\A]\u \[\e[31m\]\w\[\e[m\] $(__git_ps1 "[%s] ")\$ '
 
 # Open to root as default
 cd ~ 
