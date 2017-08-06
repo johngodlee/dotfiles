@@ -13,15 +13,27 @@ shopt -s histappend
 HISTSIZE=1000
 HISTFILESIZE=2000
 
-# Customise bash prompt
+# Customise bash prompt:
+## Function to check if previous command fails/succeeds
+function __stat() { 
+    if [ $? -eq 0 ]; then 
+        echo -en "\e[32m[✔]\e[m " 
+    else 
+        echo -en "\e[31m[✘]\e[m " 
+    fi 
+}
+
+## source script to have git branch in prompt
 source ~/.git-prompt.sh
 
+## Options for git-prompt
 GIT_PS1_SHOWDIRTYSTATE=true
 GIT_PS1_SHOWUPSTREAM="auto"
 GIT_PS1_SHOWCOLORHINTS=true
-GIT_PS1_STATESEPARATOR=\ 
-PS1='[\A]\u \[\e[31m\]\w\[\e[m\] $(__git_ps1 "[%s] ")\$ '
+GIT_PS1_STATESEPARATOR=" "
 
+## Bash prompt
+PS1='┏[\T] \u@\h \[\e[31m\]\w\[\e[m\] \[\e[96m\]$(__git_ps1 "[%s] ")\[\e[m\]$(__stat)\n┗\$ '
 # Open to root as default
 cd ~ 
 
