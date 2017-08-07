@@ -33,7 +33,21 @@ GIT_PS1_SHOWCOLORHINTS=true
 GIT_PS1_STATESEPARATOR=" "
 
 ## Bash prompt
-PS1='┏[\T] \u@\h \[\e[31m\]\w\[\e[m\] \[\e[96m\]$(__git_ps1 "[%s] ")\[\e[m\]$(__stat)\n┗\$ '
+PS1='┏'	# Elbow
+PS1+='[\T]'	# Time
+PS1+=' '	# Space 
+PS1+='\u@\h'	# User@hostname
+PS1+=' ' 	# Space
+PS1+='\[\e[31m\]\w\[\e[m\]'	# current dir
+PS1+=' '	# Space
+PS1+='\[\e[96m\]$(__git_ps1 "[%s]")'	# git branch
+PS1+=' '	# Space
+PS1+='\[\e[m\]$(__stat)'	# Previous command success
+PS1+='\n'	# New line
+PS1+='┗'	# Elbow
+PS1+='$'	# $
+PS1+=' '	# Space
+
 # Open to root as default
 cd ~ 
 
