@@ -227,8 +227,8 @@ set noswapfile
 " Default goyo width
 let g:goyo_width = 150
 
-" Open vim in Notes folder
-cd ~/Google_Drive/Notes
+" Open vim in root 
+cd ~
 
 " Ignore case of `/` searches unless an upper case letter is used
 set ignorecase
