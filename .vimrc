@@ -226,7 +226,7 @@ let g:lightline = {
 set spelllang=en_gb
 
 " Set spellfile
-set spellfile=$HOME/en.utf-8.add
+set spellfile=$HOME/.vim/spell/en.utf-8.add
 
 " }}}
 " Stop creating swp and ~ files
