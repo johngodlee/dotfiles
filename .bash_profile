@@ -23,6 +23,11 @@ function __stat() {
     fi 
 }
 
+## Function to show battery level by scraping acpi
+function __batt() {
+	acpi -b | cut -d ',' -f 2 | xargs
+}
+
 ## source script to have git branch in prompt
 source ~/.git-prompt.sh
 
@@ -43,6 +48,7 @@ PS1+=' '	# Space
 PS1+='\[\e[96m\]$(__git_ps1 "[%s]")'	# git branch
 PS1+=' '	# Space
 PS1+='\[\e[m\]$(__stat)'	# Previous command success
+PS1+='\[\e[95m\]('$'\u26A1''$(__batt))\[\e[m\]' # Battery status
 PS1+='\n'	# New line
 PS1+='┗'	# Elbow
 PS1+='$'	# $
