@@ -220,6 +220,15 @@ let g:lightline = {
       \ }}
 " }}}
 
+" Spell check {{{
+
+" Set language
+set spelllang=en_gb
+
+" Set spellfile
+set spellfile=$HOME/en.utf-8.add
+
+" }}}
 " Stop creating swp and ~ files
 set nobackup
 set noswapfile
