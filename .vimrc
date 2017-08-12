@@ -84,6 +84,9 @@ noremap <leader>nf :NERDTreeFind<CR>
 " Auto current directory when using `:e` with `NERDTreeHijackNetrw`
 nnoremap <Leader>e :e<space>.<CR>
 
+" Toggle spellcheck
+nnoremap <Leader>s :set spell!<CR>
+
 " }}}
 
 " General Settings {{{
