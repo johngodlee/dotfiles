@@ -13,21 +13,6 @@ shopt -s histappend
 HISTSIZE=1000
 HISTFILESIZE=2000
 
-# Customise bash prompt:
-## Function to check if previous command fails/succeeds
-function __stat() { 
-    if [ $? -eq 0 ]; then 
-        echo -en "\e[32m[✔]\e[m " 
-    else 
-        echo -en "\e[31m[✘]\e[m " 
-    fi 
-}
-
-## Function to show battery level by scraping acpi
-function __batt() {
-	acpi -b | cut -d ',' -f 2 | xargs
-}
-
 ## source script to have git branch in prompt
 source ~/.git-prompt.sh
 
@@ -45,10 +30,8 @@ PS1+='\u@\h'	# User@hostname
 PS1+=' ' 	# Space
 PS1+='\[\e[31m\]\w\[\e[m\]'	# current dir
 PS1+=' '	# Space
-PS1+='\[\e[96m\]$(__git_ps1 "[%s]")'	# git branch
+PS1+='\[\e[96m\]$(__git_ps1 "[%s]")\[\e[m\]'	# git branch
 PS1+=' '	# Space
-PS1+='\[\e[m\]$(__stat)'	# Previous command success
-PS1+='\[\e[95m\]('$'\u26A1''$(__batt))\[\e[m\]' # Battery status
 PS1+='\n'	# New line
 PS1+='┗'	# Elbow
 PS1+='$'	# $
