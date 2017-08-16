@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# Create a gpg encrypted journal that only I can decrypt
+gpg --output ~/Google_Drive/Personal\ Documents/.ledger.journal.gpg --encrypt --recipient johngodlee@gmail.com ~/.ledger.journal
+
