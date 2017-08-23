@@ -29,6 +29,7 @@ Plugin 'christoomey/vim-tmux-navigator'	" Easy navigation of tmux and vim splits
 Plugin 'itchyny/calendar.vim'	" Interact with google calendar using vim
 Plugin 'lervag/vimtex'		" LaTeX editing in vim
 Plugin 'ledger/vim-ledger'	" Edit ledger journals in vim
+Plugin 'tpope/vim-commentary'	" Comment out lines with a keymapping
 
 call vundle#end()		" required
 filetype plugin indent on	" required
@@ -62,7 +63,7 @@ noremap ;w :w<CR>
 noremap ;q :q<CR>
 
 " Open current buffer in finder with <Leader>o
-nnoremap <Leader>o :!open -R %<CR> 
+nnoremap <Leader>f :!open -R %<CR> 
 
 " Copy and paste from `+` register for interacting with mac clipboard
 set clipboard=unnamed
@@ -88,6 +89,12 @@ nnoremap <Leader>e :e<space>.<CR>
 " Toggle spellcheck
 nnoremap <Leader>s :set spell!<CR>
 
+" Align ledger journal
+autocmd FileType ledger nnoremap <Leader>a :LedgerAlign<CR>
+
+" Better omnicompletion mapping
+inoremap <Leader>o <C-x><C-o>
+
 " }}}
 
 " General Settings {{{
@@ -105,6 +112,9 @@ set breakindent
 
 " Normal backspace behaviour on OSX
 set backspace=2
+
+" Split to right by default
+set splitright 
 
 " }}}
 
@@ -233,6 +243,14 @@ set spelllang=en_gb
 set spellfile=$HOME/.vim/spell/en.utf-8.add
 
 " }}}
+
+" Omni-completion {{{
+
+" Ensure omni-completion menu stays open
+set completeopt=longest,menuone 
+
+" }}}
+
 " Stop creating swp and ~ files
 set nobackup
 set noswapfile
