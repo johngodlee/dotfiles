@@ -32,11 +32,6 @@ tmux send-keys "cmus" Enter
 tmux new-window -n 'alpine'
 tmux send-keys "alpine" Enter
 
-# New window, start vim calendar
-tmux new-window -n 'calendar'
-tmux send-keys "vim -u ~/.vimrc_calendar" Enter
-tmux send-keys ":Calendar" Enter
-
 # Detach and reattach to make it work properly
 tmux detach
 tmux a -t dash
