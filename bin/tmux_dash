@@ -28,10 +28,6 @@ tmux resize-pane -D 8
 tmux new-window -n 'cmus'
 tmux send-keys "cmus" Enter
 
-# New window, start alpine
-tmux new-window -n 'alpine'
-tmux send-keys "alpine" Enter
-
 # Detach and reattach to make it work properly
 tmux detach
 tmux a -t dash
