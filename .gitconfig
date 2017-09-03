@@ -5,12 +5,15 @@
 	helper = osxkeychain
 [core]
 	editor = vim
-	pager = vim -
+	pager = less 
 [diff]
 	external = git_diff_wrapper 
 [pager]
-	diff =
+	diff = 
 [commit]
 	verbose = true
 	template = ~/.gitmessage
-
+[merge]
+	tool = vimdiff
+[alias]
+  network = log --graph --decorate --pretty=oneline --abbrev-commit --all
