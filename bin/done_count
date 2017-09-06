@@ -1,9 +1,10 @@
 #!/bin/bash
 
 # Create csv file of completed items from daily notes by counting lines between #DONE# marks
+touch ~/Desktop/word_count.txt
 
 # Using a for loop and multiple sed arguments to amend the file (takes longer)
-for f in ./*.md; do { printf '%s ' "$f"; sed -n '/DONE/,/DONE/p' "$f" | wc -l; } >> ~/Desktop/word_count.txt; done
+for f in ./*; do { printf '%s ' "$f"; sed -n '/DONE/,/DONE/p' "$f" | wc -l; } >> ~/Desktop/word_count.txt; done
 
 # Make multiple whitespace into 1 whitespace, to csv
 awk '{$1=$1}1' ~/Desktop/word_count.txt > ~/Desktop/word_count.csv
