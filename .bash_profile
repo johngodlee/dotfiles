@@ -61,3 +61,7 @@ export GPGKEY=E79A8F461D9BC674
 
 # Use vim as default $EDITOR
 export EDITOR=vim
+
+# Use vim as man pager
+# export MANPAGER="env MAN_PN=1 vim -M +MANPAGER -"
+
