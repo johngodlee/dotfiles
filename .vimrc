@@ -155,6 +155,31 @@ set foldcolumn=1
 autocmd Filetype tex setlocal nofoldenable
 autocmd Filetype markdown setlocal nofoldenable
 
+" Set folding for markdown headers
+function! MarkdownLevel()
+    if getline(v:lnum) =~ '^# .*$'
+        return ">1"
+    endif
+    if getline(v:lnum) =~ '^## .*$'
+        return ">2"
+    endif
+    if getline(v:lnum) =~ '^### .*$'
+        return ">3"
+    endif
+    if getline(v:lnum) =~ '^#### .*$'
+        return ">4"
+    endif
+    if getline(v:lnum) =~ '^##### .*$'
+        return ">5"
+    endif
+    if getline(v:lnum) =~ '^###### .*$'
+        return ">6"
+    endif
+    return "=" 
+endfunction
+au BufEnter *.md setlocal foldexpr=MarkdownLevel()  
+au BufEnter *.md setlocal foldmethod=expr   
+
 " }}}
 
 " Calendar {{{
@@ -171,6 +196,9 @@ let g:tex_flavor = 'xelatex'
 
 " When running vimtex compiler, don't automatically show quickfix list errors
 let g:vimtex_quickfix_mode = 0
+
+" Disable callback warning message because I don't have client server
+let g:vimtex_disable_version_warning = 1
 
 " }}}
 
