@@ -210,6 +210,12 @@ let g:vim_markdown_folding_disabled = 1
 " Disable syntax conceal in markdown
 let g:vim_markdown_conceal = 0
 
+" Stop vim indenting after deleting bullet point
+let g:vim_markdown_new_list_item_indent = 0
+setlocal formatoptions=tqlnrc
+set comments=b:>
+
+
 " }}}
 
 " NERDTree {{{ 
