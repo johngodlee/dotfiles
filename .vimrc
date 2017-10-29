@@ -30,6 +30,7 @@ Plugin 'itchyny/calendar.vim'	" Interact with google calendar using vim
 Plugin 'lervag/vimtex'		" LaTeX editing in vim
 Plugin 'ledger/vim-ledger'	" Edit ledger journals in vim
 Plugin 'tpope/vim-commentary'	" Comment out lines with a keymapping
+Plugin 'junegunn/vim-easy-align'
 
 call vundle#end()		" required
 filetype plugin indent on	" required
@@ -300,3 +301,5 @@ set ignorecase
 set smartcase
 
 " }}}
+"
+au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
