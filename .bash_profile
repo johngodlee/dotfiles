@@ -44,7 +44,6 @@ cd ~
 alias ls='ls -G -A -F'
 alias ll='ls -lG -A -F'
 
-
 # Alias cmus to listen for remotes on network
 alias cmus='cmus --listen 0.0.0.0'
 

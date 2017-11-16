@@ -17,3 +17,5 @@
 	tool = vimdiff
 [alias]
   network = log --graph --decorate --pretty=oneline --abbrev-commit --all
+[http]
+	postBuffer = 524288000
