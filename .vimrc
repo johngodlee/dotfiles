@@ -291,7 +291,7 @@ set nobackup
 set noswapfile
 
 " Default goyo width
-let g:goyo_width = 150
+let g:goyo_width = 180
 
 " Open vim in root 
 cd ~
