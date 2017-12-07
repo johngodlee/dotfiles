@@ -6,6 +6,7 @@
 [core]
 	editor = vim
 	pager = less 
+	excludesfile = /Users/johngodlee/.gitignore_global
 [diff]
 	external = git_diff_wrapper 
 [pager]
@@ -19,3 +20,9 @@
   network = log --graph --decorate --pretty=oneline --abbrev-commit --all
 [http]
 	postBuffer = 524288000
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
