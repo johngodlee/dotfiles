@@ -142,7 +142,6 @@ set cursorline
 " Remove background, to inherit iterm2 colour scheme
 set termguicolors
 
-
 " }}}
 
 " Folding {{{
@@ -305,5 +304,6 @@ set ignorecase
 set smartcase
 
 " }}}
+
 "
 au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
