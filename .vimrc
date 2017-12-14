@@ -141,7 +141,7 @@ set cursorline
 
 " Remove background, to inherit iterm2 colour scheme
 set termguicolors
-
+hi Normal ctermbg=none
 " }}}
 
 " Folding {{{
