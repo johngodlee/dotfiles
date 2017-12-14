@@ -139,9 +139,14 @@ set laststatus=2
 " Add cursorline
 set cursorline
 
-" Remove background, to inherit iterm2 colour scheme
-set termguicolors
+" Remove background
 hi Normal ctermbg=none
+
+" Inherit iterm2 colour scheme
+set t_Co=16
+
+" 
+
 " }}}
 
 " Folding {{{
