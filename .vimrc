@@ -31,6 +31,7 @@ Plugin 'lervag/vimtex'		" LaTeX editing in vim
 Plugin 'ledger/vim-ledger'	" Edit ledger journals in vim
 Plugin 'tpope/vim-commentary'	" Comment out lines with a keymapping
 Plugin 'junegunn/vim-easy-align'
+Plugin 'thiagoalessio/rainbow_levels.vim'	" Highlight with indenting
 
 call vundle#end()		" required
 filetype plugin indent on	" required
@@ -291,6 +292,12 @@ set spellfile=$HOME/.vim/spell/en.utf-8.add
 
 " Ensure omni-completion menu stays open
 set completeopt=longest,menuone 
+
+" }}}
+
+" Rainbow_levels {{{
+
+au FileType markdown :RainbowLevelsOn
 
 " }}}
 
