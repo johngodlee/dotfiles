@@ -97,6 +97,9 @@ autocmd FileType ledger nnoremap <Leader>a :LedgerAlign<CR>
 " Better omnicompletion mapping
 inoremap <Leader>o <C-x><C-o>
 
+" Align markdown tables only in markdown documents using \\
+au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
+
 " }}}
 
 " General Settings {{{
@@ -161,7 +164,7 @@ autocmd BufRead * normal zR
 " Show folds in gutter
 set foldcolumn=1
 
-" Disable folding in certain filetypes
+" Disable indent folding in certain filetypes
 autocmd Filetype tex setlocal nofoldenable
 autocmd Filetype markdown setlocal nofoldenable
 
@@ -301,12 +304,16 @@ au FileType markdown :RainbowLevelsOn
 
 " }}}
 
-" Stop creating swp and ~ files
-set nobackup
-set noswapfile
+" Goyo {{{
 
 " Default goyo width
 let g:goyo_width = 180
+
+" }}}
+
+" Stop creating swp and ~ files
+set nobackup
+set noswapfile
 
 " Open vim in root 
 cd ~
@@ -318,4 +325,3 @@ set smartcase
 " }}}
 
 "
-au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
