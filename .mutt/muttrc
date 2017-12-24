@@ -32,7 +32,7 @@ mailboxes =INBOX =Urgent =Archived =Coding_Club =Diss_Manuscript =Personal =PhD 
 
 # Caching mail {{{ 
 set header_cache = "~/.mutt/headers" 
-set message_cachedir = "~/.mutt/contents"
+set message_cachedir = "~/.mutt/messages"
 # }}}
 
 # Keybindings {{{
@@ -42,11 +42,9 @@ bind index gg first-entry
 bind index G last-entry
 bind index j next-entry
 bind index k previous-entry
-bind index J next-thread
-bind index K previous-thread
-bind index l display-message			 
+bind index <enter> display-message			 
 bind pager gg top
-bind pager G   bottom
+bind pager G bottom
 bind pager j next-line
 bind pager k previous-line
 bind pager J next-entry
@@ -58,11 +56,16 @@ bind index,pager a group-reply
 bind index,pager r reply
 # }}}
 
-
 # Sidebar, using Ctrl prefixes {{{
-bind index,pager \Ck sidebar-prev
-bind index,pager \Cj sidebar-next
-bind index,pager \Cl sidebar-open
+bind index J sidebar-next
+bind index K sidebar-prev
+bind index L sidebar-open
 # }}}
 
 # }}}
+
+# External
+source ~/.mutt/addressbook
+source "~/.mutt/purgecache.sh '$message_cachedir'|"
+
+
