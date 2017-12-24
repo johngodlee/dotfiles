@@ -29,8 +29,8 @@ tmux new-window -n 'cmus'
 tmux send-keys "cmus" Enter
 
 # New window, start alpine
-tmux new-window -n 'alpine'
-tmux send-keys "alpine" Enter
+tmux new-window -n 'mutt'
+tmux send-keys "mutt" Enter
 
 # Detach and reattach to make it work properly
 tmux detach
