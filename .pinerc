@@ -19,14 +19,14 @@ personal-name=
 user-domain=
 
 # List of SMTP servers for sending mail. If blank: Unix Alpine uses sendmail.
-smtp-server=
+smtp-server=smtp.gmail.com:587/tls/user=johngodlee@gmail.com
 
 # NNTP server for posting news. Also sets news-collections for news reading.
 nntp-server=
 
 # Path of (local or remote) INBOX, e.g. ={mail.somewhere.edu}inbox
 # Normal Unix default is the local INBOX (usually /usr/spool/mail/$USER).
-inbox-path=
+inbox-path={imap.gmail.com:993/ssl/user=johngodlee@gmail.com}INBOX
 
 # List of folder pairs; the first indicates a folder to archive, and the
 # second indicates the folder read messages in the first should
@@ -40,17 +40,17 @@ pruned-folders=
 # Over-rides default path for sent-mail folder, e.g. =old-mail (using first
 # folder collection dir) or ={host2}sent-mail or ="" (to suppress saving).
 # Default: sent-mail (Unix) or SENTMAIL.MTX (PC) in default folder collection.
-default-fcc=
+default-fcc={imap.gmail.com:993/ssl/user=johngodlee@gmail.com}[Google Mail]/Sent Mail
 
 # Over-rides default path for saved-msg folder, e.g. =saved-messages (using 1st
 # folder collection dir) or ={host2}saved-mail or ="" (to suppress saving).
 # Default: saved-messages (Unix) or SAVEMAIL.MTX (PC) in default collection.
-default-saved-msg-folder=
+default-saved-msg-folder={imap.gmail.com:993/ssl/user=johngodlee@gmail.com}[Google Mail]/All Mail
 
 # Over-rides default path for postponed messages folder, e.g. =pm (which uses
 # first folder collection dir) or ={host4}pm (using home dir on host4).
 # Default: postponed-msgs (Unix) or POSTPOND.MTX (PC) in default fldr coltn.
-postponed-folder=
+postponed-folder={imap.gmail.com:993/ssl/user=johngodlee@gmail.com}[Google Mail]/Drafts
 
 # If set, specifies where already-read messages will be moved upon quitting.
 read-message-folder=
@@ -59,7 +59,7 @@ read-message-folder=
 form-letter-folder=
 
 # If set, specifies where trash is moved to in Web Alpine.
-trash-folder=
+trash-folder={imap.gmail.com:993/ssl/user=johngodlee@gmail.com}[Google Mail]/Trash
 
 # Contains the actual signature contents as opposed to the signature filename.
 # If defined, this overrides the signature-file. Default is undefined.
@@ -71,7 +71,7 @@ signature-file=
 # List of features; see Alpine's Setup/options menu for the current set.
 # e.g. feature-list= select-without-confirm, signature-at-bottom
 # Default condition for all of the features is no-.
-feature-list=
+feature-list=enable-alternate-editor-implicitly
 
 # Alpine executes these keys upon startup (e.g. to view msg 13: i,j,1,3,CR,v)
 initial-keystroke-list=
@@ -172,7 +172,7 @@ unknown-character-set=
 
 # Specifies the program invoked by ^_ in the Composer,
 # or the "enable-alternate-editor-implicitly" feature.
-editor=
+editor=vim -u ~/.vimrc_alpine
 
 # Specifies the program invoked by ^T in the Composer.
 speller=
@@ -351,7 +351,7 @@ incoming-folders=
 # List of directories where saved-message folders may be. First one is
 # the default for Saves. Example: Main {host1}mail/[], Desktop mail\[]
 # Syntax: optnl-label {optnl-imap-hostname}optnl-directory-path[]
-folder-collections=
+folder-collections=Gmail {imap.gmail.com:993/ssl/user=johngodlee@gmail.com}[*]
 
 # List, only needed if nntp-server not set, or news is on a different host
 # than used for NNTP posting. Examples: News *[] or News *{host3/nntp}[]
@@ -498,23 +498,23 @@ patterns-other=
 patterns-search=
 
 # Controls display of color
-color-style=
+color-style=force-ansi-16color
 
 # Controls display of color for current index line
-current-indexline-style=
+current-indexline-style=flip-colors
 
 # Controls display of color for the titlebar at top of screen
-titlebar-color-style=
+titlebar-color-style=default
 
 # Choose: black, blue, green, cyan, red, magenta, yellow, or white.
-normal-foreground-color=
-normal-background-color=
+normal-foreground-color=255,255,255
+normal-background-color=000,000,000
 reverse-foreground-color=
 reverse-background-color=
-title-foreground-color=
-title-background-color=
-title-closed-foreground-color=
-title-closed-background-color=
+title-foreground-color=000,000,000
+title-background-color=000,174,000
+title-closed-foreground-color=000,000,000
+title-closed-background-color=255,000,000
 folder-foreground-color=
 folder-background-color=
 directory-foreground-color=
@@ -529,32 +529,32 @@ keyname-foreground-color=
 keyname-background-color=
 selectable-item-foreground-color=
 selectable-item-background-color=
-meta-message-foreground-color=
-meta-message-background-color=
-quote1-foreground-color=
-quote1-background-color=
-quote2-foreground-color=
-quote2-background-color=
-quote3-foreground-color=
-quote3-background-color=
+meta-message-foreground-color=255,255,000
+meta-message-background-color=transparent
+quote1-foreground-color=000,255,255
+quote1-background-color=transparent
+quote2-foreground-color=174,174,000
+quote2-background-color=transparent
+quote3-foreground-color=000,255,000
+quote3-background-color=transparent
 incoming-unseen-foreground-color=
 incoming-unseen-background-color=
-signature-foreground-color=
-signature-background-color=
+signature-foreground-color=255,255,255
+signature-background-color=transparent
 prompt-foreground-color=
 prompt-background-color=
 header-general-foreground-color=
 header-general-background-color=
-index-to-me-foreground-color=
-index-to-me-background-color=
-index-important-foreground-color=
-index-important-background-color=
+index-to-me-foreground-color=000,174,174
+index-to-me-background-color=transparent
+index-important-foreground-color=174,000,000
+index-important-background-color=transparent
 index-deleted-foreground-color=
 index-deleted-background-color=
-index-answered-foreground-color=
-index-answered-background-color=
-index-new-foreground-color=
-index-new-background-color=
+index-answered-foreground-color=000,174,000
+index-answered-background-color=transparent
+index-new-foreground-color=174,000,000
+index-new-background-color=transparent
 index-recent-foreground-color=
 index-recent-background-color=
 index-forward-foreground-color=
