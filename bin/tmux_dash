@@ -1,38 +1,52 @@
 #!/bin/sh
 
-# Create new session
-tmux -2 new -s 'dash'
+# If tmux session ("dash") exists, attach to it, otherwise, build it
 
-# Start vim
-tmux send-keys "vim" Enter
+session="dash"
 
-# New window, split into 4
-tmux new-window -n 'bash'
-tmux split-window -v
-tmux split-window -h
-tmux select-pane -t 1
-tmux split-window -h
+if (tmux has-session -t "$session" 2> /dev/null); then
+	echo "Session $session already exists"
+	sleep 2
+	
+	tmux a -t "$session"
+else
+	echo "Building session $session"
+	sleep 2
 
-# Split pane 1 vertically
-tmux select-pane -t 1
-tmux split-window -v
+	# Create new session
+	tmux -2 new -s 'dash'
 
-# Split pane 5 horizontally
-tmux select-pane -t 5
-tmux split-window -h
+	# Start vim
+	tmux send-keys "vim" Enter
 
-# Resize panes
-tmux resize-pane -D 8
+	# New window, split into 4
+	tmux new-window -n 'bash'
+	tmux split-window -v
+	tmux split-window -h
+	tmux select-pane -t 1
+	tmux split-window -h
 
-# New window, start cmus
-tmux new-window -n 'cmus'
-tmux send-keys "cmus" Enter
+	# Split pane 1 vertically
+	tmux select-pane -t 1
+	tmux split-window -v
 
-# New window, start alpine
-tmux new-window -n 'mutt'
-tmux send-keys "mutt" Enter
+	# Split pane 5 horizontally
+	tmux select-pane -t 5
+	tmux split-window -h
 
-# Detach and reattach to make it work properly
-tmux detach
-tmux a -t dash
-tmux select-window -t 1
+	# Resize panes
+	tmux resize-pane -D 8
+
+	# New window, start cmus
+	tmux new-window -n 'cmus'
+	tmux send-keys "cmus" Enter
+
+	# New window, start alpine
+	tmux new-window -n 'alpine'
+	tmux send-keys "alpine" Enter
+
+	# Detach and reattach to make it work properly
+	tmux detach
+	tmux a -t dash
+	tmux select-window -t 1
+fi
