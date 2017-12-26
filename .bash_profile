@@ -57,7 +57,7 @@ alias sed=gsed
 alias w3m_h='w3m www.duckduckgo.com'
 
 # Open mutt in Downloads to save attachments there
-alias mutt 'cd ~/Downloads && mutt'
+alias mutt='cd ~/Downloads; mutt'
 
 
 # Use gpg key as default
