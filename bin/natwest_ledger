@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Remove first three lines
+# Replace first line with: date,,note,amount,,,
+# Execute ledger convert
+
+
+tmpfile=$(mktemp)
+
+tail -n +4 $1 | sed '1 i\
+	date,,note,amount,,,
+' > $tmpfile
+
+ledger convert $tmpfile --input-date-format "%d/%m/%Y" --account assets:bank:student_acc -f ~/.ledger.journal 
+
+rm ${tmpfile}
+
+
+
