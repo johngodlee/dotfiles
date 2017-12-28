@@ -1,7 +1,7 @@
 # Put this in .bashrc for linux, mac is unique in sourcing terminal from source every window
 
 # Add ~/bin to path for custom scripts
-export PATH=/usr/local/opt/python/libexec/bin:/usr/local/bin:$HOME/bin:$PATH
+export PATH=/usr/local/opt/python/libexec/bin:/usr/local/bin:/usr/bin:$HOME/bin:$PATH
 
 # Alias `hub` as `git`, allows hub commands to be run using git
 eval "$(hub alias -s)"
