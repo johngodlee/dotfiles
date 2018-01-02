@@ -28,6 +28,10 @@ c.colors.hints.match.fg = 'lime'
 # Type: QssColor
 c.colors.keyhint.fg = '#FFFFFF'
 
+# Background color for prompts.
+# Type: QssColor
+c.colors.prompts.bg = 'lightgrey'
+
 # Border used around UI elements in prompts.
 # Type: String
 c.colors.prompts.border = '1px solid gray'
@@ -156,6 +160,11 @@ c.colors.webpage.bg = 'white'
 #   - downloads: Show a confirmation if downloads are running
 #   - never: Never show a confirmation.
 c.confirm_quit = ['never']
+
+# Number of milliseconds to wait before removing finished downloads. If
+# set to -1, downloads are never removed.
+# Type: Int
+c.downloads.remove_finished = 2000
 
 # The editor (and arguments) to use for the `open-editor` command. `{}`
 # gets replaced by the filename of the file to be edited.
@@ -333,8 +342,4 @@ c.tabs.wrap = True
 # used by prepending the search engine name to the search term, e.g.
 # `:open google qutebrowser`.
 # Type: Dict
-c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}', 
-        'google': 'https://www.google.com/search?hl=en&q={}',
-        'reddit': 'https://www.reddit.com/search?q={}',
-        'stack': 'https://stackexchange.com/search?q={}'}
-
+c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}', 'google': 'https://www.google.com/search?hl=en&q={}', 'reddit': 'https://www.reddit.com/search?q={}', 'stack': 'https://stackexchange.com/search?q={}'}
