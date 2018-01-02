@@ -393,6 +393,11 @@ c.tabs.width.indicator = 10
 # Type: Bool
 c.tabs.wrap = True
 
+# The page to open if :open -t/-b/-w is used without URL. Use
+# `about:blank` for a blank page.
+# Type: FuzzyUrl
+c.url.default_page = 'about:blank'
+
 # Definitions of search engines which can be used via the address bar.
 # Maps a searchengine name (such as `DEFAULT`, or `ddg`) to a URL with a
 # `{}` placeholder. The placeholder will be replaced by the search term,
@@ -404,10 +409,13 @@ c.tabs.wrap = True
 # Type: Dict
 c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}', 'google': 'https://www.google.com/search?hl=en&q={}', 'reddit': 'https://www.reddit.com/search?q={}', 'stack': 'https://stackexchange.com/search?q={}', 'youtube': 'https://www.youtube.com/results?search_query={}'}
 
+# The page(s) to open at the start.
+# Type: List of FuzzyUrl, or FuzzyUrl
+c.url.start_pages = '~/.qutebrowser/homepage/home.html'
+
 # Bindings for normal mode
 config.bind('<backspace>', 'back')
 config.bind('gT', 'tab-prev')
 config.bind('gt', 'tab-next')
-
-config.unbind('q')
+config.bind('q', None)
 config.bind('qq', 'quit')
