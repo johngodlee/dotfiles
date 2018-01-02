@@ -11,6 +11,62 @@
 # Type: Dict
 c.aliases = {'q': 'quit', 'w': 'session-save', 'wq': 'quit --save'}
 
+# Background color of the completion widget category headers.
+# Type: QssColor
+c.colors.completion.category.bg = 'lightgrey'
+
+# Foreground color of completion widget category headers.
+# Type: QtColor
+c.colors.completion.category.fg = 'black'
+
+# Background color of the completion widget for even rows.
+# Type: QssColor
+c.colors.completion.even.bg = 'lightgrey'
+
+# Text color of the completion widget.
+# Type: QtColor
+c.colors.completion.fg = 'black'
+
+# Background color of the selected completion item.
+# Type: QssColor
+c.colors.completion.item.selected.bg = 'darkgrey'
+
+# Bottom border color of the selected completion item.
+# Type: QssColor
+c.colors.completion.item.selected.border.bottom = 'black'
+
+# Top border color of the completion widget category headers.
+# Type: QssColor
+c.colors.completion.item.selected.border.top = 'black'
+
+# Foreground color of the selected completion item.
+# Type: QtColor
+c.colors.completion.item.selected.fg = 'black'
+
+# Foreground color of the matched text in the completion.
+# Type: QssColor
+c.colors.completion.match.fg = '#ff4444'
+
+# Background color of the completion widget for odd rows.
+# Type: QssColor
+c.colors.completion.odd.bg = '#F2F2F2'
+
+# Color of the scrollbar in completion view
+# Type: QssColor
+c.colors.completion.scrollbar.bg = 'darkgrey'
+
+# Color of the scrollbar handle in completion view.
+# Type: QssColor
+c.colors.completion.scrollbar.fg = 'white'
+
+# Background color for the download bar.
+# Type: QssColor
+c.colors.downloads.bar.bg = 'black'
+
+# Foreground color for downloads with errors.
+# Type: QtColor
+c.colors.downloads.error.fg = 'white'
+
 # Background color for hints. Note that you can use a `rgba(...)` value
 # for transparency.
 # Type: QssColor
@@ -151,6 +207,10 @@ c.colors.tabs.selected.odd.fg = 'black'
 # color)
 # Type: QtColor
 c.colors.webpage.bg = 'white'
+
+# The height of the completion, in px or as percentage of the window.
+# Type: PercOrInt
+c.completion.height = '30%'
 
 # Whether quitting the application requires a confirmation.
 # Type: ConfirmQuit
@@ -343,3 +403,8 @@ c.tabs.wrap = True
 # `:open google qutebrowser`.
 # Type: Dict
 c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}', 'google': 'https://www.google.com/search?hl=en&q={}', 'reddit': 'https://www.reddit.com/search?q={}', 'stack': 'https://stackexchange.com/search?q={}'}
+
+# Bindings for normal mode
+config.bind('<backspace>', 'back')
+config.bind('gT', 'tab-prev')
+config.bind('gt', 'tab-next')
