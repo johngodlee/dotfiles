@@ -115,5 +115,5 @@ elif input_epi_1 == 2:
     dlProg().get(dlURL, dlFile)
     print("\nFinished Downloading. Exiting...")
 else:
-    print ("Invalid choice, exiting...")
+    print ("Invalid choice, Exiting...")
 

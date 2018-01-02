@@ -342,7 +342,7 @@ incoming-check-list=
 dead-letter-files=
 
 # Sets the filename for the newmail fifo (named pipe). Unix only.
-newmail-fifo-path=
+newmail-fifo-path=~/alpine_new
 
 # Sets the width for the NewMail screen.
 newmail-window-width=
