@@ -408,3 +408,6 @@ c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}', 'google': 'htt
 config.bind('<backspace>', 'back')
 config.bind('gT', 'tab-prev')
 config.bind('gt', 'tab-next')
+
+config.unbind('q')
+config.bind('qq', 'quit')
