@@ -266,7 +266,7 @@ c.fonts.statusbar = '8pt monospace'
 
 # Font used in the tab bar.
 # Type: QtFont
-c.fonts.tabs = '8pt monospace'
+c.fonts.tabs = '9pt monospace'
 
 # CSS border value for hints.
 # Type: String
@@ -349,7 +349,7 @@ c.tabs.new_position.related = 'next'
 
 # Padding around text for tabs
 # Type: Padding
-c.tabs.padding = {'bottom': 5, 'left': 5, 'right': 5, 'top': 5}
+c.tabs.padding = {'bottom': 8, 'left': 5, 'right': 5, 'top': 8}
 
 # The position of the tab bar.
 # Type: Position
@@ -387,7 +387,7 @@ c.tabs.width.bar = '20%'
 
 # Width of the progress indicator (0 to disable).
 # Type: Int
-c.tabs.width.indicator = 10
+c.tabs.width.indicator = 0
 
 # Whether to wrap when changing tabs.
 # Type: Bool
@@ -407,7 +407,7 @@ c.url.default_page = 'about:blank'
 # used by prepending the search engine name to the search term, e.g.
 # `:open google qutebrowser`.
 # Type: Dict
-c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}', 'google': 'https://www.google.com/search?hl=en&q={}', 'reddit': 'https://www.reddit.com/search?q={}', 'stack': 'https://stackexchange.com/search?q={}', 'youtube': 'https://www.youtube.com/results?search_query={}'}
+c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}', 'google': 'https://www.google.com/search?hl=en&q={}', 'reddit': 'https://www.reddit.com/search?q={}', 'stack': 'https://stackexchange.com/search?q={}', 'youtube': 'https://www.youtube.com/results?search_query={}', 'hn': 'https://hn.algolia.com/?query={}'}
 
 # The page(s) to open at the start.
 # Type: List of FuzzyUrl, or FuzzyUrl
