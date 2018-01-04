@@ -287,6 +287,11 @@ c.history_gap_interval = -1
 #   - smart: Search case-sensitively if there are capital chars
 c.ignore_case = 'smart'
 
+# Automatically enter insert mode if an editable element is focused
+# after loading the page.
+# Type: Bool
+c.input.insert_mode.auto_load = True
+
 # How to open links in an existing instance if a new one is launched.
 # This happens when e.g. opening a link from a terminal. See
 # `new_instance_open_target_window` to customize in which window the
