@@ -18,7 +18,7 @@ Plugin 'VundleVim/Vundle.vim'	" required
 Plugin 'scrooloose/nerdtree'	" File browsing 
 Plugin 'Xuyuanp/nerdtree-git-plugin'	" Git status flags for NERDTree
 Plugin 'plasticboy/vim-markdown'	" Better markdown syntax highlighting, indenting etc.
-Plugin 'itchyny/lightline.vim'	" Status bar
+" Plugin 'itchyny/lightline.vim'	" Status bar - Not needed due to own
 Plugin 'itchyny/vim-gitbranch'	" Git branch in lightline
 Plugin 'kien/ctrlp.vim'		" Fuzzy file finder
 Plugin 'pangloss/vim-javascript'	" Javascript syntax highlighting
@@ -137,9 +137,6 @@ highlight EndOfBuffer ctermfg=black ctermbg=black
 " enable line numbers
 set number
 
-" statusline always showing, even when NERDTree is hidden
-set laststatus=2
-
 " Add cursorline
 set cursorline
 
@@ -149,8 +146,65 @@ hi Normal ctermbg=none
 " Inherit iterm2 colour scheme
 set t_Co=16
 
-" 
+" Statusline {{{
 
+" statusline always showing, even when NERDTree is hidden
+set laststatus=2
+
+" Map of modes and their codes for statusline
+let g:currentmode={
+    \ 'n'  : 'Normal',
+    \ 'no' : 'N·Operator Pending',
+    \ 'v'  : 'Visual',
+    \ 'V'  : 'V·Line',   
+    \ '^V' : 'V·Block',
+    \ 's'  : 'Select',
+    \ 'S'  : 'S·Line',
+    \ '^S' : 'S·Block',
+    \ 'i'  : 'Insert',
+    \ 'R'  : 'R',
+    \ 'Rv' : 'V·Replace',
+    \ 'c'  : 'Command',
+    \ 'cv' : 'Vim Ex',
+    \ 'ce' : 'Ex',
+    \ 'r'  : 'Prompt',
+    \ 'rm' : 'More',
+    \ 'r?' : 'Confirm',
+    \ '!'  : 'Shell',
+    \ 't'  : 'Terminal'
+    \}
+
+" Change statusline based on mode 
+function! ChangeStatuslineColor()
+  if (mode() ==# 'i')
+    exe 'hi StatusLine ctermfg=032 ctermbg=black'
+    exe 'hi User1 ctermfg=black ctermbg=032'
+  else
+    exe 'hi StatusLine ctermfg=black ctermbg=015'
+    exe 'hi User1 ctermfg=015 ctermbg=black'
+  endif
+  return ''
+endfunction
+
+" Statusline
+" left side
+set statusline=%{ChangeStatuslineColor()}	" Change colour
+set statusline+=%0*\ %-8.{toupper(g:currentmode[mode()])} 	" Current mode
+set statusline+=%0*\ \|\  	" Vert-line and space   
+set statusline+=%0*%t	" File name
+set statusline+=%1*%=	" Switch to right side
+
+" right side
+set statusline+=%0*%m%r " Modified and read only flags
+set statusline+=%0*\ 		"Space
+set statusline+=%0*%y	" File type
+set statusline+=%0*\ \|\ 	" Vert-line and space
+set statusline+=%0*%3.p%%	" Percentage through file - min size 3
+set statusline+=%0*\ \|\ 	" Vert-line and Space
+set statusline+=%0*%8.(%4.l:%-3.c%)	" Line and column number in group
+set statusline+=%0*\ 		" Space
+" }}}
+   
 " }}}
 
 " Folding {{{
@@ -174,7 +228,7 @@ function! MarkdownLevel()
         return ">1"
     endif
     if getline(v:lnum) =~ '^## .*$'
-        return ">2"
+        return ">2" 
     endif
     if getline(v:lnum) =~ '^### .*$'
         return ">3"
