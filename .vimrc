@@ -1,4 +1,5 @@
 " A full .vimrc for use within normal vim on macos
+"
 
 " Set folding to markers for .vimrc only 
 " vim: foldmethod=marker
@@ -19,7 +20,7 @@ Plugin 'scrooloose/nerdtree'	" File browsing
 Plugin 'Xuyuanp/nerdtree-git-plugin'	" Git status flags for NERDTree
 Plugin 'plasticboy/vim-markdown'	" Better markdown syntax highlighting, indenting etc.
 " Plugin 'itchyny/lightline.vim'	" Status bar - Not needed due to own
-Plugin 'itchyny/vim-gitbranch'	" Git branch in lightline
+" Plugin 'itchyny/vim-gitbranch'	" Git branch in lightline
 Plugin 'kien/ctrlp.vim'		" Fuzzy file finder
 Plugin 'pangloss/vim-javascript'	" Javascript syntax highlighting
 Plugin 'junegunn/goyo.vim'	" Toggle minimal writing environment
@@ -30,7 +31,7 @@ Plugin 'itchyny/calendar.vim'	" Interact with google calendar using vim
 Plugin 'lervag/vimtex'		" LaTeX editing in vim
 Plugin 'ledger/vim-ledger'	" Edit ledger journals in vim
 Plugin 'tpope/vim-commentary'	" Comment out lines with a keymapping
-Plugin 'junegunn/vim-easy-align'
+Plugin 'junegunn/vim-easy-align'	" For aligning markdown tables visually
 Plugin 'thiagoalessio/rainbow_levels.vim'	" Highlight with indenting
 
 call vundle#end()		" required
@@ -156,7 +157,7 @@ let g:currentmode={
     \ 'n'  : 'Normal',
     \ 'no' : 'N·Operator Pending',
     \ 'v'  : 'Visual',
-    \ 'V'  : 'V·Line',   
+    \ 'V'  : 'V·Line',
     \ '^V' : 'V·Block',
     \ 's'  : 'Select',
     \ 'S'  : 'S·Line',
@@ -174,35 +175,49 @@ let g:currentmode={
     \ 't'  : 'Terminal'
     \}
 
-" Change statusline based on mode 
+" Change statusline colour based on mode 
 function! ChangeStatuslineColor()
   if (mode() ==# 'i')
-    exe 'hi StatusLine ctermfg=032 ctermbg=black'
-    exe 'hi User1 ctermfg=black ctermbg=032'
-  else
-    exe 'hi StatusLine ctermfg=black ctermbg=015'
-    exe 'hi User1 ctermfg=015 ctermbg=black'
+    exe 'hi StatusLine ctermbg=black ctermfg=032'
+  elseif (mode() =~# '\v(v|V)')
+    exe 'hi StatusLine ctermbg=black ctermfg=172'
+  else    
+    exe 'hi Statusline ctermbg=white ctermfg=black'
   endif
   return ''
 endfunction
 
+" Get git branch in statusline
+function CurrentGitBranch()
+    let gitoutput = system('git status -b '.shellescape(expand('%')).' | head -1 | grep -oE "[^ ]+$" | tr -d "[:cntrl:]"') 
+    if gitoutput =~ "invalid"
+        let b:gitstatus = ''
+    else
+        let b:gitstatus = gitoutput 
+    endif
+endfunc
+
+autocmd BufEnter,BufWritePost * call CurrentGitBranch()
+
 " Statusline
 " left side
 set statusline=%{ChangeStatuslineColor()}	" Change colour
-set statusline+=%0*\ %-8.{toupper(g:currentmode[mode()])} 	" Current mode
-set statusline+=%0*\ \|\  	" Vert-line and space   
-set statusline+=%0*%t	" File name
-set statusline+=%1*%=	" Switch to right side
+set statusline+=\ %-8.{toupper(g:currentmode[mode()])} 	" Current mode
+set statusline+=\ \|\  	" Vert-line and space   
+set statusline+=%t	" File name
+set statusline+=\ \|\  	" Vert-line and space   
+set statusline+=%{b:gitstatus}		" git branch
+set statusline+=%=	" Switch to right side
 
 " right side
-set statusline+=%0*%m%r " Modified and read only flags
-set statusline+=%0*\ 		"Space
-set statusline+=%0*%y	" File type
-set statusline+=%0*\ \|\ 	" Vert-line and space
-set statusline+=%0*%3.p%%	" Percentage through file - min size 3
-set statusline+=%0*\ \|\ 	" Vert-line and Space
-set statusline+=%0*%8.(%4.l:%-3.c%)	" Line and column number in group
-set statusline+=%0*\ 		" Space
+set statusline+=%m%r " Modified and read only flags
+set statusline+=\ 		"Space
+set statusline+=%y	" File type
+set statusline+=\ \|\ 	" Space, Vert-line and space
+set statusline+=%3.p%%	" Percentage through file - min size 3
+set statusline+=\ \|\ 	" Vert-line and Space
+set statusline+=%8.(%4.l:%-3.c%)	" Line and column number in group
+set statusline+=\ 		" Space
 " }}}
    
 " }}}
@@ -378,4 +393,3 @@ set smartcase
 
 " }}}
 
-"
