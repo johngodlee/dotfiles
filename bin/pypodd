@@ -91,29 +91,31 @@ input_epi_1 = int(input_epi_1)
 # Select an episode to download - menu 2
 count_epi_2 = 1
 
-if input_epi_1 == 1:
-    print ("\nDownloading most recent episode")
-    dlExt = ".mp3"
-    dlName = nameList[0]
-    dlFile = destDir + dlName + dlExt
-    dlURL = linkList[0]
+while True:
+    if input_epi_1 == 1:
+        print ("\nDownloading most recent episode")
+        dlExt = ".mp3"
+        dlName = nameList[0]
+        dlFile = destDir + dlName + dlExt
+        dlURL = linkList[0]
 
-    dlProg().get(dlURL, dlFile)
-    print("\nFinished Downloading. Exiting...")
-elif input_epi_1 == 2:
-    for i in nameList:
-        print(str(count_epi_2) + ") " + i)
-        count_epi_2 +=1
-    input_epi_2 = input("\nChoose an episode to download: ")
-    input_epi_2 = int(input_epi_2) - 1	
+        dlProg().get(dlURL, dlFile)
+        print("\nFinished Downloading. Exiting...")
+        break
+    if input_epi_1 == 2:
+        for i in nameList:
+            print(str(count_epi_2) + ") " + i)
+            count_epi_2 +=1
+        input_epi_2 = input("\nChoose an episode to download: ")
+        input_epi_2 = int(input_epi_2) - 1	
 
-    dlExt = ".mp3"
-    dlName = nameList[input_epi_2]
-    dlFile = destDir + dlName + dlExt
-    dlURL = linkList[input_epi_2]
+        dlExt = ".mp3"
+        dlName = nameList[input_epi_2]
+        dlFile = destDir + dlName + dlExt
+        dlURL = linkList[input_epi_2]
 
-    dlProg().get(dlURL, dlFile)
-    print("\nFinished Downloading. Exiting...")
-else:
-    print ("Invalid choice, Exiting...")
+        dlProg().get(dlURL, dlFile)
+        print("\nFinished Downloading. Exiting...")
+        break
+    print ("Invalid choice, try again")
 

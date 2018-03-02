@@ -44,8 +44,8 @@ cd ~
 alias ls='ls -G -A -F'
 alias ll='ls -lG -A -F'
 
-# Alias cmus to listen for remotes on network
-alias cmus='cmus --listen 0.0.0.0'
+# Alias cmus to listen for remotes on network - deactivated, interferes with cmus-control
+# alias cmus='cmus --listen 0.0.0.0'
 
 # Always start vim in client server mode
 # alias vim='vim --servername VIM'
@@ -68,4 +68,7 @@ export EDITOR=vim
 
 # Use vim as man pager
 # export MANPAGER="env MAN_PN=1 vim -M +MANPAGER -"
+
+export PYTHON_CONFIGURE_OPTS="--enable-framework"
+
 
