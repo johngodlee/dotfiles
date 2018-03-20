@@ -108,3 +108,6 @@ set laststatus=2
 
 " Set colours for statusline middle section
 hi User1 ctermfg=255 ctermbg=240
+
+" Ragged right line breaks
+set linebreak

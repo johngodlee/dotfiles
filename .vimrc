@@ -147,6 +147,9 @@ hi Normal ctermbg=none
 " Inherit iterm2 colour scheme
 set t_Co=16
 
+" Ragged right line break
+set linebreak
+
 " Statusline {{{
 
 " statusline always showing, even when NERDTree is hidden
