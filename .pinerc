@@ -74,7 +74,8 @@ signature-file=
 feature-list=enable-alternate-editor-implicitly,
 	single-column-folder-list,
 	show-sort,
-	prefer-plain-text
+	prefer-plain-text,
+	enable-full-header-and-text
 
 # Alpine executes these keys upon startup (e.g. to view msg 13: i,j,1,3,CR,v)
 initial-keystroke-list=
