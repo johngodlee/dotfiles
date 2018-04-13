@@ -7,7 +7,7 @@
 	editor = vim
 	pager = less 
 	excludesfile = /Users/johngodlee/.gitignore_global
-[diff]
+[difftool]
 	external = git_diff_wrapper 
 [pager]
 	diff = 
@@ -16,8 +16,9 @@
 	template = ~/.gitmessage
 [merge]
 	tool = vimdiff
+	conflictstyle = diff3
 [alias]
-  network = log --graph --decorate --pretty=oneline --abbrev-commit --all
+	network = log --graph --decorate --pretty=oneline --abbrev-commit --all
 [http]
 	postBuffer = 524288000
 [difftool "sourcetree"]
@@ -26,3 +27,8 @@
 [mergetool "sourcetree"]
 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
