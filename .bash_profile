@@ -59,6 +59,8 @@ alias w3m_h='w3m www.duckduckgo.com'
 # Open mutt in Downloads to save attachments there
 alias mutt='cd ~/Downloads; mutt'
 
+# Use pirate-get with aria2c
+torrent() { pirate-get "$1" -C "aria2c '%s'" ; }  
 
 # Use gpg key as default
 export GPGKEY=E79A8F461D9BC674 
@@ -70,5 +72,3 @@ export EDITOR=vim
 # export MANPAGER="env MAN_PN=1 vim -M +MANPAGER -"
 
 export PYTHON_CONFIGURE_OPTS="--enable-framework"
-
-
