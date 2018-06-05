@@ -133,7 +133,7 @@ syntax on
 set fillchars+=vert:\ 
 
 " Make end of file `~` the same colour as background
-highlight EndOfBuffer ctermfg=black ctermbg=black
+highlight EndOfBuffer ctermfg=none ctermbg=none
 
 " enable line numbers
 set number
