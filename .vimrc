@@ -337,6 +337,10 @@ let NERDTreeHijackNetrw=1
 
 let NERDTreeMinimalUI=1
 
+
+let NERDTreeWinSize=40
+
+
 " }}}
 
 " Lightline {{{ 
