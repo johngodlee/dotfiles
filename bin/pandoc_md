@@ -5,4 +5,4 @@ ls
 read -p 'md file name: ' md_name
 read -p 'pdf file name: ' pdf_name
 
-pandoc -f markdown -t latex --latex-engine=xelatex $md_name --template=md_notes.latex -o $pdf_name
+pandoc -f markdown -t latex --latex-engine=xelatex $md_name -o $pdf_name
