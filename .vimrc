@@ -101,6 +101,9 @@ inoremap <Leader>o <C-x><C-o>
 " Align markdown tables only in markdown documents using \\
 au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
 
+" Make terminal source .bash_profile when opening 
+nnoremap <Leader>t :terminal<CR>source $HOME/.bash_profile<CR>
+
 " }}}
 
 " General Settings {{{
