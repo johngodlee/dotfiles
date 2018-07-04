@@ -373,7 +373,7 @@ address-book=
 global-address-book=
 
 # Set by Alpine; controls beginning-of-month sent-mail pruning.
-last-time-prune-questioned=118.6
+last-time-prune-questioned=118.7
 
 # Set by Alpine; controls display of "new version" message.
 last-version-used=6.21
@@ -502,7 +502,7 @@ patterns-other=
 patterns-search=
 
 # Controls display of color
-color-style=force-ansi-16color
+color-style=no-color
 
 # Controls display of color for current index line
 current-indexline-style=flip-colors
