@@ -25,7 +25,6 @@ Plugin 'kien/ctrlp.vim'		" Fuzzy file finder
 Plugin 'pangloss/vim-javascript'	" Javascript syntax highlighting
 Plugin 'junegunn/goyo.vim'	" Toggle minimal writing environment
 Plugin 'kshenoy/vim-signature'	" Mark locations in gutter
-Plugin 'Valloric/MatchTagAlways'	" Highlight opposite html tag
 Plugin 'christoomey/vim-tmux-navigator'	" Easy navigation of tmux and vim splits
 Plugin 'itchyny/calendar.vim'	" Interact with google calendar using vim
 Plugin 'lervag/vimtex'		" LaTeX editing in vim
