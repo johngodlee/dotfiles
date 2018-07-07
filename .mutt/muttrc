@@ -1,0 +1,129 @@
+# Source colours config
+source ~/.mutt/mutt_colours
+# IMAP setup ----
+set imap_user = "johngodlee@gmail.com"
+
+## Call pass from within 
+set my_pass = "`pass email/johngodlee@gmail.com`" 
+set imap_pass = $my_pass
+
+set from = "johngodlee@gmail.com"
+set realname = "John Godlee"
+
+set folder = imaps://imap.gmail.com/
+set spoolfile = +INBOX
+set postponed = +"[Google Mail]/Drafts"
+set record = +"[Google Mail]/Sent Mail"
+
+## Don't automatically move messages after reading
+set move = no
+
+## Max time mutt should wait before polling IMAP connections, in minutes
+set imap_keepalive = 30  
+
+## Set smtp URL for replying 
+set smtp_url = "smtp://johngodlee@smtp.gmail.com:587/"
+
+## Set the login method for smtp replying
+set smtp_authenticators = 'login'
+
+## Allow mutt to open new imap connections to test for new mail 
+unset imap_passive
+
+## Set cache locations so IMAP polling is quicker on startup
+set header_cache = ~/.mutt/johngodlee/headers
+set message_cachedir = ~/.mutt/johngodlee/bodies
+set certificate_file = ~/.mutt/certificates
+
+## If stuck in a prompt, abort after n minutes to check IMAP (timeout), n minutes between checks (mail_check)
+set timeout = 10
+set mail_check = 5
+
+# Pager View Options ----
+set pager_index_lines = 3  # number of index lines to show
+set pager_context = 3      # number of context lines to show
+set pager_stop             # don't go to next message automatically
+set menu_scroll            # scroll in menus
+set tilde                  # show tildes like in vim
+unset markers              # no ugly plus signs
+
+# Sidebar ----
+## Mailboxes to display in sidebar and check regularly
+mailboxes +INBOX +'[Google Mail]/Starred' +'[Google Mail]/Bin' +'[Google Mail]/Drafts' +'[Google Mail]/Sent Mail'  +'[Google Mail]/Archived' +'Coding_Club' +'Diss_manuscript' +'Personal' +'PhD' +'SEOSAW_contacts' +'SEOSAW_logos' +'STEB_2018' +'Urgent' +'hemi_lens_proposal' +kew_taxonomy_course +'angola_botanic_garden'
+
+## Sort sidebar folders alphabetically
+set sidebar_sort_method = name
+
+## Sidebar visible by default
+set sidebar_visible = yes
+
+## Don't abbreviate folders in sidebar
+set sidebar_short_path = no
+
+# Status bar ----
+set status_chars  = " *%A"
+set status_format = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───"
+
+# Edit with vim
+set editor =  'vim -u ~/.vimrc_alpine'
+
+# Always include original message in reply and always reply to sender
+set include = yes
+set fast_reply
+
+# Ask if unsent message should be kept as postponed
+set postpone = ask-yes
+
+# Read in plain text if possible
+alternative_order text/plain text/html
+auto_view text/html
+set mailcap_path = ~/.mailcap
+
+# Enforce encoding in utf8
+set send_charset="utf-8"
+
+# Forwarding subject line format
+set forward_format = "Fwd: %s"
+
+# Smart word wrap
+set smart_wrap
+
+
+# Keymappings ----
+bind generic,pager,editor,index <Up>       noop
+bind generic,pager,editor,index <Down>     noop
+bind generic,pager,editor,index <Left>     noop
+bind generic,pager,editor,index <Right>    noop
+
+bind  index,pager c  mail                      # compose
+bind  generic     x  tag-entry                 # Select Conversation
+bind  index       x  tag-thread                # Select Conversation
+bind  pager       x  tag-message               # Select Conversation
+bind  index,pager *  flag-message              # Star a message 
+bind  index,pager a  group-reply               # Reply all
+bind  index,pager \# delete-thread             # Delete
+bind  index,pager l  copy-message              # Label
+bind  index,pager v  save-message              # Move to
+
+bind  index,pager B  sidebar-toggle-visible
+bind  index,pager >  sidebar-next
+bind  index,pager <  sidebar-prev
+bind  index,pager ?  sidebar-open
+
+bind  index  G  last-entry
+
+bind  index  j  next-entry
+bind  index  k  previous-entry
+bind  pager  k  previous-line
+bind  pager  j  next-line
+bind  pager  J  next-entry
+bind  pager  K  previous-entry 
+
+bind browser + check-new
+bind index   + imap-fetch-mail
+
+bind editor <space> noop
+bind index,pager g noop
+macro index,pager gi "<change-folder>=INBOX<enter>" "Go to inbox"
+macro index gs "<change-folder>=[Google Mail]/Starred<enter>" "Go to starred messages"
+macro index gd "<change-folder>=[Google Mail]/Drafts<enter>" "Go to drafts"
