@@ -10,10 +10,10 @@ set imap_pass = $my_pass
 set from = "johngodlee@gmail.com"
 set realname = "John Godlee"
 
-set folder = imaps://imap.gmail.com/
+set folder = ~/.mail
 set spoolfile = +INBOX
-set postponed = +"[Google Mail]/Drafts"
-set record = +"[Google Mail]/Sent Mail"
+set postponed = +"drafts""
+set record = +"sent""
 
 ## Don't automatically move messages after reading
 set move = no
@@ -25,7 +25,7 @@ set imap_keepalive = 30
 set smtp_url = "smtp://johngodlee@smtp.gmail.com:587/"
 
 ## Set the login method for smtp replying
-set smtp_authenticators = 'login'
+set smtp_pass = $my_pass
 
 ## Allow mutt to open new imap connections to test for new mail 
 unset imap_passive
@@ -48,8 +48,8 @@ set tilde                  # show tildes like in vim
 unset markers              # no ugly plus signs
 
 # Sidebar ----
-## Mailboxes to display in sidebar and check regularly
-mailboxes +INBOX +'[Google Mail]/Starred' +'[Google Mail]/Bin' +'[Google Mail]/Drafts' +'[Google Mail]/Sent Mail'  +'[Google Mail]/Archived' +'Coding_Club' +'Diss_manuscript' +'Personal' +'PhD' +'SEOSAW_contacts' +'SEOSAW_logos' +'STEB_2018' +'Urgent' +'hemi_lens_proposal' +kew_taxonomy_course +'angola_botanic_garden'
+## Mailboxes to display in sidebar and check regularly 
+mailboxes +INBOX +'starred' +'trash' +'drafts' +'sent' +'all_mail' +'Archived' +'coding_club' +'diss_manuscript' +'personal' +'PhD' +'SEOSAW_contacts' +'SEOSAW_logos' +'STEB_2018' +'urgent' +'hemi_lens_proposal' +kew_taxonomy_course +'angola_botanic_garden'
 
 ## Sort sidebar folders alphabetically
 set sidebar_sort_method = name
