@@ -1,7 +1,0 @@
-# Sourced by .mutt/muttrc
-
-# Use the background colour of the terminal for mutt background
-color index default default ~P
-
-# Colour folders with new mail yellow
-color sidebar_new yellow default

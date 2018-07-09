@@ -1,6 +1,7 @@
-# Source colours config
-source ~/.mutt/mutt_colours
-# IMAP setup ----
+# Set folding to markers for .vimrc only 
+# vim: foldmethod=marker
+
+# IMAP {{{
 set imap_user = "johngodlee@gmail.com"
 
 ## Call pass from within 
@@ -10,10 +11,10 @@ set imap_pass = $my_pass
 set from = "johngodlee@gmail.com"
 set realname = "John Godlee"
 
-set folder = ~/.mail
+set folder = "~/.mail/johngodlee@gmail.com"
 set spoolfile = +INBOX
-set postponed = +"drafts""
-set record = +"sent""
+set postponed = +drafts
+set record = +sent
 
 ## Don't automatically move messages after reading
 set move = no
@@ -26,7 +27,7 @@ set smtp_url = "smtp://johngodlee@smtp.gmail.com:587/"
 
 ## Set the login method for smtp replying
 set smtp_pass = $my_pass
-
+set smtp_authenticators = 'login'
 ## Allow mutt to open new imap connections to test for new mail 
 unset imap_passive
 
@@ -39,17 +40,21 @@ set certificate_file = ~/.mutt/certificates
 set timeout = 10
 set mail_check = 5
 
-# Pager View Options ----
-set pager_index_lines = 3  # number of index lines to show
+# }}}
+
+# Pager View Options {{{
+set pager_index_lines = 0  # number of index lines to show
 set pager_context = 3      # number of context lines to show
 set pager_stop             # don't go to next message automatically
 set menu_scroll            # scroll in menus
 set tilde                  # show tildes like in vim
 unset markers              # no ugly plus signs
 
-# Sidebar ----
+# }}}
+
+# Sidebar {{{
 ## Mailboxes to display in sidebar and check regularly 
-mailboxes +INBOX +'starred' +'trash' +'drafts' +'sent' +'all_mail' +'Archived' +'coding_club' +'diss_manuscript' +'personal' +'PhD' +'SEOSAW_contacts' +'SEOSAW_logos' +'STEB_2018' +'urgent' +'hemi_lens_proposal' +kew_taxonomy_course +'angola_botanic_garden'
+mailboxes +INBOX +'starred' +'trash' +'drafts' +'sent' +'Archived' +'coding_club' +'diss_manuscript' +'personal' +'PhD' +'SEOSAW_contacts' +'SEOSAW_logos' +'STEB_2018' +'urgent' +'hemi_lens_proposal' +kew_taxonomy_course +'angola_botanic_garden'
 
 ## Sort sidebar folders alphabetically
 set sidebar_sort_method = name
@@ -60,10 +65,30 @@ set sidebar_visible = yes
 ## Don't abbreviate folders in sidebar
 set sidebar_short_path = no
 
-# Status bar ----
+# }}}
+
+# Statusbar {{{
 set status_chars  = " *%A"
 set status_format = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───"
 
+# }}}
+
+# Index format {{{
+
+set date_format = "%Y_%m_%d"
+set index_format="%XAtt - %Z [%d] %-28.28F -- %s"
+
+# }}}
+
+# Address book {{{
+set alias_file = "~/.mutt/aliases"
+set sort_alias = alias
+set reverse_alias = yes
+source $alias_file
+
+# }}}
+
+# General settings {{{
 # Edit with vim
 set editor =  'vim -u ~/.vimrc_alpine'
 
@@ -77,7 +102,7 @@ set postpone = ask-yes
 # Read in plain text if possible
 alternative_order text/plain text/html
 auto_view text/html
-set mailcap_path = ~/.mutt/mailcap
+set mailcap_path = ~/.mailcap
 
 # Enforce encoding in utf8
 set send_charset="utf-8"
@@ -88,13 +113,9 @@ set forward_format = "Fwd: %s"
 # Smart word wrap
 set smart_wrap
 
-# Address book setttings ----
-set alias_file = "~/.mutt/aliases"
-set sort_alias = alias
-set reverse_alias = yes
-source $alias_file
+# }}}
 
-# Keymappings ----
+# Keymappings {{{ 
 
 ## Disable arrow keys
 bind generic,pager,editor,index <Up>       noop
@@ -102,6 +123,7 @@ bind generic,pager,editor,index <Down>     noop
 bind generic,pager,editor,index <Left>     noop
 bind generic,pager,editor,index <Right>    noop
 
+## Tagging and manipulating basics
 bind  index,pager c  mail                      # compose
 bind  generic     x  tag-entry                 # Select Conversation
 bind  index       x  tag-thread                # Select Conversation
@@ -110,15 +132,16 @@ bind  index,pager *  flag-message              # Star a message
 bind  index,pager a  group-reply               # Reply all
 bind  index,pager \# delete-thread             # Delete
 bind  index,pager l  copy-message              # Label
-bind  index,pager v  save-message              # Move to
+bind  index       v  save-message              # Move to
 
+## Sidebar interaction
 bind  index,pager B  sidebar-toggle-visible
 bind  index,pager >  sidebar-next
 bind  index,pager <  sidebar-prev
 bind  index,pager ?  sidebar-open
 
+## Movement 
 bind  index  G  last-entry
-
 bind  index  j  next-entry
 bind  index  k  previous-entry
 bind  pager  k  previous-line
@@ -126,14 +149,34 @@ bind  pager  j  next-line
 bind  pager  J  next-entry
 bind  pager  K  previous-entry 
 bind  pager  i  exit
+bind  pager  v  view-attachments
 
-bind  index,pager h help
 
-bind browser + check-new
-bind index   + imap-fetch-mail
-
+## Fast movement
 bind editor <space> noop
 bind  index,pager g noop
 macro index,pager gi "<change-folder>=INBOX<enter>" "Go to inbox"
 macro index gs "<change-folder>=[Google Mail]/Starred<enter>" "Go to starred messages"
 macro index gd "<change-folder>=[Google Mail]/Drafts<enter>" "Go to drafts"
+
+bind  index,pager h  help
+
+# }}}
+
+# Colours {{{
+
+# Use the background colour of the terminal for mutt background
+color index default default ~P
+
+# Colour folders with new mail yellow
+color sidebar_new yellow default
+
+# }}}
+
+# notmuch {{{
+
+set virtual_spoolfile = yes   
+set nm_default_uri = "notmuch:///Users/johngodlee/.mail/johngodlee@gmail.com"
+macro index,pager \\  "<vfolder-from-query>"  
+
+# }}}
