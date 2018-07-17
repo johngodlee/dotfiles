@@ -56,8 +56,12 @@ alias sed=gsed
 # Alias to open w3m with duckduckgo.com
 alias w3m_h='w3m www.duckduckgo.com'
 
-# Open mutt in Downloads to save attachments there
-alias mutt='cd ~/Downloads; mutt'
+# Open (neo)mutt in Downloads to save attachments there
+alias mutt='cd ~/Downloads; neomutt'
+alias neomutt='cd ~/Downloads; neomutt'
+
+# Open (neo)mutt right after an offlineimap run and new notmuch build
+
 
 # Use pirate-get with aria2c
 torrent() { pirate-get "$1" -C "aria2c '%s'" ; }  
@@ -76,7 +80,7 @@ export EDITOR=vim
 ## Define path to bookmarks file
 export MARKPATH=$HOME/.marks
 
-## Jumtp to a mark
+## Jump to a mark
 function jump { 
 	cd -P "$MARKPATH/$1" 2>/dev/null || echo "No such mark: $1"
 }
