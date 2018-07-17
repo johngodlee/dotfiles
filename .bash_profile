@@ -56,12 +56,10 @@ alias sed=gsed
 # Alias to open w3m with duckduckgo.com
 alias w3m_h='w3m www.duckduckgo.com'
 
-# Open (neo)mutt in Downloads to save attachments there
-alias mutt='cd ~/Downloads; neomutt'
-alias neomutt='cd ~/Downloads; neomutt'
+# Open (neo)mutt in Downloads to save attachments there, and always run offlineimap and notmuch build before opening
+alias mutt='cd ~/Downloads; offlineimap -o -u Noninteractive.Quiet; notmuch new; neomutt'
 
-# Open (neo)mutt right after an offlineimap run and new notmuch build
-
+alias neomutt='cd ~/Downloads; offlineimap -o -u Noninteractive.Quiet; notmuch new; neomutt'
 
 # Use pirate-get with aria2c
 torrent() { pirate-get "$1" -C "aria2c '%s'" ; }  
