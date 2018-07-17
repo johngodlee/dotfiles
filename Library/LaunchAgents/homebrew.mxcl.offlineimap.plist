@@ -15,7 +15,7 @@
     <array>
       <string>/usr/local/opt/offlineimap/bin/offlineimap</string>
       <string>-u</string>
-      <string>Noninteractive.Quiet</string>
+      <string>quiet</string>
       <string>;</string>
       <string>notmuch</string>
       <string>new</string>

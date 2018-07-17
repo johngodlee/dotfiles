@@ -57,9 +57,9 @@ alias sed=gsed
 alias w3m_h='w3m www.duckduckgo.com'
 
 # Open (neo)mutt in Downloads to save attachments there, and always run offlineimap and notmuch build before opening
-alias mutt='cd ~/Downloads; offlineimap -o -u Noninteractive.Quiet; notmuch new; neomutt'
+alias mutt='cd ~/Downloads; offlineimap -o -u quiet; notmuch new; neomutt'
 
-alias neomutt='cd ~/Downloads; offlineimap -o -u Noninteractive.Quiet; notmuch new; neomutt'
+alias neomutt='cd ~/Downloads; offlineimap -o -u quiet; notmuch new; neomutt'
 
 # Use pirate-get with aria2c
 torrent() { pirate-get "$1" -C "aria2c '%s'" ; }  
