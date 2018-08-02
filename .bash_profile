@@ -50,6 +50,10 @@ alias ll='ls -lG -A -F'
 # Always start vim in client server mode
 # alias vim='vim --servername VIM'
 
+# Set an alias for viewing pdf content in less
+function lesspdf { pdftotext -layout "$1" - | less; }
+#export -f lesspdf
+
 # Use gnu-sed instead of osx sed
 alias sed=gsed
 
