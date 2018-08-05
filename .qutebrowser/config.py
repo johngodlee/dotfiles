@@ -98,6 +98,17 @@ c.scrolling.smooth = True
 # Type: Padding
 c.statusbar.padding = {'bottom': 5, 'left': 5, 'right': 5, 'top': 5}
 
+# Widgets in statusbar
+c.statusbar.widgets = ["keypress", "url", "scroll", "history", "tabs", "progress"]
+
+# Position of the status bar.
+# Type: VerticalPosition
+# Valid values:
+#   - top
+#   - bottom
+c.statusbar.position = 'bottom'
+
+
 # Position of the status bar.
 # Type: VerticalPosition
 # Valid values:
@@ -155,6 +166,8 @@ c.tabs.title.alignment = 'center'
 # `{protocol}`: Protocol (http/https/...) of the current web page.
 # Type: FormatString
 c.tabs.title.format = '{index}: {title} - {host}'
+
+c.tabs.indicator.width = 3
 
 # Padding (in pixels) for tab indicators.
 # Type: Padding
@@ -402,6 +415,8 @@ config.bind('gt', 'tab-next')
 config.bind('q', None)
 config.bind('qq', 'quit')
 config.bind('<Meta-R>', 'reload')
+config.bind('l', 'forward')
+config.bind('h', 'back')
 
 # Definitions of search engines which can be used via the address bar.
 # Maps a searchengine name (such as `DEFAULT`, or `ddg`) to a URL with a
