@@ -417,6 +417,7 @@ config.bind('qq', 'quit')
 config.bind('<Meta-R>', 'reload')
 config.bind('l', 'forward')
 config.bind('h', 'back')
+config.bind('z', 'spawn --userscript readability')
 
 # Definitions of search engines which can be used via the address bar.
 # Maps a searchengine name (such as `DEFAULT`, or `ddg`) to a URL with a

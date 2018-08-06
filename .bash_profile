@@ -63,7 +63,6 @@ alias neomutt='cd ~/Downloads; offlineimap -o -u quiet; notmuch new; neomutt'
 
 alias vlc="/Applications/VLC.app/Contents/MacOS/VLC -I ncurses"
 
-
 # Use pirate-get with aria2c to download torrents
 torrent() { pirate-get "$1" -C "aria2c '%s'" ; }  
 
