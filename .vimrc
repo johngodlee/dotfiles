@@ -390,6 +390,14 @@ let g:goyo_width = 180
 
 " }}}
 
+" Python indentation markers settings {{{
+autocmd Filetype python :IndentGuidesEnable
+set ts=4 sw=4 et
+let g:indent_guides_start_level = 1
+let g:indent_guides_guide_size = 2
+
+" }}}  
+
 " Stop creating swp and ~ files
 set nobackup
 set noswapfile
