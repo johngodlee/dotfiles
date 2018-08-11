@@ -12,7 +12,7 @@ from termcolor import colored
 
 # Define system location variables
 destDir = os.environ['HOME'] + os.sep + "Downloads" + os.sep  # Note trailing `os.sep`
-subsLoc = "subscriptions.csv" 
+subsLoc = ".subscriptions.csv" 
 # e.g. subsLoc = os.environ['HOME'] + os.sep + "subscriptions.csv"
 
 # Define progress bar class for urllib.urlretrieve()
