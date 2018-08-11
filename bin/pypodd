@@ -12,7 +12,7 @@ from termcolor import colored
 
 # Define system location variables
 destDir = os.environ['HOME'] + os.sep + "Downloads" + os.sep  # Note trailing `os.sep`
-subsLoc = os.environ['HOME'] + os.sep + ".subscriptions.csv" 
+subsLoc = "subscriptions.csv" 
 # e.g. subsLoc = os.environ['HOME'] + os.sep + "subscriptions.csv"
 
 # Define progress bar class for urllib.urlretrieve()
@@ -52,10 +52,10 @@ else:
 
 
 # Select a podcast to download, from list of subscriptions
-count_subs = 1
 input_exit = 1
 
 while input_exit != 2:  # Terminate program if input_exit == 2
+    count_subs = 1
     count_opt = 1
     optListAllNo = ['All most recent episodes', 'Specific episode']  # A list of options
     for i in optListAllNo:
