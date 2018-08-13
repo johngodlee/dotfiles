@@ -21,7 +21,7 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'	" Git status flags for NERDTree
 Plugin 'plasticboy/vim-markdown'	" Better markdown syntax highlighting, indenting etc.
 " Plugin 'itchyny/lightline.vim'	" Status bar - Not needed due to own
 " Plugin 'itchyny/vim-gitbranch'	" Git branch in lightline
-Plugin 'kien/ctrlp.vim'		" Fuzzy file finder
+" Plugin 'kien/ctrlp.vim'		" Fuzzy file finder - using fzf
 Plugin 'pangloss/vim-javascript'	" Javascript syntax highlighting
 Plugin 'junegunn/goyo.vim'	" Toggle minimal writing environment
 Plugin 'kshenoy/vim-signature'	" Mark locations in gutter
@@ -33,6 +33,8 @@ Plugin 'tpope/vim-commentary'	" Comment out lines with a keymapping
 Plugin 'junegunn/vim-easy-align'	" For aligning markdown tables visually
 Plugin 'thiagoalessio/rainbow_levels.vim'	" Highlight with indenting
 Plugin 'nathanaelkane/vim-indent-guides'	" Indent guides
+Plugin 'junegunn/fzf'           " Fuzzy file finder
+Plugin 'junegunn/fzf.vim'       " Fuzzy file finder
 
 call vundle#end()		" required
 filetype plugin indent on	" required
@@ -103,6 +105,12 @@ au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
 
 " Make terminal source .bash_profile when opening 
 nnoremap <Leader>t :terminal<CR>source $HOME/.bash_profile<CR>
+
+" Use fzf to search open buffers
+nnoremap <Leader>b :Buffers<CR>
+
+" Use fzf to search files
+nnoremap <Leader>o :Files<CR>
 
 " }}}
 
@@ -309,7 +317,7 @@ set comments=b:>
 " NERDTree {{{ 
 
 " Start vim with NERDtree open 
-au VimEnter *  NERDTree
+" au VimEnter *  NERDTree
 
 " Hide NERDTree bookmarks by default
 let NERDTreeShowBookmarks=0
@@ -397,6 +405,7 @@ let g:indent_guides_start_level = 1
 let g:indent_guides_guide_size = 2
 
 " }}}  
+
 
 " Stop creating swp and ~ files
 set nobackup
