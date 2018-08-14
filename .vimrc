@@ -126,6 +126,8 @@ set nostartofline
 
 " Preserve indentation on wrapped lines
 set breakindent
+set autoindent
+set noexpandtab
 
 " Normal backspace behaviour on OSX
 set backspace=2
