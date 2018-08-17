@@ -95,7 +95,7 @@ nnoremap <Leader>e :e<space>.<CR>
 nnoremap <Leader>s :set spell!<CR>
 
 " Align ledger journal
-autocmd FileType ledger nnoremap <Leader>a :LedgerAlign<CR>
+autocmd FileType ledger nnoremap <Leader>a :%LedgerAlign<CR>
 
 " Better omnicompletion mapping
 inoremap <Leader>o <C-x><C-o>
