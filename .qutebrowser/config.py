@@ -369,7 +369,7 @@ c.colors.tabs.selected.even.bg = 'darkgrey'
 # Background color for webpages if unset (or empty to use the theme's
 # color).
 # Type: QtColor
-c.colors.webpage.bg = 'white'
+c.colors.webpage.bg = '#ffffff'
 
 # Default monospace fonts. Whenever "monospace" is used in a font
 # setting, it's replaced with the fonts listed here.

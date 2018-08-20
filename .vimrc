@@ -192,10 +192,18 @@ let g:currentmode={
     \}
 
 " Change statusline colour based on mode 
+
+function! ModeCurrent() abort
+    let l:modecurrent = mode()
+    let l:modelist = toupper(get(g:currentmode, l:modecurrent, 'V·Block'))
+    let l:current_status_mode = l:modelist
+    return l:current_status_mode
+endfunction
+
 function! ChangeStatuslineColor()
   if (mode() ==# 'i')
     exe 'hi StatusLine ctermbg=black ctermfg=032'
-  elseif (mode() =~# '\v(v|V)')
+  elseif (mode() =~# '\v(v|V)' ||  ModeCurrent() == 'V·Block')
     exe 'hi StatusLine ctermbg=black ctermfg=172'
   else    
     exe 'hi Statusline ctermbg=white ctermfg=black'
@@ -218,7 +226,7 @@ autocmd BufEnter,BufWritePost * call CurrentGitBranch()
 " Statusline
 " left side
 set statusline=%{ChangeStatuslineColor()}	" Change colour
-set statusline+=\ %-8.{toupper(g:currentmode[mode()])} 	" Current mode
+set statusline+=\ %-8.{ModeCurrent()} 	" Current mode
 set statusline+=\ \|\  	" Vert-line and space   
 set statusline+=%t	" File name
 set statusline+=\ \|\  	" Vert-line and space   
