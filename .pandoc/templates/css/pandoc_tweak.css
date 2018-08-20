@@ -1,12 +1,11 @@
 <style type="text/css">
-html {
-}
+
 body {
+    max-width: 90%;
+    overflow-x: hidden;
     margin: auto;
     border-left: none;
     border-right: none;
-    max-width: 90%;
-    overflow-x: hidden;
     color: black;
     font-family: "Hoefler Text", Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
     font-size: 100%;
