@@ -1,0 +1,16 @@
+#!/bin/bash
+
+read -p "Input .csv: " csv
+
+read -p "Output file: " output
+
+touch $output
+
+sed -i "" '/^[[:space:]]*$/d' $csv
+
+sed -i "" '/\d{4}\s\d{2}\D{3}\d{2}(\sC\s)?\s?,\s/g' $csv
+
+sed -i "" '1s/.*/date,,payee,amount,,,/' $csv
+
+ledger convert $csv --input-date-format "%d/%m/%Y" --account assets:bank:student_acc --invert --rich-data -f ~/.ledger.journal > $output
+

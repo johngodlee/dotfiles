@@ -1,0 +1,16 @@
+#!/bin/bash
+
+read -p "Input .csv: " csv
+
+read -p "Output file: " output
+
+touch $output
+
+sed -i "" '1s/.*/transid,date,amount,,,,payee,,,,,/' $csv
+
+sed -i "" 's/general/misc/g' $csv
+
+sed -i "" 's/T[0-9][0-9]:[0-9][0-9]:[0-9][0-9]Z//g' $csv
+
+ledger convert $csv --input-date-format "%Y-%m-%d" --account assets:bank:monzo  --invert --rich-data -f ~/.ledger.journal > $output
+

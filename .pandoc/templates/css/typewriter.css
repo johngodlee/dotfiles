@@ -1,3 +1,5 @@
+<style type="text/css">
+
 /* 
    This document has been created with Marked.app <http://markedapp.com>, Copyright 2011 Brett Terpstra
    Please leave this notice in place, along with any additional credits below.
@@ -30,7 +32,7 @@ body, div, p {
     hyphens: auto;
     margin: 0in;
     text-align: justify;
-    text-indent: .25in;
+    text-indent: 0;
     line-height: 200%;
     pagination: widow-orphan;
     font-size: 12pt;
@@ -390,3 +392,4 @@ table tr:nth-child(even),table td:nth-child(even) {
         background-color: rgba(180, 237, 95, .5);
     }
 }
+</style>

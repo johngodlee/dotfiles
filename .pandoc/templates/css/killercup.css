@@ -1,3 +1,5 @@
+<style type="text/css">
+
 /*
  * I add this to html files generated with pandoc.
  */
@@ -74,6 +76,14 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 125%;
   margin-top: 2em;
   font-weight: normal;
+}
+
+.title, .author, .date { 
+  line-height: 0px;
+}
+
+.date {
+  margin-bottom: 1em;
 }
 
 h4, h5, h6 {
@@ -245,11 +255,6 @@ table td {
   vertical-align: top;
 }
 
-.author {
-  font-size: 1.2em;
-  text-align: center;
-}
-
 @media only screen and (min-width: 480px) {
   body {
     font-size: 14px;
@@ -325,4 +330,5 @@ table td {
   h2, h3 {
     page-break-after: avoid;
   }
-}
+
+</style>

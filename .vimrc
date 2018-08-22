@@ -35,6 +35,7 @@ Plugin 'thiagoalessio/rainbow_levels.vim'	" Highlight with indenting
 Plugin 'nathanaelkane/vim-indent-guides'	" Indent guides
 Plugin 'junegunn/fzf'           " Fuzzy file finder
 Plugin 'junegunn/fzf.vim'       " Fuzzy file finder
+Plugin 'mechatroner/rainbow_csv'       " Syntax highlighting in csv
 
 call vundle#end()		" required
 filetype plugin indent on	" required

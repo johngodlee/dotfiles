@@ -1,3 +1,5 @@
+<style type="text/css">
+
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700);
 
 html {
@@ -171,8 +173,8 @@ body {
 
 pre,code,kbd,samp,tt {
     font-family:monospace;
-    font-size:108%;
-    line-height:100%;
+    font-size:90%;
+    line-height:120%;
 }
 
 h1 {
@@ -237,6 +239,9 @@ code {
     background:#f1f1f1;
 }
 
+figure {
+    text-align:center;
+}
 img {
     max-width:100%;
 }
@@ -261,3 +266,4 @@ ol[type=i] {
     list-style-type:lower-roman;
 }
 
+</style>
