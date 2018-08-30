@@ -113,6 +113,9 @@ set forward_format = "Fwd: %s"
 # Smart word wrap
 set smart_wrap
 
+# New mail command to use terminal-notifier
+set new_mail_command="terminal-notifier -title '%v' -subtitle 'New Mail in %f' -message '%n new messages, %u unread.' -activate 'com.apple.Terminal' &"
+
 # }}}
 
 # Keymappings {{{ 

@@ -122,7 +122,7 @@ c.tabs.background = True
 
 # Show favicons in the tab bar.
 # Type: Bool
-c.tabs.favicons.show = False
+c.tabs.favicons.show = 'never' 
 
 # Position of new tabs opened from another tab.
 # Type: NewTabPosition
