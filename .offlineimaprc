@@ -1,0 +1,45 @@
+[general]
+ui = ttyui
+accounts = johngodlee@gmail.com 
+pythonfile = ~/.offlineimap.py
+fsync = False
+ssl = False
+
+[Account johngodlee@gmail.com]
+localrepository = johngodlee-local
+remoterepository = johngodlee-remote
+
+postsynchook = notmuch new --quiet
+
+
+[Repository johngodlee-local]
+type = Maildir
+localfolders = ~/.mail/johngodlee@gmail.com
+nametrans = lambda folder: {'drafts':  '[Google Mail]/Drafts',
+                            		 'sent':    '[Google Mail]/Sent Mail',
+                            		 'flagged': '[Google Mail]/starred',
+                            	 	 'trash':   '[Google Mail]/Bin',
+	}.get(folder, folder)
+
+[Repository johngodlee-remote]
+maxconnections = 3
+type = Gmail
+remoteuser = johngodlee@gmail.com
+remotepasseval = get_pass()
+realdelete = no
+ssl=true
+sslcacertfile = /usr/local/etc/openssl/cert.pem
+nametrans = lambda folder: {'[Google Mail]/Drafts':    'drafts',
+                            '[Google Mail]/Sent Mail': 'sent',
+                            '[Google Mail]/Starred':   'starred',
+                            '[Google Mail]/Bin':     'trash',
+                            }.get(folder, folder)
+folderfilter = lambda folder: folder not in ['[Google Mail]/Bin',
+                                             '[Google Mail]/Important',
+                                             '[Google Mail]/Spam',
+					     '[Google Mail]/Chats',
+                            		     '[Google Mail]/All Mail',
+					     ]
+createfolders = True
+
+
