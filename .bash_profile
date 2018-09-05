@@ -55,9 +55,9 @@ alias sed=gsed
 alias w3m_h='w3m www.duckduckgo.com'
 
 # Open (neo)mutt in Downloads to save attachments there, and always run offlineimap and notmuch build before opening
-alias mutt='cd ~/Downloads; offlineimap -o -u quiet; notmuch new; neomutt'
+alias mutt='cd ~/Downloads; notmuch new; neomutt'
 
-alias neomutt='cd ~/Downloads; offlineimap -o -u quiet; notmuch new; neomutt'
+alias neomutt='cd ~/Downloads; notmuch new; neomutt'
 
 # Use VLC ncurses in the terminal
 

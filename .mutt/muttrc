@@ -49,6 +49,7 @@ set pager_stop             # don't go to next message automatically
 set menu_scroll            # scroll in menus
 set tilde                  # show tildes like in vim
 unset markers              # no ugly plus signs
+set mark_old=no            # Don't add Old flags, just keep N 
 
 # }}}
 
@@ -144,6 +145,7 @@ bind  index,pager <  sidebar-prev
 bind  index,pager ?  sidebar-open
 
 ## Movement 
+bind  pager  i  noop
 bind  index  G  last-entry
 bind  index  j  next-entry
 bind  index  k  previous-entry
