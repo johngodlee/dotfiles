@@ -120,6 +120,7 @@ fun! Cheat()
     echo "  } {   →→  Forwards / backwards one paragraph."
     echo "  '.    →→  Jump to last changed line."
     echo "  'x    →→  Jump to line of mark 'x'."
+    echo "  %     →→  Move to corresponding brace, e.g. ( to )."
 endf
 
 noremap \c :call Cheat() <CR>
