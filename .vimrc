@@ -64,6 +64,10 @@ nnoremap <Leader>j <C-W>+
 nnoremap <Leader>k <C-W>-
 nnoremap <Leader>l <C-W><
 
+" Change layout of splits
+nnoremap <Leader>] <C-w>H
+nnoremap <Leader>[ <C-w>J
+
 " Easier save and quit with `;`
 noremap ;w :w<CR>
 noremap ;q :q<CR>
@@ -121,6 +125,7 @@ fun! Cheat()
     echo "  '.    →→  Jump to last changed line."
     echo "  'x    →→  Jump to line of mark 'x'."
     echo "  %     →→  Move to corresponding brace, e.g. ( to )."
+    echo "  ^o    →→  Jump to previous location."
 endf
 
 noremap \c :call Cheat() <CR>
@@ -138,9 +143,13 @@ set mouse=n
 " Don’t reset cursor to start of line when moving around
 set nostartofline
 
-" Preserve indentation on wrapped lines
+" Preserve indentation on wrapped lines and make proper tabs!
 set breakindent
 set autoindent
+
+set tabstop=8
+set softtabstop=4
+set shiftwidth=4
 set noexpandtab
 
 " Normal backspace behaviour on OSX
