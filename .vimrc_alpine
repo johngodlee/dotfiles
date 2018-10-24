@@ -49,62 +49,70 @@ nnoremap p "+gp
 vnoremap d "+d
 nnoremap dd "+dd
 
+" statusline always showing, even when NERDTree is hidden
+set laststatus=2
+
 " Map of modes and their codes for statusline
 let g:currentmode={
-    \ 'n'  : 'N ',
-    \ 'no' : 'N·Operator Pending ',
-    \ 'v'  : 'V ',
-    \ 'V'  : 'V·Line ',
-    \ '^V' : 'V·Block ',
-    \ 's'  : 'Select ',
-    \ 'S'  : 'S·Line ',
-    \ '^S' : 'S·Block ',
-    \ 'i'  : 'I ',
-    \ 'R'  : 'R ',
-    \ 'Rv' : 'V·Replace ',
-    \ 'c'  : 'Command ',
-    \ 'cv' : 'Vim Ex ',
-    \ 'ce' : 'Ex ',
-    \ 'r'  : 'Prompt ',
-    \ 'rm' : 'More ',
-    \ 'r?' : 'Confirm ',
-    \ '!'  : 'Shell ',
-    \ 't'  : 'Terminal '
+    \ 'n'  : 'Normal',
+    \ 'no' : 'N·Operator Pending',
+    \ 'v'  : 'Visual',
+    \ 'V'  : 'V·Line',
+    \ '^V' : 'V·Block',
+    \ 's'  : 'Select',
+    \ 'S'  : 'S·Line',
+    \ '^S' : 'S·Block',
+    \ 'i'  : 'Insert',
+    \ 'R'  : 'R',
+    \ 'Rv' : 'V·Replace',
+    \ 'c'  : 'Command',
+    \ 'cv' : 'Vim Ex',
+    \ 'ce' : 'Ex',
+    \ 'r'  : 'Prompt',
+    \ 'rm' : 'More',
+    \ 'r?' : 'Confirm',
+    \ '!'  : 'Shell',
+    \ 't'  : 'Terminal'
     \}
 
-" Change statusline based on colour
+" Change statusline colour based on mode 
+
+function! ModeCurrent() abort
+    let l:modecurrent = mode()
+    let l:modelist = toupper(get(g:currentmode, l:modecurrent, 'V·Block'))
+    let l:current_status_mode = l:modelist
+    return l:current_status_mode
+endfunction
+
 function! ChangeStatuslineColor()
-  if (mode() =~# '\v(n|no)')
-    exe 'hi! StatusLine ctermfg=112'
-  elseif (mode() =~# '\v(v|V)' || g:currentmode[mode()] ==# 'V·Block' || get(g:currentmode, mode(), '') ==# 't')
-    exe 'hi! StatusLine ctermfg=172'
-  elseif (mode() ==# 'i')
-    exe 'hi! StatusLine ctermfg=044'
-  else
-    exe 'hi! StatusLine ctermfg=007'
+  if (mode() ==# 'i')
+    exe 'hi StatusLine ctermbg=black ctermfg=032'
+  elseif (mode() =~# '\v(v|V)' ||  ModeCurrent() == 'V·Block')
+    exe 'hi StatusLine ctermbg=black ctermfg=172'
+  else    
+    exe 'hi Statusline ctermbg=white ctermfg=black'
   endif
   return ''
 endfunction
 
-" Make statusline always show
-set laststatus=2
+" Statusline
+" left side
+set statusline=%{ChangeStatuslineColor()}	" Change colour
+set statusline+=\ %-8.{ModeCurrent()} 	" Current mode
+set statusline+=\ \|\  	" Vert-line and space   
+set statusline+=%t	" File name
+set statusline+=\ \|\  	" Vert-line and space   
+set statusline+=%=	" Switch to right side
 
-" statusline
-	" left side
-	set statusline=%{ChangeStatuslineColor()}	" Change colour
-	set statusline+=%0*\ %{toupper(g:currentmode[mode()])} 	" Current mode
-	set statusline+=\ 
-	set statusline+=%1*%m%r " Modified and read only flags
-	set statusline+=%1*%=	" Switch to right side
-
-	" right side
-	set statusline+=%0*\ 		"Space
-	set statusline+=%0*%y	" File syntax
-	set statusline+=%0*\|	" Vert-line
-	set statusline+=%0*%p%%	" Percentage through file
-	set statusline+=%0*\|\ 	" Vert-line and Space
-	set statusline+=%0*%l:%c	" Line and column number
-	set statusline+=%0*\ 		" Space
+" right side
+set statusline+=%m%r " Modified and read only flags
+set statusline+=\ 		"Space
+set statusline+=%y	" File type
+set statusline+=\ \|\ 	" Space, Vert-line and space
+set statusline+=%3.p%%	" Percentage through file - min size 3
+set statusline+=\ \|\ 	" Vert-line and Space
+set statusline+=%8.(%4.l:%-3.c%)	" Line and column number in group
+set statusline+=\ 		" Space
 
 " Set colours for statusline middle section
 hi User1 ctermfg=255 ctermbg=240
