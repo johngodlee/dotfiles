@@ -36,6 +36,7 @@ Plugin 'nathanaelkane/vim-indent-guides'	" Indent guides
 Plugin 'junegunn/fzf'           " Fuzzy file finder
 Plugin 'junegunn/fzf.vim'       " Fuzzy file finder
 Plugin 'mechatroner/rainbow_csv'       " Syntax highlighting in csv
+Plugin 'SirVer/ultisnips'       " Snippets
 
 call vundle#end()		" required
 filetype plugin indent on	" required
@@ -282,6 +283,7 @@ set foldcolumn=1
 
 " Disable indent folding in certain filetypes
 autocmd Filetype tex setlocal nofoldenable
+autocmd Filetype bib setlocal nofoldenable
 autocmd Filetype markdown setlocal nofoldenable
 
 " Set folding for markdown headers
@@ -438,6 +440,17 @@ let g:indent_guides_start_level = 1
 let g:indent_guides_guide_size = 2
 
 " }}}  
+
+" UltiSnips {{{
+
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-l>"
+let g:UltiSnipsJumpBackwardTrigger="<c-h>"
+
+let g:UltiSnipsEditSplit="vertical"
+
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/Ultisnips']
+" }}}
 
 
 " Stop creating swp and ~ files

@@ -1,0 +1,23 @@
+snippet article "Bibtex for article" b
+@article{$1,
+  author = {$2},
+  title = {$3},
+  year = $4,
+  journal = {$5},
+  volume = {$6},
+  number = {$7},
+  pages = {${8:1--10}},
+  FILE = {~/Documents/papers/$9},
+  DOI = { http://dx.doi.org/$10 }
+}
+endsnippet
+
+snippet book "Bibtex for book" b
+@book{$1,
+  ${2:author/editor} = {$3},
+  title = {$4},
+  year = $5,
+  publisher = {$6},
+  address = {${7:City, Country}}
+}
+endsnippet
