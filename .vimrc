@@ -37,6 +37,7 @@ Plugin 'junegunn/fzf'           " Fuzzy file finder
 Plugin 'junegunn/fzf.vim'       " Fuzzy file finder
 Plugin 'mechatroner/rainbow_csv'       " Syntax highlighting in csv
 Plugin 'SirVer/ultisnips'       " Snippets
+Plugin 'jalvesaq/Nvim-R'        " R IDE in vim
 
 call vundle#end()		" required
 filetype plugin indent on	" required
@@ -172,8 +173,8 @@ set fillchars+=vert:\
 " Make end of file `~` the same colour as background
 highlight EndOfBuffer ctermfg=none ctermbg=none
 
-" enable line numbers
-set number
+" enable line numbers, relative except current line
+set number relativenumber
 
 " Add cursorline
 set cursorline
