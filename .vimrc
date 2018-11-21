@@ -128,10 +128,14 @@ fun! Cheat()
     echo "  'x    →→  Jump to line of mark 'x'."
     echo "  %     →→  Move to corresponding brace, e.g. ( to )."
     echo "  ^o    →→  Jump to previous location."
+    echo " :sort  →→  Alphab. sort lines in visual selection."
 endf
 
-noremap \c :call Cheat() <CR>
+" See cheatsheet
+noremap <Leader>c :call Cheat() <CR>
 
+" Toggle indent guides
+nnoremap <Leader>i :IndentGuidesToggle<CR>
 
 " }}}
 
