@@ -428,7 +428,7 @@ config.bind('z', 'spawn --userscript readability')
 # used by prepending the search engine name to the search term, e.g.
 # `:open google qutebrowser`.
 # Type: Dict
-c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}', 'google': 'https://www.google.com/search?hl=en&q={}', 'reddit': 'https://www.reddit.com/search?q={}', 'stack': 'https://stackexchange.com/search?q={}', 'youtube': 'https://www.youtube.com/results?search_query={}', 'hn': 'https://hn.algolia.com/?query={}', 'scholar': 'https://scholar.google.co.uk/scholar?hl=en&as_sdt=0%2C5&q={}.&btnG='}
+c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}', 'google': 'https://www.google.com/search?hl=en&q={}', 'reddit': 'https://old.reddit.com/search?q={}', 'stack': 'https://stackexchange.com/search?q={}', 'youtube': 'https://www.youtube.com/results?search_query={}', 'hn': 'https://hn.algolia.com/?query={}', 'scholar': 'https://scholar.google.co.uk/scholar?hl=en&as_sdt=0%2C5&q={}.&btnG=', 'r/': 'https://old.reddit.com/r/{}'}
 
 # The page(s) to open at the start.
 # Type: List of FuzzyUrl, or FuzzyUrl
