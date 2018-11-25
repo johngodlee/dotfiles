@@ -37,7 +37,7 @@ Plugin 'junegunn/fzf'           " Fuzzy file finder
 Plugin 'junegunn/fzf.vim'       " Fuzzy file finder
 Plugin 'mechatroner/rainbow_csv'       " Syntax highlighting in csv
 Plugin 'SirVer/ultisnips'       " Snippets
-Plugin 'jalvesaq/Nvim-R'        " R IDE in vim
+
 
 call vundle#end()		" required
 filetype plugin indent on	" required
