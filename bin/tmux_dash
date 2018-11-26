@@ -5,7 +5,7 @@
 session="dash"
 
 if (tmux has-session -t "$session" 2> /dev/null); then
-	echo "Session $session already exists"
+	echo "Session already exists"
 	sleep 2
 	
 	tmux a -t "$session"
