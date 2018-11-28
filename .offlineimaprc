@@ -1,18 +1,28 @@
 [general]
-ui = ttyui
-accounts = johngodlee@gmail.com 
-pythonfile = ~/.offlineimap.py
-fsync = False
-ssl = False
+accounts = riseup, gmail 
+pythonfile = ~/.offlineimap_pass.py
 
-[Account johngodlee@gmail.com]
-localrepository = johngodlee-local
-remoterepository = johngodlee-remote
+[Account riseup]
+localrepository = riseup-local
+remoterepository = riseup-remote
 
-postsynchook = notmuch new --quiet
+[Repository riseup-local]
+type = Maildir
+localfolders = ~/.mail/johngodlee@riseup.net
 
+[Repository riseup-remote]
+type = IMAP
+ssl = true 
+sslcacertfile = /usr/local/etc/openssl/cert.pem
+remotehost = mail.riseup.net
+remoteuser = johngodlee@riseup.net
+remotepasseval = GetPassRiseup() 
 
-[Repository johngodlee-local]
+[Account gmail]
+localrepository = gmail-local
+remoterepository = gmail-remote
+
+[Repository gmail-local]
 type = Maildir
 localfolders = ~/.mail/johngodlee@gmail.com
 nametrans = lambda folder: {'drafts':  '[Google Mail]/Drafts',
@@ -21,25 +31,26 @@ nametrans = lambda folder: {'drafts':  '[Google Mail]/Drafts',
                             	 	 'trash':   '[Google Mail]/Bin',
 	}.get(folder, folder)
 
-[Repository johngodlee-remote]
+[Repository gmail-remote]
 maxconnections = 3
 type = Gmail
 remoteuser = johngodlee@gmail.com
-remotepasseval = get_pass()
+remotepasseval = GetPassGmail()
 realdelete = no
-ssl=true
+ssl = true
 sslcacertfile = /usr/local/etc/openssl/cert.pem
 nametrans = lambda folder: {'[Google Mail]/Drafts':    'drafts',
                             '[Google Mail]/Sent Mail': 'sent',
                             '[Google Mail]/Starred':   'starred',
-                            '[Google Mail]/Bin':     'trash',
+                            '[Google Mail]/Bin':       'trash',
                             }.get(folder, folder)
 folderfilter = lambda folder: folder not in ['[Google Mail]/Bin',
                                              '[Google Mail]/Important',
                                              '[Google Mail]/Spam',
-					     '[Google Mail]/Chats',
-                            		     '[Google Mail]/All Mail',
-					     ]
+				                    	     '[Google Mail]/Chats',
+                            		         '[Google Mail]/All Mail',
+                                             ]
 createfolders = True
 
 
+postsynchook = notmuch new --quiet
