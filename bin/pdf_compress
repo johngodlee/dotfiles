@@ -1,0 +1,3 @@
+#!/bin/bash
+
+gs -sDEVICE=pdfwrite -dNOPAUSE -dQUIET -dBATCH -dPDFSETTINGS=/screen -dCompatibilityLevel=1.4 -sOutputFile=$2 $1
