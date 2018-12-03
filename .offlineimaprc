@@ -1,6 +1,7 @@
 [general]
 accounts = riseup, gmail 
 pythonfile = ~/.offlineimap_pass.py
+fsync = true
 
 [Account riseup]
 localrepository = riseup-local
@@ -25,31 +26,30 @@ remoterepository = gmail-remote
 [Repository gmail-local]
 type = Maildir
 localfolders = ~/.mail/johngodlee@gmail.com
-nametrans = lambda folder: {'drafts':  '[Google Mail]/Drafts',
-                            		 'sent':    '[Google Mail]/Sent Mail',
-                            		 'flagged': '[Google Mail]/starred',
-                            	 	 'trash':   '[Google Mail]/Bin',
-	}.get(folder, folder)
+nametrans = lambda folder: re.sub('drafts', '[Google Mail].Drafts',
+    re.sub('sent', '[Google Mail].Sent Mail',
+    re.sub('starred', '[Google Mail].Starred',
+    re.sub('trash', '[Google Mail].Bin', folder))))
 
 [Repository gmail-remote]
 maxconnections = 3
 type = Gmail
+ssl = true
+sslcacertfile = /usr/local/etc/openssl/cert.pem
 remoteuser = johngodlee@gmail.com
 remotepasseval = GetPassGmail()
 realdelete = no
-ssl = true
-sslcacertfile = /usr/local/etc/openssl/cert.pem
-nametrans = lambda folder: {'[Google Mail]/Drafts':    'drafts',
-                            '[Google Mail]/Sent Mail': 'sent',
-                            '[Google Mail]/Starred':   'starred',
-                            '[Google Mail]/Bin':       'trash',
-                            }.get(folder, folder)
-folderfilter = lambda folder: folder not in ['[Google Mail]/Bin',
-                                             '[Google Mail]/Important',
-                                             '[Google Mail]/Spam',
-				                    	     '[Google Mail]/Chats',
-                            		         '[Google Mail]/All Mail',
-                                             ]
+nametrans = lambda folder: re.sub('.*Drafts$', 'drafts',
+    re.sub('.*Sent Mail$', 'sent',
+    re.sub('.*Starred$', 'starred',
+    re.sub('.*Bin$', 'trash', folder))))
+
+folderfilter = lambda folder: folder not in [
+    '[Google Mail]/Important',
+    '[Google Mail]/Spam',
+    '[Google Mail]/Chats',
+    '[Google Mail]/All Mail',
+    ]
 createfolders = True
 
 

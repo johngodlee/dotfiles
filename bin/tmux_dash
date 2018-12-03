@@ -43,7 +43,7 @@ else
 
 	# New window, start alpine
 	tmux new-window -n 'email'
-	tmux send-keys "alpine" Enter
+	tmux send-keys "mutt" Enter
 
 	# Detach and reattach to make it work properly
 	tmux detach
