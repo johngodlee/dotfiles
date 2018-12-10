@@ -16,8 +16,6 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()		" required
 
 Plugin 'VundleVim/Vundle.vim'	" required
-Plugin 'scrooloose/nerdtree'	" File browsing 
-Plugin 'Xuyuanp/nerdtree-git-plugin'	" Git status flags for NERDTree
 Plugin 'plasticboy/vim-markdown'	" Better markdown syntax highlighting, indenting etc.
 " Plugin 'itchyny/lightline.vim'	" Status bar - Not needed due to own
 " Plugin 'itchyny/vim-gitbranch'	" Git branch in lightline
@@ -89,8 +87,8 @@ nnoremap dd "+dd
 nnoremap dw de
 nnoremap de dw
 
-" Open NERDTree
-noremap <Leader>n :NERDTreeToggle<CR>
+" Open netrw in current split
+nnoremap <Leader>n :E<CR>
 
 " Focus NERDTree and highlight current file 
 noremap <leader>nf :NERDTreeFind<CR>
@@ -136,6 +134,11 @@ noremap <Leader>c :call Cheat() <CR>
 
 " Toggle indent guides
 nnoremap <Leader>i :IndentGuidesToggle<CR>
+"
+" Open new split/vsplit/tab with netrw open
+nnoremap <Leader>v :vnew<CR>:E<CR>
+nnoremap <Leader>s :new<CR>:E<CR>
+nnoremap <Leader>t :tabnew<CR>:E<CR>
 
 " }}}
 
@@ -194,7 +197,7 @@ set linebreak
 
 " Statusline {{{
 
-" statusline always showing, even when NERDTree is hidden
+" statusline always showing
 set laststatus=2
 
 " Map of modes and their codes for statusline
@@ -354,33 +357,19 @@ set comments=b:>
 
 " }}}
 
-" NERDTree {{{ 
+" netrw {{{
 
-" Start vim with NERDtree open 
-" au VimEnter *  NERDTree
+" Tree style file list
+let g:netrw_liststyle = 0
 
-" Hide NERDTree bookmarks by default
-let NERDTreeShowBookmarks=0
+" Open file in current split
+let g:netrw_browse_split = 0
 
-" Show hidden files in NERDTree
-let NERDTreeShowHidden=1
+" Maintain current directory when opening netrw
+let g:netrw_keepdir = 0
 
-" Ignore useless files 
-let NERDTreeIgnore=['\.DS_Store', '\~$', '\.swp']
-
-" Use custom symbols on NERDTree-Git-Plugin
-let g:NERDTreeIndicatorMapCustom = {
-	\ "Modified"  : "✹",
-	\ "Staged"    : "✚",
-	\ "Untracked" : "✭",
-	\ "Renamed"   : "➜",
-	\ "Unmerged"  : "═",
-	\ "Deleted"   : "✖",
-	\ "Dirty"     : "✗",
-	\ "Clean"     : "✔︎",
-	\ 'Ignored'   : '☒',
-	\ "Unknown"   : "?"
-	\ }
+" Stop creating history in .netrwhist
+let g:netrw_dirhistmax = 1
 
 let NERDTreeSortHiddenFirst=1
 
@@ -396,7 +385,7 @@ let NERDTreeWinSize=40
 
 " Lightline {{{ 
 
-" lightline, add whether file is modified and the current git branch
+" Add whether file is modified and the current git branch
 let g:lightline = {
       \ 'colorscheme': 'powerline', 
       \ 'active': {
