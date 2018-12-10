@@ -1,0 +1,6 @@
+color index red default "~F" # flagged messages
+color index blue default "~U" # unread messages
+color index blue default "~N" # new messages
+
+color sidebar_ordinary white default
+
