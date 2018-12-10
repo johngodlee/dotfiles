@@ -1,5 +1,4 @@
 " A full .vimrc for use within normal vim on macos
-"
 
 " Set folding to markers for .vimrc only 
 " vim: foldmethod=marker
