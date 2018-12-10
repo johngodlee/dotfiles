@@ -119,3 +119,6 @@ hi User1 ctermfg=255 ctermbg=240
 
 " Ragged right line breaks
 set linebreak
+
+autocmd FileType mail set omnifunc=muttaliasescomplete#Complete 
+source ~/.vim/muttaliasescomplete.vim 

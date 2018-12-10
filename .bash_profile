@@ -1,5 +1,8 @@
 # Put this in .bashrc for linux, mac is unique in sourcing terminal from source in every window
 
+# Set Vi mode
+set -o vi
+
 # Add ~/bin to path for custom scripts
 export PATH=/usr/local/opt/python/libexec/bin:/usr/local/bin:/usr/bin:$HOME/bin:$PATH
 

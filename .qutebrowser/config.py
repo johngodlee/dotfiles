@@ -50,7 +50,9 @@ c.new_instance_open_target = 'tab'
 #   - last-visible: Open new tabs in the most recently visible window.
 c.new_instance_open_target_window = 'last-focused'
 
-# Enable JavaScript.
+# Enable JavaScript only for some websites
+# config.set('content.javascript.enabled', False)
+
 # Type: Bool
 config.set('content.javascript.enabled', True, 'file://*')
 
