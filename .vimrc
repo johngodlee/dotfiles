@@ -15,6 +15,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()		" required
 
 Plugin 'VundleVim/Vundle.vim'	" required
+Plugin 'scrooloose/nerdtree.git'    " File navigation
 Plugin 'plasticboy/vim-markdown'	" Better markdown syntax highlighting, indenting etc.
 " Plugin 'itchyny/lightline.vim'	" Status bar - Not needed due to own
 " Plugin 'itchyny/vim-gitbranch'	" Git branch in lightline
@@ -86,8 +87,8 @@ nnoremap dd "+dd
 nnoremap dw de
 nnoremap de dw
 
-" Open netrw in current split
-nnoremap <Leader>n :E<CR>
+" Open NERDTree 
+nnoremap <Leader>n :NERDTreeToggle<CR>
 
 " Focus NERDTree and highlight current file 
 noremap <leader>nf :NERDTreeFind<CR>
@@ -376,11 +377,22 @@ let NERDTreeHijackNetrw=1
 
 let NERDTreeMinimalUI=1
 
-
 let NERDTreeWinSize=40
 
 
 " }}}
+
+" NERDTree {{{
+
+let NERDTreeShowHidden=1
+
+let NERDTreeShowBookmarks=1
+
+let NERDTreeAutoDeleteBuffer = 1
+
+" }}}
+
+
 
 " Lightline {{{ 
 
