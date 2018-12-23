@@ -47,20 +47,7 @@ set sort_re                                # thread based on regex
 set reply_regexp = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
 # }}}
 
-# Pager {{{
-set pager_index_lines = 8  # number of index lines to show
-set pager_context = 3      # number of context lines to show
-set pager_stop             # don't go to next message automatically
-set menu_scroll            # scroll in menus
-set tilde                  # show tildes like in vim
-unset markers              # no ugly plus signs
-alternative_order text/plain text/enriched text/html
-# }}}
-
-# Actions {{{
-bind index,pager R group-reply
-bind index,pager r reply
-bind index <space>  collapse-thread
+# Pager {{
 macro index C "<copy-message>?<toggle-mailboxes>" "copy a message to a mailbox"
 macro index M "<save-message>?<toggle-mailboxes>" "move a message to a mailbox"
 # }}}
@@ -75,13 +62,18 @@ set sidebar_delim_chars = "/"
 
 # Gmail mailboxes
 mailboxes "+--- gmail --------"
-mailboxes +johngodlee@gmail.com/INBOX # Always have inbox at top of list
-mailboxes `find ~/.mail/* -maxdepth 1 -mindepth 1 | sort | cut -d/ -f5- | sed 's/^/+/' | sed '/notmuch/d' | sed '/INBOX/d' | sed '/riseup/d' | tr '\n' ' '`
+mailboxes +johngodlee@gmail.com/INBOX # always have inbox at top of list
+mailboxes `find ~/.mail/* -maxdepth 1 -mindepth 1 | sort | cut -d/ -f5- | sed 's/^/+/' | sed '/notmuch/d' | sed '/temporary/d' | sed '/INBOX/d' | sed '/riseup/d' | tr '\n' ' '`
 
 # Riseup mailboxes
 mailboxes "+--- riseup --------"
-mailboxes +johngodlee@riseup.net/INBOX
-mailboxes `find ~/.mail/* -maxdepth 1 -mindepth 1 | sort | cut -d/ -f5- | sed 's/^/+/' | sed '/INBOX/d' | sed '/gmail/d' | tr '\n' ' '`
+mailboxes +johngodlee@riseup.net/INBOX # always have inbox at top of list
+mailboxes `find ~/.mail/* -maxdepth 1 -mindepth 1 | sort | cut -d/ -f5- | sed 's/^/+/' | sed '/INBOX/d' | sed '/temporary/d' | sed '/gmail/d' | tr '\n' ' '`
+
+# Notmuch search mailbox
+mailboxes "+--- search --------"
+mailboxes +temporary/search
+
 # }}}
 
 # Always include original message in reply and always reply to sender
@@ -149,9 +141,19 @@ bind  pager  gg top
 
 ## Fast movement
 bind editor <space> noop
-macro index,pager gi "<change-folder>=INBOX<enter>" "Go to inbox"
+macro index,pager gi "<change-folder>=johngodlee@gmail.com/INBOX<enter>" "Go to inbox"
 
 bind  index,pager h  help
+
+# Attach files using ranger
+
+
+# View full Mutt manual using less in mutt 
+macro index,pager \# "<shell-escape>less ~/.mutt/manual.txt<enter>" "Show Mutt documentation"
+
+# Search using notmuch
+macro index \\ "<enter-command>unset wait_key<enter><shell-escape>mutt-notmuch-py ~/.mail/temporary/search<enter><change-folder-readonly>+temporary/search<enter>" "search mail (using notmuch)"
+
 # }}}
 
 
