@@ -120,13 +120,14 @@ nnoremap <Leader>o :Files<CR>
 " A function to display often misremembered keybindings
 fun! Cheat()
     " Add handy bindings you tend to forget or want to learn.
-    echo "  ) (   →→  Forwards / backwards one sentence."
-    echo "  } {   →→  Forwards / backwards one paragraph."
-    echo "  '.    →→  Jump to last changed line."
-    echo "  'x    →→  Jump to line of mark 'x'."
-    echo "  %     →→  Move to corresponding brace, e.g. ( to )."
-    echo "  ^o    →→  Jump to previous location."
-    echo " :sort  →→  Alphab. sort lines in visual selection."
+    echo "  ) (      →→  Forwards / backwards one sentence."
+    echo "  } {      →→  Forwards / backwards one paragraph."
+    echo "  '.       →→  Jump to last changed line."
+    echo "  'x       →→  Jump to line of mark 'x'."
+    echo "  %        →→  Move to corresponding brace, e.g. ( to )."
+    echo "  ^o       →→  Jump to previous location."
+    echo " :sort     →→  Alphab. sort lines in visual selection."
+    echo " :%s/x/y/g →→  Replace `x` with `y` throughout (%)."
 endf
 
 " See cheatsheet
