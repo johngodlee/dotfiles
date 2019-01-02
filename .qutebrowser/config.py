@@ -167,7 +167,7 @@ c.tabs.title.alignment = 'center'
 # is enabled. * `{current_url}`: URL of the current web page. *
 # `{protocol}`: Protocol (http/https/...) of the current web page.
 # Type: FormatString
-c.tabs.title.format = '{index}: {title} - {host}'
+c.tabs.title.format = '{private} {index}: {title} - {host}'
 
 c.tabs.indicator.width = 3
 
@@ -275,7 +275,11 @@ c.colors.statusbar.insert.bg = '#039B9A'
 
 # Foreground color of the statusbar in private browsing mode.
 # Type: QssColor
-c.colors.statusbar.private.fg = 'black'
+c.colors.statusbar.private.fg = 'white'
+
+# Background color of the statusbar in private browsing mode.
+# Type: QssColor
+c.colors.statusbar.private.bg = '#b30000'
 
 # Foreground color of the statusbar in command mode.
 # Type: QssColor
