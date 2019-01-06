@@ -28,7 +28,7 @@ set menu_scroll            # scroll in menus
 set tilde                  # show tildes like in vim
 unset markers              # no ugly plus signs
 set mark_old = no          # Don't add Old flags, just keep N
-set mailcap_path = ~/.mutt/mailcap
+set mailcap_path = ~/.mailcap
 auto_view text/html
 # }}}
 
