@@ -414,7 +414,8 @@ c.fonts.statusbar = '8pt monospace'
 # Type: QtFont
 c.fonts.tabs = '9pt monospace'
 
-# indings for normal mode
+# bindings for normal mode
+# Userscripts must be made executable
 config.bind('<backspace>', 'back')
 config.bind('gT', 'tab-prev')
 config.bind('gt', 'tab-next')
@@ -423,7 +424,7 @@ config.bind('qq', 'quit')
 config.bind('<Meta-R>', 'reload')
 config.bind('l', 'forward')
 config.bind('h', 'back')
-config.bind('z', 'spawn --userscript readability')
+config.bind('z', 'spawn --userscript ~/.qutebrowser/userscripts/readability')
 
 # Definitions of search engines which can be used via the address bar.
 # Maps a searchengine name (such as `DEFAULT`, or `ddg`) to a URL with a
