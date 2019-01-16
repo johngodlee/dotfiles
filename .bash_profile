@@ -1,6 +1,4 @@
-# Put this in .bashrc for linux, mac is unique in sourcing terminal from source in every window
-
-# Set Vi mode
+# Set vi mode
 set -o vi
 
 # Add ~/bin to path for custom scripts
@@ -41,6 +39,9 @@ PS1+=' '	# Space
 
 # Open to root as default
 cd ~ 
+
+# Clean slate action
+alias cls="clear; ls"
 
 # Alias `ls -G` as `ls` to force colours in `ls`
 alias ls='ls -G -A -F -l -h'
@@ -109,6 +110,18 @@ alias bookmarks='marks'
 
 
 export PYTHON_CONFIGURE_OPTS="--enable-framework"
+
+# cd to current directory visible in finder
+cdf () {
+        target=`osascript -e 'tell application "Finder" to if (count of Finder windows) > 0 then get POSIX path of (target of front Finder window as text)'`
+        if [ "$target" != "" ]
+        then
+                cd "$target"
+                pwd
+        else
+                echo 'No Finder window found' >&2
+        fi
+}
 
 
 # Use vim as man pager

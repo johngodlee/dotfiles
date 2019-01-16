@@ -1,0 +1,108 @@
+% !TEX TS-program = xelatex
+
+\documentclass[a4paper, 11pt]{article}
+
+\usepackage{xcolor}
+
+$if(graphics)$
+\usepackage{graphics}  % Insert images easily
+\usepackage{graphicx}
+\usepackage{float}
+\makeatletter
+% Define max width and max height arguments to be conditional on img size
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=0.5\maxwidth,height=0.5\maxheight,keepaspectratio}
+
+\let\origfigure\figure
+\let\endorigfigure\endfigure
+\renewenvironment{figure}[1][2] {
+    \expandafter\origfigure\expandafter[H]
+} {
+    \endorigfigure
+}
+
+$endif$
+
+
+\usepackage{caption}
+
+\usepackage{longtable}
+
+\usepackage{booktabs}
+
+\usepackage{geometry}
+\geometry{left=3em,
+	  right=4em,
+	  top=4em,
+          bottom=6em}
+
+\setlength{\parskip}{1em}
+\setlength{\parindent}{0pt}
+
+\usepackage{hyperref}
+
+\hypersetup{%
+  colorlinks=true,% hyperlinks will be coloured
+}
+
+
+% Remove section numbering
+\setcounter{secnumdepth}{0}
+
+% Copied bullet list style from default.latex
+\providecommand{\tightlist}{%
+	\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+\usepackage{listings}
+\lstset{
+    basicstyle=\ttfamily,
+    numbers=left,
+    numberstyle=\footnotesize,
+    stepnumber=2,
+    numbersep=5pt,
+    backgroundcolor=\color{black!10},
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2,
+    captionpos=b,
+    breaklines=true,
+    breakatwhitespace=true,
+    breakautoindent=true,
+    linewidth=\textwidth
+}
+
+\renewenvironment{quote}
+               {\list{}{\rightmargin\leftmargin}%
+                \item\relax\small\textquotedblleft\ignorespaces}
+               {\unskip\unskip\textquotedblright\endlist}
+
+$if(title)$
+\title{$title$}
+$endif$
+
+$if(author)$
+\author{$for(author)$$author$$sep$ \and $endfor$}
+$endif$
+
+$if(date)$
+\date{$date$}
+$endif$
+
+\begin{document}
+
+$if(title)$
+\maketitle
+$endif$
+
+$body$
+
+\end{document}
+
+
+

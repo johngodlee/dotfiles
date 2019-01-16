@@ -144,7 +144,10 @@ bind  pager  gg top
 
 ## Fast movement
 bind editor <space> noop
-macro index,pager gi "<change-folder>=johngodlee@gmail.com/INBOX<enter>" "Go to inbox"
+
+macro index,pager gi "<change-folder>=johngodlee@gmail.com/INBOX<enter>" "Go to Gmail inbox"
+macro index,pager gr "<change-folder>=johngodlee@riseup.net/INBOX<enter>" "Go to Riseup inbox"
+
 
 bind  index,pager h  help
 
