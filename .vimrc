@@ -135,11 +135,17 @@ noremap <Leader>c :call Cheat() <CR>
 
 " Toggle indent guides
 nnoremap <Leader>i :IndentGuidesToggle<CR>
-"
+
 " Open new split/vsplit/tab with netrw open
 nnoremap <Leader>v :vnew<CR>:E<CR>
 nnoremap <Leader>s :new<CR>:E<CR>
 nnoremap <Leader>t :tabnew<CR>:E<CR>
+
+" Send split to new tab
+nnoremap <Leader>g :tabedit %<CR>
+
+" Output a file from vifm into the buffer
+nnoremap <Leader>A :6r !vifm_attach <CR>
 
 " }}}
 
@@ -393,7 +399,10 @@ let NERDTreeAutoDeleteBuffer = 1
 
 " }}}
 
-
+" Mutt integration {{{
+autocmd FileType mail set omnifunc=muttaliasescomplete#Complete 
+source ~/.vim/muttaliasescomplete.vim 
+" }}}
 
 " Lightline {{{ 
 

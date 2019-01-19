@@ -11,7 +11,7 @@ set folder = "~/.mail"
 
 
 # Text editor {{{
-set editor = "vim -u ~/.vimrc_alpine"
+set editor = "vim"
 set charset = "utf-8"
 unset record
 
