@@ -23,6 +23,8 @@ GIT_PS1_SHOWCOLORHINTS=true
 GIT_PS1_STATESEPARATOR=" "
 
 # add Anaconda virtualenv to prompt
+conda config --set changeps1 false
+
 check_conda_env ()
 {
     if [ ! -z "$CONDA_DEFAULT_ENV" ]; then
