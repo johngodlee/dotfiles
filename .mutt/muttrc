@@ -18,6 +18,9 @@ unset record
 # Ability to change headers manually in text editor 
 set edit_headers = yes
 set autoedit = yes
+
+# better line wrapping in mutt and vim
+set text_flowed
 # }}}
 
 # Pager View Options {{{
