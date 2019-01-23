@@ -2,7 +2,7 @@
 set -o vi
 
 # Add ~/bin to path for custom scripts
-export PATH=/usr/local/opt/python/libexec/bin:/usr/local/bin:/usr/bin:$HOME/bin:$PATH
+export PATH=/anaconda3/bin:/usr/local/opt/python/libexec/bin:/usr/local/bin:/usr/bin:$HOME/bin:$PATH
 
 # Alias `hub` as `git`, allows hub commands to be run using git
 eval "$(hub alias -s)"
@@ -23,7 +23,6 @@ GIT_PS1_SHOWCOLORHINTS=true
 GIT_PS1_STATESEPARATOR=" "
 
 # add Anaconda virtualenv to prompt
-conda config --set changeps1 false
 
 check_conda_env ()
 {
@@ -33,7 +32,6 @@ check_conda_env ()
         printf -- "%s" ""
     fi
 }
-
 
 ## Bash prompt
 PS1='┏'	# Elbow
@@ -143,19 +141,4 @@ cdf () {
 # export MANPAGER="env MAN_PN=1 vim -M +MANPAGER -"
 # Use vim in clientserver mode
 # alias vim="vim --client-server"
-# added by Anaconda3 2018.12 installer
-# >>> conda init >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$(CONDA_REPORT_ERRORS=false '/anaconda3/bin/conda' shell.bash hook 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    \eval "$__conda_setup"
-else
-    if [ -f "/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/anaconda3/etc/profile.d/conda.sh"
-        CONDA_CHANGEPS1=false conda activate base
-    else
-        \export PATH="/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda init <<<
+
