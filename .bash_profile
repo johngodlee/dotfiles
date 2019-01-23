@@ -27,7 +27,7 @@ GIT_PS1_STATESEPARATOR=" "
 check_conda_env ()
 {
     if [ ! -z "$CONDA_DEFAULT_ENV" ]; then
-        printf -- "%s" "$CONDA_DEFAULT_ENV"
+        printf -- "%s" "($CONDA_DEFAULT_ENV)"
     else
         printf -- "%s" ""
     fi
@@ -43,7 +43,7 @@ PS1+='\[\e[31m\]\w\[\e[m\]'	# current dir
 PS1+=' '	# Space
 PS1+='\[\e[96m\]$(__git_ps1 "[%s]")\[\e[m\]'	# git branch
 PS1+=' '	# Space
-PS1+='\[\e[34m\]($(check_conda_env))\[\e[m\]'
+PS1+='\[\e[34m\]$(check_conda_env)\[\e[m\]'
 PS1+=' '	# Space
 PS1+='\n'	# New line
 PS1+='┗'	# Elbow
