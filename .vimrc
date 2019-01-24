@@ -201,6 +201,7 @@ set t_Co=16
 
 " Ragged right line break
 set linebreak
+set wrap
 
 " Statusline {{{
 
