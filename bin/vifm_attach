@@ -1,0 +1,5 @@
+#!/bin/bash
+
+file="$(vifm --choose-files -)"
+
+echo "Attach: $file"
