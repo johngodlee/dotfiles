@@ -3,12 +3,23 @@
 
 source ~/.mutt/mutt_colours
 source ~/.mutt/aliases
+source ~/.mutt/gpg.rc
 
 set move = no
 set realname = "John Godlee"
 set folder = "~/.mail"
 
+# PGP GPG {{{
+set pgp_default_key = E2388D6F0290C660224F6439215C0880610719F7 
+set pgp_use_gpg_agent = yes
 
+# set pgp_use_gpg_agent = yes
+# set pgp_sign_as = 43A5CE95
+# set pgp_timeout = 3600
+# set crypt_autosign = yes
+# set crypt_replyencrypt = yes
+
+# }}}
 
 # Text editor {{{
 set editor = "vim"
