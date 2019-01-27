@@ -145,7 +145,13 @@ nnoremap <Leader>t :tabnew<CR>:E<CR>
 nnoremap <Leader>g :tabedit %<CR>
 
 " Output a file from vifm into the buffer
-nnoremap <Leader>A :6r !vifm_attach <CR>
+autocmd FileType mail nnoremap <Leader>A :6r !vifm_attach <CR>
+
+" Set PGP options in mutt buffer
+autocmd FileType mail nnoremap <Leader>P :6r !mutt_pgp_opt <CR>
+
+" Clearsign in message
+autocmd FileType mail nnoremap <Leader>S :%!gpg --clearsign <CR>
 
 " }}}
 
