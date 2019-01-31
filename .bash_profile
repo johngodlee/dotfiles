@@ -53,11 +53,14 @@ PS1+=' '	# Space
 # Open to root as default
 cd ~ 
 
-# Clean slate action
-alias cls="clear; ls"
-
 # Alias `ls -G` as `ls` to force colours in `ls`
-alias ls='ls -G -A -F -l -h'
+alias ls="'ls' -A -F -G -h -l"
+
+# Clean slate action
+alias lsc="clear; 'ls' -A -F -G -h -l"
+
+# ls ordered by reverse date of modification
+alias lst="'ls' -A -F -G -h -l -t -r"
 
 # Alias cmus to listen for remotes on network - deactivated, interferes with cmus-control
 # alias cmus='cmus --listen 0.0.0.0'
@@ -84,7 +87,7 @@ alias vlc="/Applications/VLC.app/Contents/MacOS/VLC -I ncurses"
 torrent() { pirate-get "$1" -C "aria2c '%s'" ; }  
 
 # Use gpg key as default
-export GPGKEY=E79A8F461D9BC674 
+export GPGKEY=E2388D6F0290C660224F6439215C0880610719F7
 
 # Use vim as default $EDITOR
 export EDITOR=vim
