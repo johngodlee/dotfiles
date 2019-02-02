@@ -55,7 +55,7 @@ set sort_re                                # thread based on regex
 set reply_regexp = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
 # }}}
 
-# Pager {{
+# Pager {{{
 macro index C "<copy-message>?<toggle-mailboxes>" "copy a message to a mailbox"
 macro index M "<save-message>?<toggle-mailboxes>" "move a message to a mailbox"
 # }}}
@@ -91,7 +91,6 @@ set fast_reply
 # Ask if unsent message should be kept as postponed
 set postpone = ask-yes
 
-
 # Multiple account setup {{{
 
 # Default to gmail setup
@@ -105,7 +104,6 @@ folder-hook riseup/*     source ~/.mutt/accounts/riseup
 macro index } '<sync-mailbox><enter-command>source ~/.mutt/accounts/gmail<enter><change-folder>!<enter>'
 macro index { '<sync-mailbox><enter-command>source ~/.mutt/accounts/riseup<enter><change-folder>!<enter>'
 # }}}
-
 
 # Keybindings {{{
 
@@ -168,6 +166,3 @@ macro index \\ "<enter-command>unset wait_key<enter><shell-escape>mutt-notmuch-p
 macro index + '<shell-escape>offlineimap -o<enter>'
 
 # }}}
-
-
-
