@@ -28,7 +28,7 @@ Plugin 'itchyny/calendar.vim'	" Interact with google calendar using vim
 Plugin 'lervag/vimtex'		" LaTeX editing in vim
 Plugin 'ledger/vim-ledger'	" Edit ledger journals in vim
 Plugin 'tpope/vim-commentary'	" Comment out lines with a keymapping
-Plugin 'junegunn/vim-easy-align'	" For aligning markdown tables visually
+" Plugin 'junegunn/vim-easy-align'	" For aligning markdown tables visually
 Plugin 'thiagoalessio/rainbow_levels.vim'	" Highlight with indenting
 Plugin 'nathanaelkane/vim-indent-guides'	" Indent guides
 Plugin 'junegunn/fzf'           " Fuzzy file finder
@@ -153,6 +153,9 @@ autocmd FileType mail nnoremap <Leader>P :6r !mutt_pgp_opt <CR>
 " Clearsign in message
 autocmd FileType mail nnoremap <Leader>S :%!gpg --clearsign <CR>
 
+" Toggle indent guides
+nnoremap <Leader>ig :IndentGuidesToggle <CR>
+
 " }}}
 
 " General Settings {{{
@@ -169,10 +172,15 @@ set nostartofline
 set breakindent
 set autoindent
 
-set tabstop=8
-set softtabstop=4
-set shiftwidth=4
+set tabstop=4
 set noexpandtab
+set shiftwidth=4
+
+set copyindent
+set preserveindent
+set softtabstop=0
+
+set textwidth=0
 
 " Normal backspace behaviour on OSX
 set backspace=2
@@ -407,7 +415,7 @@ let NERDTreeAutoDeleteBuffer = 1
 " }}}
 
 " Mutt integration {{{
-autocmd FileType mail set omnifunc=muttaliasescomplete#Complete 
+autocmd FileType mail setlocal omnifunc=muttaliasescomplete#Complete 
 source ~/.vim/muttaliasescomplete.vim 
 
 " Add format option 'w' to add trailing white space, indicating that paragraph
@@ -464,10 +472,17 @@ let g:goyo_width = 180
 " }}}
 
 " Python indentation markers settings {{{
-autocmd Filetype python :IndentGuidesEnable
-set ts=4 sw=4 et
-let g:indent_guides_start_level = 1
-let g:indent_guides_guide_size = 2
+
+let g:indent_guides_enable_on_vim_startup=0     " Disable on startup
+
+autocmd Filetype python call SetPythonOptions()
+function SetPythonOptions()
+    setlocal expandtab
+    setlocal softtabstop=2
+    setlocal shiftwidth=2
+    let indent_guides_start_level = 1
+    let indent_guides_guide_size = 2
+endfunction
 
 " }}}  
 
