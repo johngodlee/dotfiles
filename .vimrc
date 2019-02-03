@@ -52,11 +52,10 @@ filetype plugin indent on	" required
 " map `A` (append at end of line) to `a` (append in place)
 nnoremap a A
 
-" Move by visual lines rather than actual lines with `k` `j`
-nnoremap k gk
-nnoremap j gj
-nnoremap gk k
-nnoremap gj j
+" Move by visual lines rather than actual lines with `k` `j`, but preserve
+" moving by actual lines with bigger jumps like `6j`
+nnoremap <expr> j v:count ? (v:count > 5 ? "m'" . v:count : '') . 'j' : 'gj'
+nnoremap <expr> k v:count ? (v:count > 5 ? "m'" . v:count : '') . 'k' : 'gk'
 
 " Resize splits more conveniently using the leader key
 nnoremap <Leader>h <C-W>>
