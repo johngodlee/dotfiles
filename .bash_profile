@@ -46,7 +46,7 @@ PS1+=' '	# Space
 PS1+='\[\e[34m\]$(check_conda_env)\[\e[m\]'
 PS1+=' '	# Space
 PS1+='\n'	# New line
-PS1+='$'	# $
+PS1+=' $'	# $
 PS1+=' '	# Space
 
 # Open to root as default

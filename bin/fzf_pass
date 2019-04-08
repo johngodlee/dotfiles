@@ -1,0 +1,5 @@
+#!/bin/bash
+
+sel=$(pass | gsed 's/[^a-z]*//' | tail -n+2 | fzf)
+
+pass $sel

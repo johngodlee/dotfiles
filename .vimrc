@@ -155,6 +155,19 @@ autocmd FileType mail nnoremap <Leader>S :%!gpg --clearsign <CR>
 " Toggle indent guides
 nnoremap <Leader>ig :IndentGuidesToggle <CR>
 
+" Cycle case of current word
+function! CaseChange(str)
+  if a:str ==# toupper(a:str)
+    let result = tolower(a:str)
+  elseif a:str ==# tolower(a:str)
+    let result = substitute(a:str,'\(\<\w\+\>\)', '\u\1', 'g')
+  else
+    let result = toupper(a:str)
+  endif
+  return result
+endfunction
+
+vnoremap ~ y:call setreg('', CaseChange(@"), getregtype(''))<CR>gv""Pgv
 " }}}
 
 " General Settings {{{
