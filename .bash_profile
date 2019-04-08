@@ -9,8 +9,8 @@ eval "$(hub alias -s)"
 
 # History file format
 shopt -s histappend
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=100000
+HISTFILESIZE=100000
 HISTTIMEFORMAT="%Y_%m_%d - %H:%M:%S [%Z]"
 
 ## source script to have git branch in prompt
@@ -34,7 +34,7 @@ check_conda_env ()
 }
 
 ## Bash prompt
-PS1='┏'	# Elbow
+PS1=''
 PS1+='[\T]'	# Time
 PS1+=' '	# Space 
 PS1+='\u@\h'	# User@hostname
@@ -46,7 +46,6 @@ PS1+=' '	# Space
 PS1+='\[\e[34m\]$(check_conda_env)\[\e[m\]'
 PS1+=' '	# Space
 PS1+='\n'	# New line
-PS1+='┗'	# Elbow
 PS1+='$'	# $
 PS1+=' '	# Space
 

@@ -83,8 +83,8 @@ vnoremap d "+d
 nnoremap dd "+dd
 
 " Remap word and space (dw) to delete word (de)
-nnoremap dw de
-nnoremap de dw
+" nnoremap dw de
+" nnoremap de dw
 
 " Open NERDTree 
 nnoremap <Leader>n :NERDTreeToggle<CR>
