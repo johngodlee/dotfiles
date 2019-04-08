@@ -138,6 +138,20 @@ cdf () {
         fi
 }
 
+# Search content of academic papers in papers
+papers () {
+    local open
+    open=open   # on macos, "open" opens a pdf in preview
+    
+find ~/Google_Drive/papers -type f -iname '*.pdf'\
+    | fast-p \ # Caching
+    | fzf --read0 --reverse -e -d $'\t'  \
+        --preview-window down:80% --preview '
+            v=$(echo {q} | gtr " " "|");
+            echo -e {1}"\n"{2} | ggrep -E "^|$v" -i --color=always;
+        ' \
+    | gcut -z -f 1 -d $'\t' | gtr -d '\n' | xargs -r --null $open > /dev/null 2> /dev/null
+}
 
 # Use vim as man pager
 # export MANPAGER="env MAN_PN=1 vim -M +MANPAGER -"
