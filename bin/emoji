@@ -1,5 +1,5 @@
 #!/bin/bash
 
-sel=$(cat ~/Downloads/emoji | fzf)
+sel=$(cat ~/bin/icons | fzf)
 
 echo $sel | awk '{print $1}' | pbcopy
