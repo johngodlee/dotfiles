@@ -1,0 +1,5 @@
+#!/bin/bash
+
+sel=$(cat ~/Downloads/emoji | fzf)
+
+echo $sel | awk '{print $1}' | pbcopy
