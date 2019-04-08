@@ -1,0 +1,15 @@
+snippet preamble "A preamble for R scripts" b
+# Preamble ----
+
+# Remove old crap
+rm(list=ls())
+
+# Set working directory to the location of the source file
+setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
+
+# Packages
+endsnippet
+
+
+
+
