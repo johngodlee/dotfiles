@@ -2,7 +2,7 @@
 set -o vi
 
 # Add ~/bin to path for custom scripts
-export PATH=/anaconda3/bin:/usr/local/opt/python/libexec/bin:/usr/local/bin:/usr/bin:$HOME/bin:$PATH
+export PATH=/usr/local/opt/python/libexec/bin:/usr/local/bin:/usr/bin:$HOME/bin:$PATH
 
 # Alias `hub` as `git`, allows hub commands to be run using git
 eval "$(hub alias -s)"
@@ -24,14 +24,18 @@ GIT_PS1_STATESEPARATOR=" "
 
 # add Anaconda virtualenv to prompt
 
-check_conda_env ()
+check_virtual_env ()
 {
-    if [ ! -z "$CONDA_DEFAULT_ENV" ]; then
-        printf -- "%s" "($CONDA_DEFAULT_ENV)"
-    else
+    if test -z "$VIRTUAL_ENV"
+    then
         printf -- "%s" ""
-    fi
+    else
+        printf -- "%s" "(${VIRTUAL_ENV##*/})"
+    fi 
 }
+
+## Disable default prompt
+export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 ## Bash prompt
 PS1=''
@@ -43,7 +47,7 @@ PS1+='\[\e[31m\]\w\[\e[m\]'	# current dir
 PS1+=' '	# Space
 PS1+='\[\e[96m\]$(__git_ps1 "[%s]")\[\e[m\]'	# git branch
 PS1+=' '	# Space
-PS1+='\[\e[34m\]$(check_conda_env)\[\e[m\]'
+PS1+='\[\e[34m\]$(check_virtual_env)\[\e[m\]'
 PS1+=' '	# Space
 PS1+='\n'	# New line
 PS1+=' $'	# $
@@ -88,8 +92,10 @@ torrent() { pirate-get "$1" -C "aria2c '%s'" ; }
 # Use gpg key as default
 export GPGKEY=E2388D6F0290C660224F6439215C0880610719F7
 
-# Use vim as default $EDITOR
-export EDITOR=vim
+# Use neovim as default $EDITOR
+export EDITOR=nvim
+
+alias vim=nvim
 
 # Git aliases
 alias gall="git add -A; git commit"
@@ -143,9 +149,9 @@ papers () {
     local open
     open=open   # on macos, "open" opens a pdf in preview
     
-find ~/Google_Drive/papers -type f -iname '*.pdf'\
-    | fast-p \ # Caching
-    | fzf --read0 --reverse -e -d $'\t'  \
+find ~/Google_Drive/papers -type f -iname '*.pdf' | \ 
+	fast-p | \ # Caching
+	fzf --read0 --reverse -e -d $'\t'  \
         --preview-window down:80% --preview '
             v=$(echo {q} | gtr " " "|");
             echo -e {1}"\n"{2} | ggrep -E "^|$v" -i --color=always;
