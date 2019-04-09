@@ -2,7 +2,13 @@
 set -o vi
 
 # Add ~/bin to path for custom scripts
-export PATH=/usr/local/opt/python/libexec/bin:/usr/local/bin:/usr/bin:$HOME/bin:$PATH
+export PATH=/Users/johngodlee/.gem/ruby/2.6.0/bin:\
+/usr/local/opt/ruby/bin:\
+/usr/local/opt/python/libexec/bin:\
+/usr/local/bin:\
+/usr/bin:\
+$HOME/bin:\
+$PATH
 
 # Alias `hub` as `git`, allows hub commands to be run using git
 eval "$(hub alias -s)"
