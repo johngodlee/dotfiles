@@ -426,6 +426,9 @@ config.bind('l', 'forward')
 config.bind('h', 'back')
 config.bind('z', 'spawn --userscript ~/.qutebrowser/userscripts/readability')
 config.bind('e', 'fullscreen')
+config.bind('p', None)
+config.bind('p', 'open -- {clipboard}')
+config.bind('c', 'yank markdown')
 
 # Definitions of search engines which can be used via the address bar.
 # Maps a searchengine name (such as `DEFAULT`, or `ddg`) to a URL with a
