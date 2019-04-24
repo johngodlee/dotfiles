@@ -16,7 +16,7 @@ set pgp_use_gpg_agent = yes
 # }}}
 
 # Text editor {{{
-set editor = "vim -S ~/.vimrc"
+set editor = 'nvim'
 set charset = "utf-8"
 unset record
 
@@ -38,6 +38,8 @@ unset markers              # no ugly plus signs
 set mark_old = no          # Don't add Old flags, just keep N
 set mailcap_path = ~/.mailcap
 auto_view text/html
+alternative_order text/plain text/html
+
 # }}}
 
 # Status bar {{{
@@ -164,5 +166,7 @@ macro index \\ "<enter-command>unset wait_key<enter><shell-escape>mutt-notmuch-p
 
 # Run offlineimap sync
 macro index + '<shell-escape>offlineimap -o<enter>'
+
+# View HTML attachment in default web browser
 
 # }}}

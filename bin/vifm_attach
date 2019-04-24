@@ -1,5 +1,9 @@
 #!/bin/bash
 
-file="$(vifm --choose-files -)"
+#file="$(vifm --choose-files -)"
 
-echo "Attach: $file"
+#echo "Attach: $file"
+
+vifm -f "$@"
+cat ~/.config/vifm/vimfiles
+
