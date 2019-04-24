@@ -6,4 +6,3 @@
 
 vifm -f "$@"
 cat ~/.config/vifm/vimfiles
-

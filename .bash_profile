@@ -100,9 +100,7 @@ torrent() { pirate-get "$1" -C "aria2c '%s'" ; }
 export GPGKEY=E2388D6F0290C660224F6439215C0880610719F7
 
 # Use neovim as default $EDITOR
-export EDITOR=nvim
-
-alias vim=nvim
+export EDITOR=vim
 
 # Git aliases
 alias gall="git add -A; git commit"

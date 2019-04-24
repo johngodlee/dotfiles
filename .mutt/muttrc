@@ -16,7 +16,7 @@ set pgp_use_gpg_agent = yes
 # }}}
 
 # Text editor {{{
-set editor = 'nvim'
+set editor = 'vim'
 set charset = "utf-8"
 unset record
 
