@@ -1,6 +1,0 @@
-#!/bin/bash
-
-# Open apps from the command line using sed
-
-open "$(find /Applications -name '*app' -maxdepth 1 | sed 's|\/Applications\/\(.*\).app|\1|' | fzf | sed 's|$|.app|' | sed 's|^|\/Applications\/|')"
-

@@ -1,0 +1,3 @@
+#!/bin/bash
+
+eval "$(find bin -type f | sed 's|bin\/||g' | fzf --preview='cat bin/{}')" 
