@@ -1,21 +1,25 @@
-" A full init.vim for use within Vim on macOS
+" A full .vimrc for use within normal vim on macos
 
 " Set folding to markers for .vimrc only 
 " vim: foldmethod=marker
 
+" vi compatibility
+set nocompatible		
+
 " Vundle {{{
 
-filetype off
-" set the runtime path to include Vundle and initialize
+filetype off			" required for Vundle
+
+" set runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()		" required
 
-call vundle#begin('~/.config/nvim/bundle')
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-
+Plugin 'VundleVim/Vundle.vim'	" required
 Plugin 'scrooloose/nerdtree.git'    " File navigation
 Plugin 'plasticboy/vim-markdown'	" Better markdown syntax highlighting, indenting etc.
+" Plugin 'itchyny/lightline.vim'	" Status bar - Not needed due to own
+" Plugin 'itchyny/vim-gitbranch'	" Git branch in lightline
+" Plugin 'kien/ctrlp.vim'		" Fuzzy file finder - using fzf
 Plugin 'pangloss/vim-javascript'	" Javascript syntax highlighting
 Plugin 'junegunn/goyo.vim'	" Toggle minimal writing environment
 Plugin 'kshenoy/vim-signature'	" Mark locations in gutter
@@ -32,9 +36,9 @@ Plugin 'junegunn/fzf.vim'       " Fuzzy file finder
 Plugin 'mechatroner/rainbow_csv'       " Syntax highlighting in csv
 Plugin 'SirVer/ultisnips'       " Snippets
 
-" All of your Plugins must be added before the following line
-call vundle#end()
-filetype plugin indent on  " allows auto-indenting depending on file type
+
+call vundle#end()		" required
+filetype plugin indent on	" required
 
 " vundle help `:h vundle`
 " :PluginList       - lists configured plugins
@@ -43,7 +47,7 @@ filetype plugin indent on  " allows auto-indenting depending on file type
 " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
 " }}}
 
-" Keybindings {{{
+" Keymappings {{{ 
 
 " map `A` (append at end of line) to `a` (append in place)
 nnoremap a A
@@ -77,6 +81,10 @@ vnoremap p "+p
 nnoremap p "+gp
 vnoremap d "+d
 nnoremap dd "+dd
+
+" Remap word and space (dw) to delete word (de)
+nnoremap dw de
+nnoremap de dw
 
 " Open NERDTree 
 nnoremap <Leader>n :NERDTreeToggle<CR>
@@ -121,6 +129,7 @@ fun! Cheat()
     echo " :%s/x/y/g →→  Replace `x` with `y` throughout (%)."
 endf
 
+" See cheatsheet
 noremap <Leader>c :call Cheat() <CR>
 
 " Toggle indent guides
@@ -135,7 +144,7 @@ nnoremap <Leader>t :tabnew<CR>:E<CR>
 nnoremap <Leader>g :tabedit %<CR>
 
 " Output a file from vifm into the buffer
-autocmd FileType mail nnoremap <Leader>A '6r !vifm_attach' <CR>
+autocmd FileType mail nnoremap <Leader>A :6r !vifm_attach <CR>
 
 " Set PGP options in mutt buffer
 autocmd FileType mail nnoremap <Leader>P :6r !mutt_pgp_opt <CR>
@@ -146,22 +155,9 @@ autocmd FileType mail nnoremap <Leader>S :%!gpg --clearsign <CR>
 " Toggle indent guides
 nnoremap <Leader>ig :IndentGuidesToggle <CR>
 
-" Cycle case of current word
-function! CaseChange(str)
-  if a:str ==# toupper(a:str)
-    let result = tolower(a:str)
-  elseif a:str ==# tolower(a:str)
-    let result = substitute(a:str,'\(\<\w\+\>\)', '\u\1', 'g')
-  else
-    let result = toupper(a:str)
-  endif
-  return result
-endfunction
-
-vnoremap ~ y:call setreg('', CaseChange(@"), getregtype(''))<CR>gv""Pgv
 " }}}
 
-" General settings {{{
+" General Settings {{{
 
 " Movement and resizing {{{
 
@@ -355,14 +351,14 @@ let g:calendar_google_calendar = 1
 
 " VimTeX {{{
 
+" Always think tex files are xelatex - Also see latexmkrc in ~ (Root)
+let g:tex_flavor = 'xelatex'
+
 " When running vimtex compiler, don't automatically show quickfix list errors
 let g:vimtex_quickfix_mode = 0
 
 " Disable callback warning message because I don't have client server
 let g:vimtex_disable_version_warning = 1
-
-" Solve issue with neovim not yet having `--servername`
-let g:vimtex_compiler_progname = 'nvr'
 
 " }}}
 
@@ -419,7 +415,7 @@ let NERDTreeAutoDeleteBuffer = 1
 
 " Mutt integration {{{
 autocmd FileType mail setlocal omnifunc=muttaliasescomplete#Complete 
-source /Users/johngodlee/.vim/muttaliasescomplete.vim
+source ~/.vim/muttaliasescomplete.vim 
 
 " Add format option 'w' to add trailing white space, indicating that paragraph
 " continues on next line. This is to be used with mutt's 'text_flowed' option.
@@ -428,6 +424,20 @@ augroup mail_trailing_whitespace " {
     autocmd FileType mail setlocal formatoptions+=w
 augroup END " }
 
+" }}}
+
+" Lightline {{{ 
+
+" Add whether file is modified and the current git branch
+let g:lightline = {
+      \ 'colorscheme': 'powerline', 
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'gitbranch#name'
+      \ }}
 " }}}
 
 " Spell check {{{
@@ -486,9 +496,6 @@ let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/Ultisnips']
 " }}}
 
-" Terminal {{{
-
-" }}}
 
 " Stop creating swp and ~ files
 set nobackup
@@ -501,8 +508,5 @@ cd ~
 set ignorecase
 set smartcase
 
-" Don't highlight search results, just go to them
-set nohlsearch
+" }}}
 
-" }}}
-" }}}
