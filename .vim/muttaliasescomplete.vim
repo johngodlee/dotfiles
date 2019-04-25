@@ -1,29 +1,15 @@
-" muttaliasescomplete.vim
-" original Author: Karsten B <vim at kb.ccchl.de>
-" modified by: Valentin H <valentin.haenel at gmx.de>
-
 let g:aliases = []
-let g:aliases_files = [ '~/.mutt/aliases', '~/.mutt/lists' ]
+let g:aliases_file = glob('~/.mutt/aliases')
 
 function! muttaliasescomplete#Init()
-	for a:file in g:aliases_files
-		call muttaliasescomplete#LoadFile(a:file)
-	endfor
-endfunction
-
-
-function! muttaliasescomplete#LoadFile(filename)
-	let a:nameMatch = glob(a:filename)
-	if filereadable(a:nameMatch)
-		for line in readfile(a:nameMatch)
-			if match(line, 'alias') == 0
-				let fields = split(line)
-				call remove(fields, 0, 1)
-				call add(g:aliases, join(fields, " "))
-			endif
+	if filereadable(g:aliases_file)
+		for line in readfile(g:aliases_file)
+			let fields = split(line)
+			call remove(fields, 0, 1)
+			call add(g:aliases, join(fields, " "))
 		endfor
 	else
-		echom 'file not readable' a:filename
+		echoerr 'Aliases file not readable'
 	endif
 endfunction
 
