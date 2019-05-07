@@ -156,6 +156,22 @@ autocmd FileType mail nnoremap <Leader>S :%!gpg --clearsign <CR>
 " Toggle indent guides
 nnoremap <Leader>ig :IndentGuidesToggle <CR>
 
+" Make a line a task by prepending with `[ ] `
+autocmd Filetype text,markdown nnoremap <Leader>T :s/^/[ ] /g <CR>
+
+" Toggle task as done
+autocmd Filetype text,markdown nnoremap <Leader>D :call ToggleTask()<CR>
+
+function! ToggleTask()
+	if (getline('.') =~ '^\[\*\]')>0      " If you find [*] at line start
+		.s/^\[\*\]/[ ]/g
+	elseif (getline('.') =~ '^\[\ \]')>0  " OR If you find [ ] at line start
+		.s/^\[\ \]/[*]/g
+	else								  " OR if neither 
+		echom 'Not a task line'
+	endif 
+endfunction
+
 " }}}
 
 " General Settings {{{
@@ -418,11 +434,12 @@ let NERDTreeAutoDeleteBuffer = 1
 autocmd FileType mail setlocal omnifunc=muttaliasescomplete#Complete 
 source ~/.vim/muttaliasescomplete.vim 
 
-" Add format option 'w' to add trailing white space, indicating that paragraph
-" continues on next line. This is to be used with mutt's 'text_flowed' option.
+" This is to be used with mutt's 'text_flowed' option. Stops mutt from hard
+" wrapping lines at 80 characters and making it look weird on mail clients
+" which don't use text_flowed, which is a lot of them.
 augroup mail_trailing_whitespace " {
     autocmd!
-    autocmd FileType mail setlocal formatoptions+=w
+    autocmd FileType mail setlocal formatoptions-=t
 augroup END " }
 
 " }}}

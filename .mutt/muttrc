@@ -27,6 +27,7 @@ set autoedit = yes
 
 # better line wrapping in mutt and vim
 set text_flowed
+
 # }}}
 
 # Pager View Options {{{
