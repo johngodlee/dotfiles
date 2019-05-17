@@ -33,7 +33,7 @@ Plugin 'thiagoalessio/rainbow_levels.vim'	" Highlight with indenting
 Plugin 'nathanaelkane/vim-indent-guides'	" Indent guides
 Plugin 'junegunn/fzf'           " Fuzzy file finder
 Plugin 'junegunn/fzf.vim'       " Fuzzy file finder
-Plugin 'mechatroner/rainbow_csv'       " Syntax highlighting in csv
+Plugin 'chrisbra/csv.vim'		" CSV editing
 Plugin 'SirVer/ultisnips'       " Snippets
 
 
@@ -157,7 +157,17 @@ autocmd FileType mail nnoremap <Leader>S :%!gpg --clearsign <CR>
 nnoremap <Leader>ig :IndentGuidesToggle <CR>
 
 " Make a line a task by prepending with `[ ] `
-autocmd Filetype text,markdown nnoremap <Leader>T :s/^/[ ] /g <CR>
+autocmd Filetype text,markdown nnoremap <Leader>T :call MakeTask()<CR>
+
+function! MakeTask()
+	if(getline('.') =~ '^\*')>0
+		.s/^\*\ /[ ] /g
+	elseif(getline('.') =~ '^\-')>0
+		.s/^\-\ /[ ] /g
+	else
+		.s/^/[ ] /g
+	endif
+endfunction
 
 " Toggle task as done
 autocmd Filetype text,markdown nnoremap <Leader>D :call ToggleTask()<CR>
@@ -168,7 +178,7 @@ function! ToggleTask()
 	elseif (getline('.') =~ '^\[\ \]')>0  " OR If you find [ ] at line start
 		.s/^\[\ \]/[*]/g
 	else								  " OR if neither 
-		echom 'Not a task line'
+		echom 'Not a task line, activate with <Leader>T'
 	endif 
 endfunction
 
@@ -514,6 +524,15 @@ let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/Ultisnips']
 " }}}
 
+" CSV editing {{{
+
+" Centre align columns by default
+let b:csv_arrange_align = 'c*'
+
+" Always highlight current column
+let g:csv_highlight_column = 'y'
+
+" }}}
 
 " Stop creating swp and ~ files
 set nobackup

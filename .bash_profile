@@ -99,12 +99,15 @@ torrent() { pirate-get "$1" -C "aria2c '%s'" ; }
 # Use gpg key as default
 export GPGKEY=E2388D6F0290C660224F6439215C0880610719F7
 
-# Use neovim as default $EDITOR
+# Use Vim as default $EDITOR
 export EDITOR=vim
 
 # Git aliases
 alias gall="git add -A; git commit"
 alias gp="git pull; git push"
+
+# Run vim calendar plugin
+alias calendar="vim -c Calendar"
 
 # Add filesystem bookmarks functions:
 
