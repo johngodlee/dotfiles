@@ -64,13 +64,10 @@ PS1+=' '	# Space
 cd ~ 
 
 # Alias `ls -G` as `ls` to force colours in `ls`
-alias ls="'ls' -A -F -G -h -l"
-
-# Clean slate action
-alias lsc="clear; 'ls' -A -F -G -h -l"
+alias ls="'gls' -A -F -G -g -h -l --group-directories-first --color"
 
 # ls ordered by reverse date of modification
-alias lst="'ls' -A -F -G -h -l -t -r"
+alias lst="'gls' -A -F -G -h -l -t -r --group-directories-first --color"
 
 # Alias cmus to listen for remotes on network - deactivated, interferes with cmus-control
 # alias cmus='cmus --listen 0.0.0.0'

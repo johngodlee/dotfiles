@@ -27,9 +27,9 @@ remoterepository = gmail-remote
 type = Maildir
 localfolders = ~/.mail/johngodlee@gmail.com
 nametrans = lambda folder: re.sub('drafts', '[Google Mail].Drafts',
-    re.sub('sent', '[Google Mail].Sent Mail',
-    re.sub('starred', '[Google Mail].Starred',
-    re.sub('trash', '[Google Mail].Bin', folder))))
+	re.sub('sent', '[Google Mail].Sent Mail',
+	re.sub('starred', '[Google Mail].Starred',
+	re.sub('trash', '[Google Mail].Trash', folder))))
 
 [Repository gmail-remote]
 maxconnections = 3
@@ -40,9 +40,9 @@ remoteuser = johngodlee@gmail.com
 remotepasseval = GetPassGmail()
 realdelete = no
 nametrans = lambda folder: re.sub('.*Drafts$', 'drafts',
-    re.sub('.*Sent Mail$', 'sent',
+	re.sub('.*Sent Mail$', 'sent',
     re.sub('.*Starred$', 'starred',
-    re.sub('.*Bin$', 'trash', folder))))
+    re.sub('.*Trash$', 'trash', folder))))
 
 folderfilter = lambda folder: folder not in [
     '[Google Mail]/Important',
@@ -51,6 +51,7 @@ folderfilter = lambda folder: folder not in [
     '[Google Mail]/All Mail',
     ]
 createfolders = True
+singlethreadperfolder = True 
 
 
 postsynchook = notmuch new --quiet

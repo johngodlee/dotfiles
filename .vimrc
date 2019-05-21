@@ -137,8 +137,6 @@ noremap <Leader>c :call Cheat() <CR>
 nnoremap <Leader>i :IndentGuidesToggle<CR>
 
 " Open new split/vsplit/tab with netrw open
-nnoremap <Leader>v :vnew<CR>:E<CR>
-nnoremap <Leader>s :new<CR>:E<CR>
 nnoremap <Leader>t :tabnew<CR>:E<CR>
 
 " Send split to new tab
