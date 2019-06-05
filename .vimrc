@@ -35,6 +35,7 @@ Plugin 'junegunn/fzf'           " Fuzzy file finder
 Plugin 'junegunn/fzf.vim'       " Fuzzy file finder
 Plugin 'chrisbra/csv.vim'		" CSV editing
 Plugin 'SirVer/ultisnips'       " Snippets
+Plugin 'Alok/notational-fzf-vim' 	" Notational Velocity
 
 
 call vundle#end()		" required
@@ -530,6 +531,10 @@ let b:csv_arrange_align = 'c*'
 " Always highlight current column
 let g:csv_highlight_column = 'y'
 
+" }}}
+
+" Notational Velocity {{{
+let g:nv_search_paths = ['/Users/johngodlee/google_drive/notes']
 " }}}
 
 " Stop creating swp and ~ files
