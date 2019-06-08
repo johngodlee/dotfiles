@@ -155,29 +155,24 @@ autocmd FileType mail nnoremap <Leader>S :%!gpg --clearsign <CR>
 " Toggle indent guides
 nnoremap <Leader>ig :IndentGuidesToggle <CR>
 
-" Make a line a task by prepending with `[ ] `
-autocmd Filetype text,markdown nnoremap <Leader>T :call MakeTask()<CR>
-
-function! MakeTask()
-	if(getline('.') =~ '^\*')>0
-		.s/^\*\ /[ ] /g
-	elseif(getline('.') =~ '^\-')>0
-		.s/^\-\ /[ ] /g
-	else
-		.s/^/[ ] /g
-	endif
-endfunction
-
-" Toggle task as done
-autocmd Filetype text,markdown nnoremap <Leader>D :call ToggleTask()<CR>
+" Create and toggle done status of task lines
+autocmd Filetype text,markdown nnoremap <Leader>T :call ToggleTask()<CR>
 
 function! ToggleTask()
-	if (getline('.') =~ '^\[\*\]')>0      " If you find [*] at line start
-		.s/^\[\*\]/[ ]/g
-	elseif (getline('.') =~ '^\[\ \]')>0  " OR If you find [ ] at line start
-		.s/^\[\ \]/[*]/g
-	else								  " OR if neither 
-		echom 'Not a task line, activate with <Leader>T'
+	if (getline('.') =~ '^\[x\]')>0       " IF you find [x] at line start
+		.s/^\[x\]/[ ]/g
+	elseif (getline('.') =~ '^\[\ \]')>0  " OR if you find [ ] at line start
+		.s/^\[\ \]/[x]/g
+	elseif (getline('.') =~ '^\d\+\.\ \[\ \]')>0  " OR if the line begins with 1. [ ]
+		.s/\[\ \]/[x]/g
+	elseif (getline('.') =~ '^\d\+\.\ \[x\]')>0  " OR if the line begins with 1. [x]
+		.s/\[x\]/[ ]/g
+	elseif (getline('.') =~ '^\d\+\.')>0  " OR if the line begins with a 1.
+		.s/\d\+\./& [ ]/
+	elseif (getline('.') =~ '^\*\|-')>0	  " OR if the line begins with a * or -	
+		.s/^\*\|-/[ ]/
+	else								  " OR if none 
+		.s/^/[ ] /g
 	endif 
 endfunction
 
@@ -534,7 +529,20 @@ let g:csv_highlight_column = 'y'
 " }}}
 
 " Notational Velocity {{{
+
+" Set path to search, notes directory
 let g:nv_search_paths = ['/Users/johngodlee/google_drive/notes']
+
+" Default open selected file in new tab
+let g:nv_create_note_window = 'tabedit'
+
+" Open search window as vsplit with preview window below
+let g:nv_window_direction = 'right'
+let g:nv_preview_direction = 'down'
+
+" Don't use .*ignore files
+let g:nv_ignore_files = 0
+
 " }}}
 
 " Stop creating swp and ~ files
