@@ -154,7 +154,7 @@ papers () {
     local open
     open=open   # on macos, "open" opens a pdf in preview
     
-find ~/Google_Drive/papers -type f -iname '*.pdf' | \ 
+find ~/google_drive -type f -iname '*.pdf' | \ 
 	fast-p | \ # Caching
 	fzf --read0 --reverse -e -d $'\t'  \
         --preview-window down:80% --preview '
@@ -168,4 +168,5 @@ find ~/Google_Drive/papers -type f -iname '*.pdf' | \
 # export MANPAGER="env MAN_PN=1 vim -M +MANPAGER -"
 # Use vim in clientserver mode
 # alias vim="vim --client-server"
+
 
