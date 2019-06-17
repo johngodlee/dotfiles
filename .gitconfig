@@ -13,7 +13,6 @@
 	diff = 
 [commit]
 	verbose = true
-	template = ~/.gitmessage
 [merge]
 	tool = vimdiff
 	conflictstyle = diff3
