@@ -288,7 +288,7 @@ endfunction
 " Get git branch in statusline
 function CurrentGitBranch()
     let gitoutput = system('git status -b '.shellescape(expand('%')).' | head -1 | grep -oE "[^ ]+$" | tr -d "[:cntrl:]"') 
-    if gitoutput =~ "invalid"
+    if gitoutput =~ "fatal"
         let b:gitstatus = ''
     else
         let b:gitstatus = gitoutput 
@@ -551,6 +551,9 @@ set noswapfile
 
 " Open vim in root 
 cd ~
+
+" Automatically cd to directory of current file
+set autochdir
 
 " Ignore case of `/` searches unless an upper case letter is used
 set ignorecase
