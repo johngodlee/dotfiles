@@ -28,7 +28,7 @@ Plugin 'itchyny/calendar.vim'	" Interact with google calendar using vim
 Plugin 'lervag/vimtex'		" LaTeX editing in vim
 Plugin 'ledger/vim-ledger'	" Edit ledger journals in vim
 Plugin 'tpope/vim-commentary'	" Comment out lines with a keymapping
-" Plugin 'junegunn/vim-easy-align'	" For aligning markdown tables visually
+Plugin 'junegunn/vim-easy-align'	" For aligning markdown tables visually
 Plugin 'thiagoalessio/rainbow_levels.vim'	" Highlight with indenting
 Plugin 'nathanaelkane/vim-indent-guides'	" Indent guides
 Plugin 'junegunn/fzf'           " Fuzzy file finder
