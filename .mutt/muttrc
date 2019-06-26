@@ -124,7 +124,8 @@ bind  index       x       tag-thread      # Select Conversation
 bind  pager       x       tag-message     # Select Conversation
 bind  index,pager *       flag-message    # Star a message
 bind  index,pager a       group-reply     # Reply all
-bind  index,pager \#      delete-thread   # Delete
+bind  index,pager d       delete-message  # Delete message
+bind  index,pager D      noop
 bind  index,pager l       copy-message    # Label
 bind  index       v       save-message    # Move to
 bind  index       /       noop
@@ -162,6 +163,9 @@ bind  index,pager h  help
 
 # View full Mutt manual using less in mutt 
 macro index,pager \# "<shell-escape>less ~/.mutt/manual.txt<enter>" "Show Mutt documentation"
+
+# Run offlineimap in Mutt
+macro index,pager @ "<enter-command>unset wait_key<enter><shell-escape>offlineimap -o -u quiet &<enter>:sync-mailbox" "Run offlineimap"
 
 # Search using notmuch
 macro index \\ "<enter-command>unset wait_key<enter><shell-escape>mutt-notmuch-py ~/.mail/temporary/search<enter><change-folder-readonly>+temporary/search<enter>" "search mail (using notmuch)"
