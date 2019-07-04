@@ -165,7 +165,7 @@ bind  index,pager h  help
 macro index,pager \# "<shell-escape>less ~/.mutt/manual.txt<enter>" "Show Mutt documentation"
 
 # Run offlineimap in Mutt
-macro index,pager @ "<enter-command>unset wait_key<enter><shell-escape>offlineimap -o -u quiet &<enter>:sync-mailbox" "Run offlineimap"
+macro index,pager @ "<enter-command>unset wait_key<enter><shell-escape>offlineimap -o -u quiet &<enter><sync-mailbox>" "Run offlineimap"
 
 # Search using notmuch
 macro index \\ "<enter-command>unset wait_key<enter><shell-escape>mutt-notmuch-py ~/.mail/temporary/search<enter><change-folder-readonly>+temporary/search<enter>" "search mail (using notmuch)"

@@ -1,5 +1,4 @@
-#!/usr/local/opt/python/libexec/bin/python
-#
+#!/usr/local/opt/python/libexec/bin/python 
 # Executes python-readability on current page and opens the summary as new tab.
 #
 # Depends on the python-readability package, or its fork:
