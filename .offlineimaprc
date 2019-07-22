@@ -29,7 +29,7 @@ localfolders = ~/.mail/johngodlee@gmail.com
 nametrans = lambda folder: re.sub('drafts', '[Google Mail].Drafts',
 	re.sub('sent', '[Google Mail].Sent Mail',
 	re.sub('starred', '[Google Mail].Starred',
-	re.sub('trash', '[Google Mail].Trash', folder))))
+	re.sub('trash', '[Google Mail].Bin', folder))))
 
 [Repository gmail-remote]
 maxconnections = 3
@@ -42,7 +42,7 @@ realdelete = no
 nametrans = lambda folder: re.sub('.*Drafts$', 'drafts',
 	re.sub('.*Sent Mail$', 'sent',
     re.sub('.*Starred$', 'starred',
-    re.sub('.*Trash$', 'trash', folder))))
+    re.sub('.*Bin$', 'trash', folder))))
 
 folderfilter = lambda folder: folder not in [
     '[Google Mail]/Important',

@@ -3,10 +3,10 @@ set -o vi
 
 # Add ~/bin to path for custom scripts
 export PATH=/Users/johngodlee/.gem/ruby/2.6.0/bin:\
+/usr/local/anaconda3/bin:\
 /usr/local/bin:\
 /usr/local/opt/gnu-sed/libexec/gnubin:\
 /usr/local/opt/ruby/bin:\
-/usr/local/opt/python/libexec/bin:\
 /usr/bin:\
 $HOME/bin:\
 $PATH
