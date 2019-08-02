@@ -29,7 +29,7 @@ Plugin 'lervag/vimtex'		" LaTeX editing in vim
 Plugin 'ledger/vim-ledger'	" Edit ledger journals in vim
 Plugin 'tpope/vim-commentary'	" Comment out lines with a keymapping
 Plugin 'junegunn/vim-easy-align'	" For aligning markdown tables visually
-Plugin 'thiagoalessio/rainbow_levels.vim'	" Highlight with indenting
+"Plugin 'thiagoalessio/rainbow_levels.vim'	" Highlight with indenting
 Plugin 'nathanaelkane/vim-indent-guides'	" Indent guides
 Plugin 'junegunn/fzf'           " Fuzzy file finder
 Plugin 'junegunn/fzf.vim'       " Fuzzy file finder
@@ -95,6 +95,8 @@ noremap <leader>nf :NERDTreeFind<CR>
 
 " Auto current directory when using `:e` with `NERDTreeHijackNetrw`
 nnoremap <Leader>e :e<space>.<CR>
+
+nnoremap <Leader>E :edit<CR>
 
 " Toggle spellcheck
 nnoremap <Leader>s :set spell!<CR>
@@ -333,7 +335,6 @@ set foldcolumn=1
 
 " Disable indent folding in certain filetypes
 autocmd Filetype tex setlocal nofoldenable
-autocmd Filetype bib setlocal nofoldenable
 autocmd Filetype markdown setlocal nofoldenable
 
 " Set folding for markdown headers
@@ -360,6 +361,16 @@ function! MarkdownLevel()
 endfunction
 au BufEnter *.md setlocal foldexpr=MarkdownLevel()  
 au BufEnter *.md setlocal foldmethod=expr   
+
+" Set folding function for bibtex entries
+function! BibTeXFold()
+	if getline(v:lnum) =~ '^@.*$'
+		return ">1"
+	endif
+	return "="
+endfunction
+au BufEnter *.bib setlocal foldexpr=BibTeXFold()
+au BufEnter *.bib setlocal foldmethod=expr
 
 " }}}
 
@@ -481,7 +492,7 @@ set completeopt=longest,menuone
 
 " Rainbow_levels {{{
 
-au FileType markdown :RainbowLevelsOn
+"au FileType markdown :RainbowLevelsOn
 
 " }}}
 
