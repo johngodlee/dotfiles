@@ -1,7 +1,0 @@
-#!/bin/bash
-
-ls
-
-read -p 'file to extract: ' file_name
-
-git log --format="%H" $file_name | xargs -I % sh -c "git show %:$file_name > $file_name.%"

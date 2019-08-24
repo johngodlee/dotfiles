@@ -1,7 +1,0 @@
-#!/bin/bash
-
-# Run upodder, downloading files less than 3 days old, and delete files 3 days old or older
-
-upodder -o 3
-
-find ~/Downloads/podcasts -mtime +2 -delete

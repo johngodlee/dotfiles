@@ -1,8 +1,0 @@
-#!/bin/bash
-
-read -p 'currency to convert from (GBP): ' from
-read -p 'currency to convert to (USD): ' to
-
-curl -L -N "http://www.google.com/finance/converter?a=1&from=$from&to=$to&hl=es" | grep "currency_converter_result" | sed '/res/!d;s/<[^>]*>//g'
-
-

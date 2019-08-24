@@ -1,6 +1,0 @@
-#!/bin/sh -x
-for f in *.wav; do
-        ffmpeg -i "$f" "$f.mp3"
-#        afconvert -d '.mp3' -f MPG3 "$f" -o "$f.mp3"
-        echo "$f converted"
-done
