@@ -1,36 +1,34 @@
 #!/bin/bash
 
-# Create temp file
+# Make temp. file
 temp=$(mktemp)
 
 # Format file depending on account
-if [ $2 = "assets:bank:student" ] || [ $2 = "assets:bank:isa" ] || [ $2 = "assets:bank:res" ]
+if [ "$2" = "assets:bank:student" ] || [ "$2" = "assets:bank:isa" ] || [ "$2" = "assets:bank:res" ]
 then
-	echo "natwest"
 	# Prepare file
-	## Remove blank lines | Replace column headers | remove single quotes > send to temp
-	sed '/^[[:space:]]*$/d' $1 | sed '1s/.*/date,,payee,amount,,,/' | sed -e "s/'//g" > $temp
+	## Remove blank lines | Replace column headers | Remove single quotes > send to temp
+	sed '/^[[:space:]]*$/d' $1 | sed '1s/.*/date,,payee,amount,,,/' | sed "s/'//" > $temp
 	date="%d/%m/%Y"
 
-elif [ $2 = "assets:bank:monzo" ]
+elif [ "$2" = "assets:bank:monzo" ]
 then
-	echo "monzo"
+	echo "TEST"
 	# Prepare file
-	## Replace column header | change general tag to misc | Remove time from date > send to temp
+	## Replace column headers | Change tag | Remove time from date > send to temp
 	sed '1s/.*/transid,date,amount,,,,payee,,,,,/' $1 | sed 's/general/misc/g' | sed 's/T[0-9][0-9]:[0-9][0-9]:[0-9][0-9]Z//g' > $temp
 	date="%Y-%m-%d"
+
 else
-	# Write account names
-	echo "Choose a real account."
-	echo "Account options:"
+	echo "Choose an account"
 	echo "	assets:bank:student"
 	echo "	assets:bank:isa"
 	echo "	assets:bank:res"
 	echo "	assets:bank:monzo"
 fi
 
-# Run ledger command
-ledger convert $temp --input-date-format ${date} --account $2 --rich-data --auto-match -f ~/.ledger.journal
+# Run ledger 
+ledger convert $temp --input-date-format ${date} --account $2 --invert --rich-data --auto-match -f ~/.ledger.definitions
 
-# Remove temp file
+# Remove temp
 rm ${temp}
