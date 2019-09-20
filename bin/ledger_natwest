@@ -1,9 +1,0 @@
-#!/bin/bash
-
-temp=$(mktemp)
-
-cat $1 | sed '/^[[:space:]]*$/d' | sed '1s/.*/date,,,amount,,,/' | sed '2d' | cut -f1-7 -d, > $temp
-
-ledger convert $temp --input-date-format "%d/%m/%Y" --account "$2" --invert --rich-data -f ~/.ledger.journal 
-
-rm ${temp}

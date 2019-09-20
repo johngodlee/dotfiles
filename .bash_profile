@@ -3,7 +3,6 @@ set -o vi
 
 # Add ~/bin to path for custom scripts
 export PATH=/Users/johngodlee/.gem/ruby/2.6.0/bin:\
-/usr/local/anaconda3/bin:\
 /usr/local/bin:\
 /usr/local/opt/gnu-sed/libexec/gnubin:\
 /usr/local/opt/ruby/bin:\
@@ -162,6 +161,11 @@ find ~/google_drive -type f -iname '*.pdf' | \
             echo -e {1}"\n"{2} | ggrep -E "^|$v" -i --color=always;
         ' \
     | gcut -z -f 1 -d $'\t' | gtr -d '\n' | xargs -r --null $open > /dev/null 2> /dev/null
+}
+
+
+dict () {
+	curl dict://dict.org/d:"${1}" | less
 }
 
 # Use vim as man pager

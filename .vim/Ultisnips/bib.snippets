@@ -12,12 +12,38 @@ snippet article "Bibtex for article" b
 }
 endsnippet
 
-snippet book "Bibtex for book" b
+snippet book "bibtex for book" b
 @book{$1,
   ${2:author/editor} = {$3},
   title = {$4},
   year = $5,
   publisher = {$6},
-  address = {${7:City, Country}}
+  address = {${7:city, country}},
+  FILE = {~/Documents/papers/$8},
+  DOI = { http://dx.doi.org/$9 }
+}
+endsnippet
+
+snippet incollection "Bibtex for book section" b
+@incollection{$1,
+  ${2:author/editor} = {$3},
+  title = {$4},
+  booktitle = {$5},
+  year = $6,
+  pages = {${7:1--10}},
+  publisher = {$8},
+  address = {${9:city, country}},
+  FILE = {~/Documents/papers/$10},
+  DOI = { http://dx.doi.org/$11 }
+}
+endsnippet
+
+snippet url "Bibtex for a webpage" b
+@misc{$1,
+  author = {$2},
+  title = {$3},
+  year = $4,
+  url = "$5",
+  note = "[Online; ${6:15-January-2019}]"
 }
 endsnippet

@@ -1,0 +1,20 @@
+snippet figure "Insert a figure" b
+\begin{figure}[${1:H}]
+\centering
+	\includegraphics[width=$2\textwidth]{$3}
+	\caption{$4}
+	\label{$3}
+\end{figure}
+endsnippet
+
+snippet code "Insert code" b
+\begin{lstlisting}[language=$1]
+$2
+\end{lstlisting}
+endsnippet
+
+snippet equation "Insert an equation" b
+\begin{equation}
+	$1
+\end{equation}
+endsnippet

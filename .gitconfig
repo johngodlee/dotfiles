@@ -20,6 +20,7 @@
 	network = log --graph --decorate --pretty=oneline --abbrev-commit --all
 [http]
 	postBuffer = 524288000
+	cookiefile = /Users/johngodlee/.gitcookies
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 

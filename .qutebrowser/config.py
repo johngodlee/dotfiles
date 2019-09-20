@@ -71,7 +71,7 @@ c.completion.height = '30%'
 # Duration (in milliseconds) to wait before removing finished downloads.
 # If set to -1, downloads are never removed.
 # Type: Int
-c.downloads.remove_finished = 2000
+c.downloads.remove_finished = 5000
 
 # Editor (and arguments) to use for the `open-editor` command. The
 # following placeholders are defined: * `{file}`: Filename of the file
@@ -429,6 +429,7 @@ config.bind('e', 'fullscreen')
 config.bind('p', None)
 config.bind('p', 'open -- {clipboard}')
 config.bind('c', 'yank markdown')
+config.bind(',n', 'config-cycle content.user_stylesheets ~/.qutebrowser/solarized-dark-all-sites.css ""')
 
 # Definitions of search engines which can be used via the address bar.
 # Maps a searchengine name (such as `DEFAULT`, or `ddg`) to a URL with a

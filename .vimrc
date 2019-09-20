@@ -392,6 +392,9 @@ let g:vimtex_quickfix_mode = 0
 " Disable callback warning message because I don't have client server
 let g:vimtex_disable_version_warning = 1
 
+" Use Skim as PDF viewer which support auto-update
+let g:vimtex_view_method = 'skim'
+
 " }}}
 
 " Markdown {{{
