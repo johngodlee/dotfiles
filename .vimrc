@@ -72,7 +72,7 @@ nnoremap <Leader>[ <C-w>J
 noremap ;w :w<CR>
 noremap ;q :q<CR>
 
-" Open current buffer in finder with <Leader>o
+" Open current buffer in finder with <Leader>f
 nnoremap <Leader>f :!open -R %<CR> 
 
 " Copy and paste from `+` register for interacting with mac clipboard
@@ -117,7 +117,10 @@ nnoremap <Leader>t :terminal<CR>source $HOME/.bash_profile<CR>
 nnoremap <Leader>b :Buffers<CR>
 
 " Use fzf to search files
-nnoremap <Leader>o :Files<CR>
+nnoremap <Leader>p :Files<CR>
+
+" Search contents of notes
+nnoremap <Leader>v :NV<CR>
 
 " A function to display often misremembered keybindings
 fun! Cheat()
@@ -131,6 +134,8 @@ fun! Cheat()
     echo " :sort          →→  Alphab. sort lines in visual selection."
     echo " :%s/x/y/g      →→  Replace `x` with `y` throughout (%)."
     echo " :UltiSnipsEdit →→  Snippets for current filetype."
+    echo " \p             →→  Search for files with FZF."
+    echo " \v             →→  Search notes with NV."
 endf
 
 " See cheatsheet
