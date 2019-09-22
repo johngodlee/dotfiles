@@ -1,0 +1,67 @@
+\ProvidesPackage{article}  % For convenience, give same name as .sty file
+
+\usepackage{geometry}
+\geometry{left=2.2cm,
+	right=2.2cm,
+	top=2.2cm,
+	bottom=2cm}
+\parskip 0.15cm
+\setlength{\parindent}{0cm}
+
+\usepackage{gensymb}
+
+\usepackage{graphics}  % Insert images easily
+\usepackage{graphicx}  % Extended image support
+
+\makeatletter
+	\g@addto@macro\@floatboxreset\centering  % Automatically centre images (floats)
+\makeatother
+
+\graphicspath{ {img/} }
+\usepackage{float}  %  Graphics placement [H] [H!] arguments
+\usepackage{subfig}  % Compound figures
+
+\usepackage{natbib}    % Bibliography management - Use author/date citations
+\bibliographystyle{agsmnourl}  % Use custom agsm bibliography template with no URL
+\usepackage{cite}  % Citation options
+
+\usepackage{url}
+
+\usepackage{enumerate}  % Enumerated lists
+
+\usepackage{lineno}  % Line numbers
+\linenumbers  % Turn on line numbers
+
+\newcommand{\textapprox}{\raisebox{0.5ex}{\texttildelow}}  % Command for a good tilde
+
+\usepackage{listings}
+\usepackage{xcolor}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{RGB}{212,212,212}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2
+}
+\lstset{style=mystyle}
+
+% \usepackage{hyperref}
+% \usepackage{biblatex}
+
