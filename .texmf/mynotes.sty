@@ -1,5 +1,7 @@
-\ProvidesPackage{article}  % For convenience, give same name as .sty file
+% Declare package name
+\ProvidesPackage{mynotes}  % Give same name as .sty file
 
+% Define page geometry
 \usepackage{geometry}
 \geometry{left=2.2cm,
 	right=2.2cm,
@@ -8,9 +10,10 @@
 \parskip 0.15cm
 \setlength{\parindent}{0cm}
 
-\usepackage{gensymb}
+% Set font
 \usepackage[T1]{fontenc}
 
+% Image handling
 \usepackage{graphics}  % Insert images easily
 \usepackage{graphicx}  % Extended image support
 
@@ -22,20 +25,26 @@
 \usepackage{float}  %  Graphics placement [H] [H!] arguments
 \usepackage{subfig}  % Compound figures
 
+% Bibliography management
 \usepackage{natbib}    % Bibliography management - Use author/date citations
 \bibliographystyle{agsmnourl}  % Use custom agsm bibliography template with no URL
 \usepackage{cite}  % Citation options
 
-\usepackage{url}
+% Text formatting
+\usepackage{url} % Allow nice formatting of URLs in text
 
 \usepackage{enumerate}  % Enumerated lists
 
 \usepackage{lineno}  % Line numbers
 
+\usepackage{textcomp}
 \newcommand{\textapprox}{\raisebox{0.5ex}{\texttildelow}}  % Command for a good tilde
 
-\usepackage{listings}
 \usepackage{xcolor}
+\newcommand{\todo}[1]{\textcolor{red}{#1}}   % \todo{NOTE TO SELF WRITTEN IN RED}
+
+% Define code chunk aesthetics
+\usepackage{listings}
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
@@ -61,6 +70,11 @@
     tabsize=2
 }
 \lstset{style=mystyle}
+
+% Custom title formatting
+\let\oldtitle\title
+
+\renewcommand{\title}[1]{\oldtitle{\vspace{-1.5cm}#1}}
 
 % \usepackage{hyperref}
 % \usepackage{biblatex}
