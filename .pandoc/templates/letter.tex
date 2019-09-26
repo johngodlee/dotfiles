@@ -1,0 +1,49 @@
+\documentclass{letter}
+
+% Define page geometry
+\usepackage[margin=2.5cm]{geometry}
+
+% Set font
+\usepackage[T1]{fontenc}
+
+% Image handling
+\usepackage{graphicx}
+
+% Push Closing to left margin
+\longindentation=0pt
+
+\signature{\includegraphics[width=0.2\textwidth]{/Users/johngodlee/google_drive/personal/signatures/short_sig.png} \\ $if(author)$$author$$else$John L. Godlee$endif$} % Your name for the signature at the bottom
+
+$if(address)$
+\address{$for(address)$$address$$sep$\\$endfor$}
+$else$
+\address{109A Claude Road \\ Leyton \\ London \\ E10 6NF \\ \\ +44 (0) 7397 978 688 \\ johngodlee@gmail.com} 
+$endif$
+
+$if(date)$
+\date{$date$}
+$endif$
+
+\begin{document}
+
+\begin{letter}{} % Name/title of the addressee
+
+$if(opening)$
+\opening{\textbf{$opening$}}
+$else$
+\opening{\textbf{Dear Sir or Madam,}}
+$endif$
+
+$body$
+
+\vspace{2\parskip} % Extra whitespace for aesthetics
+$if(closing)$
+\closing{$closing$}
+$else$
+\closing{Yours sincerely,}
+$endif$
+\vspace{2\parskip} % Extra whitespace for aesthetics
+
+\end{letter}
+
+\end{document}
