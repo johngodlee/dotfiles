@@ -2,7 +2,9 @@
 set -o vi
 
 # Add ~/bin to path for custom scripts
-export PATH=/Users/johngodlee/.gem/ruby/2.6.0/bin:\
+export PATH=/Users/johngodlee/Library/Python/3.6/bin:\
+/usr/local/Caskroom/miniconda/4.6.14/miniconda3/bin:\
+/Users/johngodlee/.gem/ruby/2.6.0/bin:\
 /usr/local/bin:\
 /usr/local/opt/gnu-sed/libexec/gnubin:\
 /usr/local/opt/ruby/bin:\

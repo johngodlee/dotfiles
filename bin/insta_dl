@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Make directory if it doesn't exist
+mkdir -p $HOME/Downloads/ig
+
+# make newlines the only separator
+IFS=$'\n' 
+
+# disable globbing
+set -f          
+
+# Loop
+for i in $(cat < "$HOME/.ig_subs.txt"); do
+  instalooter user $i $HOME/Downloads/ig/ -n 1 -N -T {username}.{date}.{id} 
+done

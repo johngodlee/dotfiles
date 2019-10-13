@@ -1,0 +1,7 @@
+account expenses:food:in
+    payee SAINSBURYS|SCOTMID|TESCO|CO-OP|WAITROSE
+
+account expenses:transport:tube
+	payee "TFL TRAVEL"
+
+
