@@ -18,5 +18,9 @@
     <outline title="Waiter Rant" text="Waiter Rant" type="rss" xmlUrl="https://www.waiterrant.net/feed/"/>
     <outline title="Lifestyle | The Guardian" text="Lifestyle | The Guardian" type="rss" xmlUrl="https://www.theguardian.com/uk/lifeandstyle/rss"/>
     <outline title="Lloyd Khan Blog" text="Lloyd Khan Blog" type="rss" xmlUrl="https://www.lloydkahn.com/feed/"/>
+    <outline title="bikes subreddits" text="bikes subreddits" type="rss" xmlUrl="https://www.reddit.com/user/Biqh2/m/bikes/.rss"/>
+    <outline title="computers subreddits" text="computers subreddits" type="rss" xmlUrl="https://www.reddit.com/user/Biqh2/m/computers/.rss"/>
+    <outline title="london subreddits" text="london subreddits" type="rss" xmlUrl="https://www.reddit.com/user/Biqh2/m/london/.rss"/>
+    <outline title="woodcraft subreddits" text="woodcraft subreddits" type="rss" xmlUrl="https://www.reddit.com/user/Biqh2/m/woodcraft/.rss"/>
   </body>
 </opml>
