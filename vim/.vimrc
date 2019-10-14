@@ -183,6 +183,9 @@ function! ToggleTask()
 	endif 
 endfunction
 
+" Open URLs in vim
+nnoremap <Leader>u :w<Home>silent <End> !urlview<CR>
+
 " }}}
 
 " General Settings {{{

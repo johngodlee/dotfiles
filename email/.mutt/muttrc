@@ -173,6 +173,7 @@ macro index \\ "<enter-command>unset wait_key<enter><shell-escape>mutt-notmuch-p
 # Run offlineimap sync
 macro index + '<shell-escape>offlineimap -o<enter>'
 
-# View HTML attachment in default web browser
+# Use urlview to choose how to open links in emails
+macro index,pager U "<enter-command>set pipe_decode = yes<enter><pipe-message>urlview<enter><enter-command>set pipe_decode = no<enter>""view URLs"
 
 # }}}
