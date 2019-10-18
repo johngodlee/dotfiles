@@ -25,3 +25,24 @@ snippet gather "Make an equation gathered" b
 \end{gathered}
 endsnippet
 
+snippet v "Make text verbatim" b
+\verb|${0:${VISUAL}}|
+endsnippet
+
+snippet begin "Arbitrary environment" b
+\begin{$1}
+	${0:${VISUAL}}
+\end{$1}
+endsnippet
+
+snippet sup "Superscript" i
+${1:${VISUAL}}^{$2}$0
+endsnippet
+
+snippet sub "Subscript" i
+${1:${VISUAL}}_{$2}$0
+endsnippet
+
+snippet // "Fraction" i
+\\frac{$1}{$2}$0
+endsnippet
