@@ -36,6 +36,7 @@ Plugin 'junegunn/fzf.vim'       " Fuzzy file finder
 Plugin 'chrisbra/csv.vim'		" CSV editing
 Plugin 'SirVer/ultisnips'       " Snippets
 Plugin 'Alok/notational-fzf-vim' 	" Notational Velocity
+Plugin 'jceb/vim-orgmode'		" Org-mode
 
 
 call vundle#end()		" required
