@@ -1,0 +1,38 @@
+\mode<presentation>
+
+\defbeamertemplate*{frametitle}{green}[1][left]{
+ \tikz[remember picture,overlay]{
+     \node(a)[anchor=west]{\usebeamerfont{frametitle}\insertframetitle};
+     \draw[line width=0.2em, headerline](a.south west)--+(10,0);
+  }
+  \vskip1em 
+} 
+
+\defbeamertemplate*{title page}{green}[1][]{
+	\begin{tikzpicture}[remember picture,overlay]
+      	\node (back names) [shape=rectangle, 
+		fill=titlebox, fill opacity=0.7, text opacity=1, 
+		minimum height=1.02\textheight, minimum width=0.6\textwidth, 
+		anchor=north west] at (current page.north west) {
+      	  		\begin{minipage}{0.5\textwidth}
+					\usebeamerfont{title}\begin{flushleft}\inserttitle\end{flushleft} \par
+					\vspace{0.5em}
+					\usebeamerfont{subtitle}\insertsubtitle \par
+					\bigskip
+					\usebeamerfont{author}\insertauthor \par
+					\usebeamerfont{institute}\insertinstitute \par
+					\usebeamerfont{date}\insertdate \par
+					\inserttitlegraphic
+				\end{minipage}
+		};
+	\end{tikzpicture}
+}
+
+\let\oldmaketitle\maketitle
+
+\renewcommand{\maketitle}[1]{
+	{\usebackgroundtemplate{\includegraphics[width=\paperwidth,height=\paperheight]{#1}}\oldmaketitle{}}
+}
+
+
+\mode<all>

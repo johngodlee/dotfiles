@@ -1,3 +1,9 @@
+snippet begin "Arbitrary environment" b
+\begin{$1}
+	${0:${VISUAL}}
+\end{$1}
+endsnippet
+
 snippet figure "Insert a figure" b
 \begin{figure}[${1:H}]
 \centering
@@ -29,11 +35,6 @@ snippet v "Make text verbatim" b
 \verb|${0:${VISUAL}}|
 endsnippet
 
-snippet begin "Arbitrary environment" b
-\begin{$1}
-	${0:${VISUAL}}
-\end{$1}
-endsnippet
 
 snippet sup "Superscript" i
 ${1:${VISUAL}}^{$2}$0
