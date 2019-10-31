@@ -1,7 +1,7 @@
-qute_bookmarks qute://bookmarks
+bookmarks qute://bookmarks
 links file:///Users/johngodlee/.qutebrowser/bookmarks/links_reading_list.html
 history qute://history
-qute_settings qute://settings
+settings qute://settings
 localhost:4000 http://localhost:4000/
 Gmail https://mail.google.com/mail/u/0/h/
 Google Keep https://keep.google.com/
