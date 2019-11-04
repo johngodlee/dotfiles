@@ -84,10 +84,6 @@ nnoremap p "+gp
 vnoremap d "+d
 nnoremap dd "+dd
 
-" Remap word and space (dw) to delete word (de)
-nnoremap dw de
-nnoremap de dw
-
 " Open NERDTree 
 nnoremap <Leader>n :NERDTreeToggle<CR>
 
@@ -566,6 +562,10 @@ let g:nv_preview_direction = 'down'
 " Don't use .*ignore files
 let g:nv_ignore_files = 0
 
+" }}}
+
+" Ledger {{{
+let g:ledger_qf_vertical = 1
 " }}}
 
 " Stop creating swp and ~ files
