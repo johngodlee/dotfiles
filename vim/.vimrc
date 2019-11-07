@@ -124,6 +124,7 @@ fun! Cheat()
     " Add handy bindings you tend to forget or want to learn.
     echo "  ) (           →→  Forwards / backwards one sentence."
     echo "  } {           →→  Forwards / backwards one paragraph."
+    echo "  vi({[         →→  Select within (, {, [."
     echo "  '.            →→  Jump to last changed line."
     echo "  'x            →→  Jump to line of mark 'x'."
     echo "  %             →→  Move to corresponding brace, e.g. ( to )."
