@@ -1,3 +1,0 @@
-#!/bin/bash
-
-pandoc -f markdown -t html ~/google_drive/notes/misc/links_reading_list.md -o ~/.qutebrowser/bookmarks/links_reading_list.html

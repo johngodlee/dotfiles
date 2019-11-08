@@ -1,33 +1,50 @@
 #!/bin/bash
 
-touch ~/.w3m/bookmark.html
+#links -> qb_links
+#qb_bm + qb_qm + qb_links -> w3m_bm
+
+
+w3m_bm="/Users/johngodlee/.w3m/bookmark.html"
+qb_bm="/Users/johngodlee/.qutebrowser/bookmarks/urls"
+qb_qm="/Users/johngodlee/.qutebrowser/quickmarks"
+links="/Users/johngodlee/google_drive/notes/misc/links.md"
+qb_links="/Users/johngodlee/.qutebrowser/bookmarks/links.html"
+
+touch $w3m_bm
+
+pandoc -f markdown -t html $links -o $qb_links
 
 echo "<html><head><title>Bookmarks</title></head>
 <body>
 <h1>Quickmarks</h1>
-<ul>" > ~/.w3m/bookmark.html
+<ul>" > $w3m_bm
 
 while read line; do
     if [[ $line != *"qute"* ]]; then
         url=$(echo $line | sed 's@.* @@')
         desc=$(echo $line | sed 's/\(.*\) .*/\1/') 
-        echo "<li><a href=\"$url\">$desc</a>" >> ~/.w3m/bookmark.html
+        echo "<li><a href=\"$url\">$desc</a>" >> $w3m_bm
     fi
-done < ~/.qutebrowser/quickmarks 
+done < $qb_qm 
 
-echo "</ul>" >> ~/.w3m/bookmark.html
-
-echo "<h1>Other bookmarks</h1>
-<ul>" >> ~/.w3m/bookmark.html
+echo "</ul>
+<h1>Other bookmarks</h1>
+<ul>" >> $w3m_bm
 
 while read line; do
     if [[ $line != *"qute"* ]]; then
         url=$(echo $line | cut -d " " -f 1) 
         desc=$(echo ${line#* }) 
-        echo "<li><a href=\"$url\">$desc</a>" >> ~/.w3m/bookmark.html
+        echo "<li><a href=\"$url\">$desc</a>" >> $w3m_bm
     fi
-done < ~/.qutebrowser/bookmarks/urls 
+done < $qb_bm 
+
+echo "</ul>
+<h1>Links and reading list</h1>
+<ul>" >> $w3m_bm
+
+cat $qb_links >> $w3m_bm
 
 echo "</ul>
 </body>
-</html>" >> ~/.w3m/bookmark.html
+</html>" >> $w3m_bm
