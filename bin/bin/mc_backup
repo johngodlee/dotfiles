@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cp -R ~/Library/Application\ Support/minecraft/saves ~/google_drive/personal/minecraft/
+
