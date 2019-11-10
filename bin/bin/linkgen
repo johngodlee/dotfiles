@@ -7,12 +7,12 @@
 w3m_bm="/Users/johngodlee/.w3m/bookmark.html"
 qb_bm="/Users/johngodlee/.qutebrowser/bookmarks/urls"
 qb_qm="/Users/johngodlee/.qutebrowser/quickmarks"
-links="/Users/johngodlee/google_drive/notes/misc/links.md"
+links_md="/Users/johngodlee/google_drive/notes/misc/links.md"
 qb_links="/Users/johngodlee/.qutebrowser/bookmarks/links.html"
 
 touch $w3m_bm
 
-pandoc -f markdown -t html $links -o $qb_links
+pandoc -f markdown -t html $links_md -o $qb_links
 
 echo "<html><head><title>Bookmarks</title></head>
 <body>
