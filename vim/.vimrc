@@ -245,6 +245,9 @@ set t_Co=16
 set linebreak
 set wrap
 
+" Show most of last line 
+set display+=lastline
+
 " Statusline {{{
 
 " statusline always showing

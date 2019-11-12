@@ -20,7 +20,8 @@ function encode(html)
 
 function header()
 {
-	if (ENVIRON["GOPHER2HTML_TYPE"] != "file") {
+	if (ENVIRON["GOPHER2HTML_TYPE"] != "file" && 
+		ENVIRON["GOPHER2HTML_TYPE"] != "bin") {
 		# Print the header
 		print "<html>"
 		print "<body>"
@@ -30,7 +31,8 @@ function header()
 
 function footer()
 {
-	if (ENVIRON["GOPHER2HTML_TYPE"] != "file") {
+	if (ENVIRON["GOPHER2HTML_TYPE"] != "file" && 
+		ENVIRON["GOPHER2HTML_TYPE"] != "bin") {
 		# Print the footer
 		print "</pre>"
 		print "</body>"
@@ -55,6 +57,7 @@ BEGIN {
 	TYPE["info"] = "i"
 	TYPE["picture"] = "p"
 	TYPE["sound"] = "s"
+	TYPE["bin"] = "9"
 
 	header()
 }
@@ -63,6 +66,7 @@ BEGIN {
 	sub(/^\r/, "")
 	sub(/\r$/, "")
 
+	test = $1
 	type = substr($1, 1, 1)
 	user_name = substr($1, 2)
 	selector = $2
@@ -81,8 +85,18 @@ ENVIRON["GOPHER2HTML_TYPE"] == "file" {
 	next
 }
 
+# Binary file, like a pdf
+ENVIRON["GOPHER2HTML_TYPE"] == "bin" {
+	printf("%s\n", $0)
+	next
+}
+
 type == TYPE["file"] || type == TYPE["directory"] {
 	printf("<a href=\"%s\">%s</a>\n", urlize(type, selector, host, port), encode(user_name))
+}
+
+type == TYPE["bin"] {
+	printf("<a href=\"gopher://%s/%s%s\">%s</a>\n", host, type, selector, encode(user_name))
 }
 
 type == TYPE["error"] {
