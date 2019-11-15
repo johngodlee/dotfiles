@@ -1,50 +1,50 @@
 #!/bin/bash
 
 #links -> qb_links
-#qb_bm + qb_qm + qb_links -> w3m_bm
+#qb_bm + qb_qm + qb_links -> lynx_bm
 
 
-w3m_bm="/Users/johngodlee/.w3m/bookmark.html"
+lynx_bm="/Users/johngodlee/.lynx/bookmarks.html"
 qb_bm="/Users/johngodlee/.qutebrowser/bookmarks/urls"
 qb_qm="/Users/johngodlee/.qutebrowser/quickmarks"
 links_md="/Users/johngodlee/google_drive/notes/misc/links.md"
 qb_links="/Users/johngodlee/.qutebrowser/bookmarks/links.html"
 
-touch $w3m_bm
+touch $lynx_bm
 
 pandoc -f markdown -t html $links_md -o $qb_links
 
 echo "<html><head><title>Bookmarks</title></head>
 <body>
 <h1>Quickmarks</h1>
-<ul>" > $w3m_bm
+<ul>" > $lynx_bm
 
 while read line; do
     if [[ $line != *"qute"* ]]; then
         url=$(echo $line | sed 's@.* @@')
         desc=$(echo $line | sed 's/\(.*\) .*/\1/') 
-        echo "<li><a href=\"$url\">$desc</a>" >> $w3m_bm
+        echo "<li><a href=\"$url\">$desc</a>" >> $lynx_bm
     fi
 done < $qb_qm 
 
 echo "</ul>
 <h1>Other bookmarks</h1>
-<ul>" >> $w3m_bm
+<ul>" >> $lynx_bm
 
 while read line; do
     if [[ $line != *"qute"* ]]; then
         url=$(echo $line | cut -d " " -f 1) 
         desc=$(echo ${line#* }) 
-        echo "<li><a href=\"$url\">$desc</a>" >> $w3m_bm
+        echo "<li><a href=\"$url\">$desc</a>" >> $lynx_bm
     fi
 done < $qb_bm 
 
 echo "</ul>
 <h1>Links and reading list</h1>
-<ul>" >> $w3m_bm
+<ul>" >> $lynx_bm
 
-cat $qb_links >> $w3m_bm
+cat $qb_links >> $lynx_bm
 
 echo "</ul>
 </body>
-</html>" >> $w3m_bm
+</html>" >> $lynx_bm
