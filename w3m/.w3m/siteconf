@@ -1,2 +1,0 @@
-url /^gopher:\/\//
-substitute_url "file:///cgi-bin/gopher2html.cgi?gopher://"

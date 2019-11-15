@@ -79,8 +79,10 @@ function lesspdf { pdftotext -layout "$1" - | less; }
 # Use gnu-sed instead of osx sed
 alias sed=gsed
 
-# Alias to open w3m with duckduckgo.com
-alias w3m_h='w3m www.duckduckgo.com'
+# Configure default env. vars for lynx
+#WWW_HOME=~/.lynx/bookmarks.html; export WWW_HOME
+LYNX_CFG=~/.lynx/lynx.cfg; export LYNX_CFG
+LYNX_LSS=~/.lynx/lynx.lss; export LYNX_LSS
 
 # Open (neo)mutt in Downloads to save attachments there, and always run offlineimap and notmuch build before opening
 alias mutt='cd ~/Downloads; notmuch new; neomutt'
