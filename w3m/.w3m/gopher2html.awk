@@ -6,6 +6,7 @@ function urlize(type, selector, host, port)
 	return encode("gopher://" host ":" port "/" type selector)
 }
 
+
 function encode(html)
 {
 
@@ -66,9 +67,9 @@ BEGIN {
 	sub(/^\r/, "")
 	sub(/\r$/, "")
 
-	test = $1
-	type = substr($1, 1, 1)
-	user_name = substr($1, 2)
+	test0 = $0  # All the string
+	type = substr($1, 1, 1)  # e.g. 9 for binary file
+	user_name = substr($1, 2)  #  
 	selector = $2
 	host = $3
 	port = $4
@@ -88,7 +89,6 @@ ENVIRON["GOPHER2HTML_TYPE"] == "file" {
 # Binary file, like a pdf
 ENVIRON["GOPHER2HTML_TYPE"] == "bin" {
 	printf("%s\n", $0)
-	next
 }
 
 type == TYPE["file"] || type == TYPE["directory"] {
@@ -96,7 +96,8 @@ type == TYPE["file"] || type == TYPE["directory"] {
 }
 
 type == TYPE["bin"] {
-	printf("<a href=\"gopher://%s/%s%s\">%s</a>\n", host, type, selector, encode(user_name))
+	url = selector	# strip `URL:' prefix
+	printf("<a href=\"%s\">%s</a>\n", test0, encode(user_name))
 }
 
 type == TYPE["error"] {
