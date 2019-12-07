@@ -20,11 +20,11 @@ nickname=$(echo "$address" | awk '{print $1}')
 
 # Get full name from addressbook
 # everything before @, then before last space, then remove first word 
-fullname=$(echo "$address" | grep -o '^.*\S@' | gsed  's/\S*$//g' | gsed 's/^\w*\ *//')
+fullname=$(echo "$address" | grep -o '^.*\S@' | sed  's/\S*$//g' | sed 's/^\w*\ *//')
 
 # Get email address from addressbook
 # Get email address, then add space after comma
-email=$(echo "$address" | grep -E -o "\b\S+@\S+\.[A-Za-z]{2,6}\b" | gsed 's/, */, /g')
+email=$(echo "$address" | grep -E -o "\b\S+@\S+\.[A-Za-z]{2,6}\b" | sed 's/, */, /g')
 
 opb=$(for i in `seq 1 $book_length`;
 do 
@@ -37,4 +37,4 @@ do
 done)
 
 # Paste together
-paste  -d '\0' <(echo "$alias") <(echo "$nickname") <(echo "$fullname") <(echo "$opb") <(echo "$email") <(echo "$clb")  | gsed 's/\s+*/ /g' > ~/.mutt/aliases 
+paste  -d '\0' <(echo "$alias") <(echo "$nickname") <(echo "$fullname") <(echo "$opb") <(echo "$email") <(echo "$clb")  | sed 's/\s+*/ /g' > ~/.mutt/aliases 

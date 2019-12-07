@@ -77,6 +77,9 @@ alias gp="git pull; git push"
 # Run vim calendar plugin
 alias calendar="vim -c Calendar"
 
+# Use ripgrep
+alias grep="rg"
+
 # Define path to bookmarks file
 export MARKPATH=$HOME/.marks
 
