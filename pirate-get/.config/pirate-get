@@ -1,6 +1,6 @@
 [Save]
 ; directory where to save files
-directory = ~/Downloads
+directory = $HOME/Downloads
 
 ; save each selected magnet link in a .magnet file
 magnets = false
@@ -13,7 +13,7 @@ torrents = false
 enabled = false
 
 ; path of the database
-path = ~/downloads/pirate-get/db
+path = $HOME/Downloads/pirate-get/db
 
 [Misc]
 ; specify a custom command for opening the magnet

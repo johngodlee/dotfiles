@@ -1,9 +1,0 @@
-#!/bin/bash
-
-temp=$(mktemp)
-
-cat $1 | sed '1s/.*/transid,date,amount,,,,payee,,,,,/' | sed 's/general/misc/g' | sed 's/T[0-9][0-9]:[0-9][0-9]:[0-9][0-9]Z//g' > $temp
-
-ledger convert $temp --input-date-format "%Y-%m-%d" --account $2 --invert --rich-data -f ~/.ledger.journal 
-
-rm ${temp}

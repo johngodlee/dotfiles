@@ -14,19 +14,22 @@ endsnippet
 
 snippet book "bibtex for book" b
 @book{$1,
-  ${2:author/editor} = {$3},
+  editor = {$2},
+  author = {$3},
   title = {$4},
   year = $5,
-  publisher = {$6},
-  address = {${7:city, country}},
-  FILE = {~/Documents/papers/$8},
-  DOI = { http://dx.doi.org/$9 }
+  publisher = {$9},
+  address = {${10:city, country}},
+  FILE = {~/Documents/papers/$11},
+  DOI = { http://dx.doi.org/$12 }
+  isbn = {$13}
 }
 endsnippet
 
 snippet incollection "Bibtex for book section" b
 @manual{$1,
-  ${2:author/editor} = {$3},
+  editor = {$2},
+  author = {$3},
   title = {$4},
   booktitle = {$5},
   year = $6,

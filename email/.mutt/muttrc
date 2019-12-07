@@ -73,7 +73,7 @@ set sidebar_short_path
 set sidebar_delim_chars = "/"
 
 # Gmail mailboxes
-mailboxes "+--- gmail --------"
+mailboxes "+--- gmail ---------"
 mailboxes +johngodlee@gmail.com/INBOX # always have inbox at top of list
 mailboxes `find ~/.mail/* -maxdepth 1 -mindepth 1 | sort | cut -d/ -f5- | sed 's/^/+/' | sed '/notmuch/d' | sed '/temporary/d' | sed '/INBOX/d' | sed '/riseup/d' | tr '\n' ' '`
 

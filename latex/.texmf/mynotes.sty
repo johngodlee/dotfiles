@@ -9,6 +9,7 @@
 	bottom=2cm}
 \parskip 0.15cm
 \setlength{\parindent}{0cm}
+\usepackage{pdflscape}
 
 % Set font
 \usepackage[T1]{fontenc}
@@ -24,6 +25,10 @@
 \graphicspath{ {img/} }
 \usepackage{float}  %  Graphics placement [H] [H!] arguments
 \usepackage{subfig}  % Compound figures
+
+% Tables
+\usepackage{multirow}
+\usepackage{longtable}
 
 % Bibliography management
 \usepackage{natbib}    % Bibliography management - Use author/date citations
@@ -53,7 +58,7 @@
 
 \renewcommand{\title}[1]{\oldtitle{\vspace{-1.5cm}#1}}
 
-\usepackage{hyperref}
+\usepackage[breaklinks]{hyperref}
 \definecolor{links}{RGB}{191,59,72}
 \hypersetup{
 	breaklinks,
@@ -63,5 +68,7 @@
 	bookmarks=true,
 	pdfauthor={John L. Godlee}
 }
+\def\subsectionautorefname{section}
+\def\subsubsectionautorefname{section}
 % \usepackage{biblatex}
 
