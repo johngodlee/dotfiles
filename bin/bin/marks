@@ -1,4 +1,24 @@
 #!/bin/bash
 
-ls -l "$MARKPATH" | tail -n +2 | sed 's/  / /g' | cut -d' ' -f9- | awk -F ' -> ' '{printf "%-10s -> %s\n", $1, $2}'
+# Define path to bookmarks file
+export MARKPATH=$HOME/.marks
 
+# Jump to a mark
+function jump { 
+	cd -P "$MARKPATH/$1" 2>/dev/null || echo "No such mark: $1"
+}
+
+# Add a mark in current dir
+function mark { 
+	mkdir -p "$MARKPATH"; ln -s "$(pwd)" "$MARKPATH/$1"
+}
+
+# Remove a mark by giving its name
+function unmark { 
+	rm -i "$MARKPATH/$1"
+}
+
+# Display all marks
+function marks {
+	\ls -l "$MARKPATH" | tail -n +2 | sed 's/  / /g' | cut -d' ' -f9- | awk -F ' -> ' '{printf "%-10s -> %s\n", $1, $2}'
+}

@@ -24,7 +24,7 @@ browser "open %u -a qutebrowser"
 external-url-viewer "urlview"
 
 auto-reload yes
-max-items 20
+max-items 50
 history-limit 5
 feedlist-format "%2i %7u %t"
 feedlist-title-format "Feeds - "

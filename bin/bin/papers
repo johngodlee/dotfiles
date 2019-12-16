@@ -1,6 +1,5 @@
 #!/bin/bash
 
-local open
 open=open   # Set open command
 rg --files "$HOME/google_drive/papers/" | rg ".pdf$" \
 | fast-p \

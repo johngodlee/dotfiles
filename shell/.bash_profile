@@ -46,6 +46,9 @@ PS1+='\n'	# New line
 PS1+=' $'	# $
 PS1+=' '	# Space
 
+# Source completion scripts
+source $HOME/bin/jump_completion
+
 # Alias `ls -G` as `ls` to force colours in `ls`
 alias ls="'gls' -A -F -G -g -h -l --group-directories-first --color"
 
@@ -63,6 +66,9 @@ alias neomutt='cd ~/Downloads; notmuch new; neomutt'
 
 # Use VLC ncurses in the terminal
 alias vlc="/Applications/VLC.app/Contents/MacOS/VLC -I ncurses"
+
+# Source bookmarks functions
+source $HOME/bin/marks
 
 # Use gpg key as default
 export GPGKEY=E2388D6F0290C660224F6439215C0880610719F7
