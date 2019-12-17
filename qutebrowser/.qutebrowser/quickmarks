@@ -4,7 +4,6 @@ history qute://history
 settings qute://settings
 localhost:4000 http://localhost:4000/
 Gmail https://mail.google.com/mail/u/0/h/
-Google Keep https://keep.google.com/
 Google Photos https://photos.google.com/
 YouTube http://www.youtube.com/
 Wikipedia http://en.wikipedia.org/wiki/Main_Page
@@ -13,11 +12,15 @@ Google Scholar http://scholar.google.co.uk/
 ResearchGate https://www.researchgate.net/
 Mendeley https://www.mendeley.com/newsfeed/
 Google Drive https://drive.google.com/drive/my-drive
+Personal website https://johngodlee.github.io
+Natwest https://personal.natwest.com/personal.html
 GitHub https://github.com/johngodlee
 Bitbucket https://bitbucket.org/
 Stack Exchange https://stackexchange.com/
 Reddit https://old.reddit.com/
 Hacker News https://news.ycombinator.com/
 Facebook Messenger https://messenger.com/
-Facebook https://mbasic.facebook.com/
 ourcodingclub https://ourcodingclub.github.io/
+DuckDuckGo https://duckduckgo.com/
+Google Maps https://www.google.com/maps 
+
