@@ -98,6 +98,9 @@ export PYTHON_CONFIGURE_OPTS="--enable-framework"
 # Disable macOS Catalina zsh warning
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
+# Disablle Homebrew analytics
+export HOMEBREW_NO_ANALYTICS=1
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/usr/local/Caskroom/miniconda/4.6.14/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"

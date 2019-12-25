@@ -125,7 +125,7 @@ bind  pager       x       tag-message     # Select Conversation
 bind  index,pager *       flag-message    # Star a message
 bind  index,pager a       group-reply     # Reply all
 bind  index,pager d       delete-message  # Delete message
-bind  index,pager D      noop
+bind  index,pager D       noop
 bind  index,pager l       copy-message    # Label
 bind  index       v       save-message    # Move to
 bind  index       /       noop
