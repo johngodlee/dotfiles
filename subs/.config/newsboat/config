@@ -14,7 +14,7 @@ bind-key N prev-unread
 bind-key U show-urls
 
 bind-key d pb-download
-bind-key A pb-toggle-download-all
+bind-key W pb-toggle-download-all
 
 color listnormal blue default
 color listfocus yellow default 

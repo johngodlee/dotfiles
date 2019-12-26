@@ -35,9 +35,9 @@ Plugin 'junegunn/fzf'           " Fuzzy file finder
 Plugin 'junegunn/fzf.vim'       " Fuzzy file finder
 Plugin 'chrisbra/csv.vim'		" CSV editing
 Plugin 'SirVer/ultisnips'       " Snippets
-Plugin 'Alok/notational-fzf-vim' 	" Notational Velocity
+Plugin 'alok/notational-fzf-vim' 	" Notational Velocity
 Plugin 'jceb/vim-orgmode'		" Org-mode
-
+Plugin 'jalvesaq/Nvim-R'	" R IDE
 
 call vundle#end()		" required
 filetype plugin indent on	" required
@@ -50,6 +50,11 @@ filetype plugin indent on	" required
 " }}}
 
 " Keymappings {{{ 
+
+" Autocompletion
+inoremap <C-Space> <C-x><C-o>
+inoremap <C-@> <C-Space>
+inoremap <Nul> <C-x><C-o>
 
 " map `A` (append at end of line) to `a` (append in place)
 nnoremap a A
@@ -122,18 +127,26 @@ nnoremap <Leader>v :NV<CR>
 " A function to display often misremembered keybindings
 fun! Cheat()
     " Add handy bindings you tend to forget or want to learn.
-    echo "  ) (           →→  Forwards / backwards one sentence."
-    echo "  } {           →→  Forwards / backwards one paragraph."
-    echo "  vi({[         →→  Select within (, {, [."
-    echo "  '.            →→  Jump to last changed line."
-    echo "  'x            →→  Jump to line of mark 'x'."
-    echo "  %             →→  Move to corresponding brace, e.g. ( to )."
-    echo "  ^o            →→  Jump to previous location."
-    echo " :sort          →→  Alphab. sort lines in visual selection."
-    echo " :%s/x/y/g      →→  Replace `x` with `y` throughout (%)."
-    echo " :UltiSnipsEdit →→  Snippets for current filetype."
-    echo " \p             →→  Search for files with FZF."
-    echo " \v             →→  Search notes with NV."
+    echo " -- R key bindings -- "
+    echo " \\aa            →→ Send file to R."
+    echo " \\rf            →→ Start R."
+    echo " \\ro            →→ Open object browser."
+    echo " \\rv            →→ Preview object."
+    echo " \\<Enter>       →→ Send line/selection to R."
+    echo " \\su            →→ Send above lines to R."
+    echo " "
+    echo " ) (            →→ Forwards / backwards one sentence."
+    echo " } {            →→ Forwards / backwards one paragraph."
+    echo " vi({[          →→ Select within (, {, [."
+    echo " '.             →→ Jump to last changed line."
+    echo " 'x             →→ Jump to line of mark 'x'."
+    echo " %              →→ Move to corresponding brace, e.g. ( to )."
+    echo " ^o             →→ Jump to previous location."
+    echo " :sort          →→ Alphab. sort lines in visual selection."
+    echo " :%s/x/y/g      →→ Replace `x` with `y` throughout (%)."
+    echo " :UltiSnipsEdit →→ Snippets for current filetype."
+    echo " \\p             →→ Search for files with FZF."
+    echo " \\v             →→ Search notes with NV."
 endf
 
 " See cheatsheet
@@ -151,6 +164,7 @@ nnoremap <Leader>g :tabedit %<CR>
 " Output a file from vifm into the buffer
 autocmd FileType mail nnoremap <Leader>A :6r !vifm_attach <CR>
 
+"
 " Set PGP options in mutt buffer
 autocmd FileType mail nnoremap <Leader>P :6r !mutt_pgp_opt <CR>
 
@@ -247,6 +261,9 @@ set wrap
 
 " Show most of last line 
 set display+=lastline
+
+" Vertical line appearance
+hi ColorColumn ctermbg=red 
 
 " Statusline {{{
 
@@ -516,7 +533,6 @@ let g:goyo_width = 180
 " }}}
 
 " Python indentation markers settings {{{
-
 let g:indent_guides_enable_on_vim_startup=0     " Disable on startup
 
 autocmd Filetype python call SetPythonOptions()
@@ -527,7 +543,6 @@ function SetPythonOptions()
     let indent_guides_start_level = 1
     let indent_guides_guide_size = 2
 endfunction
-
 " }}}  
 
 " UltiSnips {{{
@@ -570,6 +585,20 @@ let g:nv_ignore_files = 0
 
 " Ledger {{{
 let g:ledger_qf_vertical = 1
+" }}}
+
+" R {{{
+let R_in_buffer = 0
+let R_source = '~/.vim/tmux_split.vim' 
+let R_assign = 0
+let R_objbr_place = 'BOTTOM'
+let R_min_editor_width = 80
+autocmd FileType r setlocal colorcolumn=80
+autocmd FileType r nnoremap <Leader>F :Rformat<CR>
+nmap <LocalLeader><Enter> <Plug>RDSendLine
+vmap <LocalLeader><Enter> <Plug>REDSendSelection
+
+
 " }}}
 
 " Stop creating swp and ~ files

@@ -1,0 +1,26 @@
+snippet > "Insert a pipe" i
+%>%
+endsnippet
+
+snippet func "Insert a function" b
+$1 <- function($2){
+  $3
+}
+endsnippet
+
+snippet preamble "Insert a preamble" b
+# $1
+# John Godlee (johngodlee@gmail.com)
+# `date +%Y-%m-%d`
+
+# Preamble ----
+
+# Remove old crap 
+rm(list = ls())
+# dev.off()
+
+# Set working directory
+
+# Packages
+$2
+endsnippet
