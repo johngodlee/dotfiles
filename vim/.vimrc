@@ -171,9 +171,6 @@ autocmd FileType mail nnoremap <Leader>P :6r !mutt_pgp_opt <CR>
 " Clearsign in message
 autocmd FileType mail nnoremap <Leader>S :%!gpg --clearsign <CR>
 
-" Toggle indent guides
-nnoremap <Leader>ig :IndentGuidesToggle <CR>
-
 " Create and toggle done status of task lines
 autocmd Filetype text,markdown nnoremap <Leader>T :call ToggleTask()<CR>
 
@@ -209,6 +206,14 @@ set mouse=n
 
 " Don’t reset cursor to start of line when moving around
 set nostartofline
+
+" Disable indentation guides by default 
+let g:indent_guides_enable_on_vim_startup=0
+
+" Set indentation colours
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=Gray
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=DarkGray
 
 " Preserve indentation on wrapped lines and make proper tabs!
 set breakindent
@@ -348,6 +353,7 @@ set statusline+=\ 		" Space
    
 " }}}
 
+
 " Folding {{{
 
 " Make folds with indent
@@ -435,7 +441,6 @@ let g:vim_markdown_conceal = 0
 let g:vim_markdown_new_list_item_indent = 0
 setlocal formatoptions=tqlnrc
 set comments=b:>
-
 
 " }}}
 
@@ -532,8 +537,7 @@ let g:goyo_width = 180
 
 " }}}
 
-" Python indentation markers settings {{{
-let g:indent_guides_enable_on_vim_startup=0     " Disable on startup
+" Python {{{
 
 autocmd Filetype python call SetPythonOptions()
 function SetPythonOptions()
@@ -597,6 +601,14 @@ autocmd FileType r setlocal colorcolumn=80
 autocmd FileType r nnoremap <Leader>F :Rformat<CR>
 nmap <LocalLeader><Enter> <Plug>RDSendLine
 vmap <LocalLeader><Enter> <Plug>REDSendSelection
+autocmd Filetype r call SetROptions()
+function SetROptions()
+    setlocal expandtab
+    setlocal softtabstop=2
+    setlocal shiftwidth=2
+    let indent_guides_start_level = 1
+    let indent_guides_guide_size = 2
+endfunction
 
 
 " }}}
