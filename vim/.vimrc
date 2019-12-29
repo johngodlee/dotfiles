@@ -17,9 +17,6 @@ call vundle#begin()		" required
 Plugin 'VundleVim/Vundle.vim'	" required
 Plugin 'scrooloose/nerdtree.git'    " File navigation
 Plugin 'plasticboy/vim-markdown'	" Better markdown syntax highlighting, indenting etc.
-" Plugin 'itchyny/lightline.vim'	" Status bar - Not needed due to own
-" Plugin 'itchyny/vim-gitbranch'	" Git branch in lightline
-" Plugin 'kien/ctrlp.vim'		" Fuzzy file finder - using fzf
 Plugin 'pangloss/vim-javascript'	" Javascript syntax highlighting
 Plugin 'junegunn/goyo.vim'	" Toggle minimal writing environment
 Plugin 'kshenoy/vim-signature'	" Mark locations in gutter
@@ -29,13 +26,11 @@ Plugin 'lervag/vimtex'		" LaTeX editing in vim
 Plugin 'ledger/vim-ledger'	" Edit ledger journals in vim
 Plugin 'tpope/vim-commentary'	" Comment out lines with a keymapping
 Plugin 'junegunn/vim-easy-align'	" For aligning markdown tables visually
-"Plugin 'thiagoalessio/rainbow_levels.vim'	" Highlight with indenting
 Plugin 'nathanaelkane/vim-indent-guides'	" Indent guides
 Plugin 'junegunn/fzf'           " Fuzzy file finder
 Plugin 'junegunn/fzf.vim'       " Fuzzy file finder
 Plugin 'chrisbra/csv.vim'		" CSV editing
 Plugin 'SirVer/ultisnips'       " Snippets
-Plugin 'alok/notational-fzf-vim' 	" Notational Velocity
 Plugin 'jceb/vim-orgmode'		" Org-mode
 Plugin 'jalvesaq/Nvim-R'	" R IDE
 
@@ -49,20 +44,15 @@ filetype plugin indent on	" required
 " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
 " }}}
 
-" Keymappings {{{ 
-
-" Autocompletion
-inoremap <C-Space> <C-x><C-o>
-inoremap <C-@> <C-Space>
-inoremap <Nul> <C-x><C-o>
+" Generic key bindings {{{ 
 
 " map `A` (append at end of line) to `a` (append in place)
 nnoremap a A
 
 " Move by visual lines rather than actual lines with `k` `j`, but preserve
 " moving by actual lines with bigger jumps like `6j`
-noremap <expr> j v:count ? (v:count > 5 ? "m'" . v:count : '') . 'j' : 'gj'
-noremap <expr> k v:count ? (v:count > 5 ? "m'" . v:count : '') . 'k' : 'gk'
+noremap <expr> j v:count ? (v:count > 1 ? "m'" . v:count : '') . 'j' : 'gj'
+noremap <expr> k v:count ? (v:count > 1 ? "m'" . v:count : '') . 'k' : 'gk'
 
 " Resize splits more conveniently using the leader key
 nnoremap <Leader>h <C-W>>
@@ -89,87 +79,42 @@ nnoremap p "+gp
 vnoremap d "+d
 nnoremap dd "+dd
 
-" Open NERDTree 
-nnoremap <Leader>n :NERDTreeToggle<CR>
-
-" Focus NERDTree and highlight current file 
-noremap <leader>nf :NERDTreeFind<CR>
-
-" Auto current directory when using `:e` with `NERDTreeHijackNetrw`
-nnoremap <Leader>e :e<space>.<CR>
-
-nnoremap <Leader>E :edit<CR>
-
-" Toggle spellcheck
-nnoremap <Leader>s :set spell!<CR>
-
-" Align ledger journal
-autocmd FileType ledger nnoremap <Leader>a :%LedgerAlign<CR>
-
-" Better omnicompletion mapping
-inoremap <Leader>o <C-x><C-o>
-
-" Align markdown tables only in markdown documents using \\
-au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
-
 " Make terminal source .bash_profile when opening 
 nnoremap <Leader>t :terminal<CR>source $HOME/.bash_profile<CR>
-
-" Use fzf to search open buffers
-nnoremap <Leader>b :Buffers<CR>
-
-" Use fzf to search files
-nnoremap <Leader>p :Files<CR>
-
-" Search contents of notes
-nnoremap <Leader>v :NV<CR>
 
 " A function to display often misremembered keybindings
 fun! Cheat()
     " Add handy bindings you tend to forget or want to learn.
     echo " -- R key bindings -- "
-    echo " \\aa            →→ Send file to R."
-    echo " \\rf            →→ Start R."
-    echo " \\ro            →→ Open object browser."
-    echo " \\rv            →→ Preview object."
-    echo " \\<Enter>       →→ Send line/selection to R."
-    echo " \\su            →→ Send above lines to R."
+    echo " \\aa            →→ Send file to R"
+    echo " \\rf            →→ Start R"
+    echo " \\ro            →→ Open object browser"
+    echo " \\rv            →→ Preview object"
+    echo " \\<Enter>       →→ Send line/selection to R"
+    echo " \\su            →→ Send above lines to R"
     echo " "
-    echo " ) (            →→ Forwards / backwards one sentence."
-    echo " } {            →→ Forwards / backwards one paragraph."
-    echo " vi({[          →→ Select within (, {, [."
-    echo " '.             →→ Jump to last changed line."
-    echo " 'x             →→ Jump to line of mark 'x'."
-    echo " %              →→ Move to corresponding brace, e.g. ( to )."
-    echo " ^o             →→ Jump to previous location."
-    echo " :sort          →→ Alphab. sort lines in visual selection."
-    echo " :%s/x/y/g      →→ Replace `x` with `y` throughout (%)."
-    echo " :UltiSnipsEdit →→ Snippets for current filetype."
-    echo " \\p             →→ Search for files with FZF."
-    echo " \\v             →→ Search notes with NV."
+    echo " ) (            →→ Forwards / backwards one sentence"
+    echo " } {            →→ Forwards / backwards one paragraph"
+    echo " vi({[          →→ Select within (, {, ["
+    echo " '.             →→ Jump to last changed line"
+    echo " 'x             →→ Jump to line of mark 'x'"
+    echo " %              →→ Move to corresponding brace, e.g. ( to )"
+    echo " ^o             →→ Jump to previous location"
+    echo " :sort          →→ Alphab. sort lines in visual selection"
+    echo " :%s/x/y/g      →→ Replace `x` with `y` throughout (%)"
+    echo " :UltiSnipsEdit →→ Snippets for current filetype"
+    echo " \\p             →→ Search for files with FZF"
+    echo " \\i             →→ Toggle indent guides" 
 endf
 
 " See cheatsheet
 noremap <Leader>c :call Cheat() <CR>
 
-" Toggle indent guides
-nnoremap <Leader>i :IndentGuidesToggle<CR>
-
 " Open new split/vsplit/tab with netrw open
-nnoremap <Leader>t :tabnew<CR>:E<CR>
+nnoremap <Leader>t :tabnew<CR>:Ex<CR>
 
 " Send split to new tab
 nnoremap <Leader>g :tabedit %<CR>
-
-" Output a file from vifm into the buffer
-autocmd FileType mail nnoremap <Leader>A :6r !vifm_attach <CR>
-
-"
-" Set PGP options in mutt buffer
-autocmd FileType mail nnoremap <Leader>P :6r !mutt_pgp_opt <CR>
-
-" Clearsign in message
-autocmd FileType mail nnoremap <Leader>S :%!gpg --clearsign <CR>
 
 " Create and toggle done status of task lines
 autocmd Filetype text,markdown nnoremap <Leader>T :call ToggleTask()<CR>
@@ -197,8 +142,6 @@ nnoremap <Leader>u :w<Home>silent <End> !urlview<CR>
 
 " }}}
 
-" General Settings {{{
-
 " Movement and resizing {{{
 
 " Set mouse mode 
@@ -206,14 +149,6 @@ set mouse=n
 
 " Don’t reset cursor to start of line when moving around
 set nostartofline
-
-" Disable indentation guides by default 
-let g:indent_guides_enable_on_vim_startup=0
-
-" Set indentation colours
-let g:indent_guides_auto_colors = 0
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=Gray
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=DarkGray
 
 " Preserve indentation on wrapped lines and make proper tabs!
 set breakindent
@@ -245,9 +180,6 @@ syntax on
 " Remove ugly vertlines in split bar (Note space after `\ `)
 set fillchars+=vert:\ 
 
-" Make end of file `~` the same colour as background
-highlight EndOfBuffer ctermfg=none ctermbg=none
-
 " enable line numbers, relative except current line
 set number relativenumber
 
@@ -257,7 +189,7 @@ set cursorline
 " Remove background
 hi Normal ctermbg=none
 
-" Inherit iterm2 colour scheme
+" Inherit colour scheme from terminal
 set t_Co=16
 
 " Ragged right line break
@@ -299,7 +231,6 @@ let g:currentmode={
     \}
 
 " Change statusline colour based on mode 
-
 function! ModeCurrent() abort
     let l:modecurrent = mode()
     let l:modelist = toupper(get(g:currentmode, l:modecurrent, 'V·Block'))
@@ -353,7 +284,6 @@ set statusline+=\ 		" Space
    
 " }}}
 
-
 " Folding {{{
 
 " Make folds with indent
@@ -406,6 +336,21 @@ au BufEnter *.bib setlocal foldmethod=expr
 
 " }}}
 
+" Indent guides {{{
+
+" Disable indentation guides by default 
+let g:indent_guides_enable_on_vim_startup=0
+
+" Set indentation colours
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=Gray
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=DarkGray
+
+" Toggle indent guides
+nnoremap <Leader>i :IndentGuidesToggle<CR>
+
+" }}}
+
 " Calendar {{{
 
 " Use google calendar on calendar.vim
@@ -415,7 +360,7 @@ let g:calendar_google_calendar = 1
 
 " VimTeX {{{
 
-" Always think tex files are xelatex - Also see latexmkrc in ~ (Root)
+" Always think tex files are xelatex 
 let g:tex_flavor = 'xelatex'
 
 " When running vimtex compiler, don't automatically show quickfix list errors
@@ -431,9 +376,6 @@ let g:vimtex_view_method = 'skim'
 
 " Markdown {{{
 
-" Disable folding in markdown
-let g:vim_markdown_folding_disabled = 1
-
 " Disable syntax conceal in markdown
 let g:vim_markdown_conceal = 0
 
@@ -441,6 +383,9 @@ let g:vim_markdown_conceal = 0
 let g:vim_markdown_new_list_item_indent = 0
 setlocal formatoptions=tqlnrc
 set comments=b:>
+
+" Align markdown tables only in markdown documents using \\
+au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
 
 " }}}
 
@@ -458,28 +403,32 @@ let g:netrw_keepdir = 0
 " Stop creating history in .netrwhist
 let g:netrw_dirhistmax = 1
 
-let NERDTreeSortHiddenFirst=1
+let NERDTreeSortHiddenFirst = 1
 
-let NERDTreeHijackNetrw=1
+let NERDTreeHijackNetrw = 1
 
-let NERDTreeMinimalUI=1
+let NERDTreeMinimalUI = 1
 
-let NERDTreeWinSize=40
-
+let NERDTreeWinSize = 40
 
 " }}}
 
 " NERDTree {{{
 
-let NERDTreeShowHidden=1
-
-let NERDTreeShowBookmarks=1
-
+let NERDTreeShowHidden = 1
+let NERDTreeShowBookmarks = 1
 let NERDTreeAutoDeleteBuffer = 1
+
+" Open NERDTree 
+nnoremap <Leader>n :NERDTreeToggle<CR>
+
+" Focus NERDTree and highlight current file 
+noremap <leader>nf :NERDTreeFind<CR>
 
 " }}}
 
 " Mutt integration {{{
+
 autocmd FileType mail setlocal omnifunc=muttaliasescomplete#Complete 
 source ~/.vim/muttaliasescomplete.vim 
 
@@ -491,20 +440,15 @@ augroup mail_trailing_whitespace " {
     autocmd FileType mail setlocal formatoptions-=t
 augroup END " }
 
-" }}}
+" Output a file from vifm into the buffer
+autocmd FileType mail nnoremap <Leader>A :6r !vifm_attach <CR>
 
-" Lightline {{{ 
+" Set PGP options in mutt buffer
+autocmd FileType mail nnoremap <Leader>P :6r !mutt_pgp_opt <CR>
 
-" Add whether file is modified and the current git branch
-let g:lightline = {
-      \ 'colorscheme': 'powerline', 
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'gitbranch#name'
-      \ }}
+" Clearsign in message
+autocmd FileType mail nnoremap <Leader>S :%!gpg --clearsign <CR>
+
 " }}}
 
 " Spell check {{{
@@ -515,6 +459,9 @@ set spelllang=en_gb
 " Set spellfile
 set spellfile=$HOME/.vim/spell/en.utf-8.add
 
+" Toggle spellcheck
+nnoremap <Leader>s :set spell!<CR>
+
 " }}}
 
 " Omni-completion {{{
@@ -522,11 +469,10 @@ set spellfile=$HOME/.vim/spell/en.utf-8.add
 " Ensure omni-completion menu stays open
 set completeopt=longest,menuone 
 
-" }}}
-
-" Rainbow_levels {{{
-
-"au FileType markdown :RainbowLevelsOn
+" Autocompletion as Ctrl-Space
+inoremap <C-Space> <C-x><C-o>
+inoremap <C-@> <C-Space>
+inoremap <Nul> <C-x><C-o>
 
 " }}}
 
@@ -547,6 +493,7 @@ function SetPythonOptions()
     let indent_guides_start_level = 1
     let indent_guides_guide_size = 2
 endfunction
+
 " }}}  
 
 " UltiSnips {{{
@@ -558,6 +505,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-h>"
 let g:UltiSnipsEditSplit="vertical"
 
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/Ultisnips']
+
 " }}}
 
 " CSV editing {{{
@@ -570,37 +518,35 @@ let g:csv_highlight_column = 'y'
 
 " }}}
 
-" Notational Velocity {{{
-
-" Set path to search, notes directory
-let g:nv_search_paths = ['/Users/johngodlee/google_drive/notes']
-
-" Default open selected file in new tab
-let g:nv_create_note_window = 'tabedit'
-
-" Open search window as vsplit with preview window below
-let g:nv_window_direction = 'right'
-let g:nv_preview_direction = 'down'
-
-" Don't use .*ignore files
-let g:nv_ignore_files = 0
-
-" }}}
-
 " Ledger {{{
+
+" Open reports vertically
 let g:ledger_qf_vertical = 1
+
+" Align ledger journal
+autocmd FileType ledger nnoremap <Leader>a :%LedgerAlign<CR>
+
 " }}}
 
 " R {{{
+
 let R_in_buffer = 0
 let R_source = '~/.vim/tmux_split.vim' 
 let R_assign = 0
 let R_objbr_place = 'BOTTOM'
+let R_objbr_h = 30
 let R_min_editor_width = 80
+let R_objbr_opendf = 0 
+let r_indent_comment_column = 0
+let r_indent_align_args = 0
+let r_indent_ess_comments = 0
+let r_indent_ess_compatible = 0
+
 autocmd FileType r setlocal colorcolumn=80
 autocmd FileType r nnoremap <Leader>F :Rformat<CR>
 nmap <LocalLeader><Enter> <Plug>RDSendLine
 vmap <LocalLeader><Enter> <Plug>REDSendSelection
+
 autocmd Filetype r call SetROptions()
 function SetROptions()
     setlocal expandtab
@@ -610,6 +556,15 @@ function SetROptions()
     let indent_guides_guide_size = 2
 endfunction
 
+" }}}
+
+" fzf {{{
+
+" Use fzf to search open buffers
+nnoremap <Leader>b :Buffers<CR>
+
+" Use fzf to search files
+nnoremap <Leader>p :Files<CR>
 
 " }}}
 
@@ -617,15 +572,10 @@ endfunction
 set nobackup
 set noswapfile
 
-" Open vim in root 
-cd ~
-
 " Automatically cd to directory of current file
 set autochdir
 
 " Ignore case of `/` searches unless an upper case letter is used
 set ignorecase
 set smartcase
-
-" }}}
 

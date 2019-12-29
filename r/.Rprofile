@@ -1,5 +1,5 @@
-
-library(colorout)
+# Packages
+library(colorout)  # Colourised temrinal output
 
 # Don't ask to save workspace on exit
 utils::assignInNamespace(
@@ -18,3 +18,19 @@ utils::assignInNamespace(
   }, 
   "base"
 )
+
+# Permanently set mirror
+local({
+  r <- getOption("repos")
+  r["CRAN"] <- "https://cran.ma.imperial.ac.uk/"
+  options(repos = r)
+})
+
+# Set print width
+options(width = 80)
+
+# Set significant figures
+options(digits = 4)
+
+# Set max print length
+options(max.print = 100)
