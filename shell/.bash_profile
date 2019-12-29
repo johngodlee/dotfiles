@@ -98,8 +98,11 @@ export PYTHON_CONFIGURE_OPTS="--enable-framework"
 # Disable macOS Catalina zsh warning
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
-# Disablle Homebrew analytics
+# Disable Homebrew analytics
 export HOMEBREW_NO_ANALYTICS=1
+
+# Homebrew-Github personal access token
+export HOMEBREW_GITHUB_API_TOKEN=ad1da8ab3bdd0ff6f234d97dc321f6bd3c4af598
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
