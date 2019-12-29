@@ -1,0 +1,15 @@
+#!/bin/sh
+
+cd ~/git_proj/recipes
+
+./recipes_readme_gen.sh
+
+cd ~/google_drive/bib/library
+
+./compile.sh
+
+cd ~/git_proj/gopher_phlog
+
+./conv.sh
+
+

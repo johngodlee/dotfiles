@@ -1,10 +1,9 @@
-Code ~/google_drive/Code
-Daily_Notes ~/google_drive/Notes/Daily
-Desktop ~/Desktop
+notes ~/google_drive/Notes
+code ~/google_drive/Code
+desktop ~/Desktop
 git_proj ~/git_proj
 google_drive ~/google_drive
 johngodlee.github.io ~/git_proj/johngodlee.github.io
-Notes ~/google_drive/Notes
-PhD ~/google_drive/Postgrad/PhD
-Root ~/
+phd ~/google_drive/Postgrad/PhD
+$HOME ~/
 
