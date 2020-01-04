@@ -24,14 +24,11 @@ Plugin 'christoomey/vim-tmux-navigator'	" Easy navigation of tmux and vim splits
 Plugin 'itchyny/calendar.vim'	" Interact with google calendar using vim
 Plugin 'lervag/vimtex'		" LaTeX editing in vim
 Plugin 'ledger/vim-ledger'	" Edit ledger journals in vim
-Plugin 'tpope/vim-commentary'	" Comment out lines with a keymapping
-Plugin 'junegunn/vim-easy-align'	" For aligning markdown tables visually
 Plugin 'nathanaelkane/vim-indent-guides'	" Indent guides
 Plugin 'junegunn/fzf'           " Fuzzy file finder
 Plugin 'junegunn/fzf.vim'       " Fuzzy file finder
 Plugin 'chrisbra/csv.vim'		" CSV editing
 Plugin 'SirVer/ultisnips'       " Snippets
-Plugin 'jceb/vim-orgmode'		" Org-mode
 Plugin 'jalvesaq/Nvim-R'	" R IDE
 
 call vundle#end()		" required
@@ -150,7 +147,7 @@ set mouse=n
 " Don’t reset cursor to start of line when moving around
 set nostartofline
 
-" Preserve indentation on wrapped lines and make proper tabs!
+" Preserve indentation on wrapped lines and make proper tabs
 set breakindent
 set autoindent
 
@@ -567,6 +564,45 @@ nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>p :Files<CR>
 
 " }}}
+
+" VimWiki {{{
+
+" Define wiki paths and style
+let wiki_1 = {}
+let wiki_1.path = '~/google_drive/notes/'
+let wiki_1.index = 'index'
+let wiki_1.syntax = 'markdown'
+let wiki_1.ext = '.md'
+let g:vimwiki_list = [wiki_1]
+
+" Only set type of markdown files inside wiki directory
+let g:vimwiki_global_ext = 0
+
+" Don't indent lines 
+let g:vimwiki_list_margin = 0
+
+" Don't shorten URLs
+let g:vimwiki_url_maxsave=0
+
+" Don't let vimwiki take over tabs
+let g:vimwiki_table_mappings = 0
+
+" Folding of markdown headers 
+autocmd Filetype vimwiki setlocal foldexpr=MarkdownLevel()  
+autocmd Filetype vimwiki setlocal foldmethod=expr   
+let g:vimwiki_folding = 'custom'
+
+" Don't hide Markdown URLs
+let g:vimwiki_conceallevel = 0
+
+" Save wiki buffers when switching page
+let g:vimwiki_autowriteall = 1
+
+" Auto-update diary index
+let g:vimwiki_auto_diary_index = 1
+
+" }}}
+
 
 " Stop creating swp and ~ files
 set nobackup

@@ -41,3 +41,5 @@ confirm-exit yes
 
 download-path "~/Downloads/podcasts/%h/%n"
 player "/Applications/VLC.app/Contents/MacOS/VLC -I ncurses"
+
+define-filter "Unread" "unread_count > 0"

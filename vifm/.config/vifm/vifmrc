@@ -75,13 +75,16 @@ set dotfiles
 set vifminfo=dhistory,savedirs,chistory,state,tui,shistory,
     \phistory,fhistory,dirstack,registers,bookmarks,bmarks
 
+" Use single pane as default
+only
+
 " }}}
 
 " Bookmarks {{{
 " :mark mark /full/directory/path [filename]
 mark b ~/bin/
 mark h ~/
-mark g ~/Google_Drive/
+mark g ~/doogle_drive/
 
 " }}}
 

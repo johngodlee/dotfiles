@@ -67,6 +67,9 @@ alias neomutt='cd ~/Downloads; notmuch new; neomutt'
 # Use VLC ncurses in the terminal
 alias vlc="/Applications/VLC.app/Contents/MacOS/VLC -I ncurses"
 
+# Use vim as pager 
+alias less="/usr/local/Cellar/vim/*/share/vim/vim*/macros/less.sh" 
+
 # Source bookmarks functions
 source $HOME/bin/marks
 
