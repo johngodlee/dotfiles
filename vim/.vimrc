@@ -116,6 +116,12 @@ nnoremap <Leader>g :tabedit %<CR>
 " Open URLs in vim
 nnoremap <Leader>u :w<Home>silent <End> !urlview<CR>
 
+" Open todo.md
+nnoremap <Leader>ww :e ~/google_drive/notes/todo.md<CR>
+
+" Open diary for today, or create if it doesn't exist
+nnoremap <Leader>w<Leader>w :e `diary_gen`<CR>
+
 " }}}
 
 " Movement and resizing {{{

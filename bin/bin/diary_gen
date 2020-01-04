@@ -1,0 +1,19 @@
+#!/bin/sh
+
+diarydir="$HOME/google_drive/notes/diary"
+today="$(date +"%Y-%m-%d")"
+file="$diarydir/$today.md"
+template="$today
+
+# DONE =================================
+
+= DONE =================================
+"
+
+if [ ! -f $file ]; then
+    echo "$template" > $file
+fi
+
+echo "$file"
+
+
