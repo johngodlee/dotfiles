@@ -113,27 +113,6 @@ nnoremap <Leader>t :tabnew<CR>:Ex<CR>
 " Send split to new tab
 nnoremap <Leader>g :tabedit %<CR>
 
-" Create and toggle done status of task lines
-autocmd Filetype text,markdown nnoremap <Leader>T :call ToggleTask()<CR>
-
-function! ToggleTask()
-	if (getline('.') =~ '^\[x\]')>0       " IF you find [x] at line start
-		.s/^\[x\]/[ ]/g
-	elseif (getline('.') =~ '^\[\ \]')>0  " OR if you find [ ] at line start
-		.s/^\[\ \]/[x]/g
-	elseif (getline('.') =~ '^\d\+\.\ \[\ \]')>0  " OR if the line begins with 1. [ ]
-		.s/\[\ \]/[x]/g
-	elseif (getline('.') =~ '^\d\+\.\ \[x\]')>0  " OR if the line begins with 1. [x]
-		.s/\[x\]/[ ]/g
-	elseif (getline('.') =~ '^\d\+\.')>0  " OR if the line begins with a 1.
-		.s/\d\+\./& [ ]/
-	elseif (getline('.') =~ '^\*\|-')>0	  " OR if the line begins with a * or -	
-		.s/^\*\|-/[ ]/
-	else								  " OR if none 
-		.s/^/[ ] /g
-	endif 
-endfunction
-
 " Open URLs in vim
 nnoremap <Leader>u :w<Home>silent <End> !urlview<CR>
 
@@ -564,45 +543,6 @@ nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>p :Files<CR>
 
 " }}}
-
-" VimWiki {{{
-
-" Define wiki paths and style
-let wiki_1 = {}
-let wiki_1.path = '~/google_drive/notes/'
-let wiki_1.index = 'index'
-let wiki_1.syntax = 'markdown'
-let wiki_1.ext = '.md'
-let g:vimwiki_list = [wiki_1]
-
-" Only set type of markdown files inside wiki directory
-let g:vimwiki_global_ext = 0
-
-" Don't indent lines 
-let g:vimwiki_list_margin = 0
-
-" Don't shorten URLs
-let g:vimwiki_url_maxsave=0
-
-" Don't let vimwiki take over tabs
-let g:vimwiki_table_mappings = 0
-
-" Folding of markdown headers 
-autocmd Filetype vimwiki setlocal foldexpr=MarkdownLevel()  
-autocmd Filetype vimwiki setlocal foldmethod=expr   
-let g:vimwiki_folding = 'custom'
-
-" Don't hide Markdown URLs
-let g:vimwiki_conceallevel = 0
-
-" Save wiki buffers when switching page
-let g:vimwiki_autowriteall = 1
-
-" Auto-update diary index
-let g:vimwiki_auto_diary_index = 1
-
-" }}}
-
 
 " Stop creating swp and ~ files
 set nobackup
