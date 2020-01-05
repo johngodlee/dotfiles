@@ -89,6 +89,9 @@ alias calendar="vim -c Calendar"
 # Use ripgrep
 alias grep="rg"
 
+# Open todo file
+alias todo="vim $HOME/google_drive/notes/todo.md"
+
 # Define path to bookmarks file
 export MARKPATH=$HOME/.marks
 
