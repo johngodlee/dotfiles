@@ -67,9 +67,6 @@ alias neomutt='cd ~/Downloads; notmuch new; neomutt'
 # Use VLC ncurses in the terminal
 alias vlc="/Applications/VLC.app/Contents/MacOS/VLC -I ncurses"
 
-# Use vim as pager 
-alias less="/usr/local/Cellar/vim/*/share/vim/vim*/macros/less.sh" 
-
 # Source bookmarks functions
 source $HOME/bin/marks
 
@@ -78,6 +75,9 @@ export GPGKEY=E2388D6F0290C660224F6439215C0880610719F7
 
 # Use Vim as default $EDITOR
 export EDITOR=vim
+
+# Use less as pager
+export PAGER=less
 
 # Git aliases
 alias gall="git add -A; git commit"

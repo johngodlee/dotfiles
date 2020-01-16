@@ -35,13 +35,20 @@ snippet v "Make text verbatim" b
 \verb|${0:${VISUAL}}|
 endsnippet
 
-
 snippet sup "Superscript" i
-${1:${VISUAL}}^{$2}$0
+^{$1}
 endsnippet
 
 snippet sub "Subscript" i
-${1:${VISUAL}}_{$2}$0
+_{$1}
+endsnippet
+
+snippet tsup "Superscript text" i
+\textsuperscript{$1}
+endsnippet
+
+snippet tsub "Subscript text" i
+\textsubscript{$1}
 endsnippet
 
 snippet // "Fraction" i

@@ -1,0 +1,25 @@
+#!/bin/sh
+
+monitored_file=`basename $1`
+preview="/tmp/${monitored_file}.html"
+preview_url="file://${preview}"
+
+trap "rm -f ${preview};exit;" SIGINT SIGTERM
+
+# Remove any old preview versions
+rm -f ${preview}
+
+# Generate preview
+pandoc $1 > ${preview}
+
+# Open in Chrome
+#tab_id=`chrome-cli open ${preview_url} | grep Id | cut -d: -f2`
+
+# Loop until killed 
+# Regenerates preview when source changes
+while [ 1 ]
+do
+  fswatch -L -0 -1 $1 > /dev/null
+  w3m -T text/html ${preview}
+done
+

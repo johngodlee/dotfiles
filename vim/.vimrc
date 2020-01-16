@@ -232,16 +232,20 @@ function! ChangeStatuslineColor()
 endfunction
 
 " Get git branch in statusline
-function CurrentGitBranch()
-    let gitoutput = system('git status -b '.shellescape(expand('%')).' | head -1 | grep -oE "[^ ]+$" | tr -d "[:cntrl:]"') 
-    if gitoutput =~ "fatal"
-        let b:gitstatus = ''
-    else
-        let b:gitstatus = gitoutput 
-    endif
-endfunc
+if &diff
 
-autocmd BufEnter,BufWritePost * call CurrentGitBranch()
+else
+	function CurrentGitBranch()
+    	let gitoutput = system('git status -b '.shellescape(expand('%')).' | head -1 | grep -oE "[^ ]+$" | tr -d "[:cntrl:]"') 
+    	if gitoutput =~ "fatal"
+        	let b:gitstatus = ''
+    	else
+        	let b:gitstatus = gitoutput 
+    	endif
+	endfunc
+	autocmd BufEnter,BufWritePost * call CurrentGitBranch()
+endif
+
 
 " Statusline
 " left side
@@ -250,7 +254,11 @@ set statusline+=\ %-8.{ModeCurrent()} 	" Current mode
 set statusline+=\ \|\  	" Vert-line and space   
 set statusline+=%t	" File name
 set statusline+=\ \|\  	" Vert-line and space   
-set statusline+=%{b:gitstatus}		" git branch
+if &diff
+
+else
+	set statusline+=%{b:gitstatus}		" git branch
+endif
 set statusline+=%=	" Switch to right side
 
 " right side
@@ -550,6 +558,31 @@ nnoremap <Leader>p :Files<CR>
 
 " }}}
 
+" vimdiff {{{
+
+" Disable folding
+set diffopt+=context:99999
+
+" Disable diffing on whitespace
+set diffopt+=iwhite
+
+" Softwrap lines
+au VimEnter * if &diff | execute 'windo set wrap' | endif
+
+" Disable syntax highlighting
+if &diff
+    syntax off
+endif
+
+" Change highlight colours so they are less garish
+hi DiffAdd      cterm=none ctermfg=NONE ctermbg=Red
+hi DiffChange   cterm=none ctermfg=NONE ctermbg=Gray
+hi DiffDelete   cterm=none ctermfg=NONE ctermbg=Red
+hi DiffText     cterm=none ctermfg=NONE ctermbg=DarkGray
+
+" }}}
+
+
 " Stop creating swp and ~ files
 set nobackup
 set noswapfile
@@ -561,3 +594,4 @@ set autochdir
 set ignorecase
 set smartcase
 
+nnoremap <Leader>A :terminal markdown_vim_preview %<CR>
