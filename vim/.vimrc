@@ -15,7 +15,6 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()		" required
 
 Plugin 'VundleVim/Vundle.vim'	" required
-Plugin 'scrooloose/nerdtree.git'    " File navigation
 Plugin 'plasticboy/vim-markdown'	" Better markdown syntax highlighting, indenting etc.
 Plugin 'pangloss/vim-javascript'	" Javascript syntax highlighting
 Plugin 'junegunn/goyo.vim'	" Toggle minimal writing environment
@@ -381,11 +380,25 @@ au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
 
 " netrw {{{
 
-" Tree style file list
-let g:netrw_liststyle = 0
+" Remove banner
+let g:netrw_banner = 0
 
-" Open file in current split
-let g:netrw_browse_split = 0
+" Tree-like directory style
+let g:netrw_liststyle = 3
+
+" Open files in 'previous' pane
+let g:netrw_browse_split = 4
+let g:netrw_preview = 1
+let g:netrw_altv = 1
+
+" Column width of Vexplore
+let g:netrw_winsize = 20
+
+" Disable opening files with left click
+let g:netrw_mousemaps = 0
+
+" Human readable file sizes
+let g:netrw_sizestyle = "H"
 
 " Maintain current directory when opening netrw
 let g:netrw_keepdir = 0
@@ -393,27 +406,8 @@ let g:netrw_keepdir = 0
 " Stop creating history in .netrwhist
 let g:netrw_dirhistmax = 1
 
-let NERDTreeSortHiddenFirst = 1
-
-let NERDTreeHijackNetrw = 1
-
-let NERDTreeMinimalUI = 1
-
-let NERDTreeWinSize = 40
-
-" }}}
-
-" NERDTree {{{
-
-let NERDTreeShowHidden = 1
-let NERDTreeShowBookmarks = 1
-let NERDTreeAutoDeleteBuffer = 1
-
-" Open NERDTree 
-nnoremap <Leader>n :NERDTreeToggle<CR>
-
-" Focus NERDTree and highlight current file 
-noremap <leader>nf :NERDTreeFind<CR>
+" Open netrw
+nnoremap <Leader>n :Vexplore<CR>
 
 " }}}
 
