@@ -106,9 +106,6 @@ endf
 " See cheatsheet
 noremap <Leader>c :call Cheat() <CR>
 
-" Open new split/vsplit/tab with netrw open
-nnoremap <Leader>t :tabnew<CR>:Ex<CR>
-
 " Send split to new tab
 nnoremap <Leader>g :tabedit %<CR>
 
@@ -408,6 +405,9 @@ let g:netrw_dirhistmax = 1
 
 " Open netrw
 nnoremap <Leader>n :Vexplore<CR>
+
+" Open new split/vsplit/tab with netrw open
+nnoremap <Leader>t :tabnew<CR>:Explore<CR>
 
 " }}}
 
