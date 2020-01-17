@@ -24,7 +24,6 @@ Plugin 'itchyny/calendar.vim'	" Interact with google calendar using vim
 Plugin 'lervag/vimtex'		" LaTeX editing in vim
 Plugin 'ledger/vim-ledger'	" Edit ledger journals in vim
 Plugin 'nathanaelkane/vim-indent-guides'	" Indent guides
-Plugin 'junegunn/fzf'           " Fuzzy file finder
 Plugin 'junegunn/fzf.vim'       " Fuzzy file finder
 Plugin 'chrisbra/csv.vim'		" CSV editing
 Plugin 'SirVer/ultisnips'       " Snippets
@@ -411,6 +410,19 @@ nnoremap <Leader>t :tabnew<CR>:Explore<CR>
 
 " }}}
 
+" fzf {{{
+
+" Location of system fzf
+set rtp+=/usr/local/opt/fzf
+
+" Use fzf to search open buffers
+nnoremap <Leader>b :Buffers<CR>
+
+" Use fzf to search files
+nnoremap <Leader>p :Files<CR>
+
+" }}}
+
 " Mutt integration {{{
 
 autocmd FileType mail setlocal omnifunc=muttaliasescomplete#Complete 
@@ -539,16 +551,6 @@ function SetROptions()
     let indent_guides_start_level = 1
     let indent_guides_guide_size = 2
 endfunction
-
-" }}}
-
-" fzf {{{
-
-" Use fzf to search open buffers
-nnoremap <Leader>b :Buffers<CR>
-
-" Use fzf to search files
-nnoremap <Leader>p :Files<CR>
 
 " }}}
 
