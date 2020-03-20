@@ -15,8 +15,8 @@ elif [ "$2" = "assets:bank:monzo" ]
 then
 	# Prepare file
 	## Replace column headers | Change tag | Remove time from date > send to temp
-	sed '1s/.*/transid,date,amount,,,,payee,,,,,/' $1 | sed 's/general/misc/g' | sed 's/T[0-9][0-9]:[0-9][0-9]:[0-9][0-9]Z//g' > $temp
-	date="%Y-%m-%d"
+	sed '1s/.*/transid,date,,,,,,amount,,,,,,,payee,/' $1 | sed 's/general/misc/g' | sed 's/T[0-9][0-9]:[0-9][0-9]:[0-9][0-9]Z//g' > $temp
+	date="%d/%m/%Y"
 
 else
 	echo "Choose an account"

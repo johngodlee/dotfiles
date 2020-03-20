@@ -69,10 +69,13 @@ nnoremap <Leader>f :!open -R %<CR>
 " Copy and paste from `+` register for interacting with mac clipboard
 set clipboard=unnamed
 vnoremap y "+y 
-vnoremap p "+p
-nnoremap p "+gp
+vnoremap p "_dP
+nnoremap p "+p
 vnoremap d "+d
 nnoremap dd "+dd
+
+" Don't add pasted over text to register
+vnoremap <leader>p "_dP
 
 " Make terminal source .bash_profile when opening 
 nnoremap <Leader>t :terminal<CR>source $HOME/.bash_profile<CR>

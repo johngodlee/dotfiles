@@ -84,7 +84,7 @@ only
 " :mark mark /full/directory/path [filename]
 mark b ~/bin/
 mark h ~/
-mark g ~/doogle_drive/
+mark g ~/google_drive/
 
 " }}}
 
@@ -118,10 +118,10 @@ mark g ~/doogle_drive/
 
 " Pdf
 filetype *.pdf
-       \ {Open in Preview}
-       \ open -a Preview.app,
        \ {Open in Skim}
        \ open -a Skim.app,
+       \ {Open in Preview}
+       \ open -a Preview.app,
 fileviewer *.pdf pdftotext -nopgbrk %c -
 
 " PostScript
