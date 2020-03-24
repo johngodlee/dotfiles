@@ -1,5 +1,5 @@
 # Packages
-library(colorout)  # Colourised temrinal output
+#library(colorout)  # Colourised temrinal output
 
 # Don't ask to save workspace on exit
 utils::assignInNamespace(
