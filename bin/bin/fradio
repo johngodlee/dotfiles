@@ -1,0 +1,10 @@
+#!/bin/sh
+
+stations="$HOME/.radio.txt"
+
+sel=$(sed 's/^.*,//' ${stations} | fzf)
+
+url=$(grep "${sel}" ${stations} | sed 's/,.*$//')
+
+vlc "${url}"
+
