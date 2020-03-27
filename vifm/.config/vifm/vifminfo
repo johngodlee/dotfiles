@@ -19,7 +19,7 @@
 # TUI:
 al
 q0
-v2
+v1
 ov
 m-1
 l2
@@ -32,6 +32,9 @@ d/Volumes/Extreme SSD/tanzania_2020
 d/Volumes/Extreme SSD/tanzania_2020/data
 	plot_checklist.xlsx
 16
+d/Users/johngodlee/.password-store
+	ethical_superstore.gpg
+39
 d
 
 # Right window history (oldest to newest):
@@ -48,6 +51,8 @@ D
 :q
 
 # Search history (oldest to newest):
+/Store
+/store
 
 # Prompt history (oldest to newest):
 
