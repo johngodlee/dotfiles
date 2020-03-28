@@ -32,7 +32,6 @@ nametrans = lambda folder: re.sub('drafts', '[Google Mail].Drafts',
 	re.sub('trash', '[Google Mail].Bin', folder))))
 
 [Repository gmail-remote]
-maxconnections = 3
 type = Gmail
 ssl = true
 sslcacertfile = /usr/local/etc/openssl/cert.pem
@@ -53,6 +52,5 @@ folderfilter = lambda folder: folder not in [
     ]
 createfolders = True
 singlethreadperfolder = True 
-
 
 postsynchook = notmuch new --quiet
