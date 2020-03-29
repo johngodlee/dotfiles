@@ -18,8 +18,8 @@ yabai -m rule --add app="^System Preferences$" manage=off
 yabai -m rule --add app="^App Store$" manage=off
 
 # statusbar
-yabai -m config status_bar                   on
-yabai -m config status_bar_text_font         "Hack:Regular:12.0"
-yabai -m config status_bar_space_icon_strip  1 2 3 4 5 6 7 8 9
-yabai -m config status_bar_background_color 0xffb4b3b0
-yabai -m config status_bar_foreground_color 0xff000000 
+# yabai -m config status_bar                   on
+# yabai -m config status_bar_text_font         "Hack:Regular:12.0"
+# yabai -m config status_bar_space_icon_strip  1 2 3 4 5 6 7 8 9
+# yabai -m config status_bar_background_color 0xffb4b3b0
+# yabai -m config status_bar_foreground_color 0xff000000 

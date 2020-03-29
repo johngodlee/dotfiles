@@ -6,5 +6,6 @@ sel=$(sed 's/^.*,//' ${stations} | fzf)
 
 url=$(grep "${sel}" ${stations} | sed 's/,.*$//')
 
-vlc "${url}"
+/Applications/VLC.app/Contents/MacOS/VLC -I ncurses "${url}"
+
 
