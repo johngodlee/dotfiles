@@ -1,5 +1,5 @@
 #!/bin/bash
 
-sel=$(pass | gsed 's/[^ ]* //' | gsed "s,\x1B\[[0-9;]*[a-zA-Z],,g" | tail -n+2 | fzf)
+sel=$(pass | sed 's/[^ ]* //' | sed "s,\x1B\[[0-9;]*[a-zA-Z],,g" | tail -n+2 | fzf)
 
 pass $sel

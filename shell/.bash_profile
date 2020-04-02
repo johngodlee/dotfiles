@@ -1,16 +1,20 @@
 # Set vi mode
 set -o vi
 
-# Add ~/bin to path for custom scripts
-export PATH=/Users/johngodlee/Library/Python/3.6/bin:\
-/usr/local/Caskroom/miniconda/4.6.14/miniconda3/bin:\
-/Users/johngodlee/.gem/ruby/2.6.0/bin:\
-/usr/local/bin:\
-/usr/local/opt/*/libexec/gnubin:\
-/usr/local/opt/ruby/bin:\
-/usr/bin:\
-$HOME/bin:\
-$PATH
+# Set $PATH
+export PATH=$HOME/bin:\
+/usr/local/opt/coreutils/libexec/gnubin:\
+/usr/local/opt/grep/libexec/gnubin:\
+/usr/local/opt/gnu-sed/libexec/gnubin:\
+/usr/local/opt/gawk/libexec/gnubin:\
+${PATH}
+
+# Set #MANPATH
+export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:\
+/usr/local/opt/grep/libexec/gnuman:\
+/usr/local/opt/gnu-sed/libexec/gnuman:\
+/usr/local/opt/gawk/libexec/gnuman:\
+${MANPATH}"
 
 # Alias `hub` as `git`, allows hub commands to be run using git
 eval "$(hub alias -s)"
@@ -106,20 +110,3 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 
 # Disable Homebrew analytics
 export HOMEBREW_NO_ANALYTICS=1
-
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/usr/local/Caskroom/miniconda/4.6.14/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/usr/local/Caskroom/miniconda/4.6.14/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/usr/local/Caskroom/miniconda/4.6.14/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/usr/local/Caskroom/miniconda/4.6.14/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
