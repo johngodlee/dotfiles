@@ -1,3 +1,3 @@
 let g:netrw_dirhistmax  =1
 let g:netrw_dirhistcnt =0
-let g:netrw_dirhist_0='/Users/johngodlee/google_drive/postgrad/phd/fieldwork_2019/bicuar_diversity_special_issue/revisions/diversity-718596/review_comment_letter'
+let g:netrw_dirhist_0='/Users/johngodlee/google_drive/postgrad/phd/fieldwork_2019/bicuar_diversity_special_issue/drafts/diversity-760558-for proof'
