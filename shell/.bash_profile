@@ -69,7 +69,7 @@ alias mutt='cd ~/Downloads; notmuch new; neomutt'
 alias neomutt='cd ~/Downloads; notmuch new; neomutt'
 
 # Use VLC ncurses in the terminal
-alias vlc="/Applications/VLC.app/Contents/MacOS/VLC -I ncurses"
+alias vlc="/Applications/VLC.app/Contents/MacOS/VLC -I ncurses --no-color"
 
 # Source bookmarks functions
 source $HOME/bin/marks

@@ -6,6 +6,6 @@ sel=$(sed 's/^.*,//' ${stations} | fzf)
 
 url=$(grep "${sel}" ${stations} | sed 's/,.*$//')
 
-/Applications/VLC.app/Contents/MacOS/VLC -I ncurses "${url}"
+/Applications/VLC.app/Contents/MacOS/VLC -I ncurses --no-color "${url}"
 
 
