@@ -52,5 +52,3 @@ folderfilter = lambda folder: folder not in [
     ]
 createfolders = True
 singlethreadperfolder = True 
-
-postsynchook = notmuch new --quiet

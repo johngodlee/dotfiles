@@ -1,5 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env sh
 
 # Remove all `.DS_Store` files
-
 find ~/ -name '.DS_Store' -delete
