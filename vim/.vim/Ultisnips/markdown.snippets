@@ -2,11 +2,18 @@ snippet img "Insert an image" b
 ![${1:alt text}]($2)
 endsnippet
 
-snippet yaml_blog "Insert YAML frontmatter" b
+snippet yaml_blog "Insert YAML frontmatter for a Jekyll post" b
 ---
 layout: post
 title: "$1"
 date: ${2:`date +%Y`}-${3:`date +%m`}-${4:`date +%d`}
+---
+endsnippet
+
+snippet yaml "Insert YAML frontmatter" b
+---
+title: "$1"
+$2
 ---
 endsnippet
 	

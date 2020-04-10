@@ -1,0 +1,17 @@
+extends markdown
+extends r
+
+snippet ` "Insert code chunk" b
+\`\`\`{$1}
+$2
+\`\`\`
+endsnippet
+
+snippet yaml "Insert YAML frontmatter" b
+---
+title: "$1"
+output: ${2:html_document}
+author: "${3:John L. Godlee}"
+date: ${4:`date +%Y`}-${5:`date +%m`}-${6:`date +%d`}
+---
+endsnippet

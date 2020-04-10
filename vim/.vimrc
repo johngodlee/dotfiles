@@ -8,11 +8,11 @@ set nocompatible
 
 " Vundle {{{
 
-filetype off			" required for Vundle
+filetype off	" required for Vundle
 
 " set runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()		" required
+call vundle#begin()	" required
 
 Plugin 'VundleVim/Vundle.vim'	" required
 Plugin 'plasticboy/vim-markdown'	" Better markdown syntax highlighting, indenting etc.
@@ -28,15 +28,11 @@ Plugin 'junegunn/fzf.vim'       " Fuzzy file finder
 Plugin 'chrisbra/csv.vim'		" CSV editing
 Plugin 'SirVer/ultisnips'       " Snippets
 Plugin 'jalvesaq/Nvim-R'	" R IDE
+Plugin 'ap/vim-css-color'	" Highlight colours in CSS
 
-call vundle#end()		" required
+call vundle#end()	" required
 filetype plugin indent on	" required
 
-" vundle help `:h vundle`
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
 " }}}
 
 " Generic key bindings {{{ 
@@ -49,7 +45,7 @@ nnoremap a A
 noremap <expr> j v:count ? (v:count > 1 ? "m'" . v:count : '') . 'j' : 'gj'
 noremap <expr> k v:count ? (v:count > 1 ? "m'" . v:count : '') . 'k' : 'gk'
 
-" Resize splits more conveniently using the leader key
+" Resize splits more conveniently using Leader 
 nnoremap <Leader>h <C-W>>
 nnoremap <Leader>j <C-W>+
 nnoremap <Leader>k <C-W>-
@@ -134,6 +130,7 @@ set nostartofline
 set breakindent
 set autoindent
 
+" Set tab width to 4 spaces 
 set tabstop=4
 set noexpandtab
 set shiftwidth=4
@@ -168,9 +165,6 @@ set cursorline
 
 " Remove background
 hi Normal ctermbg=none
-
-" Inherit colour scheme from terminal
-set t_Co=16
 
 " Ragged right line break
 set linebreak
@@ -540,6 +534,8 @@ let r_indent_comment_column = 0
 let r_indent_align_args = 0
 let r_indent_ess_comments = 0
 let r_indent_ess_compatible = 0
+let R_non_r_compl = 0
+let R_rmdchunk = 0
 
 autocmd FileType r setlocal colorcolumn=80
 autocmd FileType r nnoremap <Leader>F :Rformat<CR>
