@@ -542,7 +542,7 @@ autocmd FileType r nnoremap <Leader>F :Rformat<CR>
 nmap <LocalLeader><Enter> <Plug>RDSendLine
 vmap <LocalLeader><Enter> <Plug>REDSendSelection
 
-autocmd Filetype r call SetROptions()
+autocmd Filetype r,rmd call SetROptions()
 function SetROptions()
     setlocal expandtab
     setlocal softtabstop=2
