@@ -147,6 +147,9 @@ set backspace=2
 " Split to right by default
 set splitright 
 
+" Don't close open buffer when opening file
+set hidden	
+
 " }}}
 
 " Appearance {{{
