@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+
+wakeonlan 88:51:fb:53:5a:e8
