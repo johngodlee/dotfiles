@@ -4,3 +4,4 @@ http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/nonuk/sbr_vlo
 http://bbcwssc.ic.llnwd.net/stream/bbcwssc_mp1_ws-eieukls,BBC World Service 
 http://bbcmedia.ic.llnwd.net/stream/bbcmedia_6music_mf_p,BBC Radio 6 Music
 http://bbcmedia.ic.llnwd.net/stream/bbcmedia_lrldn_mf_p,BBC Radio London
+https://ehfm.out.airtime.pro/ehfm_a,Edinburgh Summerhall EH-FM

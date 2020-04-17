@@ -6,7 +6,7 @@ aria2c --bt-metadata-only=true --bt-save-metadata=true $1
 
 file="$('ls' -tr1 . | tail -1 | grep \.torrent)"
 
-scp "${file}" johngodlee@192.168.1.222:/samba/share/torrents/
+scp "${file}" johngodlee@192.168.1.222:/media/hdd/torrents/
 
 rm "${file}"
 
