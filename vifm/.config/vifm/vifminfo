@@ -19,52 +19,13 @@
 # TUI:
 al
 q0
-v2
+v1
 ov
 m-1
 l2
 r2
 
 # Left window history (oldest to newest):
-d/Users/johngodlee/Desktop/music_cameron/Red Hot Chili Peppers/Misc
-	10 Blood Sugar Sex Magik.mp3
-7
-d/Users/johngodlee/Desktop/music_cameron/Red Hot Chili Peppers
-	Misc
-1
-d/Users/johngodlee/Desktop/music_cameron
-	Guns N' Roses
-14
-d/Users/johngodlee/Desktop/music_cameron/Guns N' Roses
-	..
-0
-d/Users/johngodlee/Desktop/music_cameron
-	Bloc
-5
-d/Users/johngodlee/Desktop/music_cameron/Bloc
-	..
-0
-d/Users/johngodlee/Desktop/music_cameron
-	Bloc Party
-5
-d/Users/johngodlee/Desktop/music_cameron/Bloc Party
-	One More Chance
-2
-d/Users/johngodlee/Desktop/music_cameron
-	Justice
-17
-d/Users/johngodlee/Desktop/music_cameron/Justice
-	Cross
-1
-d/Users/johngodlee/Desktop/music_cameron
-	Kurt Vile and The Violators
-19
-d/Users/johngodlee/Desktop/music_cameron/Kurt Vile and The Violators
-	b'lieve i'm goin down.._
-1
-d/Users/johngodlee/Desktop/music_cameron
-	Kurt Vile and The Violators
-19
 d/Users/johngodlee/Desktop
 	music_cameron
 4
@@ -326,12 +287,48 @@ d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/bascule
 d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/bascule_casey/seosaw_data_out
 	.TemporaryItems
 1
+d/Users/johngodlee/Downloads
+	10.1073@pnas.1914420117.pdf
+6
+d/Users/johngodlee
+	Music
+37
+d/Users/johngodlee/Music
+	Music
+1
+d/Users/johngodlee/Music/Music
+	Admiral Fallow
+3
+d/Users/johngodlee/Downloads
+	10.1073@pnas.1914420117.pdf
+6
+d/Users/johngodlee/Music
+	Music
+1
+d/Users/johngodlee/Music/Music
+	Admiral Fallow
+3
+d/Users/johngodlee/Music/Music/Admiral Fallow
+	Boots Met My Face
+1
+d/Users/johngodlee/Music/Music/Admiral Fallow/Boots Met My Face
+	01 Dead Against Smoking.mp3
+1
+d/Users/johngodlee/Downloads
+	Cabin Refurb 3-ma7BbmGQaPA.mp4
+10
+d/Users/johngodlee/Music/Music
+	Admiral Fallow
+3
+d/Users/johngodlee/Music/Music/Admiral Fallow
+	Boots Met My Face
+1
+d/Users/johngodlee/Music/Music/Admiral Fallow/Boots Met My Face
+	03 Subbuteo.mp3
+3
 d
 
 # Right window history (oldest to newest):
-D/Users/johngodlee/Music/Music/Bloc Party
-	One More Chance
-4
 D/Users/johngodlee/Music/Music/Bloc Party/One More Chance
 	..
 0
@@ -629,6 +626,9 @@ D/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/update/
 D/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/update/seosaw_data_out/stems
 	master
 2
+D/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts
+	
+0
 D
 
 # Command line history (oldest to newest):
@@ -647,7 +647,6 @@ D
 :mkdir "A Forest of Arms"
 :mkdir "New Wild Everywhere"
 :cd ~/Desktop/music_cameron/
-:cd ~/Music/Music/
 :mkdir CHVRCHES
 :mkdir "Electric Wizard
 :mkdir "Electric Wizard"
@@ -664,6 +663,8 @@ D
 :mkd
 :mkdir "Reel Big Fish"
 :cd ~/google_drive/postgrad/savannachange/bascule_conflicts/bascule_network/seosaw_data_out/plots/
+:cd ~/Music/
+:cd ~/Music/Music/
 :q
 
 # Search history (oldest to newest):

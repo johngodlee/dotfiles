@@ -1,14 +1,21 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
-cd ~/Downloads/
 
-aria2c --bt-metadata-only=true --bt-save-metadata=true $1 
+if [[ "$1" = magnet* ]]
+then
+	cd ~/Downloads/
+	aria2c --bt-metadata-only=true --bt-save-metadata=true $1 
+	file="$('ls' -tr1 . | tail -1 | grep \.torrent)"
+	tput bel
+	scp "${file}" johngodlee@192.168.1.222:/media/hdd/torrents/
+	rm "${file}"
+elif [[ "$1" = *.torrent ]]
+then
+	tput bel
+	scp "${1}" johngodlee@192.168.1.222:/media/hdd/torrents/
+else
+	echo "Not a valid torrent"
+fi
 
-file="$('ls' -tr1 . | tail -1 | grep \.torrent)"
 
-tput bel
-
-scp "${file}" johngodlee@192.168.1.222:/media/hdd/torrents/
-
-rm "${file}"
 
