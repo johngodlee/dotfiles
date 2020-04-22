@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 # If tmux session ("dash") exists, attach to it, otherwise, build it
 
@@ -17,31 +17,20 @@ else
 	tmux -2 new -s 'dash'
 
 	# Start vim
-	tmux send-keys "vim" Enter
+	tmux send-keys "todo" Enter
 
 	# New window, split into 4
-	tmux new-window -n 'bash'
+	tmux new-window -n 'shell'
 	tmux split-window -v
 	tmux split-window -h
 	tmux select-pane -t 1
 	tmux split-window -h
-
-	# Split pane 1 vertically
-	tmux select-pane -t 1
-	tmux split-window -v
-
-	# Split pane 5 horizontally
-	tmux select-pane -t 5
-	tmux split-window -h
-
-	# Resize panes
-	tmux resize-pane -D 8
 
 	# New window, start cmus
 	tmux new-window -n 'cmus'
 	tmux send-keys "cmus" Enter
 
-	# New window, start alpine
+	# New window, start (neo)mutt 
 	tmux new-window -n 'email'
 	tmux send-keys "mutt" Enter
 
