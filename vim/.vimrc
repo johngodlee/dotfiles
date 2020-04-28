@@ -406,7 +406,7 @@ let g:netrw_dirhistmax = 1
 nnoremap <Leader>n :Vexplore<CR>
 
 " Open new split/vsplit/tab with netrw open
-nnoremap <Leader>t :tabnew<CR>:Explore<CR>
+nnoremap <Leader>t :tabnew<CR>:Vexplore<CR>
 
 " }}}
 

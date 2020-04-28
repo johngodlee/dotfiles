@@ -28,3 +28,17 @@ endsnippet
 snippet lib "Insert a package" b
 library($1)
 endsnippet
+
+snippet #' "generate Roxygen2 block" b
+#' $1
+#'
+#' @param $2
+#'
+#' @return $3
+#' 
+#' @examples
+#' $4
+#' 
+#' @export
+#' 
+endsnippet

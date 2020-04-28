@@ -20,18 +20,18 @@ else
 	tmux send-keys "todo" Enter
 
 	# New window, split into 4
-	tmux new-window -n 'shell'
+	tmux new-window
 	tmux split-window -v
 	tmux split-window -h
 	tmux select-pane -t 1
 	tmux split-window -h
 
 	# New window, start cmus
-	tmux new-window -n 'cmus'
+	tmux new-window 
 	tmux send-keys "cmus" Enter
 
 	# New window, start (neo)mutt 
-	tmux new-window -n 'email'
+	tmux new-window
 	tmux send-keys "mutt" Enter
 
 	# Detach and reattach to make it work properly

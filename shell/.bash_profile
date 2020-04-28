@@ -83,6 +83,9 @@ export GPGKEY=E2388D6F0290C660224F6439215C0880610719F7
 # Use Vim as default $EDITOR
 export EDITOR=vim
 
+# alias vim
+alias v=vim
+
 # Use less as pager
 export PAGER=less
 
