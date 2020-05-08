@@ -20,8 +20,17 @@ color listnormal blue default
 color listfocus yellow default 
 color listnormal_unread cyan default
 color listfocus_unread yellow default bold
-color info white default
+color info yellow default
 color article cyan default
+
+highlight article "^Feed:.*" yellow default
+highlight article "^Title:.*" yellow default
+highlight article "^Author:.*" yellow default
+highlight article "^Date:.*" yellow default
+highlight article "^Links:.*" yellow default
+highlight article "\\[.*[0-9].*\\]" yellow default
+
+
 
 browser "open %u -a qutebrowser"
 external-url-viewer "urlview"
@@ -40,6 +49,6 @@ text-width 80
 confirm-exit yes
 
 download-path "~/Downloads/podcasts/%h/%n"
-player "/Applications/VLC.app/Contents/MacOS/VLC -I ncurses"
+player "/Applications/VLC.app/Contents/MacOS/VLC -I ncurses --no-color"
 
 define-filter "Unread" "unread_count > 0"

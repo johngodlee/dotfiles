@@ -372,6 +372,13 @@ set comments=b:>
 " Align markdown tables only in markdown documents using \\
 au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
 
+" Allow internal links
+let g:vim_markdown_follow_anchor = 1
+
+" Links in new tab
+let g:vim_markdown_autowrite = 1
+let g:vim_markdown_edit_url_in = 'tab'
+
 " }}}
 
 " netrw {{{
@@ -580,10 +587,10 @@ hi DiffText     cterm=none ctermfg=NONE ctermbg=DarkGray
 
 " }}}
 
-
 " Stop creating swp and ~ files
 set nobackup
 set noswapfile
+set nowritebackup
 
 " Automatically cd to directory of current file
 set autochdir
