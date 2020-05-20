@@ -255,9 +255,7 @@ autocmd BufRead * normal zR
 set foldcolumn=1
 
 " Disable indent folding in certain filetypes
-autocmd Filetype tex setlocal nofoldenable
-autocmd Filetype markdown setlocal nofoldenable
-autocmd Filetype rdoc setlocal nofoldenable
+autocmd Filetype tex,markdown,rdoc setlocal nofoldenable
 
 " Set folding for markdown headers
 function! MarkdownLevel()
@@ -324,6 +322,16 @@ let g:vimtex_disable_version_warning = 1
 
 " Use Skim as PDF viewer which support auto-update
 let g:vimtex_view_method = 'skim'
+
+" Set indenting in bib files
+autocmd Filetype bib call SetBibOptions()
+function SetBibOptions()
+    setlocal expandtab
+    setlocal softtabstop=2
+    setlocal shiftwidth=2
+    let indent_guides_start_level = 1
+    let indent_guides_guide_size = 2
+endfunction
 " }}}
 
 " Markdown {{{
@@ -434,7 +442,7 @@ nnoremap <Leader>s :set spell!<CR>
 " Omni-completion / NCM2 {{{
 
 " Allow autocompletion everywhere
-autocmd Filetype r call ncm2#enable_for_buffer()
+autocmd Filetype r,tex,bib call ncm2#enable_for_buffer()
 
 " Ensure omni-completion menu stays open
 set completeopt=noinsert,menuone,noselect
@@ -447,6 +455,61 @@ inoremap <Nul> <C-x><C-o>
 " Use <TAB> to select the popup menu:
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+" LaTeX completion source
+au Filetype tex call ncm2#register_source({
+	\ 'name' : 'vimtex-cmds',
+    \ 'priority': 8, 
+    \ 'complete_length': -1,
+    \ 'scope': ['tex'],
+    \ 'matcher': {'name': 'prefix', 'key': 'word'},
+    \ 'word_pattern': '\w+',
+    \ 'complete_pattern': g:vimtex#re#ncm2#cmds,
+    \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
+    \ })
+au Filetype tex call ncm2#register_source({
+    \ 'name' : 'vimtex-labels',
+    \ 'priority': 8, 
+    \ 'complete_length': -1,
+    \ 'scope': ['tex'],
+    \ 'matcher': {'name': 'combine',
+    \             'matchers': [
+    \               {'name': 'substr', 'key': 'word'},
+    \               {'name': 'substr', 'key': 'menu'},
+    \             ]},
+    \ 'word_pattern': '\w+',
+    \ 'complete_pattern': g:vimtex#re#ncm2#labels,
+    \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
+    \ })
+au Filetype tex call ncm2#register_source({
+    \ 'name' : 'vimtex-files',
+    \ 'priority': 8, 
+    \ 'complete_length': -1,
+    \ 'scope': ['tex'],
+    \ 'matcher': {'name': 'combine',
+    \             'matchers': [
+    \               {'name': 'abbrfuzzy', 'key': 'word'},
+    \               {'name': 'abbrfuzzy', 'key': 'abbr'},
+    \             ]},
+    \ 'word_pattern': '\w+',
+    \ 'complete_pattern': g:vimtex#re#ncm2#files,
+    \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
+    \ })
+au Filetype tex call ncm2#register_source({
+    \ 'name' : 'bibtex',
+    \ 'priority': 8, 
+    \ 'complete_length': -1,
+    \ 'scope': ['tex'],
+    \ 'matcher': {'name': 'combine',
+    \             'matchers': [
+    \               {'name': 'prefix', 'key': 'word'},
+    \               {'name': 'abbrfuzzy', 'key': 'abbr'},
+    \               {'name': 'abbrfuzzy', 'key': 'menu'},
+    \             ]},
+    \ 'word_pattern': '\w+',
+    \ 'complete_pattern': g:vimtex#re#ncm2#bibtex,
+    \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
+    \ })
 
 " }}}
 
