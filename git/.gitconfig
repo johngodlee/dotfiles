@@ -14,12 +14,12 @@
 [commit]
 	verbose = true
 [merge]
-	tool = vimdiff
+	tool = nvim -d 
 	conflictstyle = diff3
 [alias]
 	network = log --graph --decorate --pretty=oneline --abbrev-commit --all
 [http]
-	postBuffer = 524288000
+	postBuffer = 1048576000
 	cookiefile = /Users/johngodlee/.gitcookies
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
@@ -32,3 +32,5 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[https]
+	postBuffer = 1048576000

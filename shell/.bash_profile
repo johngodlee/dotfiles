@@ -80,11 +80,12 @@ source $HOME/bin/marks
 # Use gpg key as default
 export GPGKEY=E2388D6F0290C660224F6439215C0880610719F7
 
-# Use Vim as default $EDITOR
-export EDITOR=vim
+# Use Neovim as default $EDITOR
+export EDITOR=nvim
 
 # alias vim
-alias v=vim
+alias v=nvim
+alias vim=nvim
 
 # Use less as pager
 export PAGER=less
@@ -94,10 +95,10 @@ alias gall="git add -A; git commit"
 alias gp="git pull; git push"
 
 # Run vim calendar plugin
-alias calendar="vim -c Calendar"
+alias calendar="nvim -c Calendar"
 
 # Open todo file
-alias todo="vim $HOME/google_drive/notes/todo.md"
+alias todo="nvim $HOME/google_drive/notes/todo.md"
 
 # Define path to bookmarks file
 export MARKPATH=$HOME/.marks

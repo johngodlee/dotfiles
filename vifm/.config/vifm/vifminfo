@@ -18,137 +18,14 @@
 
 # TUI:
 al
-q0
-v1
+q1
+v2
 ov
 m-1
 l2
 r2
 
 # Left window history (oldest to newest):
-d/Users/johngodlee/Desktop/music_cameron
-	Reel Big Fish
-27
-d/Users/johngodlee/Desktop/music_cameron/Reel Big Fish
-	Favorite Noise
-1
-d/Users/johngodlee/Desktop/music_cameron
-	Reel Big Fish
-27
-d/Users/johngodlee/Desktop/music_cameron/Reel Big Fish
-	Favorite Noise
-1
-d/Users/johngodlee/Desktop/music_cameron
-	Stormzy
-30
-d/Users/johngodlee/Desktop
-	music_cameron
-4
-d/Users/johngodlee/Downloads
-	IImage_2_for_2020-04-05_Covid-19_Pandemic.png
-18
-d/Users/johngodlee/Desktop/seosaw_data_out
-	..
-0
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts
-	bascule_network
-2
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/bascule_network
-	seosaw_data_out
-2
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/bascule_network/seosaw_data_out
-	plots
-3
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/bascule_network/seosaw_data_out/plots
-	plot_master
-1
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/bascule_network/seosaw_data_out/plots/plot_master
-	..
-0
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/bascule_network/seosaw_data_out/plots
-	plot_master
-1
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/bascule_network/seosaw_data_out/plots/plot_master
-	24_zim_pritchard_wedza_checkY.xlsx
-10
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/bascule_network/seosaw_data_out/plots
-	plot_master
-1
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/bascule_network/seosaw_data_out
-	stems
-4
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/bascule_network/seosaw_data_out/stems
-	clean_stem_data_from_each_site
-1
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/bascule_network/seosaw_data_out/stems/clean_stem_data_from_each_site
-	..
-0
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/bascule_network/seosaw_data_out/stems
-	clean_stem_data_from_each_site
-1
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/bascule_network/seosaw_data_out
-	plots
-3
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/bascule_network/seosaw_data_out/plots
-	plot_master
-1
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/bascule_network/seosaw_data_out
-	plots
-3
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/bascule_network/seosaw_data_out/plots
-	plot_master
-1
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/bascule_network/seosaw_data_out
-	plots
-3
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/update/seosaw_data_out
-	plots
-2
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/update/seosaw_data_out/plots
-	master
-1
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/update/seosaw_data_out/plots/master
-	..
-0
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/update/seosaw_data_out/plots
-	master
-1
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/update/seosaw_data_out
-	stems
-3
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/update/seosaw_data_out/stems
-	..
-0
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/update/seosaw_data_out
-	stems
-3
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/update/seosaw_data_out/stems
-	old
-3
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/update/seosaw_data_out/stems/old
-	..
-0
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/update/seosaw_data_out/stems
-	master
-2
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/update/seosaw_data_out/stems/master
-	..
-0
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/update/seosaw_data_out/stems
-	latest_subset
-1
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/update/seosaw_data_out/stems/latest_subset
-	..
-0
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/update/seosaw_data_out/stems
-	latest_subset
-1
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/update/seosaw_data_out
-	stems
-3
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/update/seosaw_data_out/stems
-	latest_subset
-1
 d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/update/seosaw_data_out
 	stems
 3
@@ -325,7 +202,130 @@ d/Users/johngodlee/Music/Music/Admiral Fallow/Boots Met My Face
 3
 d/Users/johngodlee/google_drive/postgrad/savannachange/database/silvr/data/whitesveg
 	whitesveg.dbf
+2
+d/Users/johngodlee/google_drive/postgrad/savannachange/database/silvr/data
+	whitesveg
+2
+d/Users/johngodlee/google_drive/postgrad/savannachange/database/silvr
+	data
+5
+d/Users/johngodlee/google_drive/postgrad/savannachange/database
+	silvr
+2
+d/Users/johngodlee/google_drive/postgrad/savannachange/database/silvr
+	data
+5
+d/Users/johngodlee/google_drive/postgrad/savannachange/database
+	silvr
+2
+d/Users/johngodlee/google_drive/postgrad/savannachange
+	seosaw
+13
+d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw
+	data_raw
+3
+d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/data_raw
+	..
+0
+d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw
+	site_cleaning
+8
+d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/site_cleaning
+	archibald_kruger
+1
+d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/site_cleaning/archibald_kruger
+	clean.R
+1
+d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/site_cleaning
+	carreiras_moz
+2
+d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/site_cleaning/carreiras_moz
+	clean.R
+1
+d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/site_cleaning
+	central_plots
+3
+d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/site_cleaning/central_plots
+	clean.R
+1
+d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/site_cleaning
+	chidumayo_chamipe
 4
+d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/site_cleaning/chidumayo_chamipe
+	clean.R
+1
+d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/site_cleaning
+	chidumayo_chamipe
+4
+d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/site_cleaning/chidumayo_chamipe
+	clean.R
+1
+d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/site_cleaning
+	finckh_sascal
+5
+d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/site_cleaning/finckh_sascal
+	clean.R
+1
+d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/site_cleaning
+	forest_northern
+6
+d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/site_cleaning/forest_northern
+	clean.R
+1
+d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/site_cleaning
+	godlee_bicuar
+7
+d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/site_cleaning/godlee_bicuar
+	clean.R
+1
+d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/site_cleaning
+	holdo_hwange
+8
+d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/site_cleaning/holdo_hwange
+	clean.R
+1
+d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/site_cleaning
+	maiato_cusseque
+9
+d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/site_cleaning/maiato_cusseque
+	clean.R
+1
+d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/site_cleaning
+	makungwa_chimaliro
+10
+d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/site_cleaning/makungwa_chimaliro
+	clean.R
+1
+d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/site_cleaning
+	mitchard_beteke
+11
+d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/site_cleaning/mitchard_beteke
+	clean.R
+1
+d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/site_cleaning
+	maiato_cusseque
+9
+d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/site_cleaning/maiato_cusseque
+	clean.R
+1
+d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/site_cleaning
+	makungwa_chimaliro
+10
+d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/site_cleaning/makungwa_chimaliro
+	clean.R
+1
+d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/site_cleaning
+	mitchard_beteke
+11
+d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/site_cleaning/mitchard_beteke
+	..
+0
+d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/site_cleaning
+	archibald_kruger
+1
+d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/site_cleaning/archibald_kruger
+	clean.R
+1
 d
 
 # Right window history (oldest to newest):
@@ -627,7 +627,7 @@ D/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/update/
 	master
 2
 D/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts
-	
+	..
 0
 D
 
@@ -666,6 +666,7 @@ D
 :cd ~/Music/
 :cd ~/Music/Music/
 :q
+:view
 
 # Search history (oldest to newest):
 /tripathi
@@ -694,7 +695,7 @@ pmaster
 # Local filter history (oldest to newest):
 
 # Registers:
-""/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/bascule_casey/seosaw_data_out/stems/stem_data_repaced_with_manual_edits
+""/Users/johngodlee/.local/share/vifm/Trash/000_clean.R
 
 # Directory stack (oldest to newest):
 
@@ -735,6 +736,8 @@ t/Users/johngodlee/.local/share/vifm/Trash/006_.DS_Store
 	/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/update/seosaw_data_out/stems/latest_subset/.DS_Store
 t/Users/johngodlee/.local/share/vifm/Trash/007_.DS_Store
 	/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/update/.DS_Store
+t/Users/johngodlee/.local/share/vifm/Trash/000_clean.R
+	/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/site_cleaning/mitchard_beteke/clean.R
 
 # State:
 f

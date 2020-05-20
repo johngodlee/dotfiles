@@ -27,8 +27,12 @@ Plugin 'nathanaelkane/vim-indent-guides'	" Indent guides
 Plugin 'junegunn/fzf.vim'       " Fuzzy file finder
 Plugin 'chrisbra/csv.vim'		" CSV editing
 Plugin 'SirVer/ultisnips'       " Snippets
-Plugin 'jalvesaq/Nvim-R'	" R IDE
 Plugin 'ap/vim-css-color'	" Highlight colours in CSS
+Plugin 'jalvesaq/Nvim-R'	" R IDE
+Plugin 'gaalcaras/ncm-R'	" R autocompletion
+Plugin 'ncm2/ncm2'
+Plugin 'roxma/nvim-yarp'
+Plugin 'roxma/vim-hug-neovim-rpc'
 
 call vundle#end()	" required
 filetype plugin indent on	" required
