@@ -34,3 +34,6 @@ options(digits = 4)
 
 # Set max print length
 options(max.print = 100)
+
+# Set environmental variables
+Sys.setenv(ENTREZ_KEY = "d9cd1e651a746d82b62e4726838109259107")

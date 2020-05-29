@@ -427,7 +427,7 @@ config.bind('h', 'back')
 config.bind('z', 'spawn --userscript ~/.qutebrowser/userscripts/readability')
 config.bind('e', 'fullscreen')
 config.bind('c', 'yank markdown')
-config.bind(',n', 'config-cycle content.user_stylesheets ~/.qutebrowser/solarized-dark-all-sites.css ""')
+config.bind(',n', 'config-cycle content.user_stylesheets ~/.qutebrowser/solarized-everything-css/css/gruvbox/gruvbox-all-sites.css ""')
 
 # Definitions of search engines which can be used via the address bar.
 # Maps a searchengine name (such as `DEFAULT`, or `ddg`) to a URL with a
@@ -443,3 +443,4 @@ c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}', 'google': 'htt
 # The page(s) to open at the start.
 # Type: List of FuzzyUrl, or FuzzyUrl
 c.url.start_pages = '~/.qutebrowser/homepage/home.html'
+

@@ -18,8 +18,8 @@ export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:\
 /usr/local/opt/inetutils/libexec/gnuman:\
 ${MANPATH}"
 
-# Alias `hub` as `git`, allows hub commands to be run using git
-eval "$(hub alias -s)"
+
+export LANG=en_US.UTF-8
 
 # History file format
 shopt -s histappend
@@ -56,6 +56,9 @@ PS1+=' '	# Space
 # Source completion scripts
 source $HOME/bin/jump_completion
 
+# Alias calculator
+alias calc=bc
+
 # Alias `ls -G` as `ls` to force colours in `ls`
 alias ls="'gls' -A -F -G -g -h -l --group-directories-first --color"
 
@@ -90,9 +93,14 @@ alias vim=nvim
 # Use less as pager
 export PAGER=less
 
+# Alias `hub` as `git`, allows hub commands to be run using git
+eval "$(hub alias -s)"
+
 # Git aliases
 alias gall="git add -A; git commit"
 alias gp="git pull; git push"
+
+eval "$(gh completion -s bash)"
 
 # Run vim calendar plugin
 alias calendar="nvim -c Calendar"

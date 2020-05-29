@@ -6,6 +6,7 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'plasticboy/vim-markdown'	" Better markdown syntax highlighting, indenting etc.
+Plug 'junegunn/vim-easy-align'  " Align Markdown tables
 Plug 'pangloss/vim-javascript'	" Javascript syntax highlighting
 Plug 'kshenoy/vim-signature'	" Mark locations in gutter
 Plug 'christoomey/vim-tmux-navigator'	" Easy navigation of tmux and vim splits
@@ -24,6 +25,7 @@ Plug 'ncm2/ncm2-ultisnips'	" NCM2 Ultisnips
 Plug 'gaalcaras/ncm-R'	" NCM2 R
 Plug 'ncm2/ncm2-path'	" NCM2 system paths
 Plug 'wellle/tmux-complete.vim'	"NCM2 tmux completion
+Plug 'junegunn/goyo.vim'	" Distraction free-writing
 
 call plug#end()	
 " }}}
@@ -58,6 +60,13 @@ vnoremap < <gv
 
 " Copy and paste from `+` register for interacting with mac clipboard
 set clipboard=unnamedplus
+
+" Don't add deleted text to default register
+vnoremap D "_D
+nnoremap c "_c
+vnoremap c "_c
+nnoremap C "_C
+vnoremap C "_C
 
 " A function to display often misremembered keybindings
 fun! Cheat()
@@ -344,7 +353,7 @@ setlocal formatoptions=tqlnrc
 set comments=b:>
 
 " Align markdown tables only in markdown documents using \\
-au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
+au FileType markdown,rmd vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
 
 " Allow internal links
 let g:vim_markdown_follow_anchor = 1
@@ -366,7 +375,7 @@ let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 
 " Open files in 'previous' pane
-let g:netrw_browse_split = 4
+let g:netrw_browse_split = 0
 let g:netrw_preview = 1
 let g:netrw_altv = 1
 
@@ -602,6 +611,13 @@ hi DiffChange   cterm=none ctermfg=NONE ctermbg=Gray
 hi DiffDelete   cterm=none ctermfg=NONE ctermbg=Red
 hi DiffText     cterm=none ctermfg=NONE ctermbg=DarkGray
 " }}}
+
+" Goyo {{{
+
+" Stop Goyo messing up my colour scheme
+autocmd! User GoyoLeave silent! set bg=light
+" }}}
+
 
 " Stop creating swp and ~ files
 set nobackup

@@ -22,28 +22,10 @@ q1
 v2
 ov
 m-1
-l2
+l16,2
 r2
 
 # Left window history (oldest to newest):
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/update/seosaw_data_out
-	stems
-3
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/update/seosaw_data_out/stems
-	master
-2
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/update/seosaw_data_out/stems/master
-	..
-0
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/update/seosaw_data_out/stems
-	old
-3
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/update/seosaw_data_out/stems/old
-	katanga_stems_Bl2+3.csv
-2
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/update/seosaw_data_out/stems
-	old
-3
 d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/update/seosaw_data_out/stems/old
 	katanga_stems_Bl2+3.csv
 2
@@ -326,42 +308,27 @@ d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/site_cleaning
 d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/site_cleaning/archibald_kruger
 	clean.R
 1
+d/Users/johngodlee/Desktop/Madeon & Porter Robinson - Shelter (Mini - Album) (Japan Limited Edition)
+	cover.jpg
+1
+d/Users/johngodlee/Desktop
+	pommerening_2020.md
+16
+d/Users/johngodlee/.config/vifm
+	vifm-help.txt
+3
+d/Users/johngodlee/Downloads
+	SEOSAW_FieldManual_v3_2018_TBUPDATES.docx
+10
+d/Users/johngodlee
+	Downloads
+34
+d/Users
+	johngodlee
+3
 d
 
 # Right window history (oldest to newest):
-D/Users/johngodlee/Music/Music/Bloc Party/One More Chance
-	..
-0
-D/Users/johngodlee/Music/Music/Bloc Party
-	Intimacy
-3
-D/Users/johngodlee/Music/Music/Bloc Party/Intimacy
-	..
-0
-D/Users/johngodlee/Music/Music/Bloc Party
-	Silent Alarm
-5
-D/Users/johngodlee/Music/Music/Bloc Party/Silent Alarm
-	..
-0
-D/Users/johngodlee/Music/Music/Bloc Party
-	One More Chance
-4
-D/Users/johngodlee/Music/Music
-	Bloc Party
-19
-D/Users/johngodlee/Music
-	Music
-1
-D/Users/johngodlee/Music/Music
-	Justice
-54
-D/Users/johngodlee/Music/Music/Justice
-	Cross
-2
-D/Users/johngodlee/Music/Music
-	Kurt Vile and The Violators
-53
 D/Users/johngodlee/Music/Music/Kurt Vile and The Violators
 	b'lieve i'm goin down.._
 4
@@ -627,8 +594,41 @@ D/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/update/
 	master
 2
 D/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts
-	..
-0
+	changes.md
+6
+D/Users/johngodlee/google_drive/postgrad/savannachange
+	database
+5
+D/Users/johngodlee/google_drive/postgrad/savannachange/database
+	cleaning_diagram_tex
+1
+D/Users/johngodlee/google_drive/postgrad/savannachange/database/cleaning_diagram_tex
+	cleaning_process.pdf
+6
+D/Users/johngodlee/google_drive/postgrad/savannachange/database
+	cleaning_diagram_tex
+1
+D/Users/johngodlee/google_drive/postgrad/savannachange
+	seosaw_website
+15
+D/Users/johngodlee/google_drive/postgrad
+	phd
+5
+D/Users/johngodlee/google_drive
+	papers
+7
+D/Users/johngodlee/google_drive/papers
+	ali_2019_supp.docx
+8
+D/Users/johngodlee/google_drive
+	papers
+7
+D/Users/johngodlee
+	google_drive
+42
+D/Users
+	johngodlee
+3
 D
 
 # Command line history (oldest to newest):
@@ -637,7 +637,6 @@ D
 :cd ~/google_drive/postgrad/savannachange/bascule_conflicts/update/seosaw_data_out/plots/plot_master_17052018/
 :cd ~/Desktop/seosaw_data_out/
 :cd ~/Desktop/
-:Q
 :wq
 :cd ~/google_drive/postgrad/phd/fieldwork_2019/bicuar_diversity_special_issue/
 :mkdir "Hymns"
@@ -665,8 +664,12 @@ D
 :cd ~/google_drive/postgrad/savannachange/bascule_conflicts/bascule_network/seosaw_data_out/plots/
 :cd ~/Music/
 :cd ~/Music/Music/
-:q
 :view
+:sort
+:source vifmrc
+:source ~/.config/vifm/vifmrc
+:Q
+:q
 
 # Search history (oldest to newest):
 /tripathi
@@ -691,11 +694,12 @@ p1_southafrica_archibald_kruger_checkY.xlsx
 p17_18_19_20_zim_zfc_all_checkY.xlsx
 pcentral_plots_cleaned.xlsx
 pmaster
+ppommerening_2020.md
 
 # Local filter history (oldest to newest):
 
 # Registers:
-""/Users/johngodlee/.local/share/vifm/Trash/000_clean.R
+""/Users/johngodlee/Desktop/geocode_plots.R
 
 # Directory stack (oldest to newest):
 
@@ -738,6 +742,36 @@ t/Users/johngodlee/.local/share/vifm/Trash/007_.DS_Store
 	/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/update/.DS_Store
 t/Users/johngodlee/.local/share/vifm/Trash/000_clean.R
 	/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/site_cleaning/mitchard_beteke/clean.R
+t/Users/johngodlee/.local/share/vifm/Trash/000_01. Shelter.flac
+	/Users/johngodlee/Desktop/Madeon & Porter Robinson - Shelter (Mini - Album) (Japan Limited Edition)/01. Shelter.flac
+t/Users/johngodlee/.local/share/vifm/Trash/000_02. Shelter (Mat Zo Remix).flac
+	/Users/johngodlee/Desktop/Madeon & Porter Robinson - Shelter (Mini - Album) (Japan Limited Edition)/02. Shelter (Mat Zo Remix).flac
+t/Users/johngodlee/.local/share/vifm/Trash/000_03. Sad Machine.flac
+	/Users/johngodlee/Desktop/Madeon & Porter Robinson - Shelter (Mini - Album) (Japan Limited Edition)/03. Sad Machine.flac
+t/Users/johngodlee/.local/share/vifm/Trash/000_04. You're On (feat. Kyan).flac
+	/Users/johngodlee/Desktop/Madeon & Porter Robinson - Shelter (Mini - Album) (Japan Limited Edition)/04. You're On (feat. Kyan).flac
+t/Users/johngodlee/.local/share/vifm/Trash/000_05. Flicker.flac
+	/Users/johngodlee/Desktop/Madeon & Porter Robinson - Shelter (Mini - Album) (Japan Limited Edition)/05. Flicker.flac
+t/Users/johngodlee/.local/share/vifm/Trash/000_06. Pay No Mind (feat. Passion Pit).flac
+	/Users/johngodlee/Desktop/Madeon & Porter Robinson - Shelter (Mini - Album) (Japan Limited Edition)/06. Pay No Mind (feat. Passion Pit).flac
+t/Users/johngodlee/.local/share/vifm/Trash/000_07. Nonsense (feat. Mark Foster).flac
+	/Users/johngodlee/Desktop/Madeon & Porter Robinson - Shelter (Mini - Album) (Japan Limited Edition)/07. Nonsense (feat. Mark Foster).flac
+t/Users/johngodlee/.local/share/vifm/Trash/000_08. Divinity (feat. Amy Millan).flac
+	/Users/johngodlee/Desktop/Madeon & Porter Robinson - Shelter (Mini - Album) (Japan Limited Edition)/08. Divinity (feat. Amy Millan).flac
+t/Users/johngodlee/.local/share/vifm/Trash/000_09. Home.flac
+	/Users/johngodlee/Desktop/Madeon & Porter Robinson - Shelter (Mini - Album) (Japan Limited Edition)/09. Home.flac
+t/Users/johngodlee/.local/share/vifm/Trash/000_10. Goodbye to a World.flac
+	/Users/johngodlee/Desktop/Madeon & Porter Robinson - Shelter (Mini - Album) (Japan Limited Edition)/10. Goodbye to a World.flac
+t/Users/johngodlee/.local/share/vifm/Trash/000_11. Flicker (Mat Zo Remix).flac
+	/Users/johngodlee/Desktop/Madeon & Porter Robinson - Shelter (Mini - Album) (Japan Limited Edition)/11. Flicker (Mat Zo Remix).flac
+t/Users/johngodlee/.local/share/vifm/Trash/000_12. Pay No Mind (Yasutaka Nakata 'CAPSULE' Remix).flac
+	/Users/johngodlee/Desktop/Madeon & Porter Robinson - Shelter (Mini - Album) (Japan Limited Edition)/12. Pay No Mind (Yasutaka Nakata 'CAPSULE' Remix).flac
+t/Users/johngodlee/.local/share/vifm/Trash/000_13. Fresh Static Snow (Last Island Remix).flac
+	/Users/johngodlee/Desktop/Madeon & Porter Robinson - Shelter (Mini - Album) (Japan Limited Edition)/13. Fresh Static Snow (Last Island Remix).flac
+t/Users/johngodlee/.local/share/vifm/Trash/000_14. You're On (Oliver Remix).flac
+	/Users/johngodlee/Desktop/Madeon & Porter Robinson - Shelter (Mini - Album) (Japan Limited Edition)/14. You're On (Oliver Remix).flac
+t/Users/johngodlee/.local/share/vifm/Trash/000_15. Shelter (Piano Version).flac
+	/Users/johngodlee/Desktop/Madeon & Porter Robinson - Shelter (Mini - Album) (Japan Limited Edition)/15. Shelter (Piano Version).flac
 
 # State:
 f
