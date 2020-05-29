@@ -163,8 +163,22 @@ set wrap
 " Vertical line appearance
 hi ColorColumn ctermbg=red 
 
+" Gutter
+hi SignColumn ctermbg=NONE ctermfg=grey
+hi foldcolumn ctermbg=NONE ctermfg=grey
+hi SignatureMarkText ctermfg=grey
+hi LineNr ctermbg=NONE ctermfg=grey
+
+" Folds
+hi Folded ctermbg=grey ctermfg=black
+
 " Statusline {{{
+
+" Hide mode 
 set noshowmode
+
+" Disable statusline background
+hi StatusLine ctermbg=NONE ctermfg=grey
 
 " Map of modes and their codes for statusline
 let g:currentmode={
@@ -203,31 +217,10 @@ function! StatuslineGit()
 endfunction
 endif
 
-" Color statusline by mode
-function! ModeCurrent() abort
-    let l:modecurrent = mode()
-    let l:modelist = toupper(get(g:currentmode, l:modecurrent, 'V·Block'))
-    let l:current_status_mode = l:modelist
-    return l:current_status_mode
-endfunction
-
-function! ChangeStatuslineColor()
-  if (mode() =~# '\v(n|no)')
-    exe 'hi! StatusLine ctermbg=black ctermfg=172'
-  elseif (mode() =~# '\v(v|V)' || g:currentmode[mode()] ==# 'V·Block' || get(g:currentmode, mode(), '') ==# 't')
-    exe 'hi! StatusLine ctermbg=black ctermfg=172'
-  elseif (mode() ==# 'i')
-    exe 'hi! StatusLine ctermbg=black ctermfg=032'
-  else
-    exe 'hi! Statusline ctermbg=white ctermfg=black'
-  endif
-  return ''
-endfunction
-
 " Statusline
 " left side
 set statusline=
-set statusline+=%{ChangeStatuslineColor()}	" Change colour
+set statusline+=%#LineNr#
 set statusline+=\ %-8.{toupper(g:currentmode[mode()])} 	" Current mode
 set statusline+=\ \|\  	" Vert-line and space   
 set statusline+=%t	" File name

@@ -18,7 +18,7 @@
 
 # TUI:
 al
-q1
+q0
 v2
 ov
 m-1
@@ -26,45 +26,6 @@ l16,2
 r2
 
 # Left window history (oldest to newest):
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/update/seosaw_data_out/stems/old
-	katanga_stems_Bl2+3.csv
-2
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/update/seosaw_data_out/stems
-	old
-3
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/update/seosaw_data_out
-	not_currently_useable
-1
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/update/seosaw_data_out/not_currently_useable
-	..
-0
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/update/seosaw_data_out
-	plots
-2
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/update/seosaw_data_out/plots
-	master
-1
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/update/seosaw_data_out
-	plots
-2
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/update/seosaw_data_out/plots
-	old
-2
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/update/seosaw_data_out/plots/old
-	..
-0
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/update/seosaw_data_out/plots
-	master
-1
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/update/seosaw_data_out/plots/master
-	..
-0
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/update/seosaw_data_out/plots
-	master
-1
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/update/seosaw_data_out
-	plots
-2
 d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/update
 	seosaw_data_out
 4
@@ -326,6 +287,45 @@ d/Users/johngodlee
 d/Users
 	johngodlee
 3
+d/Users/johngodlee
+	Downloads
+34
+d/Users/johngodlee/Downloads
+	textfiles
+6
+d/Users/johngodlee/Downloads/textfiles
+	survival
+1
+d/Users/johngodlee/Downloads/textfiles/survival
+	catalogs.txt
+17
+d/Users/johngodlee/Downloads/textfiles
+	survival
+1
+d/Users/johngodlee/Downloads
+	textfiles
+6
+d/Users/johngodlee
+	Downloads
+34
+d/Users/johngodlee/google_drive/postgrad/savannachange
+	citations
+4
+d/Users/johngodlee/google_drive/postgrad/savannachange/citations
+	prinv.csv
+1
+d/Users/johngodlee/google_drive/postgrad/savannachange
+	citations
+4
+d/Users/johngodlee/google_drive/postgrad
+	savannachange
+6
+d/Users/johngodlee/google_drive
+	postgrad
+9
+d/Users/johngodlee
+	.mailcap
+46
 d
 
 # Right window history (oldest to newest):
@@ -632,6 +632,7 @@ D/Users
 D
 
 # Command line history (oldest to newest):
+:rename
 :w
 :cd ../../../../bascule_network/seosaw_data_out/plots/plot_master_17052018/
 :cd ~/google_drive/postgrad/savannachange/bascule_conflicts/update/seosaw_data_out/plots/plot_master_17052018/
@@ -670,6 +671,12 @@ D
 :source ~/.config/vifm/vifmrc
 :Q
 :q
+:file open
+:open
+:open %f
+:open %s
+:!open %s
+:!open %f
 
 # Search history (oldest to newest):
 /tripathi
