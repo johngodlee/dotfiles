@@ -217,6 +217,27 @@ function! StatuslineGit()
 endfunction
 endif
 
+" Get filesize
+function! FileSize()
+  let bytes = getfsize(expand('%:p'))
+  if (bytes >= 1024)
+    let kbytes = bytes / 1024
+  endif
+  if (exists('kbytes') && kbytes >= 1000)
+    let mbytes = kbytes / 1000
+  endif
+  if bytes <= 0
+    return '0'
+  endif
+  if (exists('mbytes'))
+    return mbytes . 'MB'
+  elseif (exists('kbytes'))
+    return kbytes . 'KB'
+  else
+    return bytes . 'B'
+  endif
+endfunction
+
 " Statusline
 " left side
 set statusline=
@@ -236,6 +257,8 @@ set statusline+=%=	" Switch to right side
 set statusline+=%m%r " Modified and read only flags
 set statusline+=\ 		"Space
 set statusline+=%y	" File type
+set statusline+=\ \|\ 	" Space, Vert-line and space
+set statusline+=%{FileSize()}
 set statusline+=\ \|\ 	" Space, Vert-line and space
 set statusline+=%3.p%%	" Percentage through file - min size 3
 set statusline+=\ \|\ 	" Vert-line and Space
