@@ -1,0 +1,35 @@
+#!/usr/bin/env sh
+
+# Define function to search dict
+function dict_search() {
+xmlstarlet sel --net -t -v "//key[.=\"$1\"]/following-sibling::data[1]" $2 | paste -sd "" - | sed 's/[[:space:]]//g'
+}
+
+# Gather colours
+black=$(dict_search 'ANSIBlackColor' $1)
+blue=$(dict_search 'ANSIBlueColor' $1)
+cyan=$(dict_search 'ANSICyanColor' $1)
+green=$(dict_search 'ANSIGreenColor' $1)
+magenta=$(dict_search 'ANSIMagentaColor' $1)
+red=$(dict_search 'ANSIRedColor' $1)
+white=$(dict_search 'ANSIWhiteColor' $1)
+yellow=$(dict_search 'ANSIYellowColor' $1)
+brightblack=$(dict_search 'ANSIBrightBlackColor' $1)
+brightblue=$(dict_search 'ANSIBrightBlueColor' $1)
+brightcyan=$(dict_search 'ANSIBrightCyanColor' $1)
+brightgreen=$(dict_search 'ANSIBrightGreenColor' $1)
+brightmagenta=$(dict_search 'ANSIBrightMagentaColor' $1)
+brightred=$(dict_search 'ANSIBrightRedColor' $1)
+brightwhite=$(dict_search 'ANSIBrightWhiteColor' $1)
+brightyellow=$(dict_search 'ANSIBrightYellowColor' $1)
+backgroundcol=$(dict_search 'BackgroundColor' $1)
+cursorcol=$(dict_search 'CursorColor' $1)
+selectioncol=$(dict_search 'SelectionColor' $1)
+textboldcol=$(dict_search 'TextBoldColor' $1)
+textcol=$(dict_search 'TextColor' $1)
+
+colarray=("${black}" "${blue}" "${cyan}" "${green}" "${magenta}" "${red}" "${white}" "${yellow}" "${brightblack}" "${brightblue}" "${brightcyan}" "${brightgreen}" "${brightmagenta}" "${brightred}" "${brightwhite}" "${brightyellow}" "${backgroundcol}" "${cursorcol}" "${selectioncol}" "${textboldcol}" "${textcol}")
+
+for i in "${colarray[@]}"; do 
+    echo "$i" | base64 --decode
+done

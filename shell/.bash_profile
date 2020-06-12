@@ -86,6 +86,9 @@ export GPGKEY=E2388D6F0290C660224F6439215C0880610719F7
 # Use Neovim as default $EDITOR
 export EDITOR=nvim
 
+# Set location of proj.db to stop errors in R {rgdal}
+export PROJ_LIB=/usr/local/Cellar/proj/7.0.1/share/proj
+
 # alias vim
 alias v=nvim
 alias vim=nvim

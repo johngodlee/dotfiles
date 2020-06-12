@@ -22,7 +22,7 @@ utils::assignInNamespace(
 # Permanently set mirror
 local({
   r <- getOption("repos")
-  r["CRAN"] <- "https://cran.ma.imperial.ac.uk/"
+  r["CRAN"] <- "https://cloud.r-project.org"
   options(repos = r)
 })
 

@@ -26,33 +26,6 @@ l16,2
 r2
 
 # Left window history (oldest to newest):
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/update
-	seosaw_data_out
-4
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts
-	bascule_casey
-1
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/bascule_casey
-	seosaw_data_out
-4
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/bascule_casey/seosaw_data_out
-	plots
-4
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/bascule_casey/seosaw_data_out/plots
-	..
-0
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/bascule_casey/seosaw_data_out
-	plots
-4
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/bascule_casey/seosaw_data_out/plots
-	old_dont_use
-1
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/bascule_casey/seosaw_data_out/plots/old_dont_use
-	..
-0
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/bascule_casey/seosaw_data_out/plots
-	plot_master
-2
 d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/bascule_casey/seosaw_data_out/plots/plot_master
 	..
 0
@@ -324,80 +297,38 @@ d/Users/johngodlee/google_drive
 	postgrad
 9
 d/Users/johngodlee
-	.mailcap
-46
+	.urlview
+45
+d/Users/johngodlee/google_drive/code/r
+	rmarkdown
+15
+d/Users/johngodlee/google_drive/code/r/rmarkdown
+	rmd_tlut_example
+3
+d/Users/johngodlee/google_drive/code/r/rmarkdown/rmd_tlut_example
+	rmd_tlut_jlg.rmd
+8
+d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/web/data
+	clim.rds
+3
+d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/web
+	data
+1
+d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/web/data
+	miombo.rds
+4
+d/Users/johngodlee/google_drive/postgrad/savannachange/new_data/thom_kilwa_nham
+	sm-1.rds
+2
+d/Users/johngodlee/Downloads
+	protocol_specifics.docx
+5
+d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/seosawr/seosawr/vignettes
+	seosawr.R
+2
 d
 
 # Right window history (oldest to newest):
-D/Users/johngodlee/Music/Music/Kurt Vile and The Violators
-	b'lieve i'm goin down.._
-4
-D/Users/johngodlee/Music/Music/Kurt Vile and The Violators/b'lieve i'm goin down.._
-	..
-0
-D/Users/johngodlee/Music/Music/Kurt Vile and The Violators
-	Wakin On A Pretty Daze
-3
-D/Users/johngodlee/Music/Music/Kurt Vile and The Violators/Wakin On A Pretty Daze
-	..
-0
-D/Users/johngodlee/Music/Music/Kurt Vile and The Violators
-	Smoke Ring For My Halo
-2
-D/Users/johngodlee/Music/Music/Kurt Vile and The Violators/Smoke Ring For My Halo
-	..
-0
-D/Users/johngodlee/Music/Music/Kurt Vile and The Violators
-	It's A Big World Out There (And I Am Scared) - EP
-1
-D/Users/johngodlee/Music/Music/Kurt Vile and The Violators/It's A Big World Out There (And I Am Scared) - EP
-	..
-0
-D/Users/johngodlee/Music/Music/Kurt Vile and The Violators
-	It's A Big World Out There (And I Am Scared) - EP
-1
-D/Users/johngodlee/Music/Music/Kurt Vile and The Violators/It's A Big World Out There (And I Am Scared) - EP
-	..
-0
-D/Users/johngodlee/Music/Music/Kurt Vile and The Violators
-	Smoke Ring For My Halo
-2
-D/Users/johngodlee/Music/Music/Kurt Vile and The Violators/Smoke Ring For My Halo
-	..
-0
-D/Users/johngodlee/Music/Music/Kurt Vile and The Violators
-	Wakin On A Pretty Daze
-3
-D/Users/johngodlee/Music/Music/Kurt Vile and The Violators/Wakin On A Pretty Daze
-	..
-0
-D/Users/johngodlee/Music/Music/Kurt Vile and The Violators
-	b'lieve i'm goin down.._
-4
-D/Users/johngodlee/Music/Music/Kurt Vile and The Violators/b'lieve i'm goin down.._
-	..
-0
-D/Users/johngodlee/Music/Music/Kurt Vile and The Violators
-	It's A Big World Out There (And I Am Scared) - EP
-1
-D/Users/johngodlee/Music/Music/Kurt Vile and The Violators/It's A Big World Out There (And I Am Scared) - EP
-	..
-0
-D/Users/johngodlee/Music/Music/Kurt Vile and The Violators
-	b'lieve i'm goin down.._
-4
-D/Users/johngodlee/Music/Music/Kurt Vile and The Violators/b'lieve i'm goin down.._
-	..
-0
-D/Users/johngodlee/Music/Music/Kurt Vile and The Violators
-	b'lieve i'm goin down.._
-4
-D/Users/johngodlee/Music/Music
-	Reel Big Fish
-53
-D/Users/johngodlee/Music/Music/Reel Big Fish
-	Everything Sucks
-1
 D/Users/johngodlee/Music/Music/Reel Big Fish/Everything Sucks
 	..
 0
@@ -629,6 +560,75 @@ D/Users/johngodlee
 D/Users
 	johngodlee
 3
+D/Users/johngodlee
+	.CFUserTextEncoding
+21
+D/Users/johngodlee/google_drive/postgrad/savannachange/shiny_climate_space/data
+	miombo.rds
+4
+D/Users/johngodlee/google_drive/postgrad/savannachange/shiny_climate_space
+	app
+1
+D/Users/johngodlee/google_drive/postgrad/savannachange/shiny_climate_space/app
+	data
+1
+D/Users/johngodlee/google_drive/postgrad/savannachange/shiny_climate_space/app/data
+	..
+0
+D/Users/johngodlee/google_drive/postgrad/savannachange/shiny_climate_space/app
+	data
+1
+D/Users/johngodlee/google_drive/postgrad/savannachange/shiny_climate_space
+	data
+2
+D/Users/johngodlee/google_drive/postgrad/savannachange/shiny_climate_space/data
+	miombo.rds
+4
+D/Users/johngodlee/google_drive/postgrad/savannachange/shiny_climate_space
+	data
+2
+D/Users/johngodlee/google_drive/postgrad/savannachange
+	shiny_climate_space
+17
+D/Users/johngodlee/google_drive/postgrad
+	savannachange
+6
+D/Users/johngodlee/google_drive/postgrad/savannachange
+	rasters
+13
+D/Users/johngodlee/google_drive/postgrad/savannachange/rasters
+	malaria_atlas_population
+5
+D/Users/johngodlee/google_drive/postgrad/savannachange/rasters/malaria_atlas_population
+	2015_accessibility_to_cities_v1.0
+1
+D/Users/johngodlee/google_drive/postgrad/savannachange/rasters/malaria_atlas_population/2015_accessibility_to_cities_v1.0
+	2015_accessibility_to_cities_v1.0.tif
+7
+D/Users/johngodlee/google_drive/postgrad/savannachange/rasters/malaria_atlas_population
+	2015_accessibility_to_cities_v1.0
+1
+D/Users/johngodlee/google_drive/postgrad/savannachange/rasters
+	malaria_atlas_population
+5
+D/Users/johngodlee/google_drive/postgrad/savannachange/rasters/malaria_atlas_population
+	2015_accessibility_to_cities_v1.0
+1
+D/Users/johngodlee/google_drive/postgrad/savannachange/rasters/malaria_atlas_population/2015_accessibility_to_cities_v1.0
+	2015_accessibility_to_cities_v1.0.tif
+7
+D/Users/johngodlee/google_drive/postgrad/savannachange/rasters/malaria_atlas_population
+	2015_accessibility_to_cities_v1.0
+1
+D/Users/johngodlee/google_drive/postgrad/savannachange/rasters
+	fire
+3
+D/Users/johngodlee/google_drive/postgrad/savannachange/rasters/fire
+	..
+0
+D/Users/johngodlee/google_drive/postgrad/savannachange/rasters
+	admin.R
+11
 D
 
 # Command line history (oldest to newest):
@@ -670,13 +670,14 @@ D
 :source vifmrc
 :source ~/.config/vifm/vifmrc
 :Q
-:q
 :file open
 :open
 :open %f
 :open %s
 :!open %s
 :!open %f
+:cd ~/google_drive/postgrad/savannachange/shiny_climate_space/data/
+:q
 
 # Search history (oldest to newest):
 /tripathi
@@ -706,7 +707,7 @@ ppommerening_2020.md
 # Local filter history (oldest to newest):
 
 # Registers:
-""/Users/johngodlee/Desktop/geocode_plots.R
+""/Users/johngodlee/.local/share/vifm/Trash/000_silvr(1).R
 
 # Directory stack (oldest to newest):
 
@@ -779,6 +780,14 @@ t/Users/johngodlee/.local/share/vifm/Trash/000_14. You're On (Oliver Remix).flac
 	/Users/johngodlee/Desktop/Madeon & Porter Robinson - Shelter (Mini - Album) (Japan Limited Edition)/14. You're On (Oliver Remix).flac
 t/Users/johngodlee/.local/share/vifm/Trash/000_15. Shelter (Piano Version).flac
 	/Users/johngodlee/Desktop/Madeon & Porter Robinson - Shelter (Mini - Album) (Japan Limited Edition)/15. Shelter (Piano Version).flac
+t/Users/johngodlee/.local/share/vifm/Trash/000_clim.rds
+	/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/web/data/clim.rds
+t/Users/johngodlee/.local/share/vifm/Trash/000_plots.rds
+	/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/web/data/plots.rds
+t/Users/johngodlee/.local/share/vifm/Trash/000_2015_accessibility_to_cities_v1.0.tif
+	/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/web/data/2015_accessibility_to_cities_v1.0.tif
+t/Users/johngodlee/.local/share/vifm/Trash/000_silvr(1).R
+	/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/seosawr/seosawr/vignettes/silvr(1).R
 
 # State:
 f

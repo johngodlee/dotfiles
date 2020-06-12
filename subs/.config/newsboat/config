@@ -28,7 +28,7 @@ highlight article "^Title:.*" yellow default
 highlight article "^Author:.*" yellow default
 highlight article "^Date:.*" yellow default
 highlight article "^Links:.*" yellow default
-highlight article "\\[.*[0-9].*\\]" yellow default
+highlight article "\\[[0-9]\\]" yellow default
 
 
 
