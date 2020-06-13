@@ -1,0 +1,64 @@
+# Generic
+/*.tar.gz
+
+# macOS
+.DS_Store
+Desktop.ini
+._*
+Thumbs.db
+.Spotlight-V100
+.DocumentRevisions-V100
+.fseventsd
+.TemporaryItems
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.Trashes
+*~$*
+Icon
+
+# Python
+*.pyc
+
+# R
+*.Rproj
+*.Rproj.user
+*.Rhistory
+.Rapp.history
+*-Ex.R
+/*.Rcheck/
+vignettes/*.html
+vignettes/*.pdf
+*.RData
+*.Ruserdata
+.httr-oauth
+.Renviron
+
+# LaTeX
+*.aux
+*.lof
+*.log
+*.lot
+*.fls
+*.out
+*.toc
+*.fmt
+*.fot
+*.cb
+*.cb2
+.*.lb
+*.bbl
+*.bcf
+*.blg
+*-blx.aux
+*-blx.bib
+*.run.xml
+*.fdb_latexmk
+*.synctex
+*.synctex(busy)
+*.synctex.gz
+*.synctex.gz(busy)
+*.pdfsync
+latex.out/
+
+# Vim
+.netrwhist

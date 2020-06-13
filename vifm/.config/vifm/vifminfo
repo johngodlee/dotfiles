@@ -26,9 +26,6 @@ l16,2
 r2
 
 # Left window history (oldest to newest):
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/bascule_casey/seosaw_data_out/plots/plot_master
-	..
-0
 d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/bascule_casey/seosaw_data_out/plots
 	replacedByManualEdits
 3
@@ -326,6 +323,9 @@ d/Users/johngodlee/Downloads
 d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/seosawr/seosawr/vignettes
 	seosawr.R
 2
+d/Users/johngodlee/Downloads
+	Schleicher_etal_2019_statistical matching for conservation science.pdf
+14
 d
 
 # Right window history (oldest to newest):
@@ -788,6 +788,8 @@ t/Users/johngodlee/.local/share/vifm/Trash/000_2015_accessibility_to_cities_v1.0
 	/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/web/data/2015_accessibility_to_cities_v1.0.tif
 t/Users/johngodlee/.local/share/vifm/Trash/000_silvr(1).R
 	/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/seosawr/seosawr/vignettes/silvr(1).R
+t/Users/johngodlee/.local/share/vifm/Trash/000_silvr(1).R
+	/Users/johngodlee/Downloads/silvr(1).R
 
 # State:
 f
