@@ -19,238 +19,13 @@
 # TUI:
 al
 q0
-v2
+v1
 ov
 m-1
 l16,2
 r2
 
 # Left window history (oldest to newest):
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/bascule_casey/seosaw_data_out/plots
-	replacedByManualEdits
-3
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/bascule_casey/seosaw_data_out/plots/replacedByManualEdits
-	..
-0
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/bascule_casey/seosaw_data_out/plots
-	replacedByManualEdits
-3
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/bascule_casey/seosaw_data_out/plots/replacedByManualEdits
-	..
-0
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/bascule_casey/seosaw_data_out/plots
-	replacedByManualEdits
-3
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/bascule_casey/seosaw_data_out
-	plots
-4
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/bascule_casey/seosaw_data_out/plots
-	17_18_19_20_zim_zfc_all_checkY.xlsx
-4
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/bascule_casey/seosaw_data_out
-	plots
-4
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/bascule_casey/seosaw_data_out/plots
-	old_dont_use
-1
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/bascule_casey/seosaw_data_out/plots/old_dont_use
-	..
-0
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/bascule_casey/seosaw_data_out/plots
-	old_dont_use
-1
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/bascule_casey/seosaw_data_out
-	stems
-5
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/bascule_casey/seosaw_data_out/stems
-	stem_data_repaced_with_manual_edits
-4
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/bascule_casey/seosaw_data_out/stems/stem_data_repaced_with_manual_edits
-	..
-0
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/bascule_casey/seosaw_data_out/stems
-	clean_stem_data_from_each_site
-1
-d/Users/johngodlee/google_drive/postgrad/savannachange/bascule_conflicts/bascule_casey/seosaw_data_out
-	.TemporaryItems
-1
-d/Users/johngodlee/Downloads
-	10.1073@pnas.1914420117.pdf
-6
-d/Users/johngodlee
-	Music
-37
-d/Users/johngodlee/Music
-	Music
-1
-d/Users/johngodlee/Music/Music
-	Admiral Fallow
-3
-d/Users/johngodlee/Downloads
-	10.1073@pnas.1914420117.pdf
-6
-d/Users/johngodlee/Music
-	Music
-1
-d/Users/johngodlee/Music/Music
-	Admiral Fallow
-3
-d/Users/johngodlee/Music/Music/Admiral Fallow
-	Boots Met My Face
-1
-d/Users/johngodlee/Music/Music/Admiral Fallow/Boots Met My Face
-	01 Dead Against Smoking.mp3
-1
-d/Users/johngodlee/Downloads
-	Cabin Refurb 3-ma7BbmGQaPA.mp4
-10
-d/Users/johngodlee/Music/Music
-	Admiral Fallow
-3
-d/Users/johngodlee/Music/Music/Admiral Fallow
-	Boots Met My Face
-1
-d/Users/johngodlee/Music/Music/Admiral Fallow/Boots Met My Face
-	03 Subbuteo.mp3
-3
-d/Users/johngodlee/google_drive/postgrad/savannachange/database/silvr/data/whitesveg
-	whitesveg.dbf
-2
-d/Users/johngodlee/google_drive/postgrad/savannachange/database/silvr/data
-	whitesveg
-2
-d/Users/johngodlee/google_drive/postgrad/savannachange/database/silvr
-	data
-5
-d/Users/johngodlee/google_drive/postgrad/savannachange/database
-	silvr
-2
-d/Users/johngodlee/google_drive/postgrad/savannachange/database/silvr
-	data
-5
-d/Users/johngodlee/google_drive/postgrad/savannachange/database
-	silvr
-2
-d/Users/johngodlee/google_drive/postgrad/savannachange
-	seosaw
-13
-d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw
-	data_raw
-3
-d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/data_raw
-	..
-0
-d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw
-	site_cleaning
-8
-d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/site_cleaning
-	archibald_kruger
-1
-d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/site_cleaning/archibald_kruger
-	clean.R
-1
-d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/site_cleaning
-	carreiras_moz
-2
-d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/site_cleaning/carreiras_moz
-	clean.R
-1
-d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/site_cleaning
-	central_plots
-3
-d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/site_cleaning/central_plots
-	clean.R
-1
-d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/site_cleaning
-	chidumayo_chamipe
-4
-d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/site_cleaning/chidumayo_chamipe
-	clean.R
-1
-d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/site_cleaning
-	chidumayo_chamipe
-4
-d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/site_cleaning/chidumayo_chamipe
-	clean.R
-1
-d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/site_cleaning
-	finckh_sascal
-5
-d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/site_cleaning/finckh_sascal
-	clean.R
-1
-d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/site_cleaning
-	forest_northern
-6
-d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/site_cleaning/forest_northern
-	clean.R
-1
-d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/site_cleaning
-	godlee_bicuar
-7
-d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/site_cleaning/godlee_bicuar
-	clean.R
-1
-d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/site_cleaning
-	holdo_hwange
-8
-d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/site_cleaning/holdo_hwange
-	clean.R
-1
-d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/site_cleaning
-	maiato_cusseque
-9
-d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/site_cleaning/maiato_cusseque
-	clean.R
-1
-d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/site_cleaning
-	makungwa_chimaliro
-10
-d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/site_cleaning/makungwa_chimaliro
-	clean.R
-1
-d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/site_cleaning
-	mitchard_beteke
-11
-d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/site_cleaning/mitchard_beteke
-	clean.R
-1
-d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/site_cleaning
-	maiato_cusseque
-9
-d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/site_cleaning/maiato_cusseque
-	clean.R
-1
-d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/site_cleaning
-	makungwa_chimaliro
-10
-d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/site_cleaning/makungwa_chimaliro
-	clean.R
-1
-d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/site_cleaning
-	mitchard_beteke
-11
-d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/site_cleaning/mitchard_beteke
-	..
-0
-d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/site_cleaning
-	archibald_kruger
-1
-d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/site_cleaning/archibald_kruger
-	clean.R
-1
-d/Users/johngodlee/Desktop/Madeon & Porter Robinson - Shelter (Mini - Album) (Japan Limited Edition)
-	cover.jpg
-1
-d/Users/johngodlee/Desktop
-	pommerening_2020.md
-16
-d/Users/johngodlee/.config/vifm
-	vifm-help.txt
-3
-d/Users/johngodlee/Downloads
-	SEOSAW_FieldManual_v3_2018_TBUPDATES.docx
-10
 d/Users/johngodlee
 	Downloads
 34
@@ -326,6 +101,231 @@ d/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/seosawr/seosawr/vi
 d/Users/johngodlee/Downloads
 	Schleicher_etal_2019_statistical matching for conservation science.pdf
 14
+d/Users/johngodlee/google_drive/notes/misc
+	tin_can_stove
+15
+d/Users/johngodlee/google_drive/notes/misc/tin_can_stove
+	tin_can_stove.md
+3
+d/Users/johngodlee/google_drive/notes/misc
+	tin_can_stove
+15
+d/Users/johngodlee/google_drive/notes/misc/tin_can_stove
+	tin_can_stove.md
+2
+d/Users/johngodlee/google_drive/notes/misc
+	textfiles
+4
+d/Users/johngodlee/google_drive/notes/misc/textfiles
+	..
+0
+d/Users/johngodlee/google_drive/notes/misc
+	textfiles
+4
+d/Users/johngodlee/google_drive/notes/misc/textfiles
+	..
+0
+d/Users/johngodlee/google_drive/notes/misc
+	textfiles
+4
+d/Users/johngodlee/google_drive/notes
+	todo.md
+3
+d/Users/johngodlee/google_drive
+	notes
+6
+d/Users/johngodlee
+	google_drive
+24
+d/Users/johngodlee/google_drive
+	notes
+6
+d/Users/johngodlee/google_drive/notes
+	misc
+2
+d/Users/johngodlee/google_drive/notes/misc
+	textfiles
+4
+d/Users/johngodlee/google_drive/notes/misc/textfiles
+	anarchy.zip
+1
+d/Users/johngodlee/google_drive/notes/misc
+	becky_holiday_ideas_yorkshire
+3
+d/Users/johngodlee/google_drive/notes/misc/becky_holiday_ideas_yorkshire
+	becky_holiday_ideas_yorkshire.md
+2
+d/Users/johngodlee/google_drive/notes/misc
+	bayes
+2
+d/Users/johngodlee/google_drive/notes/misc/bayes
+	..
+0
+d/Users/johngodlee/google_drive/notes/misc
+	bayes
+2
+d/Users/johngodlee/google_drive/notes/misc/bayes
+	statisticalrethinking2_fall_2019.pdf
+9
+d/Users/johngodlee/google_drive/notes/misc
+	bayes
+2
+d/Users/johngodlee/google_drive/notes/misc/bayes
+	statisticalrethinking2_fall_2019.pdf
+9
+d/Users/johngodlee/google_drive/notes/misc
+	andrzej_coding_club_questions_2019_02_02
+1
+d/Users/johngodlee/google_drive/notes/misc/andrzej_coding_club_questions_2019_02_02
+	highlight_in_code.Rmd
+2
+d/Users/johngodlee/google_drive/notes/misc
+	andrzej_coding_club_questions_2019_02_02
+1
+d/Users/johngodlee/google_drive/notes/misc/andrzej_coding_club_questions_2019_02_02
+	andrzej_coding_club_2019_02_02.md
+5
+d/Users/johngodlee/google_drive/notes/misc
+	diversity_index_notes
+4
+d/Users/johngodlee/google_drive/notes/misc/diversity_index_notes
+	index.pdf
+14
+d/Users/johngodlee/google_drive/notes/misc
+	dnd
+5
+d/Users/johngodlee/google_drive/notes/misc/dnd
+	..
+0
+d/Users/johngodlee/google_drive/notes/misc
+	edinbr
+6
+d/Users/johngodlee/google_drive/notes/misc/edinbr
+	..
+0
+d/Users/johngodlee/google_drive/notes/misc
+	emails_letters
+7
+d/Users/johngodlee/google_drive/notes/misc/emails_letters
+	..
+0
+d/Users/johngodlee/google_drive/notes/misc
+	galina_logistic_regression_2019_06_27
+8
+d/Users/johngodlee/google_drive/notes/misc/galina_logistic_regression_2019_06_27
+	..
+0
+d/Users/johngodlee/google_drive/notes/misc
+	kobo
+9
+d/Users/johngodlee/google_drive/notes/misc/kobo
+	..
+0
+d/Users/johngodlee/google_drive/notes/misc
+	london
+10
+d/Users/johngodlee/google_drive/notes/misc/london
+	london_cycle_map.pdf
+2
+d/Users/johngodlee/google_drive/notes/misc
+	minimal_wallet_cad
+11
+d/Users/johngodlee/google_drive/notes/misc/minimal_wallet_cad
+	..
+0
+d/Users/johngodlee/google_drive/notes/misc
+	minimal_wallet_cad
+11
+d/Users/johngodlee/google_drive/notes/misc/minimal_wallet_cad
+	wallet_template.pdf
+2
+d/Users/johngodlee/google_drive/notes/misc
+	new_backpack
+12
+d/Users/johngodlee/google_drive/notes/misc/new_backpack
+	new_backpack.md
+2
+d/Users/johngodlee/google_drive/notes/misc
+	poisson_notes
+13
+d/Users/johngodlee/google_drive/notes/misc/poisson_notes
+	poisson.blg
+4
+d/Users/johngodlee/google_drive/notes/misc
+	quadratic_mean_dbh
+14
+d/Users/johngodlee/google_drive/notes/misc/quadratic_mean_dbh
+	..
+0
+d/Users/johngodlee/google_drive/notes/misc
+	quadratic_mean_dbh
+14
+d/Users/johngodlee/google_drive/notes/misc/quadratic_mean_dbh
+	..
+0
+d/Users/johngodlee/google_drive/notes/misc
+	textfiles
+15
+d/Users/johngodlee/google_drive/notes/misc/textfiles
+	anarchy.zip
+1
+d/Users/johngodlee/google_drive/notes/misc
+	tin_can_stove
+16
+d/Users/johngodlee/google_drive/notes/misc/tin_can_stove
+	tin_can_stove.md
+2
+d/Users/johngodlee/google_drive/notes/misc
+	tools_quiz
+17
+d/Users/johngodlee/google_drive/notes/misc/tools_quiz
+	tools_label.pdf
+6
+d/Users/johngodlee/google_drive/notes/misc
+	torridon_walks
+18
+d/Users/johngodlee/google_drive/notes/misc/torridon_walks
+	..
+0
+d/Users/johngodlee/google_drive/notes/misc
+	vulpinize_maps
+19
+d/Users/johngodlee/google_drive/notes/misc/vulpinize_maps
+	..
+0
+d/Users/johngodlee/google_drive/notes/misc
+	torridon_walks
+18
+d/Users/johngodlee/google_drive/notes/misc/torridon_walks
+	..
+0
+d/Users/johngodlee/google_drive/notes/misc
+	vulpinize_maps
+19
+d/Users/johngodlee/google_drive/notes/misc/vulpinize_maps
+	..
+0
+d/Users/johngodlee/google_drive/notes/misc
+	walk_2020-05-31
+20
+d/Users/johngodlee/google_drive/notes/misc/walk_2020-05-31
+	route.shp
+5
+d/Users/johngodlee/google_drive/notes/misc
+	woodworking_articles
+21
+d/Users/johngodlee/google_drive/notes/misc/woodworking_articles
+	..
+0
+d/Users/johngodlee/google_drive/notes/misc
+	workout
+22
+d/Users/johngodlee/google_drive/notes/misc/workout
+	..
+0
+d/Users/johngodlee/google_drive/notes/misc
+	hay_events_2018.xlsx
+47
 d
 
 # Right window history (oldest to newest):
@@ -628,7 +628,7 @@ D/Users/johngodlee/google_drive/postgrad/savannachange/rasters/fire
 0
 D/Users/johngodlee/google_drive/postgrad/savannachange/rasters
 	admin.R
-11
+10
 D
 
 # Command line history (oldest to newest):
@@ -677,6 +677,7 @@ D
 :!open %s
 :!open %f
 :cd ~/google_drive/postgrad/savannachange/shiny_climate_space/data/
+:mkdir textfiles
 :q
 
 # Search history (oldest to newest):
@@ -693,6 +694,7 @@ D
 /mad do
 /public
 /tortu
+/mine
 
 # Prompt history (oldest to newest):
 p11_angola_maiato_cusseque_checkY.xlsx
@@ -707,7 +709,7 @@ ppommerening_2020.md
 # Local filter history (oldest to newest):
 
 # Registers:
-""/Users/johngodlee/.local/share/vifm/Trash/000_silvr(1).R
+""/Users/johngodlee/.local/share/vifm/Trash/000_panam.css
 
 # Directory stack (oldest to newest):
 
@@ -790,6 +792,26 @@ t/Users/johngodlee/.local/share/vifm/Trash/000_silvr(1).R
 	/Users/johngodlee/google_drive/postgrad/savannachange/seosaw/seosawr/seosawr/vignettes/silvr(1).R
 t/Users/johngodlee/.local/share/vifm/Trash/000_silvr(1).R
 	/Users/johngodlee/Downloads/silvr(1).R
+t/Users/johngodlee/.local/share/vifm/Trash/000_tin_can_stove.html
+	/Users/johngodlee/google_drive/notes/misc/tin_can_stove/tin_can_stove.html
+t/Users/johngodlee/.local/share/vifm/Trash/000_tin_can_stove.pdf
+	/Users/johngodlee/google_drive/notes/misc/tin_can_stove/tin_can_stove.pdf
+t/Users/johngodlee/.local/share/vifm/Trash/000_anarchy
+	/Users/johngodlee/google_drive/notes/misc/textfiles/anarchy
+t/Users/johngodlee/.local/share/vifm/Trash/000_becky_holiday_ideas.html
+	/Users/johngodlee/google_drive/notes/misc/becky_holiday_ideas_yorkshire/becky_holiday_ideas.html
+t/Users/johngodlee/.local/share/vifm/Trash/000_becky_holiday_ideas.pdf
+	/Users/johngodlee/google_drive/notes/misc/becky_holiday_ideas_yorkshire/becky_holiday_ideas.pdf
+t/Users/johngodlee/.local/share/vifm/Trash/000_pandoc_notes.sh
+	/Users/johngodlee/google_drive/notes/misc/becky_holiday_ideas_yorkshire/pandoc_notes.sh
+t/Users/johngodlee/.local/share/vifm/Trash/000_bayesian_inference.pdf
+	/Users/johngodlee/google_drive/notes/misc/bayes/bayesian_inference.pdf
+t/Users/johngodlee/.local/share/vifm/Trash/000_highlight_in_code.html
+	/Users/johngodlee/google_drive/notes/misc/andrzej_coding_club_questions_2019_02_02/highlight_in_code.html
+t/Users/johngodlee/.local/share/vifm/Trash/000_new_backpack.html
+	/Users/johngodlee/google_drive/notes/misc/new_backpack/new_backpack.html
+t/Users/johngodlee/.local/share/vifm/Trash/000_panam.css
+	/Users/johngodlee/google_drive/notes/misc/new_backpack/panam.css
 
 # State:
 f
