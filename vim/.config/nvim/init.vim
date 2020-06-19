@@ -10,7 +10,6 @@ Plug 'junegunn/vim-easy-align'  " Align Markdown tables
 Plug 'pangloss/vim-javascript'	" Javascript syntax highlighting
 Plug 'kshenoy/vim-signature'	" Mark locations in gutter
 Plug 'christoomey/vim-tmux-navigator'	" Easy navigation of tmux and vim splits
-Plug 'itchyny/calendar.vim'	" Interact with google calendar using vim
 Plug 'lervag/vimtex'		" LaTeX editing in vim
 Plug 'ledger/vim-ledger'	" Edit ledger journals in vim
 Plug 'nathanaelkane/vim-indent-guides'	" Indent guides
@@ -127,12 +126,12 @@ set autoindent
 
 " Set default tab width to 4 spaces 
 set tabstop=4
+set softtabstop=0
 set noexpandtab
 set shiftwidth=4
 
 set copyindent
 set preserveindent
-set softtabstop=0
 
 set textwidth=0
 
@@ -331,8 +330,11 @@ nnoremap <Leader>i :IndentGuidesToggle<CR>
 " }}}
 
 " Calendar {{{
-" Use google calendar on calendar.vim
-let g:calendar_google_calendar = 1
+autocmd Filetype calendar call SetCalendarOptions()
+function SetCalendarOptions()
+	setlocal noexpandtab
+	setlocal tabstop=4
+endfunction
 " }}}
 
 " VimTeX {{{
@@ -548,6 +550,7 @@ function SetPythonOptions()
     let indent_guides_guide_size = 2
 endfunction
 " }}}  
+
 
 " UltiSnips {{{
 let g:UltiSnipsExpandTrigger="<tab>"

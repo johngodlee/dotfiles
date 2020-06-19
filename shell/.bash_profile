@@ -105,9 +105,6 @@ alias gp="git pull; git push"
 
 eval "$(gh completion -s bash)"
 
-# Run vim calendar plugin
-alias calendar="nvim -c Calendar"
-
 # Open todo file
 alias todo="nvim $HOME/google_drive/notes/todo.md"
 
