@@ -1,4 +1,7 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
+
+# $1 = 
+# $2 = 
 
 # Define function to search dict
 function dict_search() {
@@ -28,8 +31,14 @@ selectioncol=$(dict_search 'SelectionColor' $1)
 textboldcol=$(dict_search 'TextBoldColor' $1)
 textcol=$(dict_search 'TextColor' $1)
 
-colarray=("${black}" "${blue}" "${cyan}" "${green}" "${magenta}" "${red}" "${white}" "${yellow}" "${brightblack}" "${brightblue}" "${brightcyan}" "${brightgreen}" "${brightmagenta}" "${brightred}" "${brightwhite}" "${brightyellow}" "${backgroundcol}" "${cursorcol}" "${selectioncol}" "${textboldcol}" "${textcol}")
+xmlarray=("${black}" "${blue}" "${cyan}" "${green}" "${magenta}" "${red}" "${white}" "${yellow}" "${brightblack}" "${brightblue}" "${brightcyan}" "${brightgreen}" "${brightmagenta}" "${brightred}" "${brightwhite}" "${brightyellow}" "${backgroundcol}" "${cursorcol}" "${selectioncol}" "${textboldcol}" "${textcol}")
 
-for i in "${colarray[@]}"; do 
-    echo "$i" | base64 --decode
+# Create array of RGB colours
+for i in "${xmlarray[@]}"; do 
+	rgbarray=()
+	out=(`echo "$i" | base64 --decode | strings | grep -E -o '0.[0-9]+'`)
+	for j in "${out[@]}"; do
+		rgbarray+=(`echo $j | awk '{print int($1*255)}'`)
+	done
 done
+
