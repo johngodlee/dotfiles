@@ -377,42 +377,39 @@ c.colors.tabs.selected.even.bg = 'darkgrey'
 # Type: QtColor
 c.colors.webpage.bg = '#ffffff'
 
-# Default monospace fonts. Whenever "monospace" is used in a font
-# setting, it's replaced with the fonts listed here.
-# Type: Font
-#c.fonts.monospace = '"Hack, xos4 Terminus", Terminus, Monospace, "DejaVu Sans Mono", Monaco, "Bitstream Vera Sans Mono", "Andale Mono", "Courier New", Courier, "Liberation Mono", monospace, Fixed, Consolas, Terminal'
+c.fonts.default_family = ["Hack Nerd Font Mono"]
 
 # Font used in the completion widget.
 # Type: Font
-c.fonts.completion.entry = '8pt monospace'
+c.fonts.completion.entry = '10pt'
 
 # Font used in the keyhint widget.
 # Type: Font
-c.fonts.keyhint = '8pt monospace'
+c.fonts.keyhint = '10pt'
 
 # Font used for error messages.
 # Type: Font
-c.fonts.messages.error = '8pt monospace'
+c.fonts.messages.error = '10pt'
 
 # Font used for info messages.
 # Type: Font
-c.fonts.messages.info = '8pt monospace'
+c.fonts.messages.info = '10pt'
 
 # Font used for warning messages.
 # Type: Font
-c.fonts.messages.warning = '8pt monospace'
+c.fonts.messages.warning = '10pt'
 
 # Font used for prompts.
 # Type: Font
-c.fonts.prompts = '8pt sans-serif'
+c.fonts.prompts = '10pt'
 
 # Font used in the statusbar.
 # Type: Font
-c.fonts.statusbar = '8pt monospace'
+c.fonts.statusbar = '10pt'
 
 # Font used in the tab bar.
 # Type: QtFont
-c.fonts.tabs = '9pt monospace'
+c.fonts.tabs = '10pt'
 
 # bindings for normal mode
 # Userscripts must be made executable
@@ -422,11 +419,10 @@ config.bind('gt', 'tab-next')
 config.unbind('q')
 config.bind('qq', 'quit')
 config.bind('<Meta-R>', 'reload')
-config.bind('l', 'forward')
 config.bind('h', 'back')
-config.bind('z', 'spawn --userscript ~/.qutebrowser/userscripts/readability')
-config.bind('e', 'fullscreen')
-config.bind('c', 'yank markdown')
+config.bind('l', 'forward')
+config.bind(',e', 'fullscreen')
+config.bind(',z', 'spawn --userscript ~/.qutebrowser/userscripts/readability')
 config.bind(',n', 'config-cycle content.user_stylesheets ~/.qutebrowser/solarized-everything-css/css/gruvbox/gruvbox-all-sites.css ""')
 config.bind(',m', 'hint --rapid links spawn open -a VLC.app {hint-url}')
 
@@ -445,4 +441,5 @@ c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}', 'google': 'htt
 # Type: List of FuzzyUrl, or FuzzyUrl
 c.url.start_pages = '~/.qutebrowser/homepage/home.html'
 
+c.tabs.last_close = 'close'
 
