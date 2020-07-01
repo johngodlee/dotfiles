@@ -425,6 +425,7 @@ config.bind(',e', 'fullscreen')
 config.bind(',z', 'spawn --userscript ~/.qutebrowser/userscripts/readability')
 config.bind(',n', 'config-cycle content.user_stylesheets ~/.qutebrowser/solarized-everything-css/css/gruvbox/gruvbox-all-sites.css ""')
 config.bind(',m', 'hint --rapid links spawn open -a VLC.app {hint-url}')
+config.bind(',t', 'hint --rapid links spawn ~/bin/torrent_load_qb {hint-url}')
 
 # Definitions of search engines which can be used via the address bar.
 # Maps a searchengine name (such as `DEFAULT`, or `ddg`) to a URL with a

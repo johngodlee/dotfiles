@@ -32,6 +32,7 @@ vignettes/*.pdf
 *.Ruserdata
 .httr-oauth
 .Renviron
+Rplots.pdf
 
 # LaTeX
 *.aux

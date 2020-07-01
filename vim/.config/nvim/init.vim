@@ -176,8 +176,8 @@ hi Folded ctermbg=grey ctermfg=black
 " Hide mode 
 set noshowmode
 
-" Disable statusline background
-hi StatusLine ctermbg=NONE ctermfg=grey
+" Statusline colours 
+hi StatusLine ctermbg=blue ctermfg=white
 
 " Map of modes and their codes for statusline
 let g:currentmode={
@@ -264,7 +264,36 @@ set statusline+=\ \|\ 	" Vert-line and Space
 set statusline+=%8.(%4.l:%-3.c%)	" Line and column number in group
 set statusline+=\ 		" Space
 " }}}
-   
+
+" Tabline {{{
+function! MyTabLine()
+  let s = ''
+  for i in range(tabpagenr('$'))
+    let tabnr = i + 1 " range() starts at 0
+    let winnr = tabpagewinnr(tabnr)
+    let buflist = tabpagebuflist(tabnr)
+    let bufnr = buflist[winnr - 1]
+    let bufname = fnamemodify(bufname(bufnr), ':t')
+
+    let s .= '%' . tabnr . 'T'
+    let s .= (tabnr == tabpagenr() ? '%#TabLineSel#' : '%#TabLine#')
+    let s .= ' ' . tabnr
+
+    let n = tabpagewinnr(tabnr,'$')
+    if n > 1 | let s .= ':' . n | endif
+
+    let s .= empty(bufname) ? ' [No Name] ' : ' ' . bufname . ' '
+
+    let bufmodified = getbufvar(bufnr, "&mod")
+    if bufmodified | let s .= '+ ' | endif
+  endfor
+  let s .= '%#TabLineFill#'
+  return s
+endfunction
+
+set tabline=%!MyTabLine()
+" }}}
+
 " }}}
 
 " Folding {{{
