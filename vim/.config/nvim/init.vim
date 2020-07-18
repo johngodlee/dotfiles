@@ -138,6 +138,9 @@ set textwidth=0
 " Disable search highlighting
 set nohlsearch
 
+" Interactive substitution
+set inccommand=nosplit
+
 " }}}
 
 " Appearance {{{
@@ -580,7 +583,6 @@ function SetPythonOptions()
 endfunction
 " }}}  
 
-
 " UltiSnips {{{
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-l>"
@@ -646,9 +648,9 @@ set diffopt+=context:99999
 set diffopt+=iwhite
 
 " Softwrap lines
-au VimEnter * if &diff | execute 'windo set wrap' | endif
+autocmd FilterWritePre * if &diff | setlocal wrap< | endif
 
-" Disable syntax highlighting
+" Disable syntax highlighting, soft-wrap lines
 if &diff
     syntax off
 endif

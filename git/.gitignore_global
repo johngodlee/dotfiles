@@ -33,6 +33,7 @@ vignettes/*.pdf
 .httr-oauth
 .Renviron
 Rplots.pdf
+*.tmp.R
 
 # LaTeX
 *.aux

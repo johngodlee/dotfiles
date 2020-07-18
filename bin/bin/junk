@@ -1,3 +1,0 @@
-#!/usr/bin/env sh
-
-find . -name ".DS_Store" -name "Desktop.ini" -name ".Trashes" -name "Icon" -name "*~$*" -name "Thumbs.db" -type f -delete

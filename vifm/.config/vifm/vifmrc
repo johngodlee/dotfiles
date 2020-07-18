@@ -11,7 +11,8 @@ set vicmd=$EDITOR
 " set syscalls
 
 " Trash Directory
-set trash
+set trash 
+set trashdir ~/.Trash
 
 " How many directories to store in the directory history.
 set history=100

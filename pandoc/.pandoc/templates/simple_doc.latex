@@ -4,6 +4,9 @@
 
 \usepackage{xcolor}
 
+\let\oldtexttt\texttt% Store \texttt
+\renewcommand{\texttt}[2][teal]{\textcolor{#1}{\ttfamily #2}}%
+
 $if(graphics)$
 \usepackage{graphics}  % Insert images easily
 \usepackage{graphicx}
@@ -36,18 +39,19 @@ $endif$
 \usepackage{booktabs}
 
 \usepackage{geometry}
-\geometry{left=3em,
-	  right=4em,
-	  top=4em,
-          bottom=6em}
+\geometry{left=2.2cm,
+	right=2.2cm,
+	top=2.2cm,
+	bottom=2cm}
 
-\setlength{\parskip}{1em}
+\setlength{\parskip}{0.15cm}
 \setlength{\parindent}{0pt}
 
 \usepackage{hyperref}
 
 \hypersetup{%
   colorlinks=true,% hyperlinks will be coloured
+  urlcolor=blue
 }
 
 
@@ -81,6 +85,10 @@ $endif$
                {\list{}{\rightmargin\leftmargin}%
                 \item\relax\small\textquotedblleft\ignorespaces}
                {\unskip\unskip\textquotedblright\endlist}
+
+\let\oldtitle\title
+
+\renewcommand{\title}[1]{\oldtitle{\vspace{-1.5cm}#1}}
 
 $if(title)$
 \title{$title$}

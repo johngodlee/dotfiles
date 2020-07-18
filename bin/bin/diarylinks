@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+
+diary="/Users/johngodlee/google_drive/notes/diary"
+
+rg "^\* \[.*\]\(.*\)$" "${diary}" | sed "s|^${diary}\/||g" | sed "s/\.md:\*/ -/g" | sort > "${diary}/../diarylinks.txt"

@@ -96,9 +96,6 @@ alias vim=nvim
 # Use less as pager
 export PAGER=less
 
-# Alias `hub` as `git`, allows hub commands to be run using git
-eval "$(hub alias -s)"
-
 # Git aliases
 alias gall="git add -A; git commit"
 alias gp="git pull; git push"
@@ -143,3 +140,5 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+
+export PATH="$HOME/.cargo/bin:$PATH"
