@@ -409,7 +409,8 @@ c.fonts.statusbar = '10pt'
 
 # Font used in the tab bar.
 # Type: QtFont
-c.fonts.tabs = '10pt'
+c.fonts.tabs.selected = '10pt'
+c.fonts.tabs.unselected = '10pt'
 
 # bindings for normal mode
 # Userscripts must be made executable

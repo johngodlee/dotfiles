@@ -13,4 +13,4 @@ while [[ $i < 10 && "$result" != *"author = "* ]]; do
     i=$(( $i + 1 ))
 done
 
-echo "$result" | sed -e "s/\t/  /g"
+echo "$result" | sed -e "s/\t/  /g" | sed '1s/_//'

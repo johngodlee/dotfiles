@@ -581,6 +581,9 @@ function SetPythonOptions()
     let indent_guides_start_level = 1
     let indent_guides_guide_size = 2
 endfunction
+
+let g:python3_host_prog = '/usr/local/bin/python3'
+let g:loaded_python_provider = 0
 " }}}  
 
 " UltiSnips {{{

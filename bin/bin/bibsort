@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+
+# $1 = .tex file to find citations 
+# $2 = .bib file to grab entries
+
+match=($(rg -o '\\cite.*?\{.*?\}' $1 | sed -E "s/\\\\cite.*?\{(.*)\}/\1/g" | sed 's/,\s\+/\n/g' | sort | uniq))
+
+for i in "${match[@]}"; do 
+	rg -N --color never --multiline --multiline-dotall "\{$i.*?^\}" $2
+done 
