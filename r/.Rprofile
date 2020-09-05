@@ -35,5 +35,8 @@ options(digits = 4)
 # Set max print length
 options(max.print = 100)
 
+# Don't launch xQuartz when selecting menu items
+options(menu.graphics = FALSE)
+
 # Set environmental variables
 Sys.setenv(ENTREZ_KEY = "d9cd1e651a746d82b62e4726838109259107")
