@@ -10,6 +10,7 @@ export PATH=$HOME/bin:\
 /usr/local/opt/gawk/libexec/gnubin:\
 /usr/local/opt/inetutils/libexec/gnubin:\
 /Users/johngodlee/Library/Python/3.8/bin:\
+/Users/johngodlee/.gem/ruby/2.6.0/bin:\
 ${PATH}
 
 # Set #MANPATH

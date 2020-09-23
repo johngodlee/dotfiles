@@ -194,3 +194,12 @@ Things in landscape
 \end{landscape}
 ```
 
+Framed boxes
+
+```tex
+\begin{minipage}{\linewidth}
+\begin{framed}
+We used a Nikon MF-16 ....
+\end{framed}
+\end{minipage}
+```
