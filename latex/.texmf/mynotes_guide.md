@@ -43,6 +43,8 @@ Citations:
 Citing references:
 
 ```tex
+\addbibresource{/Users/johngodlee/google_drive/bib/lib.bib}
+
 \citep{}
 \citet{}
 \citealt{}
@@ -50,7 +52,7 @@ Citing references:
 \citeauthor{}
 \citeyear{}
 
-\bibliography{/Users/johngodlee/google_drive/bib/lib.bib}
+\printbibliography
 ```
 
 Figures:
