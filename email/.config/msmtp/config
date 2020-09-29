@@ -1,0 +1,27 @@
+defaults
+auth	on
+tls	on
+tls_trust_file	/etc/ssl/cert.pem
+logfile /Users/johngodlee/.config/msmtp/msmtp.log
+
+account gmail
+host smtp.gmail.com
+port 587
+from johngodlee@gmail.com
+user johngodlee@gmail.com
+passwordeval "pass mutt-wizard-gmail"
+
+account edinburgh
+host pod51015.outlook.com
+port 587
+from s1108036@sms.ed.ac.uk
+user s1108036@ed.ac.uk
+passwordeval "pass mutt-wizard-edinburgh"
+
+account riseup
+host mail.riseup.net
+port 465
+from johngodlee@riseup.net
+user johngodlee@riseup.net
+passwordeval "pass mutt-wizard-riseup"
+tls_starttls off

@@ -474,15 +474,6 @@ augroup mail_trailing_whitespace " {
     autocmd!
     autocmd FileType mail setlocal formatoptions-=t
 augroup END " }
-
-" Output a file from vifm into the buffer
-autocmd FileType mail nnoremap <Leader>A :6r !vifm_attach <CR>
-
-" Set PGP options in mutt buffer
-autocmd FileType mail nnoremap <Leader>P :6r !mutt_pgp_opt <CR>
-
-" Clearsign in message
-autocmd FileType mail nnoremap <Leader>S :%!gpg --clearsign <CR>
 " }}}
 
 " Spell check {{{
@@ -501,7 +492,7 @@ nnoremap <Leader>s :set spell!<CR>
 " Omni-completion / NCM2 {{{
 
 " Allow autocompletion everywhere
-autocmd Filetype r,tex,bib call ncm2#enable_for_buffer()
+autocmd Filetype r,tex,bib,mail call ncm2#enable_for_buffer()
 
 " Ensure omni-completion menu stays open
 set completeopt=noinsert,menuone,noselect

@@ -1,0 +1,78 @@
+IMAPStore gmail-remote
+Host imap.gmail.com
+Port 993
+User johngodlee@gmail.com
+PassCmd "pass mutt-wizard-gmail"
+AuthMechs LOGIN
+SSLType IMAPS
+CertificateFile /etc/ssl/cert.pem
+
+MaildirStore gmail-local
+Subfolders Verbatim
+Path /Users/johngodlee/.mail/gmail/
+Inbox /Users/johngodlee/.mail/gmail/INBOX
+Flatten .
+
+Channel gmail
+Expunge Both
+Master :gmail-remote:
+Slave :gmail-local:
+Patterns * !"Junk"
+Create Both
+SyncState *
+MaxMessages 100
+ExpireUnread no
+# End profile
+
+IMAPStore edinburgh-remote
+Host pod51015.outlook.com
+Port 993
+User s1108036@ed.ac.uk
+PassCmd "pass mutt-wizard-edinburgh"
+AuthMechs LOGIN
+SSLType IMAPS
+CertificateFile /etc/ssl/cert.pem
+
+MaildirStore edinburgh-local
+Subfolders Verbatim
+Path /Users/johngodlee/.mail/edinburgh/
+Inbox /Users/johngodlee/.mail/edinburgh/INBOX
+Flatten .
+
+Channel edinburgh
+Expunge Both
+Master :edinburgh-remote:
+Slave :edinburgh-local:
+Patterns * !"Deleted Items*" !"Journal" !"Junk Email" !"Notes" !"Tasks" !"Contacts" !"Calendar" !"Archive" !"Conversation History"
+Create Both
+SyncState *
+MaxMessages 100
+ExpireUnread no
+# End profile
+
+IMAPStore riseup-remote
+Host mail.riseup.net
+Port 993
+User johngodlee@riseup.net
+PassCmd "pass mutt-wizard-riseup"
+AuthMechs LOGIN
+SSLType IMAPS
+CertificateFile /etc/ssl/cert.pem
+
+MaildirStore riseup-local
+Subfolders Verbatim
+Path /Users/johngodlee/.mail/riseup/
+Inbox /Users/johngodlee/.mail/riseup/INBOX
+Flatten .
+
+Channel riseup
+Expunge Both
+Master :riseup-remote:
+Slave :riseup-local:
+Patterns * !"[Gmail]/All Mail"
+Create Both
+SyncState *
+MaxMessages 100
+ExpireUnread no
+# End profile
+

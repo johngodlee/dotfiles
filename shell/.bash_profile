@@ -81,8 +81,7 @@ export LYNX_LSS=~/.lynx/lynx.lss
 
 # Open (neo)mutt in Downloads to save attachments there,
 # always run notmuch build before opening
-alias mutt='cd ~/Downloads; notmuch new; neomutt'
-alias neomutt='cd ~/Downloads; notmuch new; neomutt'
+alias mutt='neomutt'
 
 # Use VLC ncurses in the terminal
 alias vlc="/Applications/VLC.app/Contents/MacOS/VLC -I ncurses --no-color"

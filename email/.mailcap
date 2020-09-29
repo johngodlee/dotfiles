@@ -1,3 +1,9 @@
-text/html; cat '%s' > ~/.mutt/html_tmp.html & open ~/.mutt/html_tmp.html;
-text/html;  w3m -dump -o document_charset=%{charset} '%s'; nametemplate=%s.html; copiousoutput;
-
+text/plain; $EDITOR %s ;
+text/html; openfile %s ; nametemplate=%s.html
+text/html; lynx -assume_charset=%{charset} -display_charset=utf-8 -dump %s; nametemplate=%s.html; copiousoutput;
+image/*; openfile %s ;
+video/*; setsid mpv --quiet %s &; copiousoutput
+audio/*; mpv %s ;
+application/pdf; openfile %s ;
+application/pgp-encrypted; gpg -d '%s'; copiousoutput;
+application/pgp-keys; gpg --import '%s'; copiousoutput;
