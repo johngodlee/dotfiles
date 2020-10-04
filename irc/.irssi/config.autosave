@@ -49,15 +49,25 @@ servers = (
     use_ssl = "yes";
     ssl_verify = "yes";
     autoconnect = "yes";
+  },
+  {
+    address = "irc.efnet.nl";
+    chatnet = "efnet";
+    port = "6669";
+    use_ssl = "yes";
+    ssl_verify = "yes";
+    autoconnect = "yes";
   }
 );
 
 chatnets = {
   freenode = { type = "IRC"; };
+  chat = { type = "IRC"; };
   snoonet = { type = "IRC"; };
   darkscience = { type = "IRC"; };
   compsoc = { type = "IRC"; };
   "tilde.chat" = { type = "IRC"; };
+  efnet = { type = "IRC"; };
 };
 
 channels = (
@@ -65,9 +75,9 @@ channels = (
   { name = "#irssi"; chatnet = "freenode"; autojoin = "yes"; },
   { name = "#vim"; chatnet = "freenode"; autojoin = "yes"; },
   { name = "#gnulag"; chatnet = "snoonet"; autojoin = "yes"; },
-  { name = "#uk"; chatnet = "snoonet"; autojoin = "yes"; },
   { name = "#darkscience"; chatnet = "darkscience"; autojoin = "yes"; },
-  { name = "#compsoc"; chatnet = "compsoc"; autojoin = "yes"; }
+  { name = "#compsoc"; chatnet = "compsoc"; autojoin = "yes"; },
+  { name = "#camping"; chatnet = "efnet"; autojoin = "yes"; }
 );
 
 aliases = { BRB = "AWAY"; BYE = "QUIT"; };
