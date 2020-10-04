@@ -17,7 +17,7 @@
 	tool = nvim -d 
 	conflictstyle = diff3
 [alias]
-	network = log --graph --decorate --pretty=oneline --abbrev-commit --all
+	graph = log --graph --decorate --pretty=oneline --abbrev-commit --all
 [http]
 	postBuffer = 1048576000
 	cookiefile = /Users/johngodlee/.gitcookies

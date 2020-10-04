@@ -372,6 +372,8 @@ endfunction
 " VimTeX {{{
 " Always think tex files are xelatex 
 let g:tex_flavor = 'xelatex'
+let g:Tex_BibtexFlavor = 'biber'
+let g:vimtex_compiler_progname = 'nvr'
 
 " When running vimtex compiler, don't automatically show quickfix list errors
 let g:vimtex_quickfix_mode = 0
