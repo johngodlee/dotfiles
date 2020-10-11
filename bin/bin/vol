@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+cast --name "Shed TV" volume $1
+

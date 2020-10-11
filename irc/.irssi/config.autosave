@@ -16,7 +16,7 @@ servers = (
     port = "6697";
     use_ssl = "yes";
     ssl_verify = "yes";
-    autoconnect = "yes";
+    autoconnect = "no";
   },
   {
     address = "irc.freenode.net";
@@ -32,7 +32,7 @@ servers = (
     port = "6697";
     use_ssl = "yes";
     ssl_verify = "yes";
-    autoconnect = "yes";
+    autoconnect = "no";
   },
   {
     address = "irc.darkscience.net";
@@ -40,7 +40,7 @@ servers = (
     port = "6697";
     use_ssl = "yes";
     ssl_verify = "yes";
-    autoconnect = "yes";
+    autoconnect = "no";
   },
   {
     address = "irc.imaginarynet.uk";
@@ -48,39 +48,35 @@ servers = (
     port = "6697";
     use_ssl = "yes";
     ssl_verify = "yes";
-    autoconnect = "yes";
-  },
-  {
-    address = "irc.efnet.nl";
-    chatnet = "efnet";
-    port = "6669";
-    use_ssl = "yes";
-    ssl_verify = "yes";
-    autoconnect = "yes";
+    autoconnect = "no";
   }
 );
 
 chatnets = {
   freenode = { type = "IRC"; };
-  chat = { type = "IRC"; };
   snoonet = { type = "IRC"; };
   darkscience = { type = "IRC"; };
   compsoc = { type = "IRC"; };
   "tilde.chat" = { type = "IRC"; };
-  efnet = { type = "IRC"; };
 };
 
 channels = (
-  { name = "#club"; chatnet = "tilde.chat"; autojoin = "yes"; },
+  { name = "#club"; chatnet = "tilde.chat"; autojoin = "no"; },
   { name = "#irssi"; chatnet = "freenode"; autojoin = "yes"; },
   { name = "#vim"; chatnet = "freenode"; autojoin = "yes"; },
-  { name = "#gnulag"; chatnet = "snoonet"; autojoin = "yes"; },
-  { name = "#darkscience"; chatnet = "darkscience"; autojoin = "yes"; },
-  { name = "#compsoc"; chatnet = "compsoc"; autojoin = "yes"; },
-  { name = "#camping"; chatnet = "efnet"; autojoin = "yes"; }
+  { name = "#gnulag"; chatnet = "snoonet"; autojoin = "no"; },
+  { name = "#uk"; chatnet = "snoonet"; autojoin = "no"; },
+  { name = "#darkscience"; chatnet = "darkscience"; autojoin = "no"; },
+  { name = "#compsoc"; chatnet = "compsoc"; autojoin = "no"; }
 );
 
-aliases = { BRB = "AWAY"; BYE = "QUIT"; };
+aliases = {
+  BRB = "AWAY";
+  BYE = "QUIT";
+  EXIT = "QUIT";
+  J = "JOIN";
+  LEAVE = "PART";
+};
 
 statusbar = {
 
@@ -184,3 +180,5 @@ statusbar = {
     };
   };
 };
+
+ignores = ( { level = "JOINS PARTS QUITS NICKS"; } );

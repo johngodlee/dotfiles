@@ -250,8 +250,8 @@ abstracts = {
 
   # default background for all statusbars. You can also give
   # the default foreground color for statusbar items.
-  sb_background = "%4%w";
-  window_border = "%4%w";
+  sb_background = "%2%k";
+  window_border = "%4%k";
 
   # default backround for "default" statusbar group
   #sb_default_bg = "%4";
@@ -274,8 +274,8 @@ abstracts = {
 
   prompt = "[$*] ";
 
-  sb = " %c[%n$*%c]%n";
-  sbmode = "(%c+%n$*)";
+  sb = " %k[%n$*%k]%n";
+  sbmode = "(%k+%n$*)";
   sbaway = " (%GzZzZ%n)";
   sbservertag = ":$0 (change with ^X)";
   sbnickmode = "$0";
@@ -298,17 +298,17 @@ formats = {
     own_msg = "{ownmsgnick $nickalign$2 {ownnick $nickcolor$0$nicktrunc}}$1";
     own_msg_channel = "{ownmsgnick $nickalign$3 {ownnick $nickcolor$0$nicktrunc}{msgchannel $1}}$2";
     own_msg_private_query = "{ownprivmsgnick $nickalign{ownprivnick $nickcolor$2$nicktrunc}}$1";
-    pubmsg_me = "{pubmsgmenick $nickalign$2 {menick $[.15]0$nicktrunc}}$1";
-    pubmsg_me_channel = "{pubmsgmenick $nickalign$3 {menick $[.15]0$nicktrunc}{msgchannel $1}}$2";
-    pubmsg_hilight = "{pubmsghinick $0 $nickalign$3 $[.15]1$nicktrunc}$2";
-    pubmsg_hilight_channel = "{pubmsghinick $0 $nickalign$4 $[.15]1$nicktrunc{msgchannel $2}}$3";
-    pubmsg = "{pubmsgnick $nickalign$2 {pubnick $nickcolor$[.15]0$nicktrunc}}$1";
-    pubmsg_channel = "{pubmsgnick $nickalign$3 {pubnick $nickcolor$[.15]0$nicktrunc}{msgchannel $1}}$2";
+    pubmsg_me = "{pubmsgmenick $nickalign$2 {menick $0$nicktrunc}}$1";
+    pubmsg_me_channel = "{pubmsgmenick $nickalign$3 {menick $0$nicktrunc}{msgchannel $1}}$2";
+    pubmsg_hilight = "{pubmsghinick $0 $nickalign$3 $1$nicktrunc}$2";
+    pubmsg_hilight_channel = "{pubmsghinick $0 $nickalign$4 $1$nicktrunc{msgchannel $2}}$3";
+    pubmsg = "{pubmsgnick $nickalign$2 {pubnick $nickcolor$0$nicktrunc}}$1";
+    pubmsg_channel = "{pubmsgnick $nickalign$3 {pubnick $nickcolor$0$nicktrunc}{msgchannel $1}}$2";
     msg_private_query = "{privmsgnick $nickalign$nickcolor$0$nicktrunc}$2";
   };
   "Irssi::Script::adv_windowlist" = {
-    awl_display_nokey = "$N$C";
     awl_display_key = "$N$C";
+    awl_display_key_active = "%4$N$C";
     awl_display_header = "";
     awl_separator = " | ";
   };

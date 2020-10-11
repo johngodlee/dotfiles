@@ -61,16 +61,22 @@ chatnets = {
 };
 
 channels = (
-  { name = "#club"; chatnet = "tilde.chat"; autojoin = "yes"; },
-  { name = "#irssi"; chatnet = "freenode"; autojoin = "yes"; },
-  { name = "#vim"; chatnet = "freenode"; autojoin = "yes"; },
-  { name = "#gnulag"; chatnet = "snoonet"; autojoin = "yes"; },
-  { name = "#uk"; chatnet = "snoonet"; autojoin = "yes"; },
-  { name = "#darkscience"; chatnet = "darkscience"; autojoin = "yes"; },
-  { name = "#compsoc"; chatnet = "compsoc"; autojoin = "yes"; }
+  { name = "#club"; chatnet = "tilde.chat"; autojoin = "no"; },
+  { name = "#irssi"; chatnet = "freenode"; autojoin = "no"; },
+  { name = "#vim"; chatnet = "freenode"; autojoin = "no"; },
+  { name = "#gnulag"; chatnet = "snoonet"; autojoin = "no"; },
+  { name = "#uk"; chatnet = "snoonet"; autojoin = "no"; },
+  { name = "#darkscience"; chatnet = "darkscience"; autojoin = "no"; },
+  { name = "#compsoc"; chatnet = "compsoc"; autojoin = "no"; }
 );
 
-aliases = { BRB = "AWAY"; BYE = "QUIT"; };
+aliases = {
+  BRB = "AWAY";
+  BYE = "QUIT";
+  EXIT = "QUIT";
+  J = "JOIN";
+  LEAVE = "PART";
+};
 
 statusbar = {
 
@@ -174,3 +180,5 @@ statusbar = {
     };
   };
 };
+
+ignores = ( { level = "JOINS PARTS QUITS NICKS"; } );
