@@ -1,4 +1,0 @@
-#!/usr/bin/env sh
-
-osascript -e "tell application \"Terminal\" to do script \"torrent_load $1\""
-
