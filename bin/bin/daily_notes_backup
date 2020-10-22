@@ -1,6 +1,0 @@
-#!/bin/bash
-
-cd ~/google_drive/notes/daily/
-
-find . -maxdepth 1 -mtime +5 -type f -exec mv "{}" old/ \;
-
