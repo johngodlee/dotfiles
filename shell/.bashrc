@@ -10,7 +10,6 @@ export PATH=$HOME/bin:\
 /usr/local/opt/gawk/libexec/gnubin:\
 /usr/local/opt/inetutils/libexec/gnubin:\
 /usr/local/opt/ruby/bin:\
-/Users/johngodlee/Library/Python/3.8/bin:\
 /Users/johngodlee/.gem/ruby/2.7.0/bin:\
 ${PATH}
 
@@ -21,7 +20,6 @@ export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:\
 /usr/local/opt/gawk/libexec/gnuman:\
 /usr/local/opt/inetutils/libexec/gnuman:\
 ${MANPATH}"
-
 
 export LANG=en_US.UTF-8
 
@@ -41,11 +39,23 @@ GIT_PS1_SHOWUPSTREAM="auto"
 GIT_PS1_SHOWCOLORHINTS=true
 GIT_PS1_STATESEPARATOR=" "
 
-# Disable default prompt
+# virtualenv prompt
+check_virtual_env ()
+{
+    if test -z "$VIRTUAL_ENV"
+    then
+        printf -- "%s" ""
+    else
+        printf -- "%s" "(${VIRTUAL_ENV##*/})"
+    fi
+}
+
+## Disable default prompt
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 # Bash prompt
 PS1=''
+PS1+='\[\e[96m\]$(check_virtual_env)\[\e[m\]' 	# virtualenv
 PS1+='[\T]'	# Time
 PS1+=' '	# Space 
 PS1+='\u@\h'	# User@hostname
@@ -137,18 +147,4 @@ export LS_COLORS='rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;
 
 export PATH="$HOME/.cargo/bin:$PATH"
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/usr/local/Caskroom/miniconda/base/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/usr/local/Caskroom/miniconda/base/etc/profile.d/conda.sh" ]; then
-        . "/usr/local/Caskroom/miniconda/base/etc/profile.d/conda.sh"
-    else
-        export PATH="/usr/local/Caskroom/miniconda/base/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
 
