@@ -5,26 +5,27 @@
 " set runtime path to include vim-plug and initialize
 call plug#begin('~/.vim/plugged')
 
-Plug 'plasticboy/vim-markdown'	" Better markdown syntax highlighting, indenting etc.
+Plug 'plasticboy/vim-markdown'	" Markdown 
 Plug 'junegunn/vim-easy-align'  " Align Markdown tables
 Plug 'pangloss/vim-javascript'	" Javascript syntax highlighting
 Plug 'kshenoy/vim-signature'	" Mark locations in gutter
-Plug 'christoomey/vim-tmux-navigator'	" Easy navigation of tmux and vim splits
+Plug 'christoomey/vim-tmux-navigator'	" TMUX+Vim navigation 
 Plug 'lervag/vimtex'		" LaTeX editing in vim
 Plug 'ledger/vim-ledger'	" Edit ledger journals in vim
 Plug 'nathanaelkane/vim-indent-guides'	" Indent guides
-Plug 'junegunn/fzf.vim'       " Fuzzy file finder
-Plug 'chrisbra/csv.vim'		" CSV editing
-Plug 'SirVer/ultisnips'       " Snippets
+Plug 'junegunn/fzf.vim'	" Fuzzy file finder
+Plug 'chrisbra/csv.vim'	" CSV editing
+Plug 'SirVer/ultisnips'	" Snippets
 Plug 'ap/vim-css-color'	" Highlight colours in CSS
+Plug 'junegunn/goyo.vim'	" Distraction free-writing
 Plug 'jalvesaq/Nvim-R'	" R IDE
 Plug 'ncm2/ncm2'	" Auto-completion
 Plug 'roxma/nvim-yarp'	" Auto-completion helper 
-Plug 'ncm2/ncm2-ultisnips'	" NCM2 Ultisnips 
 Plug 'gaalcaras/ncm-R'	" NCM2 R
 Plug 'ncm2/ncm2-path'	" NCM2 system paths
-Plug 'wellle/tmux-complete.vim'	"NCM2 tmux completion
-Plug 'junegunn/goyo.vim'	" Distraction free-writing
+Plug 'ncm2/ncm2-ultisnips'	" NCM2 Ultisnips 
+Plug 'wellle/tmux-complete.vim'	" NCM2 tmux completion
+Plug 'jalvesaq/vimcmdline'	" Generic interpretor
 
 call plug#end()	
 " }}}
@@ -493,8 +494,8 @@ nnoremap <Leader>s :set spell!<CR>
 
 " Omni-completion / NCM2 {{{
 
-" Allow autocompletion everywhere
-autocmd Filetype r,tex,bib,mail call ncm2#enable_for_buffer()
+" Allow autocompletion in filetypes
+autocmd Filetype r,tex,bib,mail,python call ncm2#enable_for_buffer()
 
 " Ensure omni-completion menu stays open
 set completeopt=noinsert,menuone,noselect
@@ -575,9 +576,17 @@ function SetPythonOptions()
     let indent_guides_guide_size = 2
 endfunction
 
+" Use Homebrew python 
 let g:python3_host_prog = '/usr/local/bin/python3'
-let g:loaded_python_provider = 0
 " }}}  
+
+" vimcmdline {{{
+let cmdline_map_start = '<LocalLeader>rf'
+let cmdline_map_send = '<LocalLeader><Enter>'
+let cmdline_map_quit = '<LocalLeader>rq'
+let cmdline_follow_colorscheme = 1
+let cmdline_in_buffer = 0
+" }}}
 
 " UltiSnips {{{
 let g:UltiSnipsExpandTrigger="<tab>"
