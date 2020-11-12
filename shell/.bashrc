@@ -120,7 +120,9 @@ export PAGER=less
 alias gall="git add -A; git commit"
 alias gp="git pull; git push"
 
+# Autocompletions
 eval "$(gh completion -s bash)"
+eval "$(pipenv --completion)"
 
 # Open todo file
 alias todo="nvim $HOME/google_drive/notes/todo.md"

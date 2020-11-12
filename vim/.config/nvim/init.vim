@@ -26,6 +26,7 @@ Plug 'ncm2/ncm2-path'	" NCM2 system paths
 Plug 'ncm2/ncm2-ultisnips'	" NCM2 Ultisnips 
 Plug 'wellle/tmux-complete.vim'	" NCM2 tmux completion
 Plug 'jalvesaq/vimcmdline'	" Generic interpretor
+Plug 'goerz/jupytext.vim'	" Convert ipynb to md/py 
 
 call plug#end()	
 " }}}
@@ -579,6 +580,10 @@ endfunction
 " Use Homebrew python 
 let g:python3_host_prog = '/usr/local/bin/python3'
 " }}}  
+
+" jupytext {{{
+let g:jupytext_fmt = 'py'
+" }}}
 
 " vimcmdline {{{
 let cmdline_map_start = '<LocalLeader>rf'
