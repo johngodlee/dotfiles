@@ -18,6 +18,7 @@ Icon
 
 # Python
 *.pyc
+Pipfile.lock
 
 # R
 *.Rproj
