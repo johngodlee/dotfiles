@@ -17,8 +17,8 @@ bind-key d pb-download
 bind-key W pb-toggle-download-all
 
 color listnormal blue default
-color listfocus yellow default 
-color listnormal_unread cyan default
+color listnormal_unread green default
+color listfocus yellow default bold 
 color listfocus_unread yellow default bold
 color info yellow default
 color article cyan default
