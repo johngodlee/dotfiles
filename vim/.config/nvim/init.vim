@@ -6,7 +6,6 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'plasticboy/vim-markdown'	" Markdown 
-Plug 'junegunn/vim-easy-align'  " Align Markdown tables
 Plug 'pangloss/vim-javascript'	" Javascript syntax highlighting
 Plug 'kshenoy/vim-signature'	" Mark locations in gutter
 Plug 'christoomey/vim-tmux-navigator'	" TMUX+Vim navigation 
@@ -677,7 +676,6 @@ hi DiffText     cterm=none ctermfg=NONE ctermbg=DarkGray
 " Stop Goyo messing up my colour scheme
 autocmd! User GoyoLeave silent! set bg=light
 " }}}
-
 
 " Stop creating swp and ~ files
 set nobackup
