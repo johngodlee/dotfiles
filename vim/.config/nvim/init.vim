@@ -394,6 +394,16 @@ function SetBibOptions()
     let indent_guides_start_level = 1
     let indent_guides_guide_size = 2
 endfunction
+
+" Set line wrapping in vimtex
+autocmd Filetype tex call SetTexOptions()
+function SetTexOptions()
+	set textwidth=80
+	set wrapmargin=0
+	set formatoptions+=t
+	set linebreak 
+endfunction
+
 " }}}
 
 " Markdown {{{
