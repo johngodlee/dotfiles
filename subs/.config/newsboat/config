@@ -50,5 +50,5 @@ confirm-exit yes
 
 download-path "~/Downloads/podcasts/%h/%n"
 player "/Applications/VLC.app/Contents/MacOS/VLC -I ncurses --no-color"
-
+podlist-format "%4i [%6dMB/%6tMB] [%5p %%] [%7k kb/s] %S %F"
 define-filter "Unread" "unread_count > 0"
