@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+
+Rscript --verbose -e "require(knitr); knitr::knit('$1')"

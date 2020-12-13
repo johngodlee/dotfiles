@@ -142,6 +142,9 @@ set nohlsearch
 " Interactive substitution
 set inccommand=nosplit
 
+" Persistent undo
+set undofile
+
 " }}}
 
 " Appearance {{{
@@ -643,14 +646,14 @@ let r_indent_ess_compatible = 0
 let R_non_r_compl = 0
 let R_rmdchunk = 0
 
-autocmd FileType r setlocal colorcolumn=80
-autocmd FileType r vnoremap <Leader>F :Rformat<CR>
 nmap <LocalLeader><Enter> <Plug>RDSendLine
 vmap <LocalLeader><Enter> <Plug>REDSendSelection
 
 autocmd Filetype r,rmd call SetROptions()
 function SetROptions()
+	vnoremap <Leader>F :Rformat<CR>
     setlocal expandtab
+	setlocal colorcolumn=80
     setlocal softtabstop=2
     setlocal shiftwidth=2
     let indent_guides_start_level = 1
