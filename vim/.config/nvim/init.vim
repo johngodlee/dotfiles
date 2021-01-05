@@ -54,7 +54,7 @@ nnoremap ;q :q<CR>
 " Open current buffer in finder with <Leader>f
 nnoremap <Leader>f :!open -R %<CR> 
 
-" Don't exist visual mode when tab indenting
+" Don't exit visual mode when tab indenting
 vnoremap > >gv
 vnoremap < <gv
 
@@ -110,6 +110,11 @@ nnoremap <Leader>w<Leader>w :tabnew `diary_gen`<CR>
 
 " Disable Ex Mode
 map Q <Nop>
+
+" Show whitespace characters
+nnoremap <Leader>m :set list!<CR>
+set listchars=tab:→\ ,eol:↲,nbsp:␣,trail:•,extends:⟩,precedes:⟨
+set showbreak=↪\ 
 
 " }}}
 

@@ -84,6 +84,17 @@ alias ls="'gls' -A -F -G -g -h -l --group-directories-first --color"
 # ls by time modified
 alias lst="'gls' -A -F -G -g -h -l -t -r --group-directories-first --color"
 
+# redefine update_terminal_cwd()
+update_terminal_cwd() {
+    # Identify the directory using a "file:" scheme URL,
+    # including the host name to disambiguate local vs.
+    # remote connections. Percent-escape spaces.
+    local SEARCH=' '
+    local REPLACE='%20'
+    local PWD_URL="file://$HOSTNAME${PWD//$SEARCH/$REPLACE}"
+    printf '\e]7;%s\a' "$PWD_URL"
+}
+
 # Configure default env. vars for lynx
 export LYNX_CFG=~/.lynx/lynx.cfg
 export LYNX_LSS=~/.lynx/lynx.lss 

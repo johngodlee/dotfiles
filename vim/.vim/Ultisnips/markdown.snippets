@@ -2,6 +2,10 @@ snippet img "Insert an image" b
 ![${1:alt text}]($2)
 endsnippet
 
+snippet img_blog "Insert an image in Jekyll blog" b
+[![${1:alt text}]({{ site.baseurl }}/img/$2)]({{ site.baseurl }}/img_full/$2)
+endsnippet
+
 snippet yaml_blog "Insert YAML frontmatter for a Jekyll post" b
 ---
 layout: post
