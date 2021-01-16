@@ -6,6 +6,7 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'plasticboy/vim-markdown'	" Markdown 
+Plug 'godlygeek/tabular'	" Align tables
 Plug 'pangloss/vim-javascript'	" Javascript syntax highlighting
 Plug 'kshenoy/vim-signature'	" Mark locations in gutter
 Plug 'christoomey/vim-tmux-navigator'	" TMUX+Vim navigation 
@@ -415,6 +416,7 @@ endfunction
 " }}}
 
 " Markdown {{{
+
 " Disable syntax conceal in markdown
 let g:vim_markdown_conceal = 0
 
@@ -423,18 +425,20 @@ let g:vim_markdown_new_list_item_indent = 0
 setlocal formatoptions=tqlnrc
 set comments=b:>
 
-" Align markdown tables only in markdown documents using \\
-au FileType markdown,rmd vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
+" Automatically align markdown table on pressing "|"
+inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
 
-" Allow internal links
-let g:vim_markdown_follow_anchor = 1
+function! s:align()
+  let p = '^\s*|\s.*\s|\s*$'
+  if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
+    let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
+    let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
+    Tabularize/|/l1
+    normal! 0
+    call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
+  endif
+endfunction
 
-" Links in new tab
-let g:vim_markdown_autowrite = 1
-let g:vim_markdown_edit_url_in = 'tab'
-
-" Markdown preview
-nnoremap <Leader>A :terminal markdown_vim_preview %<CR>
 " }}}
 
 " netrw {{{
