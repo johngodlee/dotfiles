@@ -8,18 +8,16 @@ call plug#begin('~/.vim/plugged')
 Plug 'plasticboy/vim-markdown'	" Markdown 
 Plug 'godlygeek/tabular'	" Align tables
 Plug 'pangloss/vim-javascript'	" Javascript syntax highlighting
-Plug 'kshenoy/vim-signature'	" Mark locations in gutter
-Plug 'christoomey/vim-tmux-navigator'	" TMUX+Vim navigation 
-Plug 'lervag/vimtex'		" LaTeX editing in vim
-Plug 'ledger/vim-ledger'	" Edit ledger journals in vim
-Plug 'nathanaelkane/vim-indent-guides'	" Indent guides
-Plug 'junegunn/fzf.vim'	" Fuzzy file finder
+Plug 'kshenoy/vim-signature'	" Marks in gutter
+Plug 'christoomey/vim-tmux-navigator'	" tmux+vim navigation 
+Plug 'lervag/vimtex'		" LaTeX 
+Plug 'ledger/vim-ledger'	" Ledger
+Plug 'junegunn/fzf.vim'	" Fuzzy finder
 Plug 'chrisbra/csv.vim'	" CSV editing
 Plug 'SirVer/ultisnips'	" Snippets
 Plug 'ap/vim-css-color'	" Highlight colours in CSS
-Plug 'junegunn/goyo.vim'	" Distraction free-writing
-Plug 'jalvesaq/Nvim-R'	" R IDE
 Plug 'ncm2/ncm2'	" Auto-completion
+Plug 'jalvesaq/Nvim-R'	" R 
 Plug 'roxma/nvim-yarp'	" Auto-completion helper 
 Plug 'gaalcaras/ncm-R'	" NCM2 R
 Plug 'ncm2/ncm2-path'	" NCM2 system paths
@@ -27,6 +25,7 @@ Plug 'ncm2/ncm2-ultisnips'	" NCM2 Ultisnips
 Plug 'wellle/tmux-complete.vim'	" NCM2 tmux completion
 Plug 'jalvesaq/vimcmdline'	" Generic interpretor
 Plug 'goerz/jupytext.vim'	" Convert ipynb to md/py 
+Plug 'frazrepo/vim-rainbow'	" Rainbow parentheses
 
 call plug#end()	
 " }}}
@@ -62,23 +61,18 @@ vnoremap < <gv
 " Copy and paste from `+` register for interacting with mac clipboard
 set clipboard=unnamedplus
 
-" Don't add deleted text to default register
-vnoremap D "_D
-nnoremap c "_c
-vnoremap c "_c
-nnoremap C "_C
-vnoremap C "_C
+" Don't add overwritten text to default register
+xnoremap <expr> p 'pgv"'.v:register.'y`>'
+xnoremap <expr> P 'Pgv"'.v:register.'y`>'
 
 " A function to display often misremembered keybindings
 fun! Cheat()
-    " Add handy bindings you tend to forget or want to learn.
+    " Add handy bindings 
     echo " -- R key bindings -- "
-    echo " \\aa            -- Send file to R"
     echo " \\rf            -- Start R"
     echo " \\ro            -- Open object browser"
     echo " \\rv            -- Preview object"
     echo " \\<Enter>       -- Send line/selection to R"
-    echo " \\su            -- Send above lines to R"
     echo " "
     echo " ) (            -- Forwards / backwards one sentence"
     echo " } {            -- Forwards / backwards one paragraph"
@@ -91,7 +85,6 @@ fun! Cheat()
     echo " :%s/x/y/g      -- Replace `x` with `y` throughout (%)"
     echo " :UltiSnipsEdit -- Snippets for current filetype"
     echo " \\p             -- Search for files with FZF"
-    echo " \\i             -- Toggle indent guides" 
 endf
 
 " See cheatsheet
@@ -99,9 +92,6 @@ noremap <Leader>c :call Cheat() <CR>
 
 " Send split to new tab
 nnoremap <Leader>g :tabedit %<CR>
-
-" Open URLs in vim
-"nnoremap <Leader>u :w<Home>silent <End> !urlview<CR>
 
 " Open todo.md
 nnoremap <Leader>ww :e ~/google_drive/notes/todo.md<CR>
@@ -359,29 +349,11 @@ au BufEnter *.bib setlocal foldexpr=BibTeXFold()
 au BufEnter *.bib setlocal foldmethod=expr
 " }}}
 
-" Indent guides {{{
-
-" Set indentation colours
-let g:indent_guides_auto_colors = 0
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=Gray
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=DarkGray
-
-" Toggle indent guides
-nnoremap <Leader>i :IndentGuidesToggle<CR>
-
-" }}}
-
-" Calendar {{{
-autocmd Filetype calendar call SetCalendarOptions()
-function SetCalendarOptions()
-	setlocal noexpandtab
-	setlocal tabstop=4
-endfunction
-" }}}
-
 " VimTeX {{{
 " Always think tex files are xelatex 
 let g:tex_flavor = 'xelatex'
+
+" Use biber
 let g:Tex_BibtexFlavor = 'biber'
 let g:vimtex_compiler_progname = 'nvr'
 
@@ -425,7 +397,19 @@ let g:vim_markdown_new_list_item_indent = 0
 setlocal formatoptions=tqlnrc
 set comments=b:>
 
-" Automatically align markdown table on pressing "|"
+" Highlight YAML
+let g:vim_markdown_frontmatter = 1
+
+" Higlight math
+let g:vim_markdown_math = 1
+
+" Open linked files in new tab
+let g:vim_markdown_edit_url_in = 'tab'
+
+" Save before following links
+let g:vim_markdown_autowrite = 1
+
+" Automatically align markdown table with |
 inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
 
 function! s:align()
@@ -470,10 +454,10 @@ let g:netrw_keepdir = 0
 let g:netrw_dirhistmax = 1
 
 " Open netrw
-nnoremap <Leader>n :Vexplore<CR>
+nnoremap <Leader>n :Lexplore<CR>
 
 " Open new split/vsplit/tab with netrw open
-nnoremap <Leader>t :tabnew<CR>:Vexplore<CR>
+nnoremap <Leader>t :tabnew<CR>:Lexplore<CR>
 
 " }}}
 
@@ -486,6 +470,10 @@ nnoremap <Leader>b :Buffers<CR>
 
 " Use fzf to search files
 nnoremap <Leader>p :Files<CR>
+" }}}
+
+" vim-rainbow {{{
+au FileType r call rainbow#load()
 " }}}
 
 " Mutt {{{
@@ -691,12 +679,6 @@ hi DiffAdd      cterm=none ctermfg=NONE ctermbg=Red
 hi DiffChange   cterm=none ctermfg=NONE ctermbg=Gray
 hi DiffDelete   cterm=none ctermfg=NONE ctermbg=Red
 hi DiffText     cterm=none ctermfg=NONE ctermbg=DarkGray
-" }}}
-
-" Goyo {{{
-
-" Stop Goyo messing up my colour scheme
-autocmd! User GoyoLeave silent! set bg=light
 " }}}
 
 " Stop creating swp and ~ files
