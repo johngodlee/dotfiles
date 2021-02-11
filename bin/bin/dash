@@ -14,7 +14,7 @@ else
 	sleep 1
 
 	# Create new session
-	tmux -2 new -s 'dash'
+	tmux -2 new -s "$session"
 
 	# Detach and reattach to make it work properly
 	tmux detach

@@ -25,7 +25,6 @@ Plug 'ncm2/ncm2-ultisnips'	" NCM2 Ultisnips
 Plug 'wellle/tmux-complete.vim'	" NCM2 tmux completion
 Plug 'jalvesaq/vimcmdline'	" Generic interpretor
 Plug 'goerz/jupytext.vim'	" Convert ipynb to md/py 
-Plug 'frazrepo/vim-rainbow'	" Rainbow parentheses
 
 call plug#end()	
 " }}}
@@ -376,15 +375,6 @@ function SetBibOptions()
     let indent_guides_guide_size = 2
 endfunction
 
-" Set line wrapping in vimtex
-autocmd Filetype tex call SetTexOptions()
-function SetTexOptions()
-	set textwidth=80
-	set wrapmargin=0
-	set formatoptions+=t
-	set linebreak 
-endfunction
-
 " }}}
 
 " Markdown {{{
@@ -470,10 +460,6 @@ nnoremap <Leader>b :Buffers<CR>
 
 " Use fzf to search files
 nnoremap <Leader>p :Files<CR>
-" }}}
-
-" vim-rainbow {{{
-au FileType r call rainbow#load()
 " }}}
 
 " Mutt {{{
