@@ -2,7 +2,7 @@
 NumberOfEntries=10
 
 Title1=BBC Radio 4 FM
-File1=http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio4fm_mf_p
+File1=http://stream.live.vc.bbcmedia.co.uk/bbc_radio_fourfm?
 
 Title2=BBC Radio 1
 File2=http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio1_mf_p

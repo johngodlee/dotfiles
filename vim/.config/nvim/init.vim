@@ -25,6 +25,8 @@ Plug 'ncm2/ncm2-ultisnips'	" NCM2 Ultisnips
 Plug 'wellle/tmux-complete.vim'	" NCM2 tmux completion
 Plug 'jalvesaq/vimcmdline'	" Generic interpretor
 Plug 'goerz/jupytext.vim'	" Convert ipynb to md/py 
+Plug 'tpope/vim-surround'	" Surround macros
+Plug 'JuliaEditorSupport/julia-vim'	" Julia
 
 call plug#end()	
 " }}}
@@ -642,6 +644,14 @@ function SetROptions()
     let indent_guides_start_level = 1
     let indent_guides_guide_size = 2
 endfunction
+" }}}
+
+" Julia {{{
+" Disable smart aligning
+let g:julia_indent_align_import = 0
+let g:julia_indent_align_brackets = 0
+let g:julia_indent_align_funcargs = 0
+
 " }}}
 
 " vimdiff {{{

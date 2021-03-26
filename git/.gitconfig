@@ -1,30 +1,17 @@
 [user]
-	name = johngodlee
+	name = John L. Godlee
 	email = johngodlee@gmail.com
 [credential]
 	helper = osxkeychain
 [core]
-	editor = nvim
-	pager = less 
-	excludesfile = /Users/johngodlee/.gitignore_global
-[difftool]
-	external = git_diff_wrapper 
-[pager]
-	diff = 
+	excludesfile = ~/.gitignore_global
+	attributesfile = ~/.gitattributes
 [commit]
 	verbose = true
-[merge]
-	tool = nvim -d 
-	conflictstyle = diff3
 [alias]
-	graph = log --graph --decorate --pretty=oneline --abbrev-commit --all
-[http]
-	postBuffer = 1048576000
-	cookiefile = /Users/johngodlee/.gitcookies
+    graph = log --graph --decorate --pretty=oneline --abbrev-commit --all
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
-[https]
-	postBuffer = 1048576000

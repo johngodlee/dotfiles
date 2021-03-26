@@ -72,8 +72,8 @@ PS1+=' '	# Space
 source $HOME/bin/jump_completion
 
 # Alias cd 
-alias ..='cd ..'
-alias ...='cd ../..'
+alias .1='cd ..'
+alias .2='cd ../..'
 alias .3='cd ../../..'
 alias .4='cd ../../../..'
 alias .5='cd ../../../../..'
@@ -84,39 +84,19 @@ alias ls="'gls' -A -F -G -g -h -l --group-directories-first --color"
 # ls by time modified
 alias lst="'gls' -A -F -G -g -h -l -t -r --group-directories-first --color"
 
-# redefine update_terminal_cwd()
-update_terminal_cwd() {
-    # Identify the directory using a "file:" scheme URL,
-    # including the host name to disambiguate local vs.
-    # remote connections. Percent-escape spaces.
-    local SEARCH=' '
-    local REPLACE='%20'
-    local PWD_URL="file://$HOSTNAME${PWD//$SEARCH/$REPLACE}"
-    printf '\e]7;%s\a' "$PWD_URL"
-}
+# List files by size
 
-# Configure default env. vars for lynx
-export LYNX_CFG=~/.lynx/lynx.cfg
-export LYNX_LSS=~/.lynx/lynx.lss 
-
-# Open (neo)mutt in Downloads to save attachments there,
-# always run notmuch build before opening
+# Use neomutt 
 alias mutt='neomutt'
 
 # Use VLC ncurses in the terminal
 alias vlc="/Applications/VLC.app/Contents/MacOS/VLC -I ncurses --no-color"
-
-# Source bookmarks functions
-source $HOME/bin/marks
 
 # Use gpg key as default
 export GPGKEY=E2388D6F0290C660224F6439215C0880610719F7
 
 # Use Neovim as default $EDITOR
 export EDITOR=nvim
-
-# Set location of proj.db to stop errors in R {rgdal}
-export PROJ_LIB=/usr/local/Cellar/proj/7.0.1/share/proj
 
 # alias vim
 alias v=nvim
@@ -125,27 +105,17 @@ alias vim=nvim
 # Use less as pager
 export PAGER=less
 
-# Git aliases
-alias gall="git add -A; git commit"
-alias gp="git pull; git push"
-
 # Open todo file
 alias todo="nvim $HOME/google_drive/notes/todo.md"
+
+# Source bookmarks functions
+source $HOME/bin/marks
 
 # Define path to bookmarks file
 export MARKPATH=$HOME/.marks
 
-# Alias bookmarks for marks
-alias bookmarks='marks'
-
-# Some installers require CPython built with --enable-framework
-export PYTHON_CONFIGURE_OPTS="--enable-framework"
-
 # Disable macOS Catalina zsh warning
 export BASH_SILENCE_DEPRECATION_WARNING=1
-
-# Disable Homebrew analytics
-export HOMEBREW_NO_ANALYTICS=1
 
 # FZF completion etc.
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
