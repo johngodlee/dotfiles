@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+rfile=~/.radio.pls
+
+station=$(grep '^Title' ${rfile} | sed 's/^Title\([0-9]\+\)=\(.*\)/\1 - \2/' | fzf | sed 's/\(^[0-9]\+\).*/\1/')
+
+url=$(grep "File${station}=" $rfile | sed 's/.*=//')
+
+/Applications/VLC.app/Contents/MacOS/VLC -I rc --no-color $url
