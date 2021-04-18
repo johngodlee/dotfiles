@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+notes=$(diary_links | sed 's/^[0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\}\s-\s//')
+qb=$(cat ~/.qutebrowser/bookmarks/urls | sed 's/\([^ ]*\)\s\(.*\)/[\2](\1)/')
+all="${notes} ${qb}"
+
+echo "${all}" |\
+	fzf |\
+	sed 's/\[.*\](\(.*\))/\1/'
+
