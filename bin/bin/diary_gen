@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 diarydir="$HOME/google_drive/notes/diary"
 today="$(date +"%Y-%m-%d")"

@@ -25,7 +25,6 @@ Plug 'ncm2/ncm2-ultisnips'	" NCM2 Ultisnips
 Plug 'wellle/tmux-complete.vim'	" NCM2 tmux completion
 Plug 'jalvesaq/vimcmdline'	" Generic interpretor
 Plug 'goerz/jupytext.vim'	" Convert ipynb to md/py 
-Plug 'tpope/vim-surround'	" Surround macros
 Plug 'JuliaEditorSupport/julia-vim'	" Julia
 
 call plug#end()	
@@ -51,9 +50,6 @@ nnoremap <Leader>[ <C-w>J
 " Easier save and quit with `;`
 nnoremap ;w :w<CR>
 nnoremap ;q :q<CR>
-
-" Open current buffer in finder with <Leader>f
-nnoremap <Leader>f :!open -R %<CR> 
 
 " Don't exit visual mode when tab indenting
 vnoremap > >gv
@@ -94,12 +90,6 @@ noremap <Leader>c :call Cheat() <CR>
 " Send split to new tab
 nnoremap <Leader>g :tabedit %<CR>
 
-" Open todo.md
-nnoremap <Leader>ww :e ~/google_drive/notes/todo.md<CR>
-
-" Open diary for today in a new tab, or create if it doesn't exist
-nnoremap <Leader>w<Leader>w :tabnew `diary_gen`<CR>
-
 " Disable Ex Mode
 map Q <Nop>
 
@@ -107,7 +97,61 @@ map Q <Nop>
 nnoremap <Leader>m :set list!<CR>
 set listchars=tab:→\ ,eol:↲,nbsp:␣,trail:•,extends:⟩,precedes:⟨
 set showbreak=↪\ 
+" }}}
 
+" Notes {{{
+" Open diary log for today in a new tab, or create if it doesn't exist
+nnoremap <Leader>w<Leader>w :tabnew `diary_gen`<CR>
+" }}}
+
+" fzf {{{
+" Location of system fzf
+set rtp+=/usr/local/opt/fzf
+
+" Search open buffers
+nnoremap <Leader>b :Buffers<CR>
+
+" Search files
+nnoremap <Leader>p :Files<CR>
+
+" Search file contents
+command! -bang -nargs=* NotesRg
+	\ call fzf#vim#grep(
+	\ "rg --column --line-number --no-heading --color=always --smart-case --hidden --glob \"!.git/*\" -- ".shellescape(<q-args>), 
+	\ 1, 
+	\ fzf#vim#with_preview(), 
+	\ <bang>0)
+nnoremap <Leader>f :Rg<CR>
+
+" Search notes directory
+command! -bang -nargs=* NotesRg
+	\ call fzf#vim#grep(
+	\ "rg --column --line-number --no-heading --color=always --smart-case --hidden --glob \"!.git/*\" -- ".shellescape(<q-args>), 
+	\ 1, 
+	\ fzf#vim#with_preview({'dir': '~/google_drive/notes'}), 
+	\ <bang>0)
+nnoremap <Leader>n :NotesRg<CR>
+
+" Search Git project root
+command! -bang -nargs=* ProjRg
+	\ call fzf#vim#grep(
+	\ "rg --column --line-number --no-heading --color=always --smart-case --hidden --glob \"!.git/*\" -- ".shellescape(<q-args>), 1,
+	\ fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0]}), <bang>0)
+nnoremap <Leader>g :ProjRg<CR>
+
+" search command history 
+nnoremap <Leader>h :History:<CR>
+
+" Change default file opening behaviour
+let g:fzf_action = {
+  \ 'enter': 'tab split',
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-s': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
+" Set layout of pop-up window
+let g:fzf_preview_window = ['right:50%', 'ctrl-b']
+let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8, 'highlight': 'Comment' } }
 " }}}
 
 " Movement and resizing {{{
@@ -305,14 +349,11 @@ set tabline=%!MyTabLine()
 " Make folds with indent
 set foldmethod=indent
 
-" Open files with folds open
-autocmd BufRead * normal zR
-
 " Show folds in gutter
 set foldcolumn=1
 
-" Disable indent folding in certain filetypes
-autocmd Filetype tex,markdown,rdoc setlocal nofoldenable
+" Disable indent folding 
+set nofoldenable
 
 " Set folding for markdown headers
 function! MarkdownLevel()
@@ -380,7 +421,6 @@ endfunction
 " }}}
 
 " Markdown {{{
-
 " Disable syntax conceal in markdown
 let g:vim_markdown_conceal = 0
 
@@ -398,27 +438,14 @@ let g:vim_markdown_math = 1
 " Open linked files in new tab
 let g:vim_markdown_edit_url_in = 'tab'
 
+" Open links in normal mode with <Enter>
+map <CR> <Plug>Markdown_EditUrlUnderCursor
+
 " Save before following links
 let g:vim_markdown_autowrite = 1
-
-" Automatically align markdown table with |
-inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
-
-function! s:align()
-  let p = '^\s*|\s.*\s|\s*$'
-  if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
-    let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
-    let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
-    Tabularize/|/l1
-    normal! 0
-    call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
-  endif
-endfunction
-
 " }}}
 
 " netrw {{{
-
 " Remove banner
 let g:netrw_banner = 0
 
@@ -444,24 +471,6 @@ let g:netrw_keepdir = 0
 
 " Stop creating history in .netrwhist
 let g:netrw_dirhistmax = 1
-
-" Open netrw
-nnoremap <Leader>n :Lexplore<CR>
-
-" Open new split/vsplit/tab with netrw open
-nnoremap <Leader>t :tabnew<CR>:Lexplore<CR>
-
-" }}}
-
-" fzf {{{
-" Location of system fzf
-set rtp+=/usr/local/opt/fzf
-
-" Use fzf to search open buffers
-nnoremap <Leader>b :Buffers<CR>
-
-" Use fzf to search files
-nnoremap <Leader>p :Files<CR>
 " }}}
 
 " Mutt {{{
@@ -608,14 +617,6 @@ let b:csv_arrange_align = 'c*'
 let g:csv_highlight_column = 'y'
 " }}}
 
-" Ledger {{{
-" Open reports vertically
-let g:ledger_qf_vertical = 1
-
-" Align ledger journal
-autocmd FileType ledger nnoremap <Leader>a :%LedgerAlign<CR>
-" }}}
-
 " R {{{
 let R_in_buffer = 0
 let R_source = '~/.vim/tmux_split.vim' 
@@ -636,7 +637,6 @@ vmap <LocalLeader><Enter> <Plug>REDSendSelection
 
 autocmd Filetype r,rmd call SetROptions()
 function SetROptions()
-	vnoremap <Leader>F :Rformat<CR>
     setlocal expandtab
 	setlocal colorcolumn=80
     setlocal softtabstop=2

@@ -120,3 +120,60 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 # FZF completion etc.
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
+export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git/*"'
+export FZF_DEFAULT_OPTS="-m --ansi"
+
+# Search file contents
+f () { 
+	files=($(rg --line-number --no-heading --color=always --smart-case --hidden "${*:-}" | 
+		fzf \
+		--multi \
+		--delimiter=: \
+		--preview='bat --color=always {1} --highlight-line={2}' \
+        --preview-window 'right:50%:sharp:+{2}-/3:~3' | 
+    	sed 's/:.*//'))
+	[[ -n "$files" ]] && ${EDITOR} "${files[@]}"
+}
+
+# Search notes
+n () { 
+	files=($(rg --line-number --no-heading --color=always --smart-case --hidden "${*:-}" /Users/johngodlee/google_drive/notes | 
+		fzf \
+		--multi \
+		--delimiter=: \
+		--preview='bat --color=always {1} --highlight-line={2}' \
+        --preview-window 'right:50%:sharp:+{2}-/3:~3' | 
+    	sed 's/:.*//'))
+	[[ -n "$files" ]] && ${EDITOR} "${files[@]}"
+}
+
+# Search file names only
+p () {
+	files=($(fzf \
+		--query="$1" \
+		--multi \
+		--select-1 \
+		--exit-0 \
+		--preview='bat --color=always --line-range=:100 {}' \
+		--preview-window 'right:50%:sharp:+{2}-/3:~3'))
+	[[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
+}
+
+# Search mac apps
+fapp () {
+	open "$(find /Applications -name '*app' -maxdepth 1 |\
+		sed 's|\/Applications\/\(.*\).app|\1|' |\
+		fzf |\
+		sed 's|$|.app|' |\
+		sed 's|^|\/Applications\/|')"
+}
+
+# Search password directory
+fpass () {
+	sel=$(pass |\
+		sed 's/[^ ]* //' |\
+		sed "s,\x1B\[[0-9;]*[a-zA-Z],,g" |\
+		tail -n+2 |\
+		fzf)
+	pass $sel
+}
