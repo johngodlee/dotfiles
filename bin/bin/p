@@ -1,0 +1,11 @@
+#!/usr/bin/env bash 
+
+files=($(fzf \
+	--query="$1" \
+	--multi \
+	--select-1 \
+	--exit-0 \
+	--preview='bat --color=always --line-range=:100 {}' \
+	--preview-window 'right:50%:sharp:+{2}-/3:~3'))
+[[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
+

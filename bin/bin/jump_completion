@@ -1,6 +1,0 @@
-#!/bin/bash
-
-complete -W "$(find ~/.marks -depth 1 -exec basename {} \;)" jump
-
-
-

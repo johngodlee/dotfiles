@@ -1,4 +1,7 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+# Completion
+complete -W "$(find ~/.marks -depth 1 -exec basename {} \;)" jump
 
 # Define path to bookmarks file
 export MARKPATH=$HOME/.marks
@@ -22,3 +25,10 @@ function unmark {
 function marks {
 	\ls -l "$MARKPATH" | tail -n +2 | sed 's/  / /g' | cut -d' ' -f9- | awk -F ' -> ' '{printf "%-10s -> %s\n", $1, $2}'
 }
+
+# FZF jump mark
+function fmarks {
+	sel=$(marks | fzf | sed 's/.*->//')
+	cd ${sel}
+}
+	

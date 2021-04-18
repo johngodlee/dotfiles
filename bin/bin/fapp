@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+open "$(find /Applications -name '*app' -maxdepth 1 |\
+	sed 's|\/Applications\/\(.*\).app|\1|' |\
+	fzf |\
+	sed 's|$|.app|' |\
+	sed 's|^|\/Applications\/|')"
+
