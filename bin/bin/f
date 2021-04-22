@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-files=($(rg --line-number --no-heading --color=always --smart-case --hidden "${*:-}" | 
+files=($(rg --line-number --no-heading --color=always --smart-case --hidden --glob "!.git/*" "${*:-}" | 
 	fzf \
 	--multi \
 	--delimiter=: \
