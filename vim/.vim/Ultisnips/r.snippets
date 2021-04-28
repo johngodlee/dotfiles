@@ -20,7 +20,7 @@ snippet lib "Insert a package" b
 library($1)
 endsnippet
 
-snippet #' "generate Roxygen2 block" b
+snippet #' "Generate Roxygen2 block" b
 #' $1
 #'
 #' @param $2
@@ -32,4 +32,14 @@ snippet #' "generate Roxygen2 block" b
 #' 
 #' @export
 #' 
+endsnippet
+
+snippet datadoc "Generate Roxygen2 block for data object" b
+#' $1
+#'
+#' @name $2
+#' @docType data
+#' @author $3
+#' @usage data($2)
+"$2"
 endsnippet

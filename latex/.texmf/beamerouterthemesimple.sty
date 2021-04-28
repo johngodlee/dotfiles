@@ -1,0 +1,25 @@
+\mode<presentation>
+
+\defbeamertemplate*{frametitle}{green}[1][left]{
+ \tikz[remember picture,overlay]{
+     \node(a)[anchor=west]{\usebeamerfont{frametitle}\insertframetitle};
+     \draw[line width=0.2em, headerline](a.south west)--+(\textwidth,0);
+  }
+  \vskip1em 
+} 
+
+
+\defbeamertemplate*{title page}{green}[1][]{
+	\usebeamerfont{title}
+	\begin{flushleft}\inserttitle \par
+		\vspace{0.5em}
+		\usebeamerfont{subtitle}\insertsubtitle \par
+		\bigskip
+		\usebeamerfont{author}\insertauthor \par
+		\usebeamerfont{institute}\insertinstitute \par
+		\usebeamerfont{date}\insertdate \par
+	\end{flushleft}
+	\inserttitlegraphic
+}
+
+\mode<all>

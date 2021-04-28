@@ -1,0 +1,36 @@
+#!/usr/bin/env Rscript
+
+args <- commandArgs(trailingOnly=TRUE)
+
+argsLen <- length(args)
+
+if (argsLen > 3) stop("Too many arguments")
+if (argsLen < 1) stop("Must supply CSV with two columns")
+
+infile <- args[1]
+
+if (argsLen == 2) {
+  pwidth <- round(as.numeric(args[2])) 
+} else {
+  pwidth <- round(options()$width*0.8) 
+}
+
+if (argsLen == 3) {
+  pheight <- round(as.numeric(args[3])) 
+} else { 
+  pheight <- round(0.25*pwidth)
+}
+
+if (!file.exists(infile)) {
+  stop("File path invalid")
+}
+
+dat <- read.csv(infile)
+
+if (ncol(dat) != 2) {
+  stop("CSV must have only two columns")
+}
+
+txtplot::txtplot(dat[,1], dat[,2], 
+  width = pwidth, height = pheight,
+  xlab = names(dat)[1], ylab = names(dat)[2])

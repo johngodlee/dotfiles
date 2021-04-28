@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+
+pref1=00000000
+pref2=1619293293
+
+awk '/\[/{prefix=$0; next} $1{print prefix $0}' $1 |\
+	grep "\[BOOKMARKS\]" |\
+	sed 's/\[BOOKMARKS\]//' |\
+	sed "s/\(.*\)=\(.*\)/${pref1} ${pref2} \2\n\1\n/g"
