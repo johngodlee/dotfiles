@@ -10,4 +10,5 @@ url=$(grep '^Title' ${rfile} |
 	grep -f - ${rfile} | 
 	sed 's/.*=//')
 
-/Applications/VLC.app/Contents/MacOS/VLC -I rc --no-color $url
+echo $url
+/Applications/VLC.app/Contents/MacOS/VLC -I rc --no-color ${url}

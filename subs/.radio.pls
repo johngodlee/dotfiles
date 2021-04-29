@@ -28,8 +28,8 @@ File9=http://stream.live.vc.bbcmedia.co.uk/bbc_radio_scotland_fm
 Title10=NTS
 File10=http://stream-relay-geo.ntslive.net/stream 
 
-Title11=aNONradio	
-File11=http://anonradio.net:8000/anonradio
+Title11=aNONradio
+File11=http://anonradio.net:8000/anonradio 
 
 Title12=tilderadio
-File12=https://radio.tildeverse.org/radio/8000/radio.ogg
+File12=https://radio.tildeverse.org/radio/8000/radio.ogg 

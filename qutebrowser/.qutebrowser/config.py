@@ -427,10 +427,7 @@ config.bind('<Meta-R>', 'reload')
 config.bind('h', 'back')
 config.bind('l', 'forward')
 config.bind(',e', 'fullscreen')
-config.bind(',z', 'spawn --userscript ~/.qutebrowser/userscripts/readability')
-config.bind(',n', 'config-cycle content.user_stylesheets ~/.qutebrowser/solarized-everything-css/css/gruvbox/gruvbox-all-sites.css ""')
 config.bind(',m', 'hint --rapid links spawn open -a VLC.app {hint-url}')
-config.bind(',d', 'enter-mode caret ;; yank selection ;; spawn ~/bin/scidownl_qb {clipboard}')
 
 # Definitions of search engines which can be used via the address bar.
 # Maps a searchengine name (such as `DEFAULT`, or `ddg`) to a URL with a
@@ -448,7 +445,6 @@ c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}', 'g': 'https://
 c.url.start_pages = '~/.qutebrowser/homepage/home.html'
 
 c.tabs.last_close = 'close'
-
 
 # Block Youtube ads
 def filter_yt(info: interceptor.Request):
