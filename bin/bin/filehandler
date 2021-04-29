@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+case "$1" in
+	.*png|.*jpg|.*jpe|.*jpeg|.*gif|.*svg|.*tif|.*tiff)
+		open -a Preview.app "$1" ;;
+	.*pdf|.*ps)
+		open -a Skim.app "$1" ;;
+	.*doc|.*docx|.*odt)
+		open -a Microsoft\ Word.app "$1" ;;
+	.*csv|.*xlsx|.*xls)
+		open -a Microsoft\ Excel.app "$1" ;;
+	.*ppt|.*pptx)
+		open -a Microsoft\ Powerpoint.app "$1" ;;
+	.*mp3|.*flac|.*opus|.*ogg|.*m4a)
+		/Applications/VLC.app/Contents/MacOS/VLC -I ncurses --no-color "$1" ;;
+	.*mkv|.*webm|.*mp4)
+		open -a VLC.app "$1" ;;
+	.*shp|.*vrt)
+		open -a QGIS3.14.app "$1" ;;
+	.*rds|.*Rdata|.*RData)
+		rdata_open.R "$1" ;;
+	.*drawio)
+		open -a draw.io.app "$1" ;;
+	*.tar.bz2|*.tbz2|*.tar.xz|*.tar.gz|*.tgz|*.tar.zst|*.lzma|*.bz2|*.rar|*.gz|*.tar|*.zip|*.Z|*.7z|*.xz|*.exe)
+		extall "$1" ;;
+	*)
+		nvim "$1"
+esac
+
+
