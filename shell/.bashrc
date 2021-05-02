@@ -82,7 +82,9 @@ alias ls="'gls' -A -F -G -g -h -l --group-directories-first --color"
 # ls by time modified
 alias lst="'gls' -A -F -G -g -h -l -t -r --group-directories-first --color"
 
-# List files by size
+# Configure default env. vars for lynx
+LYNX_CFG=~/.lynx/lynx.cfg; export LYNX_CFG
+LYNX_LSS=~/.lynx/lynx.lss; export LYNX_LSS
 
 # Use neomutt 
 alias mutt='neomutt'

@@ -2,13 +2,10 @@
 
 rfile=~/.radio.pls
 
-url=$(grep '^Title' ${rfile} | 
-	sed 's/^Title\([0-9]\+\)=\(.*\)/\1 - \2/' | 
-	fzf | 
-	sed 's/\(^[0-9]\+\).*/\1/' | 
-	sed 's/\(.*\)/File\1=/' | 
-	grep -f - ${rfile} | 
-	sed 's/.*=//')
-
-echo $url
-/Applications/VLC.app/Contents/MacOS/VLC -I rc --no-color ${url}
+grep '^Title' ${rfile} |\
+	sed 's/^Title\([0-9]\+\)=\(.*\)/\1 - \2/' |\
+	fzf --bind="enter:execute;echo {} | sed 's/\(^[0-9]\+\).*/\1/' | 
+	sed 's/\(.*\)/File\1=/' |
+	grep -f - ${rfile} |
+	sed 's/.*=//' |
+	/Applications/VLC.app/Contents/MacOS/VLC -I ncurses --no-color - ;"

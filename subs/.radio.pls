@@ -1,5 +1,5 @@
 [playlist]
-NumberOfEntries=12
+NumberOfEntries=15
 
 Title1=BBC Radio 4 FM
 File1=http://stream.live.vc.bbcmedia.co.uk/bbc_radio_fourfm 
@@ -33,3 +33,13 @@ File11=http://anonradio.net:8000/anonradio
 
 Title12=tilderadio
 File12=https://radio.tildeverse.org/radio/8000/radio.ogg 
+
+Title13=Mother Earth Radio
+File13=http://server9.streamserver24.com:18800/motherearth 
+
+Title14=Chill Out Zone
+File14=http://air.chillout.zone:8000/; 
+
+Title15=Radio Sputnik
+File15=http://radiosputnik.nl:8002/ 
+

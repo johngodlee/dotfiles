@@ -6,6 +6,10 @@
 [core]
 	excludesfile = ~/.gitignore_global
 	attributesfile = ~/.gitattributes
+	pager = delta 
+[delta]
+    line-numbers = true
+    side-by-side = true
 [commit]
 	verbose = true
 [alias]
