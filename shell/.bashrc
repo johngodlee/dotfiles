@@ -69,6 +69,15 @@ PS1+=' $'	# $
 PS1+=' '	# Space
 
 
+# Configure lynx
+export LYNX_CFG=~/.lynx/lynx.cfg
+export LYNX_LSS=~/.lynx/lynx.lss
+
+# Configure nnn
+export NNN_BMS='d:~/Downloads/;h:~/;g:~/google_drive/'
+export NNN_OPTS="HRed"
+alias ncp="cat ${NNN_SEL:-${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.selection} | tr '\0' '\n'"
+
 # Alias cd 
 alias .1='cd ..'
 alias .2='cd ../..'
@@ -81,10 +90,6 @@ alias ls="'gls' -A -F -G -g -h -l --group-directories-first --color"
 
 # ls by time modified
 alias lst="'gls' -A -F -G -g -h -l -t -r --group-directories-first --color"
-
-# Configure default env. vars for lynx
-LYNX_CFG=~/.lynx/lynx.cfg; export LYNX_CFG
-LYNX_LSS=~/.lynx/lynx.lss; export LYNX_LSS
 
 # Use neomutt 
 alias mutt='neomutt'

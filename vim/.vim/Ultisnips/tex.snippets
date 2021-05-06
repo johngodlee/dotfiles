@@ -1,74 +1,131 @@
 snippet begin "Arbitrary environment" b
-\begin{$1}
+\\begin{$1}
 	${0:${VISUAL}}
-\end{$1}
+\\end{$1}
 endsnippet
 
 snippet figure "Insert a figure" b
-\begin{figure}[${1:H}]
-\centering
-	\includegraphics[width=$2\textwidth]{$3}
-	\caption{$4}
-	\label{$3}
-\end{figure}
+\\begin{figure}[${1:H}]
+\\centering
+	\\includegraphics[width=$2\textwidth]{$3}
+	\\caption{$4}
+	\\label{$3}
+\\end{figure}
+
+$0
+endsnippet
+
+snippet item "Itemize" b
+\\begin{itemize}
+	\\item{$1}
+\\end{itemize}
+
+$0
+endsnippet
+
+snippet enum "Enumerate" b
+\\begin{enumerate}
+	\\item{$1}
+\\end{itemize}
+
+$0 
 endsnippet
 
 snippet code "Insert code" b
-\begin{lstlisting}[language=$1]
+\\begin{lstlisting}[language=$1]
 $2
-\end{lstlisting}
+\\end{lstlisting}
+
+$0
 endsnippet
 
 snippet equation "Insert an equation" b
-\begin{equation}
+\\begin{equation}
 	$1
-\end{equation}
+\\end{equation}
+
+$0
 endsnippet
 
 snippet gather "Make an equation gathered" b
-\begin{gathered}
+\\begin{gathered}
 	$1
-\end{gathered}
+\\end{gathered}
+
+$0
 endsnippet
 
-snippet v "Make text verbatim" b
-\verb|${0:${VISUAL}}|
+snippet v "Make text verbatim" 
+\\verb|${1:${VISUAL}}|$0
 endsnippet
 
 snippet sup "Superscript" i
-^{$1}
+^{$1}$0
 endsnippet
 
 snippet sub "Subscript" i
-_{$1}
+_{$1}$0
 endsnippet
 
 snippet tsup "Superscript text" i
-\textsuperscript{$1}
+\\textsuperscript{$1}$0
 endsnippet
 
 snippet tsub "Subscript text" i
-\textsubscript{$1}
+\\textsubscript{$1}$0
 endsnippet
 
 snippet // "Fraction" i
 \\frac{$1}{$2}$0
 endsnippet
 
-snippet notes "Notes boilerplate" b
-\documentclass{article}
-
-\usepackage{mynotes}
-
-\title{$1}
-\date{}
-
-\begin{document}
-
-\maketitle{}
-
-$2
-
-\end{document}
+snippet it "Italics"
+\\textit{${0:${VISUAL}}}
 endsnippet
 
+snippet c "Cite" i
+\\cite$1{${0:${VISUAL}}}
+endsnippet
+
+snippet s "Section" b
+\\$1section{${0:${VISUAL}}}
+endsnippet
+
+snippet notes "Notes boilerplate" b
+\\documentclass{article}
+
+\\usepackage{mynotes}
+
+\\title{$1}
+\\author{John L. Godlee}
+\\date{\today}
+
+\\begin{document}
+
+\\maketitle{}
+
+$0
+
+\\end{document}
+endsnippet
+
+snippet p "Package" b
+\\usepackage{$1}$0
+endsnippet
+
+snippet table "Basic table" b
+\\begin{table}[${1:H}]
+	\\centering
+	\\caption{$2}
+	\\label{$3}
+	\\begin{tabular}{$4}
+		\\hline \\hline \\\\ [-2ex]
+		${5:Header} \\\\
+		\\hline \\\\
+		${6:Body}
+		\\hline \\hline
+	\\end{tabular}
+\\end{table}
+
+$0
+endsnippet

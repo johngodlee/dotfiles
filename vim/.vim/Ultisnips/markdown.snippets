@@ -1,9 +1,12 @@
-snippet img "Insert an image" b
-![${1:alt text}]($2)
+snippet yaml "Insert YAML frontmatter" b
+---
+title: "$1"
+$2
+---
 endsnippet
 
-snippet img_blog "Insert an image in Jekyll blog" b
-[![${1:alt text}]({{ site.baseurl }}/img/$2)]({{ site.baseurl }}/img_full/$2)
+snippet img "Insert an image" b
+![${1:alt text}]($2)
 endsnippet
 
 snippet yaml_blog "Insert YAML frontmatter for a Jekyll post" b
@@ -14,11 +17,8 @@ date: ${2:`date +%Y`}-${3:`date +%m`}-${4:`date +%d`}
 ---
 endsnippet
 
-snippet yaml "Insert YAML frontmatter" b
----
-title: "$1"
-$2
----
+snippet img_blog "Insert an image in Jekyll blog" b
+[![${1:alt text}]({{ site.baseurl }}/img/$2)]({{ site.baseurl }}/img_full/$2)
 endsnippet
 	
 snippet table "Insert a table" b

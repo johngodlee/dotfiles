@@ -3,7 +3,6 @@ bind index,pager i noop
 bind index,pager g noop
 bind index \Cf noop
 
-
 # General rebindings
 bind index j next-entry
 bind index k previous-entry

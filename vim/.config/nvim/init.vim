@@ -13,6 +13,7 @@ Plug 'christoomey/vim-tmux-navigator'	" tmux+vim navigation
 Plug 'lervag/vimtex'		" LaTeX 
 Plug 'ledger/vim-ledger'	" Ledger
 Plug 'junegunn/fzf.vim'	" Fuzzy finder
+Plug 'mcchrish/nnn.vim'	" NNN file manager
 Plug 'chrisbra/csv.vim'	" CSV editing
 Plug 'SirVer/ultisnips'	" Snippets
 Plug 'ap/vim-css-color'	" Highlight colours in CSS
@@ -26,6 +27,7 @@ Plug 'wellle/tmux-complete.vim'	" NCM2 tmux completion
 Plug 'jalvesaq/vimcmdline'	" Generic interpretor
 Plug 'goerz/jupytext.vim'	" Convert ipynb to md/py 
 Plug 'JuliaEditorSupport/julia-vim'	" Julia
+Plug 'junegunn/goyo.vim'	" Pretty writing
 
 call plug#end()	
 " }}}
@@ -104,6 +106,12 @@ set showbreak=↪\
 nnoremap <Leader>w<Leader>w :tabnew `diary_gen`<CR>
 " }}}
 
+" Goyo {{{
+let g:goyo_width=180
+let g:goyo_height=100
+autocmd! User GoyoLeave silent! source $HOME/.config/nvim/init.vim
+" }}}
+
 " fzf {{{
 " Location of system fzf
 set rtp+=/usr/local/opt/fzf
@@ -143,15 +151,34 @@ nnoremap <Leader>g :ProjRg<CR>
 nnoremap <Leader>h :History:<CR>
 
 " Change default file opening behaviour
+function! s:copy_results(lines)
+  let joined_lines = join(a:lines, "\n")
+  if len(a:lines) > 1
+    let joined_lines .= "\n"
+  endif
+  let @+ = joined_lines
+  p
+endfunction
+
 let g:fzf_action = {
   \ 'enter': 'tab split',
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-s': 'split',
+  \ 'ctrl-y': function('s:copy_results'),
   \ 'ctrl-v': 'vsplit' }
 
 " Set layout of pop-up window
 let g:fzf_preview_window = ['right:50%', 'ctrl-b']
 let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8, 'highlight': 'Comment' } }
+" }}}
+
+" nnn {{{
+" Use nnn in a floating window
+let g:nnn#layout = { 'window': { 'width': 0.8, 'height': 0.8, 'highlight': 'Debug' } }
+
+" Replace default mappings
+let g:nnn#set_default_mappings = 0
+nnoremap <silent> <leader>d :NnnPicker<CR>
 " }}}
 
 " Movement and resizing {{{

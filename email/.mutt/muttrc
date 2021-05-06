@@ -66,7 +66,7 @@ set status_format = "───[Folder: %f]───[%r%m messages%?n? (%n new)?%
 
 # Index {{{
 set date_format = "%Y-%m-%d %H:%M"
-set index_format = "[%Z] %X %M %-20.20F -- %s %* %[%Y_%m_%d] - %[%H:%M]"
+set index_format = "[%Z] %X %M %-20.20F -- %s %*  %[%Y_%m_%d] - %[%H:%M]"
 set sort = threads                         # like gmail
 set sort_aux = reverse-date 			   # like gmail
 set uncollapse_jump                        # don't collapse on an unread message

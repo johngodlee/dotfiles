@@ -43,3 +43,5 @@ File14=http://air.chillout.zone:8000/;
 Title15=Radio Sputnik
 File15=http://radiosputnik.nl:8002/ 
 
+Title16=Palanga Street Radio
+File16=https://palanga.live/assets/psr.m3u

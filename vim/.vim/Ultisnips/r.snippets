@@ -1,10 +1,10 @@
 snippet > "Insert a pipe" i
-%>%
+%>% $0
 endsnippet
 
-snippet func "Insert a function" b
-$1 <- function($2){
-  $3
+snippet fun "Insert a function" b
+$1 <- function($2) {
+  ${0:${VISUAL}}
 }
 endsnippet
 
@@ -13,11 +13,57 @@ snippet preamble "Insert a preamble" b
 # John Godlee (johngodlee@gmail.com)
 # `date +%Y-%m-%d`
 
-$2
+$0
+endsnippet
+
+snippet if "If statement" b
+if ($1) {
+	${0:${VISUAL}}
+}
+endsnippet
+
+snippet ifel "If-else statement" b
+if ($1) {
+	${2:${VISUAL}}
+} else {
+	$0
+}
+endsnippet
+
+snippet el "Else statement" b
+else {
+	${0:${VISUAL}}
+}
+endsnippet
+
+snippet elif "Else-if statement" b
+else if ($1) {
+	${0:${VISUAL}}
+}
+endsnippet
+
+snippet for "For loop" b
+for (${1:i} in ${2:obj}) {
+	${0:${VISUAL}}
+}
+endsnippet
+
+snippet while "While loop" b
+while ($1) {
+	${0:${VISUAL}}
+}
 endsnippet
 
 snippet lib "Insert a package" b
-library($1)
+library(${0:${VISUAL:package}})
+endsnippet
+
+snippet sub "Subset a dataframe" b
+${1:${VISUAL}}[${2:rows}, ${3:cols}]$0
+endsnippet
+
+snippet source "Source a file" b
+source("${0:{VISUAL:file}}")
 endsnippet
 
 snippet #' "Generate Roxygen2 block" b
@@ -32,6 +78,7 @@ snippet #' "Generate Roxygen2 block" b
 #' 
 #' @export
 #' 
+$0
 endsnippet
 
 snippet datadoc "Generate Roxygen2 block for data object" b
@@ -42,4 +89,12 @@ snippet datadoc "Generate Roxygen2 block for data object" b
 #' @author $3
 #' @usage data($2)
 "$2"
+endsnippet
+
+snippet lapply "lapply" b
+lapply(${1:{VISUAL:obj}}, ${0:function})
+endsnippet
+
+snippet vec "Generate character vector"
+${1:obj} <- c("${0:${VISUAL:/ /", "/g}}")
 endsnippet
