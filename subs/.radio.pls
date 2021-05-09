@@ -44,4 +44,10 @@ Title15=Radio Sputnik
 File15=http://radiosputnik.nl:8002/ 
 
 Title16=Palanga Street Radio
-File16=https://palanga.live/assets/psr.m3u
+File16=https://palanga.live/assets/psr.m3u 
+
+Title17=Radio Hex DSL
+File17=https://radio.hexdsl.co.uk/ 
+
+Title18=WFMU
+File18=http://stream0.wfmu.org/freeform-high.aac 

@@ -150,22 +150,31 @@ nnoremap <Leader>g :ProjRg<CR>
 " search command history 
 nnoremap <Leader>h :History:<CR>
 
-" Change default file opening behaviour
+" Define function to copy results to register
 function! s:copy_results(lines)
   let joined_lines = join(a:lines, "\n")
   if len(a:lines) > 1
     let joined_lines .= "\n"
   endif
   let @+ = joined_lines
-  p
 endfunction
 
+" Define function to send results to buffer
+function! s:send_results(lines)
+  let joined_lines = join(a:lines, "\n")
+  if len(a:lines) > 1
+    let joined_lines .= "\n"
+  endif
+  put =joined_lines
+endfunction
+
+" Define custom hotkeys
 let g:fzf_action = {
-  \ 'enter': 'tab split',
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-s': 'split',
+  \ 'ctrl-v': 'vsplit',
   \ 'ctrl-y': function('s:copy_results'),
-  \ 'ctrl-v': 'vsplit' }
+  \ 'ctrl-p': function('s:send_results') }
 
 " Set layout of pop-up window
 let g:fzf_preview_window = ['right:50%', 'ctrl-b']
@@ -175,6 +184,35 @@ let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8, 'highlight': 'Comm
 " nnn {{{
 " Use nnn in a floating window
 let g:nnn#layout = { 'window': { 'width': 0.8, 'height': 0.8, 'highlight': 'Debug' } }
+
+" Define custom hotkeys
+let g:nnn#action = {
+  \ '<c-t>': 'tab split',
+  \ '<c-s>': 'split',
+  \ '<c-v>': 'vsplit',
+  \ '<c-y>': function('s:copy_results'),
+  \ '<c-p>': function('s:send_results') }
+
+" Define function to attach files in Mutt
+function! s:mutt_attach(lines)
+  let prettylines = ''
+  for i in a:lines
+    let prettylines .= 'Attach: ' . fnameescape(i) . "\n"
+  endfor
+  6put =prettylines
+endfunction
+
+function! s:nnncall(...)
+  let l:dir = get(a:, 1, '')
+  let l:opts = get(a:, 2, { 'edit': 'edit' })
+  let l:keypress = get(a:, 3, '')
+  call nnn#pick(l:dir, l:opts)
+  if strlen(l:keypress) > 0
+    call feedkeys(l:keypress)
+  endif
+endfunction
+
+autocmd Filetype mail nnoremap <silent> <Leader>A :call <SID>nnncall('/Users/johngodlee', { 'edit': function('<SID>mutt_attach') })<CR>
 
 " Replace default mappings
 let g:nnn#set_default_mappings = 0

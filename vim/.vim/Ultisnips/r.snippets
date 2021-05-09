@@ -98,3 +98,19 @@ endsnippet
 snippet vec "Generate character vector"
 ${1:obj} <- c("${0:${VISUAL:/ /", "/g}}")
 endsnippet
+
+snippet	pdf "Save a plot to PDF" b
+pdf(file = "$1", width = $2, height = $3)
+${0:${VISUAL}}
+dev.off()
+endsnippet
+
+snippet csv "Read a .csv file" b
+${1:obj} <- read.csv("${0:${VISUAL}}")
+endsnippet
+
+snippet	sink "Write arbitrary text to file" b
+sink(file = "$1")
+${0:${VISUAL}}
+sink()
+endsnippet
