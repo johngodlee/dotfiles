@@ -696,6 +696,7 @@ let r_indent_ess_comments = 0
 let r_indent_ess_compatible = 0
 let R_non_r_compl = 0
 let R_rmdchunk = 0
+let R_rnowebchunk = 0
 
 nmap <LocalLeader><Enter> <Plug>RDSendLine
 vmap <LocalLeader><Enter> <Plug>REDSendSelection

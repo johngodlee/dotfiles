@@ -27,8 +27,6 @@ Pipfile.lock
 .Rapp.history
 *-Ex.R
 /*.Rcheck/
-vignettes/*.html
-vignettes/*.pdf
 *.RData
 *.Ruserdata
 .httr-oauth

@@ -1,0 +1,36 @@
+#!/usr/bin/env sh 
+
+# Adapted from:
+# http://github.com/mitchweaver/bin
+# Generate wallpaper with static
+# deps: imagemagick 
+
+if [ "$#" -eq 2 ]; then
+	magick -size 128x128 xc:$1 \
+    	-separate -seed 1000 \
+    	-attenuate 0.3 \
+    	+noise gaussian \
+    	-combine -colorspace sRGB "$2"
+elif [ "$#" -eq 3 ]; then
+	magick -size 128x128 xc:gray \
+		+noise random \
+		-colorspace gray \
+		-threshold 50% gif:- |\
+		convert - \
+		-fuzz 0% \
+		-fill $1 \
+		-opaque white gif:- |\
+		convert - \
+		-fuzz 0% \
+		-fill $2 \
+		-opaque black gif:- |\
+		magick - \
+		-attenuate 0.3 \
+		+noise gaussian "$3"
+else
+	printf "Must provide 1 or 2 colours and an output file name\n"
+fi
+
+
+
+

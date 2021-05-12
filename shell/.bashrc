@@ -97,6 +97,13 @@ alias mutt='neomutt'
 # Use VLC ncurses in the terminal
 alias vlc="/Applications/VLC.app/Contents/MacOS/VLC -I ncurses --no-color"
 
+# git aliases
+alias gp="git pull ; git push"
+alias gall="git add -A"
+alias ga="git add"
+alias gc="git commit" 
+alias gs="git status"
+
 # Use gpg key as default
 export GPGKEY=E2388D6F0290C660224F6439215C0880610719F7
 
