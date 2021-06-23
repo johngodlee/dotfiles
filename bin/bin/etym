@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+
+curl https://www.etymonline.com/word/"${1}" |\
+	textutil -stdin -convert txt -stdout |\
+	sed -n '/Entries related to/q;p;' |\
+	sed '/^$/d' |\
+	sed '/^Advertisement$/d'
+

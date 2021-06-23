@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env sh 
 
 curl dict://dict.org/d:"${1}" | less
 

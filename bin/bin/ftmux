@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+session=$(tmux ls | fzf | sed 's/:.*//')
+
+if [ -z "${TMUX}" ] ; then
+	tmux a -t $session
+else 
+	tmux switch -t $session
+fi

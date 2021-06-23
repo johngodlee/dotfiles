@@ -6,34 +6,26 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'plasticboy/vim-markdown'	" Markdown 
-Plug 'godlygeek/tabular'	" Align tables
-Plug 'pangloss/vim-javascript'	" Javascript syntax highlighting
 Plug 'kshenoy/vim-signature'	" Marks in gutter
 Plug 'christoomey/vim-tmux-navigator'	" tmux+vim navigation 
-Plug 'lervag/vimtex'		" LaTeX 
-Plug 'ledger/vim-ledger'	" Ledger
 Plug 'junegunn/fzf.vim'	" Fuzzy finder
 Plug 'mcchrish/nnn.vim'	" NNN file manager
-Plug 'chrisbra/csv.vim'	" CSV editing
 Plug 'SirVer/ultisnips'	" Snippets
 Plug 'ap/vim-css-color'	" Highlight colours in CSS
-Plug 'ncm2/ncm2'	" Auto-completion
+Plug 'lervag/vimtex'	" LaTeX 
 Plug 'jalvesaq/Nvim-R'	" R 
-Plug 'roxma/nvim-yarp'	" Auto-completion helper 
-Plug 'gaalcaras/ncm-R'	" NCM2 R
-Plug 'ncm2/ncm2-path'	" NCM2 system paths
-Plug 'ncm2/ncm2-ultisnips'	" NCM2 Ultisnips 
-Plug 'wellle/tmux-complete.vim'	" NCM2 tmux completion
-Plug 'jalvesaq/vimcmdline'	" Generic interpretor
-Plug 'goerz/jupytext.vim'	" Convert ipynb to md/py 
-Plug 'JuliaEditorSupport/julia-vim'	" Julia
-Plug 'junegunn/goyo.vim'	" Pretty writing
+Plug 'ncm2/ncm2'	" NCM completion manager
+Plug 'roxma/nvim-yarp'	" NCM helper
+Plug 'gaalcaras/ncm-R'	" NCM: R
+Plug 'ncm2/ncm2-path'	" NCM: Path completion
+Plug 'ncm2/ncm2-ultisnips'	" NCM: Ultisnips 
+Plug 'wellle/tmux-complete.vim'	" NCM: tmux completion
+Plug 'ncm2/ncm2-jedi'	" NCM: Python
 
 call plug#end()	
 " }}}
 
 " Generic key bindings {{{ 
-
 " Move by visual lines rather than actual lines with `k` `j`, but preserve
 " moving by actual lines with bigger jumps like `6j`
 nnoremap <expr> k (v:count == 0 ? 'gk' : 'k')
@@ -99,127 +91,15 @@ map Q <Nop>
 nnoremap <Leader>m :set list!<CR>
 set listchars=tab:→\ ,eol:↲,nbsp:␣,trail:•,extends:⟩,precedes:⟨
 set showbreak=↪\ 
-" }}}
 
-" Notes {{{
 " Open diary log for today in a new tab, or create if it doesn't exist
 nnoremap <Leader>w<Leader>w :tabnew `diary_gen`<CR>
 " }}}
 
-" Goyo {{{
-let g:goyo_width=180
-let g:goyo_height=100
-autocmd! User GoyoLeave silent! source $HOME/.config/nvim/init.vim
-" }}}
+" General settings {{{
 
-" fzf {{{
-" Location of system fzf
-set rtp+=/usr/local/opt/fzf
-
-" Search open buffers
-nnoremap <Leader>b :Buffers<CR>
-
-" Search files
-nnoremap <Leader>p :Files<CR>
-
-" Search file contents
-command! -bang -nargs=* NotesRg
-	\ call fzf#vim#grep(
-	\ "rg --column --line-number --no-heading --color=always --smart-case --hidden --glob \"!.git/*\" -- ".shellescape(<q-args>), 
-	\ 1, 
-	\ fzf#vim#with_preview(), 
-	\ <bang>0)
-nnoremap <Leader>f :Rg<CR>
-
-" Search notes directory
-command! -bang -nargs=* NotesRg
-	\ call fzf#vim#grep(
-	\ "rg --column --line-number --no-heading --color=always --smart-case --hidden --glob \"!.git/*\" -- ".shellescape(<q-args>), 
-	\ 1, 
-	\ fzf#vim#with_preview({'dir': '~/google_drive/notes'}), 
-	\ <bang>0)
-nnoremap <Leader>n :NotesRg<CR>
-
-" Search Git project root
-command! -bang -nargs=* ProjRg
-	\ call fzf#vim#grep(
-	\ "rg --column --line-number --no-heading --color=always --smart-case --hidden --glob \"!.git/*\" -- ".shellescape(<q-args>), 1,
-	\ fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0]}), <bang>0)
-nnoremap <Leader>g :ProjRg<CR>
-
-" search command history 
-nnoremap <Leader>h :History:<CR>
-
-" Define function to copy results to register
-function! s:copy_results(lines)
-  let joined_lines = join(a:lines, "\n")
-  if len(a:lines) > 1
-    let joined_lines .= "\n"
-  endif
-  let @+ = joined_lines
-endfunction
-
-" Define function to send results to buffer
-function! s:send_results(lines)
-  let joined_lines = join(a:lines, "\n")
-  if len(a:lines) > 1
-    let joined_lines .= "\n"
-  endif
-  put =joined_lines
-endfunction
-
-" Define custom hotkeys
-let g:fzf_action = {
-  \ 'ctrl-t': 'tab split',
-  \ 'ctrl-s': 'split',
-  \ 'ctrl-v': 'vsplit',
-  \ 'ctrl-y': function('s:copy_results'),
-  \ 'ctrl-p': function('s:send_results') }
-
-" Set layout of pop-up window
-let g:fzf_preview_window = ['right:50%', 'ctrl-b']
-let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8, 'highlight': 'Comment' } }
-" }}}
-
-" nnn {{{
-" Use nnn in a floating window
-let g:nnn#layout = { 'window': { 'width': 0.8, 'height': 0.8, 'highlight': 'Debug' } }
-
-" Define custom hotkeys
-let g:nnn#action = {
-  \ '<c-t>': 'tab split',
-  \ '<c-s>': 'split',
-  \ '<c-v>': 'vsplit',
-  \ '<c-y>': function('s:copy_results'),
-  \ '<c-p>': function('s:send_results') }
-
-" Define function to attach files in Mutt
-function! s:mutt_attach(lines)
-  let prettylines = ''
-  for i in a:lines
-    let prettylines .= 'Attach: ' . fnameescape(i) . "\n"
-  endfor
-  6put =prettylines
-endfunction
-
-function! s:nnncall(...)
-  let l:dir = get(a:, 1, '')
-  let l:opts = get(a:, 2, { 'edit': 'edit' })
-  let l:keypress = get(a:, 3, '')
-  call nnn#pick(l:dir, l:opts)
-  if strlen(l:keypress) > 0
-    call feedkeys(l:keypress)
-  endif
-endfunction
-
-autocmd Filetype mail nnoremap <silent> <Leader>A :call <SID>nnncall('/Users/johngodlee', { 'edit': function('<SID>mutt_attach') })<CR>
-
-" Replace default mappings
-let g:nnn#set_default_mappings = 0
-nnoremap <silent> <leader>d :NnnPicker<CR>
-" }}}
-
-" Movement and resizing {{{
+" Python provider 
+let g:python3_host_prog = '/usr/local/bin/python3'
 
 " Allow mouse
 set mouse=a
@@ -240,8 +120,6 @@ set shiftwidth=4
 set copyindent
 set preserveindent
 
-set textwidth=0
-
 " Disable search highlighting
 set nohlsearch
 
@@ -250,10 +128,6 @@ set inccommand=nosplit
 
 " Persistent undo
 set undofile
-
-" }}}
-
-" Appearance {{{
 
 " Set colours correctly in nvim
 set notermguicolors 
@@ -283,6 +157,19 @@ hi LineNr ctermbg=NONE ctermfg=grey
 
 " Folds
 hi Folded ctermbg=grey ctermfg=black
+
+" Stop creating swp and ~ files
+set nobackup
+set noswapfile
+set nowritebackup
+
+" Automatically cd to directory of current file
+set autochdir
+
+" Ignore case of `/` searches unless an upper case letter is used
+set ignorecase
+set smartcase
+" }}}
 
 " Statusline {{{
 
@@ -407,8 +294,6 @@ endfunction
 set tabline=%!MyTabLine()
 " }}}
 
-" }}}
-
 " Folding {{{
 
 " Make folds with indent
@@ -445,69 +330,78 @@ endfunction
 au BufEnter *.md setlocal foldexpr=MarkdownLevel()  
 au BufEnter *.md setlocal foldmethod=expr   
 
-" Set folding function for bibtex entries
-function! BibTeXFold()
-	if getline(v:lnum) =~ '^@.*$'
-		return ">1"
-	endif
-	return "="
-endfunction
-au BufEnter *.bib setlocal foldexpr=BibTeXFold()
-au BufEnter *.bib setlocal foldmethod=expr
 " }}}
 
-" VimTeX {{{
-" Always think tex files are xelatex 
-let g:tex_flavor = 'xelatex'
+" Omni-completion / NCM2 {{{
+" Allow autocompletion in filetypes
+autocmd Filetype r,tex,bib,mail,python call ncm2#enable_for_buffer()
 
-" Use biber
-let g:Tex_BibtexFlavor = 'biber'
-let g:vimtex_compiler_progname = 'nvr'
+" Ensure omni-completion menu stays open
+set completeopt=noinsert,menuone,noselect
 
-" When running vimtex compiler, don't automatically show quickfix list errors
-let g:vimtex_quickfix_mode = 0
+" Autocomplete with C-Space 
+inoremap <C-Space> <C-x><C-o>
+inoremap <C-@> <C-Space>
+inoremap <Nul> <C-x><C-o>
 
-" Disable callback warning message because I don't have client server
-let g:vimtex_disable_version_warning = 1
+" Use <TAB> to select the popup menu:
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
-" Use Skim as PDF viewer which support auto-update
-let g:vimtex_view_method = 'skim'
-
-" Set indenting in bib files
-autocmd Filetype bib call SetBibOptions()
-function SetBibOptions()
-    setlocal expandtab
-    setlocal softtabstop=2
-    setlocal shiftwidth=2
-    let indent_guides_start_level = 1
-    let indent_guides_guide_size = 2
-endfunction
-
-" }}}
-
-" Markdown {{{
-" Disable syntax conceal in markdown
-let g:vim_markdown_conceal = 0
-
-" Stop vim indenting after deleting bullet point
-let g:vim_markdown_new_list_item_indent = 0
-setlocal formatoptions=tqlnrc
-set comments=b:>
-
-" Highlight YAML
-let g:vim_markdown_frontmatter = 1
-
-" Higlight math
-let g:vim_markdown_math = 1
-
-" Open linked files in new tab
-let g:vim_markdown_edit_url_in = 'tab'
-
-" Open links in normal mode with <Enter>
-map <CR> <Plug>Markdown_EditUrlUnderCursor
-
-" Save before following links
-let g:vim_markdown_autowrite = 1
+" VimTeX completion
+autocmd Filetype tex call ncm2#register_source({
+        \ 'name' : 'vimtex-cmds',
+        \ 'priority': 8,
+        \ 'complete_length': -1,
+        \ 'scope': ['tex'],
+        \ 'matcher': {'name': 'prefix', 'key': 'word'},
+        \ 'word_pattern': '\w+',
+        \ 'complete_pattern': g:vimtex#re#ncm2#cmds,
+        \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
+        \ })
+autocmd Filetype tex call ncm2#register_source({
+        \ 'name' : 'vimtex-labels',
+        \ 'priority': 8,
+        \ 'complete_length': -1,
+        \ 'scope': ['tex'],
+        \ 'matcher': {'name': 'combine',
+        \             'matchers': [
+        \               {'name': 'substr', 'key': 'word'},
+        \               {'name': 'substr', 'key': 'menu'},
+        \             ]},
+        \ 'word_pattern': '\w+',
+        \ 'complete_pattern': g:vimtex#re#ncm2#labels,
+        \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
+        \ })
+autocmd Filetype tex call ncm2#register_source({
+        \ 'name' : 'vimtex-files',
+        \ 'priority': 8,
+        \ 'complete_length': -1,
+        \ 'scope': ['tex'],
+        \ 'matcher': {'name': 'combine',
+        \             'matchers': [
+        \               {'name': 'abbrfuzzy', 'key': 'word'},
+        \               {'name': 'abbrfuzzy', 'key': 'abbr'},
+        \             ]},
+        \ 'word_pattern': '\w+',
+        \ 'complete_pattern': g:vimtex#re#ncm2#files,
+        \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
+        \ })
+autocmd Filetype tex call ncm2#register_source({
+        \ 'name' : 'bibtex',
+        \ 'priority': 8,
+        \ 'complete_length': -1,
+        \ 'scope': ['tex'],
+        \ 'matcher': {'name': 'combine',
+        \             'matchers': [
+        \               {'name': 'prefix', 'key': 'word'},
+        \               {'name': 'abbrfuzzy', 'key': 'abbr'},
+        \               {'name': 'abbrfuzzy', 'key': 'menu'},
+        \             ]},
+        \ 'word_pattern': '\w+',
+        \ 'complete_pattern': g:vimtex#re#ncm2#bibtex,
+        \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
+        \ })
 " }}}
 
 " netrw {{{
@@ -538,6 +432,113 @@ let g:netrw_keepdir = 0
 let g:netrw_dirhistmax = 1
 " }}}
 
+" fzf {{{
+" Location of system fzf
+set rtp+=/usr/local/opt/fzf
+
+" Search open buffers
+nnoremap <Leader>b :Buffers<CR>
+
+" Search files
+nnoremap <Leader>p :Files<CR>
+
+" Search file contents
+command! -bang -nargs=* NotesRg
+	\ call fzf#vim#grep(
+	\ "rg --column --line-number --no-heading --color=always --smart-case --hidden --glob \"!.git/*\" -- ".shellescape(<q-args>), 
+	\ 1, 
+	\ fzf#vim#with_preview(), 
+	\ <bang>0)
+nnoremap <Leader>f :Rg<CR>
+
+" Search notes directory
+command! -bang -nargs=* NotesRg
+	\ call fzf#vim#grep(
+	\ "rg --column --line-number --no-heading --color=always --smart-case --hidden --glob \"!.git/*\" -- ".shellescape(<q-args>), 
+	\ 1, 
+	\ fzf#vim#with_preview({'dir': '~/google_drive/notes'}), 
+	\ <bang>0)
+nnoremap <Leader>n :NotesRg<CR>
+
+" Search Git project root
+command! -bang -nargs=* ProjRg
+	\ call fzf#vim#grep(
+	\ "rg --column --line-number --no-heading --color=always --smart-case --hidden --glob \"!.git/*\" -- ".shellescape(<q-args>), 1,
+	\ fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0]}), <bang>0)
+nnoremap <Leader>g :ProjRg<CR>
+
+" search command history 
+nnoremap <Leader>h :History:<CR>
+
+" Define function to copy results to register
+function! s:copy_results(lines)
+  let joined_lines = join(a:lines, "\n")
+  if len(a:lines) > 1
+    let joined_lines .= "\n"
+  endif
+  let @+ = joined_lines
+endfunction
+
+" Define function to send results to buffer
+function! s:send_results(lines)
+  let joined_lines = join(a:lines, "\n")
+  if len(a:lines) > 1
+    let joined_lines .= "\n"
+  endif
+  put =joined_lines
+endfunction
+
+" Define custom hotkeys
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-s': 'split',
+  \ 'ctrl-v': 'vsplit',
+  \ 'ctrl-y': function('s:copy_results'),
+  \ 'ctrl-p': function('s:send_results') }
+
+" Set layout of pop-up window
+let g:fzf_preview_window = ['right:50%', 'ctrl-b']
+let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8, 'highlight': 'Comment' } }
+" }}}
+
+" nnn {{{
+" Use nnn in a floating window
+let g:nnn#layout = { 'window': { 'width': 0.8, 'height': 0.8, 'highlight': 'Debug' } }
+
+" Define custom hotkeys
+let g:nnn#action = {
+  \ '<c-t>': 'tab split',
+  \ '<c-s>': 'split',
+  \ '<c-v>': 'vsplit',
+  \ '<c-y>': function('s:copy_results'),
+  \ '<c-p>': function('s:send_results') }
+
+" Define function to attach files in Mutt
+function! s:mutt_attach(lines)
+  let prettylines = ''
+  for i in a:lines
+    let prettylines .= 'Attach: ' . fnameescape(i) . "\n"
+  endfor
+  6put =prettylines
+endfunction
+
+function! s:nnncall(...)
+  let l:dir = get(a:, 1, '')
+  let l:opts = get(a:, 2, { 'edit': 'edit' })
+  let l:keypress = get(a:, 3, '')
+  call nnn#pick(l:dir, l:opts)
+  if strlen(l:keypress) > 0
+    call feedkeys(l:keypress)
+  endif
+endfunction
+
+autocmd Filetype mail nnoremap <silent> <Leader>A :call <SID>nnncall('/Users/johngodlee', { 'edit': function('<SID>mutt_attach') })<CR>
+
+" Replace default mappings
+let g:nnn#set_default_mappings = 0
+nnoremap <silent> <leader>d :NnnPicker<CR>
+" }}}
+
 " Mutt {{{
 autocmd FileType mail setlocal omnifunc=muttaliasescomplete#Complete 
 source ~/.vim/muttaliasescomplete.vim 
@@ -564,106 +565,6 @@ nnoremap <Leader>s :set spell!<CR>
 
 " }}}
 
-" Omni-completion / NCM2 {{{
-
-" Allow autocompletion in filetypes
-autocmd Filetype r,tex,bib,mail,python call ncm2#enable_for_buffer()
-
-" Ensure omni-completion menu stays open
-set completeopt=noinsert,menuone,noselect
-
-" Autocompletion as Ctrl-Space
-inoremap <C-Space> <C-x><C-o>
-inoremap <C-@> <C-Space>
-inoremap <Nul> <C-x><C-o>
-
-" Use <TAB> to select the popup menu:
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
-" LaTeX completion source
-au Filetype tex call ncm2#register_source({
-	\ 'name' : 'vimtex-cmds',
-    \ 'priority': 8, 
-    \ 'complete_length': -1,
-    \ 'scope': ['tex'],
-    \ 'matcher': {'name': 'prefix', 'key': 'word'},
-    \ 'word_pattern': '\w+',
-    \ 'complete_pattern': g:vimtex#re#ncm2#cmds,
-    \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
-    \ })
-au Filetype tex call ncm2#register_source({
-    \ 'name' : 'vimtex-labels',
-    \ 'priority': 8, 
-    \ 'complete_length': -1,
-    \ 'scope': ['tex'],
-    \ 'matcher': {'name': 'combine',
-    \             'matchers': [
-    \               {'name': 'substr', 'key': 'word'},
-    \               {'name': 'substr', 'key': 'menu'},
-    \             ]},
-    \ 'word_pattern': '\w+',
-    \ 'complete_pattern': g:vimtex#re#ncm2#labels,
-    \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
-    \ })
-au Filetype tex call ncm2#register_source({
-    \ 'name' : 'vimtex-files',
-    \ 'priority': 8, 
-    \ 'complete_length': -1,
-    \ 'scope': ['tex'],
-    \ 'matcher': {'name': 'combine',
-    \             'matchers': [
-    \               {'name': 'abbrfuzzy', 'key': 'word'},
-    \               {'name': 'abbrfuzzy', 'key': 'abbr'},
-    \             ]},
-    \ 'word_pattern': '\w+',
-    \ 'complete_pattern': g:vimtex#re#ncm2#files,
-    \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
-    \ })
-au Filetype tex call ncm2#register_source({
-    \ 'name' : 'bibtex',
-    \ 'priority': 8, 
-    \ 'complete_length': -1,
-    \ 'scope': ['tex'],
-    \ 'matcher': {'name': 'combine',
-    \             'matchers': [
-    \               {'name': 'prefix', 'key': 'word'},
-    \               {'name': 'abbrfuzzy', 'key': 'abbr'},
-    \               {'name': 'abbrfuzzy', 'key': 'menu'},
-    \             ]},
-    \ 'word_pattern': '\w+',
-    \ 'complete_pattern': g:vimtex#re#ncm2#bibtex,
-    \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
-    \ })
-
-" }}}
-
-" Python {{{
-autocmd Filetype python call SetPythonOptions()
-function SetPythonOptions()
-    setlocal expandtab
-    setlocal softtabstop=2
-    setlocal shiftwidth=2
-    let indent_guides_start_level = 1
-    let indent_guides_guide_size = 2
-endfunction
-
-" Use Homebrew python 
-let g:python3_host_prog = '/usr/local/bin/python3'
-" }}}  
-
-" jupytext {{{
-let g:jupytext_fmt = 'py'
-" }}}
-
-" vimcmdline {{{
-let cmdline_map_start = '<LocalLeader>rf'
-let cmdline_map_send = '<LocalLeader><Enter>'
-let cmdline_map_quit = '<LocalLeader>rq'
-let cmdline_follow_colorscheme = 1
-let cmdline_in_buffer = 0
-" }}}
-
 " UltiSnips {{{
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-l>"
@@ -674,12 +575,29 @@ let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/Ultisnips']
 " }}}
 
-" CSV editing {{{
-" Centre align columns by default
-let b:csv_arrange_align = 'c*'
+" Markdown {{{
+" Disable syntax conceal in markdown
+let g:vim_markdown_conceal = 0
 
-" Always highlight current column
-let g:csv_highlight_column = 'y'
+" Stop vim indenting after deleting bullet point
+let g:vim_markdown_new_list_item_indent = 0
+setlocal formatoptions=tqlnrc
+set comments=b:>
+
+" Highlight YAML
+let g:vim_markdown_frontmatter = 1
+
+" Higlight math
+let g:vim_markdown_math = 1
+
+" Open linked files in new tab
+let g:vim_markdown_edit_url_in = 'tab'
+
+" Open links in normal mode with <Enter>
+map <CR> <Plug>Markdown_EditUrlUnderCursor
+
+" Save before following links
+let g:vim_markdown_autowrite = 1
 " }}}
 
 " R {{{
@@ -703,6 +621,7 @@ vmap <LocalLeader><Enter> <Plug>REDSendSelection
 
 autocmd Filetype r,rmd call SetROptions()
 function SetROptions()
+	setlocal omnifunc=
     setlocal expandtab
 	setlocal colorcolumn=80
     setlocal softtabstop=2
@@ -712,11 +631,45 @@ function SetROptions()
 endfunction
 " }}}
 
-" Julia {{{
-" Disable smart aligning
-let g:julia_indent_align_import = 0
-let g:julia_indent_align_brackets = 0
-let g:julia_indent_align_funcargs = 0
+" VimTeX {{{
+" Use biber
+let g:Tex_BibtexFlavor = 'biber'
+let g:vimtex_compiler_progname = 'nvr'
+
+" When running vimtex compiler, don't automatically show quickfix list errors
+let g:vimtex_quickfix_mode = 0
+
+" Disable callback warning message because I don't have client server
+let g:vimtex_disable_version_warning = 1
+
+" Use Skim as PDF viewer which support auto-update
+let g:vimtex_view_method = 'skim'
+
+" Set indenting in bib files
+autocmd Filetype bib call SetBibOptions()
+function SetBibOptions()
+    setlocal expandtab
+    setlocal softtabstop=2
+    setlocal shiftwidth=2
+    let indent_guides_start_level = 1
+    let indent_guides_guide_size = 2
+endfunction
+
+" Stop matching grave accent as insert mapping leader
+let g:vimtex_imaps_enabled=0
+" }}}
+
+" Python {{{
+ 
+" Set indentation in python files
+autocmd Filetype python call SetPythonOptions()
+function SetPythonOptions()
+    setlocal expandtab
+    setlocal softtabstop=2
+    setlocal shiftwidth=2
+    let indent_guides_start_level = 1
+    let indent_guides_guide_size = 2
+endfunction
 
 " }}}
 
@@ -742,16 +695,3 @@ hi DiffChange   cterm=none ctermfg=NONE ctermbg=Gray
 hi DiffDelete   cterm=none ctermfg=NONE ctermbg=Red
 hi DiffText     cterm=none ctermfg=NONE ctermbg=DarkGray
 " }}}
-
-" Stop creating swp and ~ files
-set nobackup
-set noswapfile
-set nowritebackup
-
-" Automatically cd to directory of current file
-set autochdir
-
-" Ignore case of `/` searches unless an upper case letter is used
-set ignorecase
-set smartcase
-

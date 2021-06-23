@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+magick convert -background none $1 -define icon:auto-resize $2
+

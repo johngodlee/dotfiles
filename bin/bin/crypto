@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+if [ ! -z $1 ] ; then
+	curl gbp.rate.sx/$1
+else
+	curl gbp.rate.sx
+fi

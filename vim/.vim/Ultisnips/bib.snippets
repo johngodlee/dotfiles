@@ -1,4 +1,4 @@
-snippet article "BibTeX for article" b
+snippet article "Article" b
 @article{$1,
   author = {$2},
   title = {$3},
@@ -7,27 +7,26 @@ snippet article "BibTeX for article" b
   volume = {$6},
   number = {$7},
   pages = {${8:1--10}},
-  FILE = {~/Documents/papers/$9},
-  DOI = { http://dx.doi.org/$10 }
+  file = {~/Documents/papers/$9},
+  doi = { http://dx.doi.org/$10 }
 }
 endsnippet
 
-snippet book "BibTeX for book" b
+snippet book "Book" b
 @book{$1,
-  editor = {$2},
-  author = {$3},
+  ${2:author|editor} = {$3},
   title = {$4},
   year = $5,
   publisher = {$9},
   address = {${10:city, country}},
-  FILE = {~/Documents/papers/$11},
-  DOI = { http://dx.doi.org/$12 }
+  file = {~/Documents/papers/$11},
+  doi = { http://dx.doi.org/$12 },
   isbn = {$13}
 }
 endsnippet
 
-snippet section "Bibtex for book section" b
-@manual{$1,
+snippet "chapter" "Book section/chapter" b
+@inbook{$1,
   editor = {$2},
   author = {$3},
   title = {$4},
@@ -36,17 +35,71 @@ snippet section "Bibtex for book section" b
   pages = {${7:1--10}},
   publisher = {$8},
   address = {${9:city, country}},
-  FILE = {~/Documents/papers/$10},
-  DOI = { http://dx.doi.org/$11 }
+  file = {~/Documents/papers/$10},
+  doi = { http://dx.doi.org/$11 }
 }
 endsnippet
 
-snippet url "Bibtex for a webpage" b
-@misc{$1,
-  author = {$2},
+snippet "conference|inproceedings|proceedings" "Article in conference proceedings" br
+@inproceedings{$1,
+  editor = {$2},
+  author = {$3},
+  title = {$4},
+  booktitle = {$5},
+  year = $6,
+  pages = {${7:1--10}},
+  organization = {$8},
+  publisher = {$9},
+  address = {$10}
+}
+endsnippet
+
+snippet "url|web|online" "webpage" br
+@online{$1,
+  ${2:author|editor} = {$3},
   title = {$3},
   year = $4,
   url = "$5",
-  note = "[Online; ${6:15-January-2019}]"
+  urldate = {$6}
+}
+endsnippet
+
+snippet "report|techreport|map" "Report" br
+@report{$1,
+  ${2:author|editor} = {$3},
+  title = {$3},
+  publisher = {$4},
+  address = {$5},
+  year = $6
+}
+endsnippet
+
+snippet "masterthesis|thesis|phdthesis" "Thesis" br
+@thesis{$1,
+  author = {$2},
+  title = {$3},
+  school = {$4},
+  address = {$5},
+  year = $6
+}
+endsnippet
+
+snippet manual "Technical or other documentation" b
+@manual{$1,
+  author = {$2},
+  title = {$3},
+  organization = {$4},
+  address = {$5},
+  year = $6
+}
+endsnippet
+
+snippet misc "Last resort miscellaneous reference" b
+@misc{$1,
+  author = {$2},
+  title = {$3},
+  howpublished = {$4},
+  year = $5,
+  note = $6
 }
 endsnippet

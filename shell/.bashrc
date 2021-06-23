@@ -10,7 +10,8 @@ export PATH=$HOME/bin:\
 /usr/local/opt/gawk/libexec/gnubin:\
 /usr/local/opt/inetutils/libexec/gnubin:\
 /usr/local/opt/ruby/bin:\
-/Users/johngodlee/.gem/ruby/2.7.0/bin:\
+/usr/local/lib/ruby/gems/3.0.0/bin:\
+/Users/johngodlee/.local/share/gem/ruby/3.0.0/bin:\
 ${PATH}
 
 # Set #MANPATH
@@ -84,6 +85,9 @@ alias .2='cd ../..'
 alias .3='cd ../../..'
 alias .4='cd ../../../..'
 alias .5='cd ../../../../..'
+
+# Alias history 
+alias h='history 25'
 
 # Alias `ls -G` as `ls` to force colours in `ls`
 alias ls="'gls' -A -F -G -g -h -l --group-directories-first --color"
