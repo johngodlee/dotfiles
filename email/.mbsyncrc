@@ -2,7 +2,7 @@ IMAPStore gmail-remote
 Host imap.gmail.com
 Port 993
 User johngodlee@gmail.com
-PassCmd "pass mutt-wizard-gmail"
+PassCmd "pass johngodlee@gmail.com"
 AuthMechs LOGIN
 SSLType IMAPS
 CertificateFile /etc/ssl/cert.pem
@@ -28,7 +28,7 @@ IMAPStore edinburgh-remote
 Host pod51015.outlook.com
 Port 993
 User s1108036@ed.ac.uk
-PassCmd "pass mutt-wizard-edinburgh"
+PassCmd "pass s1108036@sms.ed.ac.uk"
 AuthMechs LOGIN
 SSLType IMAPS
 CertificateFile /etc/ssl/cert.pem
@@ -54,7 +54,7 @@ IMAPStore riseup-remote
 Host mail.riseup.net
 Port 993
 User johngodlee@riseup.net
-PassCmd "pass mutt-wizard-riseup"
+PassCmd "pass johngodlee@riseup.net"
 AuthMechs LOGIN
 SSLType IMAPS
 CertificateFile /etc/ssl/cert.pem

@@ -1,0 +1,20 @@
+#!/usr/bin/env sh
+
+# Launch scripts for tmux-popup
+
+# bind-key Tab capture-pane \; save-buffer /tmp/tmux-buffer \; delete-buffer \; display-popup -w 80% -h 60% -E "/path/to/fzf-speed"
+
+# List scripts 
+read -d '' APPS << EOF
+passwords	~/bin/tmux_popup/./fpass_popup
+mount drives	~/bin/netmount
+search papers	~/bin/papers
+stopwatch	~/bin/stopwatch
+internet speed test	~/bin/speed
+emojis	~/bin/tmux_popup/./emoji_popup
+calculator	~/bin/tmux_popup/./calc_popup
+EOF
+
+SELECTED="$(echo "$APPS" | fzf -d "	" --with-nth 1 | sed "s/.*\t//g")"
+
+eval "${SELECTED}"

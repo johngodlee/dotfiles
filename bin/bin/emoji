@@ -2,4 +2,4 @@
 
 sel=$(cat ~/bin/icons | fzf)
 
-echo $sel | awk '{print $1}' | pbcopy
+echo $sel | awk '{print $1}'

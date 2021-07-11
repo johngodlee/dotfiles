@@ -427,7 +427,6 @@ config.bind('<Meta-R>', 'reload')
 config.bind('h', 'back')
 config.bind('l', 'forward')
 config.bind(',e', 'fullscreen')
-config.bind(',m', 'hint --rapid links spawn open -a VLC.app {hint-url}')
 
 # Definitions of search engines which can be used via the address bar.
 # Maps a searchengine name (such as `DEFAULT`, or `ddg`) to a URL with a
@@ -438,7 +437,7 @@ config.bind(',m', 'hint --rapid links spawn open -a VLC.app {hint-url}')
 # used by prepending the search engine name to the search term, e.g.
 # `:open google qutebrowser`.
 # Type: Dict
-c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}', 'g': 'https://www.google.com/search?hl=en&q={}', 'st': 'https://stackexchange.com/search?q={}', 'y': 'https://www.youtube.com/results?search_query={}', 'hn': 'https://hn.algolia.com/?query={}', 's': 'https://scholar.google.co.uk/scholar?hl=en&as_sdt=0%2C5&q={}.&btnG='}
+c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}', 'g': 'https://www.google.com/search?hl=en&q={}', 'st': 'https://stackexchange.com/search?q={}', 'y': 'https://www.youtube.com/results?search_query={}', 'hn': 'https://hn.algolia.com/?query={}', 's': 'https://scholar.google.co.uk/scholar?hl=en&as_sdt=0%2C5&q={}.&btnG=', 'r': 'https://old.reddit.com/search?q={}', 'r/': 'https://old.reddit.com/r/{}'}
 
 # The page(s) to open at the start.
 # Type: List of FuzzyUrl, or FuzzyUrl

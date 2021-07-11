@@ -12,6 +12,7 @@ Plug 'junegunn/fzf.vim'	" Fuzzy finder
 Plug 'mcchrish/nnn.vim'	" NNN file manager
 Plug 'SirVer/ultisnips'	" Snippets
 Plug 'ap/vim-css-color'	" Highlight colours in CSS
+Plug 'pirmd/gemini.vim'	" Gemini syntax highlighting
 Plug 'lervag/vimtex'	" LaTeX 
 Plug 'jalvesaq/Nvim-R'	" R 
 Plug 'ncm2/ncm2'	" NCM completion manager
@@ -21,6 +22,7 @@ Plug 'ncm2/ncm2-path'	" NCM: Path completion
 Plug 'ncm2/ncm2-ultisnips'	" NCM: Ultisnips 
 Plug 'wellle/tmux-complete.vim'	" NCM: tmux completion
 Plug 'ncm2/ncm2-jedi'	" NCM: Python
+Plug 'ledger/vim-ledger'	" Ledger
 
 call plug#end()	
 " }}}
